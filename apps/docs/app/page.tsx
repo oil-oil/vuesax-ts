@@ -1,4 +1,4 @@
-import { Button, Header } from "ui";
+import { Button, Header } from "vuesax";
 
 export default function Page() {
   return (
