@@ -1,12 +1,11 @@
-import './style.sass'
-import '../../../styles/vuesax.sass'
-import { App } from 'vue';
-import Button from './Button'
+import "./style.sass";
+import { App } from "vue";
 
+import Button from "./Button.tsx";
 
-Button.install = function (app: App) {
+Button.install = (app: App) => {
   app.component(Button.name, Button);
   return app;
 };
 
-export default Button
+export default Button;

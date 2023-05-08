@@ -1,5 +1,6 @@
 import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
+
 import baseProps from "../../../util/baseProps";
 import ripple, { rippleCut, rippleReverse } from "../../../util/ripple/index";
 
@@ -163,22 +164,20 @@ const Button = defineComponent({
         rippleReverse(evt);
       } else if (props.ripple === "cut") {
         rippleCut(evt);
+      } else if (props.flat) {
+        ripple(
+          evt,
+          (props.componentColor || props.color || "primary") &&
+            !props.active &&
+            document.activeElement !== buttonRef.value
+            ? "inherit"
+            : null,
+          props.flat &&
+            !props.active &&
+            document.activeElement !== buttonRef.value
+        );
       } else {
-        if (props.flat) {
-          ripple(
-            evt,
-            (props.componentColor || props.color || "primary") &&
-              !props.active &&
-              document.activeElement !== buttonRef.value
-              ? "inherit"
-              : null,
-            props.flat &&
-              !props.active &&
-              document.activeElement !== buttonRef.value
-          );
-        } else {
-          ripple(evt, null, false);
-        }
+        ripple(evt, null, false);
       }
     };
 

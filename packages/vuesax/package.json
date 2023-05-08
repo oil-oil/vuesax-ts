@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src --fix --cache"
   },
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^3.0.1",
@@ -17,6 +18,7 @@
     "@vitejs/plugin-vue": "^4.1.0",
     "sass": "^1.62.1",
     "tsconfig": "workspace:*",
+    "eslint-config-custom": "workspace:*",
     "typescript": "^5.0.2",
     "vite": "^4.3.2",
     "vue-tsc": "^1.4.2"

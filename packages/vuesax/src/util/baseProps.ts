@@ -1,4 +1,5 @@
 import { PropType } from "vue";
+
 import { getColor } from ".";
 
 const baseProps = {
@@ -6,9 +7,9 @@ const baseProps = {
     type: String,
     default: null,
   },
-  getColor:{
-    type:Function as PropType<typeof getColor>,
-    default:getColor
+  getColor: {
+    type: Function as PropType<typeof getColor>,
+    default: getColor,
   },
   danger: {
     type: Boolean,
@@ -36,7 +37,7 @@ const baseProps = {
   },
   componentColor: {
     type: String,
-    default:null
+    default: null,
   },
 };
 
