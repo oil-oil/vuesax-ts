@@ -1,5 +1,5 @@
 import "./style.scss";
-import { App } from "vue";
+import { App, Plugin } from "vue";
 
 import ButtonGroup from "./ButtonGroup.tsx";
 
@@ -8,4 +8,4 @@ ButtonGroup.install = (app: App) => {
   return app;
 };
 
-export default ButtonGroup;
+export default ButtonGroup as typeof ButtonGroup & Plugin;

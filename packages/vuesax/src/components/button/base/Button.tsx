@@ -102,9 +102,6 @@ const Button = defineComponent({
   setup(props, { slots, attrs, emit }) {
     const buttonRef = ref<Element>();
     const router = useRouter();
-    const defaultSlot = (
-      <div class="vs-button__content">{slots.default?.()}</div>
-    );
 
     const animateSlot = (
       <div
@@ -207,7 +204,7 @@ const Button = defineComponent({
         disabled={props.disabled}
         ref="buttonRef"
       >
-        {defaultSlot}
+        <div class="vs-button__content">{slots.default?.()}</div>
         {slots.animate && animateSlot}
         {props.loading && loadingElement}
       </button>

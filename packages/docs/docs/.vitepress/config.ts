@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
 import vueJsx from "@vitejs/plugin-vue-jsx";
-import "../../../vuesax/src/styles/vuesax.scss"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({

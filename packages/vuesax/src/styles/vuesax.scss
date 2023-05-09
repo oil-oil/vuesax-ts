@@ -1,12 +1,12 @@
-@import "./colors";
+@import "./colors.scss";
 
-@import "./vars";
+@import "./vars.scss";
 
-@import "./dark";
+@import "./dark.scss";
 
-@import "./reset";
+@import "./reset.scss";
 
-@import "../util/ripple/style";
+@import "../util/ripple/style.scss";
 
 // body,table,td,tr
 //   backface-visibility: hidden

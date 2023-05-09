@@ -1,5 +1,5 @@
 import "./style.scss";
-import { App } from "vue";
+import { App, Plugin } from "vue";
 
 import Button from "./Button.tsx";
 
@@ -8,4 +8,4 @@ Button.install = (app: App) => {
   return app;
 };
 
-export default Button;
+export default Button as typeof Button & Plugin;

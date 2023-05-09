@@ -54,7 +54,7 @@ const setColor = (
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(
       shorthandRegex,
-      (r: string, g: string, b: string) => r + r + g + g + b + b
+      (_: any, r: string, g: string, b: string) => r + r + g + g + b + b
     );
 
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -126,7 +126,7 @@ const getColor = (color: string) => {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(
       shorthandRegex,
-      (r: string, g: string, b: string) => r + r + g + g + b + b
+      (_: any, r: string, g: string, b: string) => r + r + g + g + b + b
     );
 
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);

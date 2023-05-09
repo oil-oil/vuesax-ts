@@ -1,14 +1,14 @@
 // https://vitepress.dev/guide/custom-theme
 import Layout from './Layout.vue'
 import './style.css'
-import {VsButton} from 'vuesax'
-
+import Vuesax from 'vuesax'
+import "vuesax/src/styles/vuesax.scss"
 export default {
 
   Layout,
   enhanceApp({ app, router, siteData }) {
     //...
-    app.use(VsButton)
+    app.use(Vuesax)
   }
 }
 
