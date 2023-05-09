@@ -6,7 +6,7 @@
     "docs/**/*.tsx",
     "docs/**/*.vue"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "compilerOptions": {
+    "jsx": "preserve"
+  }
 }

@@ -1,14 +1,9 @@
 {
   "root": true,
   "parserOptions": {
-    "project": [
-      "./tsconfig.json"
-    ],
-    "extraFileExtensions": [
-      ".vue"
-    ]
+    "project": ["./tsconfig.json"],
+    "extraFileExtensions": [".vue"]
   },
-  "extends": [
-    "custom"
-  ]
+  "extends": ["custom"],
+  "exclude": [".vitepress/vite.config.ts"]
 }

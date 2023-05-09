@@ -4,6 +4,7 @@
     "vuesax": "workspace:*"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
     "vitepress": "^1.0.0-alpha.75",
