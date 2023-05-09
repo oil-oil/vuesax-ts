@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ],
+    "extraFileExtensions": [
+      ".vue"
+    ]
+  },
+  "extends": [
+    "custom"
+  ]
+}
