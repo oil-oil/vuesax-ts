@@ -1,6 +1,7 @@
-import { defineComponent, ref } from "vue";
+import { PropType, defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 
+import { Size } from "../../../types/size";
 import baseProps from "../../../util/baseProps";
 import ripple, { rippleCut, rippleReverse } from "../../../util/ripple/index";
 
@@ -8,6 +9,10 @@ const Button = defineComponent({
   name: "VsButton",
   props: {
     ...baseProps,
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     ripple: {
       type: String,
       default: "",
@@ -57,8 +62,8 @@ const Button = defineComponent({
       default: false,
     },
     size: {
-      type: String,
-      default: null,
+      type: String as PropType<Size>,
+      default: "md",
     },
     loading: {
       type: Boolean,
@@ -114,8 +119,8 @@ const Button = defineComponent({
 
     const buttonClass = [
       "vs-button",
-      `vs-button--${props.componentColor}`,
       `vs-button--size-${props.size}`,
+      { [`vs-button--${props.componentColor}`]: props.componentColor },
       { "vs-button--fff": props.color === "#fff" },
       { "vs-button--active": props.active },
       { "vs-button--active-disabled": props.activeDisabled },
@@ -190,16 +195,16 @@ const Button = defineComponent({
       emit("click", evt);
     };
 
-    console.log("props: ", props);
     return () => (
       <button
+        {...attrs}
         class={buttonClass}
         style={{ "--vs-color": props.color ? props.getColor(props.color) : "" }}
-        {...attrs}
         onMousedown={(e) => handleMouseDown(e)}
         onClick={(e) => {
           onClick(e);
         }}
+        disabled={props.disabled}
         ref="buttonRef"
       >
         {defaultSlot}

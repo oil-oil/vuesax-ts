@@ -1,6 +1,6 @@
 /* eslint-disable no-multi-assign */
 import { setColor } from "../index";
-import "./style.sass";
+import "./style.scss";
 
 const ripple = (evt: MouseEvent, color: any = "", solid = false) => {
   const el = evt.currentTarget as HTMLElement;

@@ -1,4 +1,4 @@
-import "./style.sass";
+import "./style.scss";
 import { App } from "vue";
 
 import Button from "./Button.tsx";
