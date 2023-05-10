@@ -1,1 +1,7 @@
-{ "eslint.workingDirectories": [{ "pattern": "./packages/*/" }] }
+{
+  "eslint.workingDirectories": [
+    {
+      "pattern": "./packages/*/"
+    }
+  ]
+}

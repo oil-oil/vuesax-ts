@@ -15,5 +15,4 @@ const install = (app: VueApp, options?: VuesaxOptions) => {
   }
 };
 
-// export default install
 export default install;

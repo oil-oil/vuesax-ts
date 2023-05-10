@@ -1,10 +1,10 @@
 {
   "extends": "tsconfig/vuesax.json",
   "include": [
-    "docs/**/*.ts",
-    "docs/**/*.d.ts",
-    "docs/**/*.tsx",
-    "docs/**/*.vue"
+    "docs/.vitepress/**/*.ts",
+    "docs/.vitepress/**/*.d.ts",
+    "docs/.vitepress/**/*.tsx",
+    "docs/.vitepress/**/*.vue"
   ],
   "compilerOptions": {
     "jsx": "preserve"

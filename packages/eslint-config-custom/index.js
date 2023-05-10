@@ -4,6 +4,11 @@ module.exports = {
     es2021: true,
   },
   parser: "@typescript-eslint/parser",
+  parserOptions: {
+    sourceType: "module",
+    ecmaVersion: 2020,
+    extraFileExtensions: [".vue"],
+  },
   extends: [
     "plugin:vue/essential",
     "eslint:recommended",
@@ -13,10 +18,6 @@ module.exports = {
     "prettier",
   ],
   plugins: ["vue", "@typescript-eslint", "import", "prettier"],
-  parserOptions: {
-    sourceType: "module",
-    ecmaVersion: 2020,
-  },
   rules: {
     "prettier/prettier": "error",
     "import/order": [
