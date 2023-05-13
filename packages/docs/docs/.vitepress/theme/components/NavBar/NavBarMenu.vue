@@ -1,8 +1,8 @@
 <template>
     <div v-if="theme.nav" class="navbar-menu">
         <template v-for="item in theme.nav" :key="item.text">
-            <VSNavBarMenuLink v-if="'link' in item" :item="item" />
-            <VSNavBarMenuGroup v-else :item="item" />
+            <NavBarMenuLink v-if="'link' in item" :item="item" />
+            <NavBarMenuGroup v-else :item="item" />
         </template>
     </div>
 </template>
@@ -12,4 +12,14 @@ import { useData } from 'vitepress';
 const { theme } = useData()
 </script>
 
-<style scoped></style>
+<style scoped>
+.VPNavBarMenu {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .VPNavBarMenu {
+        display: flex;
+    }
+}
+</style>

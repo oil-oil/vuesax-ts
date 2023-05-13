@@ -1,3 +1,14 @@
+:root {
+  --vs-primary: 26, 92, 255;
+  --vs-theme-bg: #f4f7f8;
+  --vs-theme-bg2: #eef2f5;
+  --vs-theme-color: #2c3e50;
+  --vs-theme-layout: #fff;
+  --vs-theme-code: #3f3d56;
+  --vs-theme-code2: #363449;
+}
+
+
 body {
   margin: 0;
 }

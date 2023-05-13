@@ -3,14 +3,17 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Vuesax For Ts",
-  titleTemplate: ':title - Vuesax',
+  title: "Vue.Ts Framework Components",
+  titleTemplate: ':title - VuesaxTs',
   lang: 'en-US',
-  description: "Vue.js Framework Components - Vuesax",
+  description: "We love what we do. Let us help you do what You love.",
   lastUpdated: true,
   appearance: true,
+  cleanUrls: true,
   srcDir: "./.vitepress/docs",
   themeConfig: {
+    svgNav: true,
+    mobileActive: false,
     nav: [
       {
         text: 'Home', link: '/'
@@ -22,7 +25,7 @@ export default defineConfig({
       }
     ]
   },
-  vite:{
+  vite: {
     plugins: [vueJsx()],
   }
 })

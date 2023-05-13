@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import VSContent from './components/VSContent/index.vue'
-import NavBar from './components/VSNavBar/index.vue'
+import VSContent from './components/Content/index.vue'
+import NavBar from './components/NavBar/index.vue'
 import { useData } from 'vitepress'
 
 // https://vitepress.dev/reference/runtime-api#usedata
-const { site, frontmatter, page } = useData()
+const { frontmatter } = useData()
 console.log('11', useData())
 </script>
 
