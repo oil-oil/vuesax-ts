@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import vueJsx from "@vitejs/plugin-vue-jsx";
+import path from "path";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -12,8 +13,6 @@ export default defineConfig({
   cleanUrls: true,
   srcDir: "./.vitepress/docs",
   themeConfig: {
-    svgNav: true,
-    mobileActive: false,
     nav: [
       {
         text: 'Home', link: '/'
@@ -27,5 +26,10 @@ export default defineConfig({
   },
   vite: {
     plugins: [vueJsx()],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "../../../vuesax/src"),
+      },
+    },
   }
 })

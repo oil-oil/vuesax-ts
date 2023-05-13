@@ -1,6 +1,6 @@
 import { defineComponent } from "vue";
 
-import { VsButton, VsButtonGroup } from "./components";
+import { VsButton, VsButtonGroup, VsAlert } from "./components";
 
 export default defineComponent({
   setup() {
@@ -57,6 +57,24 @@ export default defineComponent({
           }}
         >
           <VsButton loading>Loading</VsButton>
+        </div>
+        <div>
+          <VsAlert>123</VsAlert>
+
+          <VsAlert
+            shadow
+            v-slots={{
+              title: () => <div>Vuesax Framework</div>,
+            }}
+          >
+            Vuesax (pronounced / vjusacksː /, as view sacks) is a{" "}
+            <b>UI components framework</b>
+            created with <a href="https://vuejs.org/">Vuejs</a> to make projects
+            easily and with a Unique and pleasant style, Vuesax is created from
+            scratch and designed for all types of developed from the frontend
+            lover to the backend that wants to easily create your visual
+            approach to the end user
+          </VsAlert>
         </div>
       </>
     );

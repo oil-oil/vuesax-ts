@@ -207,27 +207,14 @@ The buttons are a fundamental part of any project, with vuesax you can add a gre
 
 the buttons have all the states as active, focus, hover, to make its implementation simpler and speed up the work
 <script setup>
-import {ref} from 'vue'
-const defaultActive = ref(0)
-const clickDefault = (x)=>{
-  defaultActive.value = x
-}
-const flatActive = ref(0)
-const clickFlat = (x)=>{
-flatActive.value = x
-}
-const borderActive = ref(0)
-const clickBorder = (x)=>{
-  borderActive.value = x
-}
-const gradientActive = ref(0)
-const clickGradient = (x)=>{
-  gradientActive.value = x
-}
-const reliefActive = ref(0)
-const clickRelief = (x)=>{
-  reliefActive.value = x 
-}
+import {reactive} from 'vue'
+const active = reactive({
+  default: 0,
+  flat:0,
+  border:0,
+  gradient:0,
+  relief:0
+})
 </script>
 
 <template #example>
@@ -238,14 +225,14 @@ const clickRelief = (x)=>{
     padding: 20px;
     flex-wrap: wrap;">
     <VsButton
-      :active="defaultActive === 0"
-      @click="clickDefault(0)"
+      :active="active.default === 0"
+      @click="active.default = 0"
     >
       Active
     </VsButton>
     <VsButton
-      :active="defaultActive === 1"
-      @click="clickDefault(1)"
+      :active="active.default ==== 1"
+      @click="active.default = 1"
     >
       Default
     </VsButton>
@@ -254,7 +241,7 @@ const clickRelief = (x)=>{
       Disabled
     </VsButton>
   </div>
-</template> 
+</template>
 
 <template #template>
 
@@ -262,14 +249,14 @@ const clickRelief = (x)=>{
     <template>
       <div>
         <Vsbutton
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Active
         </Vsbutton>
         <Vsbutton
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           Default
         </Vsbutton>
@@ -280,27 +267,13 @@ const clickRelief = (x)=>{
 
 </template>
 
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
-  ```
-
-</template>
-
 </card>
 
 <card codesandbox="https://codesandbox.io/embed/charming-maxwell-ms0xf?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark">
 
 ## Flat
 
-You can change the full style towards *flat* of a button with the `flat` property that its value is a` boolean`, so just adding it will change the styles
+You can change the full style towards *flat* of a button with the `flat` property that its value is a `boolean`, so just adding it will change the styles
 
 <template #example>
   <div class="center" style="
@@ -311,15 +284,15 @@ You can change the full style towards *flat* of a button with the `flat` propert
     flex-wrap: wrap;">
     <VsButton
       flat
-      :active="flatActive === 0"
-      @click="clickDefault(0)"
+      :active="active.flat === 0"
+      @click="active.flat = 0"
     >
       Active
     </VsButton>
     <VsButton
       flat
-      :active="flatActive === 1"
-      @click="clickDefault(1)"
+      :active="active.flat === 1"
+      @click="active.flat = 0"
     >
       Default
     </VsButton>
@@ -338,15 +311,15 @@ You can change the full style towards *flat* of a button with the `flat` propert
       <div class="center">
         <Vsbutton
           flat
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Active
         </Vsbutton>
         <Vsbutton
           flat
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           Default
         </Vsbutton>
@@ -358,20 +331,6 @@ You can change the full style towards *flat* of a button with the `flat` propert
         </Vsbutton>
       </div>
     </template>
-  ```
-
-</template>
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -382,7 +341,7 @@ You can change the full style towards *flat* of a button with the `flat` propert
 
 ## Border
 
-You can change the full style towards *border* of a button with the `border` property that its value is a` boolean` so just adding it will change the styles
+You can change the full style towards *border* of a button with the `border` property that its value is a `boolean` so just adding it will change the styles
 
 <template #example>
   <div class="center" style="
@@ -391,27 +350,27 @@ You can change the full style towards *border* of a button with the `border` pro
     justify-content: center;
     padding: 20px;
     flex-wrap: wrap;">
-		<vs-button
+  <VsButton
       border
-      :active="active == 0"
-      @click="clickBorder(0)"
+      :active="active.border === 0"
+      @click="active.border = 0"
     >
-			Active
-		</vs-button>
-		<vs-button
+   Active
+  </VsButton>
+  <VsButton
       border
-      :active="active == 1"
-      @click="clickBorder(1)"
+      :active="active.border === 1"
+      @click="active.border = 1"
     >
-			Default
-		</vs-button>
-		<vs-button
+   Default
+  </VsButton>
+  <VsButton
       border
       disabled
     >
-			Disabled
-		</vs-button>
-	</div>
+   Disabled
+  </VsButton>
+ </div>
 </template>
 
 <template #template>
@@ -421,15 +380,15 @@ You can change the full style towards *border* of a button with the `border` pro
       <div class="center">
         <Vsbutton
           border
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Active
         </Vsbutton>
         <Vsbutton
           border
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           Default
         </Vsbutton>
@@ -441,20 +400,6 @@ You can change the full style towards *border* of a button with the `border` pro
         </Vsbutton>
       </div>
     </template>
-  ```
-
-</template>
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -465,10 +410,10 @@ You can change the full style towards *border* of a button with the `border` pro
 
 ## Gradient
 
-You can change the full style towards *Gradient* of a button with the `gradient` property that its value is a` boolean`, so just adding it will change the styles
+You can change the full style towards *Gradient* of a button with the `gradient` property that its value is a `boolean`, so just adding it will change the styles
 
 :::tip Gradient Auto Color
-  Gradient colors are automatically generated by the `color` property which in this example is the` primary` color
+  Gradient colors are automatically generated by the `color` property which in this example is the`primary` color
 :::
 
 <template #example>
@@ -478,26 +423,26 @@ You can change the full style towards *Gradient* of a button with the `gradient`
     justify-content: center;
     padding: 20px;
     flex-wrap: wrap;">
-    <vs-button
+    <VsButton
       gradient
-      :active="gradientActive === 0"
-      @click="clickGradient(0)"
+      :active="active.gradient === 0"
+      @click="active.gradient = 0"
     >
       Active
-    </vs-button>
-    <vs-button
+    </VsButton>
+    <VsButton
       gradient
-      :active="gradientActive === 1"
-      @click="clickGradient(1)"
+      :active="active.gradient === 1"
+      @click="active.gradient = 1"
     >
       Default
-    </vs-button>
-    <vs-button
+    </VsButton>
+    <VsButton
       gradient
       disabled
     >
       Disabled
-    </vs-button>
+    </VsButton>
   </div>
 </template>
 
@@ -508,15 +453,15 @@ You can change the full style towards *Gradient* of a button with the `gradient`
       <div>
         <Vsbutton
           gradient
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default == 0"
+          @click="active.default = 0"
         >
           Active
         </Vsbutton>
         <Vsbutton
           gradient
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default == 1"
+          @click="active.default = 1"
         >
           Default
         </Vsbutton>
@@ -528,21 +473,6 @@ You can change the full style towards *Gradient* of a button with the `gradient`
         </Vsbutton>
       </div>
     </template>
-  ```
-
-</template>
-
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -553,7 +483,7 @@ You can change the full style towards *Gradient* of a button with the `gradient`
 
 ## Relief
 
-Change the style of the button to a relief aspect with the `relief` property, the property is a` boolean` so you can add it without any value.
+Change the style of the button to a relief aspect with the `relief` property, the property is a `boolean` so you can add it without any value.
 
 <template #example>
    <div class="center" style="
@@ -562,26 +492,26 @@ Change the style of the button to a relief aspect with the `relief` property, th
     justify-content: center;
     padding: 20px;
     flex-wrap: wrap;">
-    <vs-button
+    <VsButton
       relief
-      :active="gradientActive === 0"
-      @click="clickRelief(0)"
+      :active="active.relief === 0"
+      @click="active.relief = 0"
     >
       Active
-    </vs-button>
-    <vs-button
+    </VsButton>
+    <VsButton
       relief
-      :active="gradientActive === 1"
-      @click="clickRelief(1)"
+      :active="active.relief === 1"
+      @click="active.relief = 1"
     >
       Default
-    </vs-button>
-    <vs-button
+    </VsButton>
+    <VsButton
       relief
       disabled
     >
       Disabled
-    </vs-button>
+    </VsButton>
   </div>
 </template>
 
@@ -592,15 +522,15 @@ Change the style of the button to a relief aspect with the `relief` property, th
       <div>
         <Vsbutton
           relief
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Active
         </Vsbutton>
         <Vsbutton
           relief
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           Default
         </Vsbutton>
@@ -615,29 +545,13 @@ Change the style of the button to a relief aspect with the `relief` property, th
   ```
 
 </template>
-
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
-  ```
-
-</template>
-
 </card>
 
 <card codesandbox="https://codesandbox.io/embed/vuesax-button-transparent-4t6d6?fontsize=14&hidenavigation=1&theme=dark">
 
 ## Transparent
 
-Change the style of the button with the `transparent` property, the property is a` boolean` so you can add it without any value.
+Change the style of the button with the `transparent` property, the property is a `boolean` so you can add it without any value.
 
 <template #example>
   <button-transparent />
@@ -650,15 +564,15 @@ Change the style of the button with the `transparent` property, the property is 
       <div>
         <Vsbutton
           transparent
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Active
         </Vsbutton>
         <Vsbutton
           transparent
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           Default
         </Vsbutton>
@@ -674,29 +588,13 @@ Change the style of the button with the `transparent` property, the property is 
 
 </template>
 
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
-  ```
-
-</template>
-
-
 </card>
 
 <card codesandbox="https://codesandbox.io/embed/vuesax-button-shadow-ufx6y?fontsize=14&hidenavigation=1&theme=dark">
 
 ## Shadow
 
-Change the style of the button with the `shadow` property, the property is a` boolean` so you can add it without any value.
+Change the style of the button with the `shadow` property, the property is a `boolean` so you can add it without any value.
 
 <template #example>
   <button-shadow />
@@ -709,15 +607,15 @@ Change the style of the button with the `shadow` property, the property is a` bo
       <div>
         <Vsbutton
           shadow
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Active
         </Vsbutton>
         <Vsbutton
           shadow
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           Default
         </Vsbutton>
@@ -732,22 +630,6 @@ Change the style of the button with the `shadow` property, the property is a` bo
   ```
 
 </template>
-
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
-  ```
-
-</template>
-
 
 </card>
 
@@ -769,75 +651,61 @@ Change the color of the Button component with the `color` property and the color
     <template>
       <div class="center">
         <Vsbutton
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Default
         </Vsbutton>
         <Vsbutton
           success
           flat
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           Success
         </Vsbutton>
         <Vsbutton
           danger
           border
-          :active="active == 2"
-          @click="active = 2"
+          :active="active.default === 2"
+          @click="active.default = 2"
         >
           Danger
         </Vsbutton>
         <Vsbutton
           warn
           gradient
-          :active="active == 3"
-          @click="active = 3"
+          :active="active.default === 3"
+          @click="active.default = 3"
         >
           Warn
         </Vsbutton>
         <Vsbutton
           dark
           shadow
-          :active="active == 4"
-          @click="active = 4"
+          :active="active.default === 4"
+          @click="active.default = 4"
         >
           Dark
         </Vsbutton>
         <Vsbutton
           color="#7d33ff"
           relief
-          :active="active == 5"
-          @click="active = 5"
+          :active="active.default === 5"
+          @click="active.default = 5"
         >
             HEX
         </Vsbutton>
         <Vsbutton
           color="rgb(59,222,200)"
           gradient
-          :active="active == 6"
-          @click="active = 6"
+          :active="active.default === 6"
+          @click="active.default = 6"
         >
           RGB
         </Vsbutton>
       </div>
     </template>
-  ```
-
-</template>
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -848,7 +716,7 @@ Change the color of the Button component with the `color` property and the color
 
 ## Icon
 
-If you need an icon-only button use the `icon` property, the property is a` boolean` so you can add it without any value.
+If you need an icon-only button use the `icon` property, the property is a `boolean` so you can add it without any value.
 
 This property makes the button have a specific size making it the same width and height, do not use when it is icon and text
 
@@ -865,8 +733,8 @@ This property makes the button have a specific size making it the same width and
       <div class="center">
         <Vsbutton
           icon
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           <i class='bx bx-home-alt'></i>
         </Vsbutton>
@@ -875,8 +743,8 @@ This property makes the button have a specific size making it the same width and
           icon
           color="success"
           flat
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           <i class='bx bxs-phone-call' ></i>
         </Vsbutton>
@@ -885,8 +753,8 @@ This property makes the button have a specific size making it the same width and
           icon
           color="danger"
           border
-          :active="active == 2"
-          @click="active = 2"
+          :active="active.default === 2"
+          @click="active.default = 2"
         >
           <i class='bx bxs-heart' ></i>
         </Vsbutton>
@@ -895,7 +763,7 @@ This property makes the button have a specific size making it the same width and
           icon
           color="warn"
           gradient
-          :active="active == 3" @click="active = 3"
+          :active="active.default === 3" @click="active.default = 3"
         >
           <i class='bx bxs-bell-ring' ></i>
         </Vsbutton>
@@ -904,8 +772,8 @@ This property makes the button have a specific size making it the same width and
           icon
           color="#7d33ff"
           relief
-          :active="active == 5"
-          @click="active = 5"
+          :active="active.default === 5"
+          @click="active.default = 5"
         >
           <i class='bx bxs-paper-plane' ></i>
         </Vsbutton>
@@ -914,27 +782,13 @@ This property makes the button have a specific size making it the same width and
           icon
           color="rgb(59,222,200)"
           gradient
-          :active="active == 6"
-          @click="active = 6"
+          :active="active.default === 6"
+          @click="active.default = 6"
         >
           <i class='bx bxs-purchase-tag' ></i>
         </Vsbutton>
       </div>
     </template>
-  ```
-
-</template>
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -957,8 +811,8 @@ If you need a button with text and icon you can do them by adding them in the `s
     <template>
       <div class="center">
         <Vsbutton
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           <i class="bx bx-home-alt"></i> Home
         </Vsbutton>
@@ -966,8 +820,8 @@ If you need a button with text and icon you can do them by adding them in the `s
         <Vsbutton
           success
           flat
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           <i class="bx bxs-phone-call"></i> Call
         </Vsbutton>
@@ -975,8 +829,8 @@ If you need a button with text and icon you can do them by adding them in the `s
         <Vsbutton
           danger
           border
-          :active="active == 2"
-          @click="active = 2"
+          :active="active.default === 2"
+          @click="active.default = 2"
         >
           <i class="bx bxs-heart"></i> Like
         </Vsbutton>
@@ -984,8 +838,8 @@ If you need a button with text and icon you can do them by adding them in the `s
         <Vsbutton
           warn
           gradient
-          :active="active == 3"
-          @click="active = 3"
+          :active="active.default === 3"
+          @click="active.default = 3"
         >
           <i class="bx bxs-bell-ring"></i> Notifications
         </Vsbutton>
@@ -993,8 +847,8 @@ If you need a button with text and icon you can do them by adding them in the `s
         <Vsbutton
           color="#7d33ff"
           relief
-          :active="active == 5"
-          @click="active = 5"
+          :active="active.default === 5"
+          @click="active.default = 5"
         >
           <i class="bx bxs-paper-plane"></i> Send
         </Vsbutton>
@@ -1002,27 +856,13 @@ If you need a button with text and icon you can do them by adding them in the `s
         <Vsbutton
           color="rgb(59,222,200)"
           gradient
-          :active="active == 6"
-          @click="active = 6"
+          :active="active.default === 6"
+          @click="active.default = 6"
         >
           <i class="bx bxs-purchase-tag"></i> Save
         </Vsbutton>
       </div>
     </template>
-  ```
-
-</template>
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -1033,7 +873,7 @@ If you need a button with text and icon you can do them by adding them in the `s
 
 ## Circle
 
-You can completely round the corners with the `circle` property, the property is a` boolean` so you can add it without any value.
+You can completely round the corners with the `circle` property, the property is a `boolean` so you can add it without any value.
 
 <template #example>
   <button-circle />
@@ -1046,8 +886,8 @@ You can completely round the corners with the `circle` property, the property is
       <div class="center">
         <Vsbutton
           circle
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Home
         </Vsbutton>
@@ -1057,8 +897,8 @@ You can completely round the corners with the `circle` property, the property is
           icon
           success
           flat
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           <i class="bx bxs-phone-call"></i>
         </Vsbutton>
@@ -1067,8 +907,8 @@ You can completely round the corners with the `circle` property, the property is
           circle
           danger
           border
-          :active="active == 2"
-          @click="active = 2"
+          :active="active.default === 2"
+          @click="active.default = 2"
         >
           <i class="bx bxs-heart"></i> Like
         </Vsbutton>
@@ -1077,8 +917,8 @@ You can completely round the corners with the `circle` property, the property is
           circle
           color="warn"
           gradient
-          :active="active == 3"
-          @click="active = 3"
+          :active="active.default === 3"
+          @click="active.default = 3"
         >
           Notifications <i class="bx bxs-bell-ring"></i>
         </Vsbutton>
@@ -1088,8 +928,8 @@ You can completely round the corners with the `circle` property, the property is
           icon
           color="#7d33ff"
           relief
-          :active="active == 5"
-          @click="active = 5"
+          :active="active.default === 5"
+          @click="active.default = 5"
         >
           <i class="bx bxs-paper-plane"></i>
         </Vsbutton>
@@ -1099,27 +939,13 @@ You can completely round the corners with the `circle` property, the property is
           icon
           color="rgb(59,222,200)"
           gradient
-          :active="active == 6"
-          @click="active = 6"
+          :active="active.default === 6"
+          @click="active.default = 6"
         >
           <i class="bx bxs-purchase-tag"></i>
         </Vsbutton>
       </div>
     </template>
-  ```
-
-</template>
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -1130,7 +956,7 @@ You can completely round the corners with the `circle` property, the property is
 
 ## Square
 
-You can make all the corners completely straight with the `Square` property, the property is a` boolean` so you can add it without any value.
+You can make all the corners completely straight with the `Square` property, the property is a `boolean` so you can add it without any value.
 
 <template #example>
   <button-square />
@@ -1143,8 +969,8 @@ You can make all the corners completely straight with the `Square` property, the
       <div class="center">
         <Vsbutton
           square
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Home
         </Vsbutton>
@@ -1154,7 +980,7 @@ You can make all the corners completely straight with the `Square` property, the
           icon
           success
           flat
-          :active="active == 1" @click="active = 1"
+          :active="active.default === 1" @click="active.default = 1"
         >
           <i class="bx bxs-phone-call"></i>
         </Vsbutton>
@@ -1163,8 +989,8 @@ You can make all the corners completely straight with the `Square` property, the
           square
           danger
           border
-          :active="active == 2"
-          @click="active = 2"
+          :active="active.default === 2"
+          @click="active.default = 2"
         >
           <i class="bx bxs-heart"></i> Like
         </Vsbutton>
@@ -1173,8 +999,8 @@ You can make all the corners completely straight with the `Square` property, the
           square
           warn
           gradient
-          :active="active == 3"
-          @click="active = 3"
+          :active="active.default === 3"
+          @click="active.default = 3"
         >
           Notifications <i class="bx bxs-bell-ring"></i>
         </Vsbutton>
@@ -1183,8 +1009,8 @@ You can make all the corners completely straight with the `Square` property, the
           icon
           color="#7d33ff"
           relief
-          :active="active == 5"
-          @click="active = 5"
+          :active="active.default === 5"
+          @click="active.default = 5"
         >
           <i class="bx bxs-paper-plane"></i>
         </Vsbutton>
@@ -1193,27 +1019,13 @@ You can make all the corners completely straight with the `Square` property, the
           icon
           color="rgb(59,222,200)"
           gradient
-          :active="active == 6"
-          @click="active = 6"
+          :active="active.default === 6"
+          @click="active.default = 6"
         >
           <i class="bx bxs-purchase-tag"></i>
         </Vsbutton>
       </div>
     </template>
-  ```
-
-</template>
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -1227,11 +1039,12 @@ You can make all the corners completely straight with the `Square` property, the
 Change the size of the entire button including padding, font-size and border with the `size` property
 
 values:
-  - xl
-  - l
-  - default
-  - small
-  - mini
+
+- xl
+- l
+- default
+- small
+- mini
 
 <template #example>
   <button-size />
@@ -1244,54 +1057,40 @@ values:
       <div class="center">
         <Vsbutton
           size="xl"
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           XLarge
         </Vsbutton>
         <Vsbutton
           size="large"
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           Large
         </Vsbutton>
         <Vsbutton
-          :active="active == 2"
-          @click="active = 2"
+          :active="active.default === 2"
+          @click="active.default = 2"
         >
           Default
         </Vsbutton>
         <Vsbutton
           size="small"
-          :active="active == 3"
-          @click="active = 3"
+          :active="active.default === 3"
+          @click="active.default = 3"
         >
           Small
         </Vsbutton>
         <Vsbutton
           size="mini"
-          :active="active == 4"
-          @click="active = 4"
+          :active="active.default === 4"
+          @click="active.default = 4"
         >
           Mini
         </Vsbutton>
       </div>
     </template>
-  ```
-
-</template>
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -1302,7 +1101,7 @@ values:
 
 ## Loading <Badge text="New"/>
 
-Now you can add a loading status with the `loading` property, the property is a` boolean` so you can add it without any value.
+Now you can add a loading status with the `loading` property, the property is a `boolean` so you can add it without any value.
 
 <template #example>
   <button-loading />
@@ -1315,8 +1114,8 @@ Now you can add a loading status with the `loading` property, the property is a`
       <div class="center">
         <Vsbutton
           loading
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Home
         </Vsbutton>
@@ -1326,8 +1125,8 @@ Now you can add a loading status with the `loading` property, the property is a`
           icon
           success
           flat
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           <i class="bx bxs-phone-call"></i>
         </Vsbutton>
@@ -1336,8 +1135,8 @@ Now you can add a loading status with the `loading` property, the property is a`
           loading
           danger
           border
-          :active="active == 2"
-          @click="active = 2"
+          :active="active.default === 2"
+          @click="active.default = 2"
         >
           <i class="bx bxs-heart"></i> Like
         </Vsbutton>
@@ -1346,8 +1145,8 @@ Now you can add a loading status with the `loading` property, the property is a`
           loading
           warn
           gradient
-          :active="active == 3"
-          @click="active = 3"
+          :active="active.default === 3"
+          @click="active.default = 3"
         >
           Notifications <i class="bx bxs-bell-ring"></i>
         </Vsbutton>
@@ -1357,8 +1156,8 @@ Now you can add a loading status with the `loading` property, the property is a`
           icon
           color="#7d33ff"
           relief
-          :active="active == 5"
-          @click="active = 5"
+          :active="active.default === 5"
+          @click="active.default = 5"
         >
           <i class="bx bxs-paper-plane"></i>
         </Vsbutton>
@@ -1367,26 +1166,13 @@ Now you can add a loading status with the `loading` property, the property is a`
           icon
           color="rgb(59,222,200)"
           gradient
-          :active="active == 6"
-          @click="active = 6"
+          :active="active.default === 6"
+          @click="active.default = 6"
         >
           <i class="bx bxs-purchase-tag"></i>
         </Vsbutton>
       </div>
     </template>
-  ```
-</template>
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -1397,7 +1183,7 @@ Now you can add a loading status with the `loading` property, the property is a`
 
 ## Upload <Badge text="New"/>
 
-Now you can add a status of sending or uploading data to the server with the `upload` property, the property is a` boolean` so you can add it without any value.
+Now you can add a status of sending or uploading data to the server with the `upload` property, the property is a `boolean` so you can add it without any value.
 
 <template #example>
   <button-upload />
@@ -1410,8 +1196,8 @@ Now you can add a status of sending or uploading data to the server with the `up
       <div class="center">
         <Vsbutton
           upload
-          :active="active == 0"
-          @click="active = 0"
+          :active="active.default === 0"
+          @click="active.default = 0"
         >
           Home
         </Vsbutton>
@@ -1421,8 +1207,8 @@ Now you can add a status of sending or uploading data to the server with the `up
           icon
           color="success"
           flat
-          :active="active == 1"
-          @click="active = 1"
+          :active="active.default === 1"
+          @click="active.default = 1"
         >
           <i class="bx bxs-phone-call"></i>
         </Vsbutton>
@@ -1431,8 +1217,8 @@ Now you can add a status of sending or uploading data to the server with the `up
           upload
           color="danger"
           border
-          :active="active == 2"
-          @click="active = 2"
+          :active="active.default === 2"
+          @click="active.default = 2"
         >
           <i class="bx bxs-heart"></i> Like
         </Vsbutton>
@@ -1441,8 +1227,8 @@ Now you can add a status of sending or uploading data to the server with the `up
           upload
           color="warn"
           gradient
-          :active="active == 3"
-          @click="active = 3"
+          :active="active.default === 3"
+          @click="active.default = 3"
         >
           Notifications <i class="bx bxs-bell-ring"></i>
         </Vsbutton>
@@ -1451,8 +1237,8 @@ Now you can add a status of sending or uploading data to the server with the `up
           upload
           color="dark"
           transparent
-          :active="active == 5"
-          @click="active = 5"
+          :active="active.default === 5"
+          @click="active.default = 5"
         >
           Dark
         </Vsbutton>
@@ -1462,8 +1248,8 @@ Now you can add a status of sending or uploading data to the server with the `up
           icon
           color="#7d33ff"
           relief
-          :active="active == 5"
-          @click="active = 5"
+          :active="active.default === 5"
+          @click="active.default = 5"
         >
           <i class="bx bxs-paper-plane"></i>
         </Vsbutton>
@@ -1473,27 +1259,13 @@ Now you can add a status of sending or uploading data to the server with the `up
           icon
           color="rgb(59,222,200)"
           gradient
-          :active="active == 6"
-          @click="active = 6"
+          :active="active.default === 6"
+          @click="active.default = 6"
         >
           <i class="bx bxs-purchase-tag"></i>
         </Vsbutton>
       </div>
     </template>
-  ```
-
-</template>
-
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
   ```
 
 </template>
@@ -1504,7 +1276,7 @@ Now you can add a status of sending or uploading data to the server with the `up
 
 ## Block <Badge text="New"/>
 
-You can make the button have the full width allowed with the `block` property, the property is a` boolean` so you can add it without any value.
+You can make the button have the full width allowed with the `block` property, the property is a `boolean` so you can add it without any value.
 
 <template #example>
   <button-block />
@@ -1534,7 +1306,7 @@ You can make the button have the full width allowed with the `block` property, t
 
 You can create an animation to the component by adding the ``#"animate" `and the content will be the one that appears when the component is animated
 
-You can also change the type of animation with the `animation-type` property and the allowed values ​​are (` vertical`, `scale`,` rotate`)
+You can also change the type of animation with the `animation-type` property and the allowed values ​​are (`vertical`, `scale`,`rotate`)
 
 <template #example>
   <button-animate />
@@ -1755,7 +1527,7 @@ Supported colors: (`facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `s
 
 ## Floating <Badge text="New"/>
 
-You can make a float style button easily with the `Floating` property, the property is a` boolean` so you can add it without any value.
+You can make a float style button easily with the `Floating` property, the property is a `boolean` so you can add it without any value.
 
 these buttons usually do an important action in specific and go with a fixed position in the lower corner
 
@@ -1896,20 +1668,6 @@ If you need to make a group of buttons you can use the **sub-component** `<Vsbut
 
 </template>
 
-<template #script>
-
-  ```html
-    <script>
-      export default {
-        data:() => ({
-          active: 0
-        })
-      }
-    </script>
-  ```
-
-</template>
-
 </card>
 
 <card>
@@ -2017,7 +1775,7 @@ This is an example of what you can achieve with simple logic and few lines of co
 
 ## To - href <Badge text="New"/>
 
-If you need to use a button such as a vue-router link or an external link you can do it with the properties (`to`: vue-router link) or (` href`: html external link)
+If you need to use a button such as a vue-router link or an external link you can do it with the properties (`to`: vue-router link) or (`href`: html external link)
 
 <template #example>
   <button-toHref />
@@ -2059,7 +1817,6 @@ If you need to use a button such as a vue-router link or an external link you ca
 
 <card>
 
-  ## API
+## API
 
 </card>
-

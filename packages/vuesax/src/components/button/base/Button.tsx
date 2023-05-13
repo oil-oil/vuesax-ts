@@ -1,9 +1,9 @@
 import { PropType, defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 
-import { Size } from "../../../types/size";
-import baseProps from "../../../util/baseProps";
-import ripple, { rippleCut, rippleReverse } from "../../../util/ripple/index";
+import { Size } from "@/types/size";
+import baseProps from "@/utils/baseProps";
+import ripple, { rippleCut, rippleReverse } from "@/utils/ripple/index";
 
 const Button = defineComponent({
   name: "VsButton",
@@ -107,7 +107,10 @@ const Button = defineComponent({
       <div
         class={[
           "vs-button__animate",
-          `vs-button__animate--${props.animationType}`,
+          {
+            [`vs-button__animate--${props?.animationType}`]:
+              props?.animationType,
+          },
         ]}
       ></div>
     );
@@ -205,7 +208,7 @@ const Button = defineComponent({
         ref="buttonRef"
       >
         <div class="vs-button__content">{slots.default?.()}</div>
-        {slots.animate && animateSlot}
+        {slots.animate?.() && animateSlot}
         {props.loading && loadingElement}
       </button>
     );
