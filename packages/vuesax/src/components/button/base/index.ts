@@ -1,4 +1,3 @@
-import "./style.scss";
 import { App, Plugin } from "vue";
 
 import Button from "./Button.tsx";

@@ -6,7 +6,7 @@ type OptionsParam = MountParams[1];
 declare global {
   namespace Cypress {
     interface Chainable {
-      mount: typeof mount;
+      mount(component: any, options?: OptionsParam): Chainable<any>;
     }
   }
 }

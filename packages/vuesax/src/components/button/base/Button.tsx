@@ -5,6 +5,8 @@ import { Size } from "@/types/size";
 import baseProps from "@/utils/baseProps";
 import ripple, { rippleCut, rippleReverse } from "@/utils/ripple/index";
 
+import "./style.scss";
+
 const Button = defineComponent({
   name: "VsButton",
   props: {
