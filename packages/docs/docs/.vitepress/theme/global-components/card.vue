@@ -73,6 +73,7 @@ const props = defineProps<{
 
 .card .example {
   position: relative;
+  z-index: 0;
   padding: 10px;
   margin: auto;
   margin-top: 10px;
@@ -138,6 +139,11 @@ const props = defineProps<{
 .card .example.mobile:before {
   opacity: 1;
   visibility: visible;
+}
+
+.slotcode {
+  position: relative;
+  z-index: 0;
 }
 
 .card .example.mobile~.slotcode .code {

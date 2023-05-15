@@ -11,6 +11,7 @@
                 top: pageHeaderTrigger ? '70px' : `calc(50% + ${pageHeaderDelta}px)`,
                 backgroundColor: pageHeaderTrigger ? 'var(--vs-theme-bg)' : '',
                 width: pageHeaderTrigger ? '100%' : '',
+                zIndex: pageHeaderTrigger ? '9999' : '0',
             }">
                 <div ref="pageHeaderContentTitleRef" class="h1">
                     {{ page.title }}
