@@ -1,9 +1,10 @@
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 
 import { VsButton, VsButtonGroup, VsAlert } from "./components";
 
 export default defineComponent({
   setup() {
+    const page = ref(1);
     return () => (
       <>
         <div style="display: flex">
@@ -75,6 +76,45 @@ export default defineComponent({
             lover to the backend that wants to easily create your visual
             approach to the end user
           </VsAlert>
+
+          <VsAlert
+            v-model:page={page.value}
+            v-slots={{
+              title: () => <div>"Vuesax Framework"</div>,
+              "page-1": () => (
+                <div>
+                  Pagina 1 - En esta otra pagina puedes poner también lo que
+                  necesites y es dinámico osea que puedes agregar cuantas
+                  paginas necesites Pagina 1 - En esta otra pagina puedes poner
+                  también lo que necesites y es dinámico osea que puedes agregar
+                  cuantas paginas necesitesPagina 1 - En esta otra pagina puedes
+                  poner también lo que necesites y es dinámico osea que puedes
+                  agregar cuantas paginas necesites Pagina 1 - En esta otra
+                  pagina puedes poner también lo que necesites y es dinámico
+                  osea que puedes agregar cuantas paginas necesitesPagina 1 - En
+                  esta otra pagina puedes poner también lo que necesites y es
+                  dinámico osea que puedes agregar cuantas paginas necesites
+                  Pagina 1 - En esta otra pagina puedes poner también lo que
+                  necesites y es dinámico osea que puedes agregar cuantas
+                  paginas necesites
+                </div>
+              ),
+              "page-2": () => (
+                <div>
+                  Pagina 2 - En esta otra pagina puedes poner también lo que
+                  necesites y es dinámico osea que puedes agregar cuantas
+                  paginas necesites
+                </div>
+              ),
+              "page-3": () => (
+                <div>
+                  Pagina 3 - En esta otra pagina puedes poner también lo que
+                  necesites y es dinámico osea que puedes agregar cuantas
+                  paginas necesites
+                </div>
+              ),
+            }}
+          ></VsAlert>
         </div>
       </>
     );

@@ -1,5 +1,13 @@
 /* eslint-disable no-param-reassign */
-import { Transition, defineComponent, nextTick, ref, watch } from "vue";
+import {
+  Transition,
+  defineComponent,
+  nextTick,
+  onMounted,
+  ref,
+  toRefs,
+  watch,
+} from "vue";
 
 import usePagination from "./usePagination.tsx";
 import IconClose from "@/icons/Close.tsx";
@@ -54,25 +62,63 @@ const Alert = defineComponent({
       default: 0,
     },
   },
+  emits: ["update:page", "update:hiddenContent", "input"],
   setup(props, { slots, emit }) {
-    console.log("slots: ", slots);
-    const rootRef = ref<HTMLElement>();
-    const contentRef = ref<HTMLElement>();
+    const { page } = toRefs(props);
+    const rootRef = ref<HTMLElement | null>(null);
+    const contentRef = ref<HTMLElement | null>(null);
 
-    const { getPagesValue, pagination } = usePagination(props.page, (page) =>
-      emit("update:page", page)
-    );
+    const { getPagesValue, pagination } = usePagination({
+      page,
+      changePage: (newPage: number) => {
+        emit("update:page", newPage);
+      },
+      slots,
+    });
+
+    onMounted(() => {
+      if (rootRef.value && contentRef.value) {
+        const el = rootRef.value as HTMLElement;
+        el.style.height = `${el.scrollHeight - 1}px`;
+
+        const content = contentRef.value as HTMLElement;
+        content.style.minHeight = `${content.scrollHeight}px`;
+      }
+    });
 
     watch(
       () => props.page,
       () => {
-        const content = contentRef.value as HTMLElement;
-        content.style.minHeight = `${content.scrollHeight}px`;
+        if (contentRef.value) {
+          const content = contentRef.value as HTMLElement;
+          content.style.minHeight = `${content.scrollHeight}px`;
 
-        nextTick(() => {
-          const root = rootRef.value as HTMLElement;
-          root.style.height = `${root.scrollHeight - 1}px`;
-        });
+          nextTick(() => {
+            const root = rootRef.value as HTMLElement;
+            root.style.height = `${root.scrollHeight - 1}px`;
+          });
+        }
+      }
+    );
+
+    watch(
+      () => props.hiddenContent,
+      () => {
+        if (!props.value) {
+          return;
+        }
+        const el = rootRef.value as HTMLElement;
+        const content = contentRef.value as HTMLElement;
+        if (!props.hiddenContent) {
+          el.style.height = "auto";
+          setTimeout(() => {
+            el.style.height = `${rootRef.value!.scrollHeight - 1}px`;
+          }, 250);
+        } else {
+          el.style.height = `${
+            rootRef.value!.scrollHeight - content.scrollHeight
+          }px`;
+        }
       }
     );
 
@@ -103,7 +149,7 @@ const Alert = defineComponent({
     };
 
     return () => (
-      <Transition ref="el">
+      <Transition ref={rootRef}>
         {props.value && (
           <div
             class={[
@@ -161,9 +207,9 @@ const Alert = defineComponent({
               onLeave={leave}
             >
               {!props.hiddenContent && (
-                <div class="vs-alert__content" ref="content">
+                <div class="vs-alert__content" ref={contentRef}>
                   <div>
-                    <div class="alert__content__text" ref="text">
+                    <div class="vs-alert__content__text" ref="textRef">
                       {slots.default?.()}
                       {...getPagesValue.value}
                     </div>
@@ -193,7 +239,7 @@ const Alert = defineComponent({
             )}
 
             {/* pagination */}
-            {pagination}
+            {pagination()}
           </div>
         )}
       </Transition>

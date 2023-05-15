@@ -1,11 +1,18 @@
 {
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }],
   "extends": "tsconfig/vuesax.json",
   "compilerOptions": {
+    "types": ["cypress", "node"],
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./*"]
     }
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "./cypress.d.ts"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

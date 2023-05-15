@@ -8,7 +8,7 @@ import {
 } from "./utils/defineVuesaxOptions";
 import "./styles/vuesax.scss";
 
-// createApp(App).mount("#app");
+createApp(App).mount("#app");
 const install = (app: VueApp, options?: VuesaxOptions) => {
   // Components
   Object.values(vsComponents).forEach((vsComponent) => {
