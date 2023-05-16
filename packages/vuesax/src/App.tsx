@@ -27,7 +27,7 @@ export default defineComponent({
           ))}
         </div>
         <div>
-          <VsButton square>Square</VsButton>
+          <VsButton circle>Square</VsButton>
         </div>
         <div
           style={{
@@ -35,7 +35,7 @@ export default defineComponent({
             alignItems: "center",
           }}
         >
-          <VsButton success flat>
+          <VsButton success flat to="/abc">
             Success
           </VsButton>
           <VsButton warn flat>

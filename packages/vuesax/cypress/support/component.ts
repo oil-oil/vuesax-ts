@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-namespace */
 // ***********************************************************
 // This example support/component.ts is processed and
@@ -21,20 +22,39 @@ import "./commands";
 // require('./commands')
 
 import { mount } from "cypress/vue";
+import { createRouter, createWebHistory } from "vue-router";
+import "@/styles/vuesax.scss";
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
 // Alternatively, can be defined in cypress/support/component.d.ts
 // with a <reference path="./component" /> at the top of your spec.
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      mount: typeof mount;
-    }
+
+Cypress.Commands.add("mount", (component, options = {}) => {
+  // Setup options object
+  options.global = options.global || {};
+  options.global.plugins = options.global.plugins || [];
+
+  // create router if one is not provided
+  if (!options.router) {
+    options.router = createRouter({
+      history: createWebHistory(),
+      routes: [
+        {
+          path: "/testRoute",
+          name: "test",
+          component: { template: "<div>Home</div>" },
+        },
+      ],
+    });
   }
-}
 
-Cypress.Commands.add("mount", mount);
+  // Add router plugin
+  options.global.plugins.push({
+    install(app) {
+      app.use(options.router);
+    },
+  });
 
-// Example use:
-// cy.mount(MyComponent)
+  return mount(component, options);
+});
