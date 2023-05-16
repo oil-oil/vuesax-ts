@@ -250,13 +250,6 @@ const handleClickFace = ()=> {
 }
 </script>
 <style scoped>
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  flex-wrap: wrap;
-}
 .toggle span{
     display:flex;
     align-items:center;
@@ -362,30 +355,30 @@ You can change the full style towards *flat* of a button with the `flat` propert
 
 <template #template>
 
-  ```html{4}
-<template>
-  <div class="center">
-    <VsButton
+  ```html{4,11,18}
+  <template>
+    <div class="center">
+      <VsButton
+        flat
+        :active="active.flat === 0"
+        @click="active.flat = 0"
+      >
+        Active
+      </VsButton>
+      <VsButton
+        flat
+        :active="active.flat === 1"
+        @click="active.flat = 0"
+      >
+        Default
+      </VsButton>
+      <VsButton
       flat
-      :active="active.flat === 0"
-      @click="active.flat = 0"
-    >
-      Active
-    </VsButton>
-    <VsButton
-      flat
-      :active="active.flat === 1"
-      @click="active.flat = 0"
-    >
-      Default
-    </VsButton>
-    <VsButton
-    flat
-    disabled>
-      Disabled
-    </VsButton>
-  </div>
-</template>
+      disabled>
+        Disabled
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -438,7 +431,7 @@ You can change the full style towards *border* of a button with the `border` pro
 
 <template #template>
 
-  ```html{4}
+  ```html{4,11,18}
     <template>
   <div class="center">
   <VsButton
@@ -470,12 +463,12 @@ You can change the full style towards *border* of a button with the `border` pro
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       border: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -519,30 +512,30 @@ You can change the full style towards *Gradient* of a button with the `gradient`
 
 <template #template>
 
-  ```html{4}
-    <template>
-  <div class="center">
-    <VsButton
-      gradient
-      :active="active.gradient === 0"
-      @click="active.gradient = 0"
-    >
-      Active
-    </VsButton>
-    <VsButton
-      gradient
-      :active="active.gradient === 1"
-      @click="active.gradient = 1"
-    >
-      Default
-    </VsButton>
-    <VsButton
-      gradient
-      disabled
-    >
-      Disabled
-    </VsButton>
-  </div>
+  ```html{4,11,18}
+  <template>
+    <div class="center">
+      <VsButton
+        gradient
+        :active="active.gradient === 0"
+        @click="active.gradient = 0"
+      >
+        Active
+      </VsButton>
+      <VsButton
+        gradient
+        :active="active.gradient === 1"
+        @click="active.gradient = 1"
+      >
+        Default
+      </VsButton>
+      <VsButton
+        gradient
+        disabled
+      >
+        Disabled
+      </VsButton>
+    </div>
 </template>
   ```
 
@@ -551,12 +544,12 @@ You can change the full style towards *Gradient* of a button with the `gradient`
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       gradient: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -597,31 +590,31 @@ Change the style of the button to a relief aspect with the `relief` property, th
 
 <template #template>
 
-  ```html{4}
+  ```html{4,11,18}
   <template>
-   <div class="center">
-    <VsButton
-      relief
-      :active="active.relief === 0"
-      @click="active.relief = 0"
-    >
-      Active
-    </VsButton>
-    <VsButton
-      relief
-      :active="active.relief === 1"
-      @click="active.relief = 1"
-    >
-      Default
-    </VsButton>
-    <VsButton
-      relief
-      disabled
-    >
-      Disabled
-    </VsButton>
-  </div>
-</template>
+    <div class="center">
+      <VsButton
+        relief
+        :active="active.relief === 0"
+        @click="active.relief = 0"
+      >
+        Active
+      </VsButton>
+      <VsButton
+        relief
+        :active="active.relief === 1"
+        @click="active.relief = 1"
+      >
+        Default
+      </VsButton>
+      <VsButton
+        relief
+        disabled
+      >
+        Disabled
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -629,12 +622,12 @@ Change the style of the button to a relief aspect with the `relief` property, th
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       relief: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -674,31 +667,31 @@ Change the style of the button with the `transparent` property, the property is 
 
 <template #template>
 
-  ```html{4}
-    <template>
-      <div>
-        <Vsbutton
-          transparent
-          :active="active.transparent === 0"
-          @click="active.transparent = 0"
-        >
-          Active
-        </Vsbutton>
-        <Vsbutton
-          transparent
-          :active="active.transparent === 1"
-          @click="active.transparent = 1"
-        >
-          Default
-        </Vsbutton>
-        <Vsbutton
-          transparent
-          disabled
-        >
-          Disabled
-        </Vsbutton>
-      </div>
-    </template>
+  ```html{4,11,18}
+  <template>
+    <div>
+      <Vsbutton
+        transparent
+        :active="active.transparent === 0"
+        @click="active.transparent = 0"
+      >
+        Active
+      </Vsbutton>
+      <Vsbutton
+        transparent
+        :active="active.transparent === 1"
+        @click="active.transparent = 1"
+      >
+        Default
+      </Vsbutton>
+      <Vsbutton
+        transparent
+        disabled
+      >
+        Disabled
+      </Vsbutton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -706,12 +699,12 @@ Change the style of the button with the `transparent` property, the property is 
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       transparent: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -752,31 +745,31 @@ Change the style of the button with the `shadow` property, the property is a `bo
 
 <template #template>
 
-  ```html{4}
-<template>
-   <div class="center">
-    <VsButton
-      shadow
-      :active="active.shadow === 0"
-      @click="active.shadow = 0"
-    >
-      Active
-    </VsButton>
-    <VsButton
-      shadow
-      :active="active.shadow === 1"
-      @click="active.shadow = 1"
-    >
-      Default
-    </VsButton>
-    <VsButton
-      shadow
-      disabled
-    >
-      Disabled
-    </VsButton>
-  </div>
-</template>
+  ```html{4,11,18}
+  <template>
+    <div class="center">
+      <VsButton
+        shadow
+        :active="active.shadow === 0"
+        @click="active.shadow = 0"
+      >
+        Active
+      </VsButton>
+      <VsButton
+        shadow
+        :active="active.shadow === 1"
+        @click="active.shadow = 1"
+      >
+        Default
+      </VsButton>
+      <VsButton
+        shadow
+        disabled
+      >
+        Disabled
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -784,12 +777,12 @@ Change the style of the button with the `shadow` property, the property is a `bo
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       shadow: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -867,41 +860,41 @@ Change the color of the Button component with the `color` property and the color
 
 <template #template>
 
-  ```html{10}
-<template>
+  ```html{11,19,27,35,43,,51}
+  <template>
     <div class="center">
-    <VsButton
-      :active="active.color === 0"
-      @click="active.color = 0"
-    >
-      Default
-    </VsButton>
-    <VsButton
-      shadow
-      success
-      flat
-      :active="active.color === 1"
-      @click="active.color = 1"
-    >
-      Success
-    </VsButton>
-    <VsButton
-      danger
-      border
-      :active="active.color === 2"
-      @click="active.color = 2"
-    >
-      Danger
-    </VsButton>
-    <VsButton
-      warn
-      gradient
-      :active="active.color === 3"
-      @click="active.color = 3"
-    >
-      Warn
-    </VsButton>
-    <VsButton
+      <VsButton
+        :active="active.color === 0"
+        @click="active.color = 0"
+      >
+        Default
+      </VsButton>
+      <VsButton
+        shadow
+        success
+        flat
+        :active="active.color === 1"
+        @click="active.color = 1"
+      >
+        Success
+      </VsButton>
+      <VsButton
+        danger
+        border
+        :active="active.color === 2"
+        @click="active.color = 2"
+      >
+        Danger
+      </VsButton>
+      <VsButton
+        warn
+        gradient
+        :active="active.color === 3"
+        @click="active.color = 3"
+      >
+        Warn
+      </VsButton>
+      <VsButton
         dark
         shadow
         :active="active.color === 4"
@@ -915,7 +908,7 @@ Change the color of the Button component with the `color` property and the color
         :active="active.color === 5"
         @click="active.color = 5"
       >
-          HEX
+        HEX
       </VsButton>
       <VsButton
         color="rgb(59,222,200)"
@@ -925,8 +918,8 @@ Change the color of the Button component with the `color` property and the color
       >
         RGB
       </VsButton>
-  </div>
-</template>
+    </div>
+  </template>
   ```
 
 </template>
@@ -934,12 +927,12 @@ Change the color of the Button component with the `color` property and the color
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       color: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -1036,64 +1029,63 @@ This property makes the button have a specific size making it the same width and
 
 <template #template>
 
-  ```html{4}
-<template #example>
+  ```html{4,11,20,29,38,47}
+  <template #example>
     <div class="center">
-    <VsButton
-      icon
-      :active="active.icon === 0"
-      @click="active.icon = 0"
-    >
-      <i class='bx bx-home-alt'></i>
-    </VsButton>
-    <VsButton
-      icon
-        color="success"
-        flat
-        :active="active.icon === 1"
-        @click="active.icon = 1"
-    >
-      <i class='bx bxs-phone-call'></i>
-    </VsButton>
-    <VsButton
-      icon
-        color="danger"
-        border
-        :active="active.icon === 2"
-        @click="active.icon = 2"
-    >
-      <i class='bx bxs-heart'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="warn"
-      gradient
-      :active="active.icon === 3"
-      @click="active.icon = 3"
-    >
-      <i class='bx bxs-bell-ring'></i>
-    </VsButton>
-    <VsButton
-      icon
-        color="#7d33ff"
-        relief
-        :active="active.icon === 4"
-        @click="active.icon = 4"
-    >
-      <i class='bx bxs-paper-plane'></i>
-    </VsButton>
-    <VsButton
-      icon
-        color="rgb(59,222,200)"
+      <VsButton
+        icon
+        :active="active.icon === 0"
+        @click="active.icon = 0"
+      >
+        <i class='bx bx-home-alt'></i>
+      </VsButton>
+      <VsButton
+        icon
+          color="success"
+          flat
+          :active="active.icon === 1"
+          @click="active.icon = 1"
+      >
+        <i class='bx bxs-phone-call'></i>
+      </VsButton>
+      <VsButton
+        icon
+          color="danger"
+          border
+          :active="active.icon === 2"
+          @click="active.icon = 2"
+      >
+        <i class='bx bxs-heart'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="warn"
         gradient
-        :active="active.icon == 6"
-        @click="active.icon = 6"
-    >
-      <i class='bx bxs-purchase-tag'></i>
-    </VsButton>
- 
-  </div>
-</template>
+        :active="active.icon === 3"
+        @click="active.icon = 3"
+      >
+        <i class='bx bxs-bell-ring'></i>
+      </VsButton>
+      <VsButton
+        icon
+          color="#7d33ff"
+          relief
+          :active="active.icon === 4"
+          @click="active.icon = 4"
+      >
+        <i class='bx bxs-paper-plane'></i>
+      </VsButton>
+      <VsButton
+        icon
+          color="rgb(59,222,200)"
+          gradient
+          :active="active.icon == 6"
+          @click="active.icon = 6"
+      >
+        <i class='bx bxs-purchase-tag'></i>
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -1101,12 +1093,12 @@ This property makes the button have a specific size making it the same width and
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       icon: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>

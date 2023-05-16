@@ -83,7 +83,6 @@ const props = defineProps<{
   position: relative;
   overflow: hidden;
   transition: all 0.25s ease;
-  width: 100%;
   height: auto;
 }
 

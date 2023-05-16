@@ -52,16 +52,15 @@
         </ul>
         <div class="con-codes">
 
-
           <transition v-on:before-enter="beforeEntercodes" v-on:enter="entercodes" v-on:leave="leavecodes">
             <div ref="slot0" key="0" v-if="activeSlot == 0" class="slot-template slots">
               <slot name="template" />
-
               <footer @click="toggleCode" :title="active ? 'Hide code' : 'View code'" class="footer-code">
                 <i class='bx bx-hide'></i>
               </footer>
             </div>
           </transition>
+
           <transition v-on:before-enter="beforeEntercodes" v-on:enter="entercodes" v-on:leave="leavecodes">
             <div ref="slot1" key="1" v-if="activeSlot == 1" class="slot-script slots">
               <slot name="script" />
@@ -82,7 +81,7 @@
             </div>
           </transition>
 
-          <transition v-on:before-enter="beforeEntercodes" v-on:enter="entercodes" v-on:leave="leavecodes">
+          <Transition @before-enter="beforeEntercodes" @enter="entercodes" @leave="leavecodes">
             <div ref="slot3" key="3" v-if="activeSlot == 3" class="slot-all slots">
               <slot name="template" />
               <slot name="script" />
@@ -92,7 +91,7 @@
                 <i class='bx bx-hide'></i>
               </footer>
             </div>
-          </transition>
+          </Transition>
         </div>
       </div>
     </transition>
@@ -108,6 +107,7 @@ const props = defineProps<{
   codesandbox: any,
   codepen?: any,
 }>()
+const codex = ref()
 // watch:{
 //   '$vsTheme.openCode': function (val) {
 //     this.active = val
@@ -189,6 +189,7 @@ const beforeEnter = (el: any) => {
 const enter = (el: any, done: any) => {
   let h = el.scrollHeight
   el.style.height = h - 1 + 'px'
+  codex.value.style.height = h + 15 + 'px'
   done()
 }
 const leave = (el: any) => {
@@ -201,9 +202,10 @@ const beforeEntercodes = (el: any) => {
 }
 const entercodes = (el: any, done: any) => {
   let h = el.scrollHeight
-  el.style.height = h - 1 + 'px'
-  el.style.opacity = 1
   el.style.position = 'relative'
+  el.style.height = h - 1 + 'px'
+  codex.value.style.height = h + 50 + 'px'
+  el.style.opacity = 1
   done()
 }
 const leavecodes = (el: any) => {
@@ -285,6 +287,7 @@ const leavecodes = (el: any) => {
   position: relative;
   width: 100%;
 }
+
 
 .slots {
   transition: all 0.25s ease;
@@ -473,5 +476,50 @@ const leavecodes = (el: any) => {
     width: 100%;
     margin: 0px;
   }
+}
+</style>
+
+<style>
+.con-codes div[class*=language-] {
+  background-color: var(--vs-theme-code);
+  position: relative;
+
+}
+
+.con-codes div[class*=language-] pre {
+  position: relative;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.con-codes div[class*=language-] pre .highlighted {
+  position: relative;
+  display: inline-block;
+  width: 110%;
+  background-color: hsla(0, 0%, 100%, .05);
+  border-left: 6px solid hsla(0, 0%, 100%, .2);
+}
+
+/* .con-codes div[class*=language-] pre .highlighted::after {
+  content: "";
+  height: 10px;
+  width: 20px;
+  position: absolute;
+  left: 0;
+  background-color: hsla(0, 0%, 100%, .05);
+  border-left: 6px solid hsla(0, 0%, 100%, .2);
+} */
+
+.con-codes div[class*=language-] button {
+  display: none;
+}
+
+.con-codes div[class*=language-]>span {
+  position: absolute;
+  top: .8em;
+  right: 1em;
+  font-size: .75rem;
+  color: hsla(0, 0%, 100%, .4);
 }
 </style>

@@ -11,13 +11,15 @@
                 top: pageHeaderTrigger ? '70px' : `calc(50% + ${pageHeaderDelta}px)`,
                 backgroundColor: pageHeaderTrigger ? 'var(--vs-theme-bg)' : '',
                 width: pageHeaderTrigger ? '100%' : '',
-                zIndex: pageHeaderTrigger ? '9999' : '0',
+                transition: pageHeaderTrigger ? 'background-color 0.3s ease-out' : ''
             }">
                 <div ref="pageHeaderContentTitleRef" class="h1">
                     {{ page.title }}
                 </div>
                 <div class="page-header-iconbox">
                     这是iconBox
+                </div>
+                <div :class="{ 'shadow': pageHeaderTrigger === false, 'shadow-active': pageHeaderTrigger === true }">
                 </div>
             </div>
         </header>
@@ -102,8 +104,30 @@ onUnmounted(() => {
     justify-content: space-between;
     width: 800px;
     max-width: 800px;
-    /* transition: all 0.3s ease-out; */
+    z-index: 10;
+}
 
+.page-header-content .shadow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 0;
+    height: 100%;
+    z-index: 11;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, .1);
+}
+
+.page-header-content .shadow-active {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 110%;
+    height: 100%;
+    z-index: 11;
+    box-shadow: 0 25px 20px -20px rgba(0, 0, 0, .1);
+    transition: all 1.5s ease;
 }
 
 .page-header-iconbox {}
