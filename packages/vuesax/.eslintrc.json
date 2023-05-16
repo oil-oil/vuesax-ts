@@ -3,7 +3,11 @@
   "extends": ["custom"],
   "parserOptions": {
     "tsconfigRootDir": "./",
-    "project": ["./tsconfig.json", "./tsconfig.node.json"],
+    "project": [
+      "./tsconfig.json",
+      "./tsconfig.node.json",
+      "./cypress/tsconfig.json"
+    ],
     "extraFileExtensions": [".vue"]
   },
   "rules": {

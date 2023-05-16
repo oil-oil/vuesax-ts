@@ -5,6 +5,8 @@ import { Size } from "@/types/size";
 import baseProps from "@/utils/baseProps";
 import ripple, { rippleCut, rippleReverse } from "@/utils/ripple/index";
 
+import "./style.scss";
+
 const Button = defineComponent({
   name: "VsButton",
   props: {
@@ -99,6 +101,7 @@ const Button = defineComponent({
     },
   },
   slots: ["default", "animate"],
+  emits: ["click"],
   setup(props, { slots, attrs, emit }) {
     const buttonRef = ref<Element>();
     const router = useRouter();
@@ -201,9 +204,7 @@ const Button = defineComponent({
         class={buttonClass}
         style={{ "--vs-color": props.color ? props.getColor(props.color) : "" }}
         onMousedown={(e) => handleMouseDown(e)}
-        onClick={(e) => {
-          onClick(e);
-        }}
+        onClick={onClick}
         disabled={props.disabled}
         ref="buttonRef"
       >

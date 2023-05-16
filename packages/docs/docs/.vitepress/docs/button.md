@@ -341,7 +341,7 @@ You can change the full style towards *flat* of a button with the `flat` propert
     <VsButton
       flat
       :active="active.flat === 1"
-      @click="active.flat = 0"
+      @click="active.flat = 1"
     >
       Default
     </VsButton>
@@ -807,7 +807,6 @@ Change the color of the Button component with the `color` property and the color
       Default
     </VsButton>
     <VsButton
-      shadow
       success
       flat
       :active="active.color === 1"

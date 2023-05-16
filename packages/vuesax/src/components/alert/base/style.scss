@@ -171,6 +171,7 @@
     }
   }
 }
+
 .vs-alert__content {
   transition: height 0.25s ease;
   overflow: hidden;
@@ -277,7 +278,7 @@
     border: 0px;
     background: transparent;
     color: -color("color", 1);
-    padding: 0px 7px;
+    padding: 3px 7px;
     font-size: 1rem;
     background: -color("color", 0.1);
     border-radius: 8px;

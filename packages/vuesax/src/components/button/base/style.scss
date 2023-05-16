@@ -340,11 +340,11 @@
   &:hover {
     transform: translate(0, -3px);
     box-shadow: 0px 10px 20px -10px -color("color", 0.7);
+    &::before {
+      opacity: 0;
+    }
   }
-  &::before {
-    opacity: 0;
-  }
-  // transform: translate(50%, -50%)
+
   &.vs-button--active {
     transform: translate(0, -3px);
     box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.35);
