@@ -78,7 +78,6 @@ describe("Button", () => {
         Loading Button
       </Button>
     );
-    cy.contains("Loading Button").click({ force: true });
 
     cy.contains("Loading Button")
       .should("have.class", "vs-button--loading")
