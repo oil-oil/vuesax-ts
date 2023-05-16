@@ -55,7 +55,7 @@ describe("Button", () => {
 
     cy.mount(<Button square>Square Button</Button>);
     cy.contains("Square Button")
-      .should("have.class", `vs-button--square`)
+      .should("have.class", "vs-button--square")
       .should("have.css", "border-radius", "0px");
   });
 
@@ -69,5 +69,21 @@ describe("Button", () => {
     cy.contains("Router Button").click();
 
     cy.url().should("contain", "/testRoute");
+  });
+
+  it("test button loading", () => {
+    const onClickSpy = cy.spy().as("onClickSpy");
+    cy.mount(
+      <Button onClick={onClickSpy} loading>
+        Loading Button
+      </Button>
+    );
+    cy.contains("Loading Button").click({ force: true });
+
+    cy.contains("Loading Button")
+      .should("have.class", "vs-button--loading")
+      .within(() => {
+        cy.get(".vs-button__loading").should("be.visible");
+      });
   });
 });
