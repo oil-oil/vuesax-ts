@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/Poppins/Poppins-Regular.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
 :root {
   --vs-primary: 26, 92, 255;
   --vs-theme-bg: #f4f7f8;
@@ -8,6 +15,36 @@
   --vs-theme-code2: #363449;
 }
 
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  display: block;
+  background: var(--vs-theme-layout);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--vs-theme-color);
+  border-radius: 5px;
+}
+
+::selection {
+  background: rgba(37, 100, 255, 0.15);
+}
+
+/* body {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 13.6px;
+} */
+
+/* input {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+} */
+
+/* button {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+} */
 
 body {
   margin: 0;
@@ -15,10 +52,27 @@ body {
 
 a {
   text-decoration: none;
+  font-weight: 500;
+  color: var(--vs-theme-color) !important;
 }
 
 .page-docs-content-docs h1 {
   display: none;
+}
+
+.page-docs-content-docs h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.page-docs-content-docs p code {
+  padding: 0.25rem 0.5rem;
+  margin: 0;
+  font-size: 0.85em !important;
+  background-color: var(--vs-theme-bg2);
+  border-radius: 3px;
+  color: var(--vs-theme-color);
+  box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.04);
 }
 
 .center {

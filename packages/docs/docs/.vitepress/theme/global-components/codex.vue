@@ -19,7 +19,7 @@
           </svg>
         </li>
 
-        <li title="Copy code" :class="{ 'copied': check }" @click="">
+        <li title="Copy code" :class="{ 'copied': check }" @click="copy">
           <i v-if="!check" class='bx bx-copy'></i>
           <i v-else class='bx bx-check'></i>
         </li>
@@ -148,38 +148,38 @@ const toggleCode = () => {
 //       await navigator.clipboard.writeText(text)
 //       document.body.removeChild(aux);
 // }
-// const copy = ()=>{
-//   let slot = 'template'
-//   if(activeSlot.value === 0){
-//     let text = slots.template
-//   }else if(activeSlot.value === 1){
-//     slot = 'script'
-//     let text = slots.script
-//   }
+const copy = () => {
+  // let slot = 'template'
+  // if(activeSlot.value === 0){
+  //   let text = slots.template
+  // }else if(activeSlot.value === 1){
+  //   slot = 'script'
+  //   let text = slots.script
+  // }
 
-//       if(activeSlot.value == 1) {
-//         slot = 'script'
-//       } else if (activeSlot.value == 2) {
-//         slot = 'style'
-//       }
-//       // let text = slots.[slot].elm.innerText
-//       if(slots){
-//         let t = slots.[slot]
-//       if (activeSlot.value == 3) {
-//         t = `
-//           ${props.slots['template'] ? props.slots['template'][0].elm.innerText.trim() : ''}
-//           ${this.slots['script'] ? this.slots['script'][0].elm.innerText.trim() : ''}
-//           ${this.slots['style'] ? this.slots['style'][0].elm.innerText.trim() : ''}
+  //     if(activeSlot.value == 1) {
+  //       slot = 'script'
+  //     } else if (activeSlot.value == 2) {
+  //       slot = 'style'
+  //     }
+  //     // let text = slots.[slot].elm.innerText
+  //     if(slots){
+  //       let t = slots.[slot]
+  //     if (activeSlot.value == 3) {
+  //       t = `
+  //         ${props.slots['template'] ? props.slots['template'][0].elm.innerText.trim() : ''}
+  //         ${this.slots['script'] ? this.slots['script'][0].elm.innerText.trim() : ''}
+  //         ${this.slots['style'] ? this.slots['style'][0].elm.innerText.trim() : ''}
 
-//         `
-//       }
-//       clipboard(text)
-//       check.value = true
-//       setTimeout(() => {
-//         check.value = false
-//       }, 1000);
-//       }
-
+  //       `
+  //     }
+  //     clipboard(text)
+  console.log("插槽", slots)
+  check.value = true
+  setTimeout(() => {
+    check.value = false
+  }, 3000);
+}
 
 // }
 // animation
@@ -216,8 +216,14 @@ const leavecodes = (el: any) => {
 
 </script>
 <style scoped >
-/* getVar(var)
-    unquote("var(--vs-"+var+")") */
+@media (max-width: 500px) {
+
+  div[class*="language-"] pre,
+  div[class*="language-"] pre[class*="language-"] {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
 
 .noti-code {
   position: fixed;
@@ -234,7 +240,7 @@ const leavecodes = (el: any) => {
   opacity: 0;
   visibility: hidden;
   transition: all 0.25s ease;
-  z-index: 1000;
+  z-index: 50;
 }
 
 .noti-code i {
