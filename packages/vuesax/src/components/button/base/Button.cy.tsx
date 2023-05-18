@@ -1,7 +1,7 @@
 import Button from "./Button";
 
 describe("Button", () => {
-  it("test basic render", () => {
+  it("test button basic render", () => {
     cy.mount(<Button>Default Button</Button>);
     cy.contains("Default Button")
       .should("be.visible")

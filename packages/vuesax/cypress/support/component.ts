@@ -56,5 +56,7 @@ Cypress.Commands.add("mount", (component, options = {}) => {
     },
   });
 
-  return mount(component, options);
+  return mount(component, options).then(({ wrapper }) => {
+    cy.wrap(wrapper).as("vue");
+  });
 });

@@ -4,10 +4,9 @@
       <slot></slot>
     </div>
 
-    <div v-if="slots.example" class="example" :class="{ 'mobile': theme.mobileActive }">
+    <div v-if="slots.example" class="example" :class="{ mobile: theme.mobileActive }">
       <slot name="example" />
     </div>
-
 
     <div v-if="slots.template || slots.script || slots.style" class="slotcode">
       <codex :codesandbox="props.codesandbox" :codepen="props.codepen">
@@ -24,16 +23,16 @@
     </div>
   </div>
 </template>
-<script setup lang='ts'>
-import codex from './codex.vue'
-import { useData } from 'vitepress';
-import { useSlots } from 'vue';
-const slots = useSlots()
-const { theme } = useData()
+<script setup lang="ts">
+import codex from "./codex.vue";
+import { useData } from "vitepress";
+import { useSlots } from "vue";
+const slots = useSlots();
+const { theme } = useData();
 const props = defineProps<{
-  codesandbox: string,
-  codepen?: any
-}>()
+  codesandbox: string;
+  codepen?: any;
+}>();
 </script>
 <style scoped>
 .card .text {
@@ -53,16 +52,16 @@ const props = defineProps<{
   margin-bottom: 0px;
 }
 
-.card>.text ul {
+.card > .text ul {
   margin-left: 40px;
   padding-left: 0px;
 }
 
-.card>.text ul li p {
+.card > .text ul li p {
   padding-left: 5px !important;
 }
 
-.card .text>img {
+.card .text > img {
   width: 100%;
   max-width: 600px;
   margin: auto;
@@ -91,7 +90,7 @@ const props = defineProps<{
   transition: all 0.25s ease;
   width: 100%;
   height: 100%;
-  content: '';
+  content: "";
   position: absolute;
   border: 8px solid var(--vs-theme-bg2);
   box-sizing: border-box;
@@ -109,7 +108,7 @@ const props = defineProps<{
   pointer-events: none;
   width: 60px;
   height: 25px;
-  content: '';
+  content: "";
   position: absolute;
   background: var(--vs-theme-bg2);
   box-sizing: border-box;
@@ -146,7 +145,7 @@ const props = defineProps<{
   z-index: 0;
 }
 
-.card .example.mobile~.slotcode .code {
+.card .example.mobile ~ .slotcode .code {
   border-radius: 20px;
   background: transparent;
 }

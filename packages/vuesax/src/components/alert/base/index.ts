@@ -1,4 +1,3 @@
-import "./style.scss";
 import { App, Plugin } from "vue";
 
 import Alert from "./Alert.tsx";

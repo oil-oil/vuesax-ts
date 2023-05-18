@@ -1,4 +1,4 @@
-import { mount } from "cypress/vue";
+import { mount, VueTestUtils } from "cypress/vue";
 import { Router } from "vue-router";
 
 type MountParams = Parameters<typeof mount>;
@@ -15,4 +15,5 @@ declare global {
       mount(component: any, options?: OptionsParam): Chainable<any>;
     }
   }
+  type VueWrapper = InstanceType<(typeof VueTestUtils)["VueWrapper"]>;
 }

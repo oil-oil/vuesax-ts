@@ -10,15 +10,19 @@ import {
 } from "vue";
 
 import usePagination from "./usePagination.tsx";
-import IconClose from "@/icons/Close.tsx";
-import IconPlus from "@/icons/Plus.tsx";
+import useTransition from "./useTransition.ts";
+import IconClose from "@/icons/Close";
+import IconPlus from "@/icons/Plus";
 import baseProps from "@/utils/baseProps.ts";
+
+import "./style.scss";
 
 const Alert = defineComponent({
   name: "VsAlert",
   props: {
     ...baseProps,
-    value: {
+    isShow: {
+      type: Boolean,
       default: true,
     },
     solid: {
@@ -62,6 +66,7 @@ const Alert = defineComponent({
       default: 0,
     },
   },
+  slots: ["default", "icon", "title"],
   emits: ["update:page", "update:hiddenContent", "input"],
   setup(props, { slots, emit }) {
     const { page } = toRefs(props);
@@ -76,72 +81,64 @@ const Alert = defineComponent({
       slots,
     });
 
-    onMounted(() => {
-      if (rootRef.value && contentRef.value) {
-        const el = rootRef.value as HTMLElement;
-        el.style.height = `${el.scrollHeight - 1}px`;
+    const { enter, beforeEnter, leave } = useTransition();
 
-        const content = contentRef.value as HTMLElement;
+    /**
+     * Set the rootRef height to its actual height - 1px to avoid scrollbars
+     */
+    const resetRootHeight = () => {
+      const root = rootRef.value as HTMLElement;
+      if (root && root.style) {
+        root.style.height = `${root.scrollHeight - 1}px`;
+      }
+    };
+
+    /**
+     * Set the minimum height of contentRef to its actual height to ensure that the content is fully displayed
+     */
+    const resetContentHeight = () => {
+      const content = contentRef.value as HTMLElement;
+      if (content && content.style) {
         content.style.minHeight = `${content.scrollHeight}px`;
       }
+    };
+
+    onMounted(() => {
+      resetRootHeight();
+      resetContentHeight();
     });
 
     watch(
       () => props.page,
       () => {
-        if (contentRef.value) {
-          const content = contentRef.value as HTMLElement;
-          content.style.minHeight = `${content.scrollHeight}px`;
-
-          nextTick(() => {
-            const root = rootRef.value as HTMLElement;
-            root.style.height = `${root.scrollHeight - 1}px`;
-          });
-        }
+        nextTick(() => {
+          resetContentHeight();
+          resetRootHeight();
+        });
       }
     );
 
     watch(
       () => props.hiddenContent,
       () => {
-        if (!props.value) {
+        if (!props.isShow) {
           return;
         }
-        const el = rootRef.value as HTMLElement;
+        const root = rootRef.value as HTMLElement;
         const content = contentRef.value as HTMLElement;
         if (!props.hiddenContent) {
-          el.style.height = "auto";
+          root.style.height = "auto";
           setTimeout(() => {
-            el.style.height = `${rootRef.value!.scrollHeight - 1}px`;
+            resetRootHeight();
           }, 250);
         } else {
-          el.style.height = `${
-            rootRef.value!.scrollHeight - content.scrollHeight
-          }px`;
+          root.style.height = `${root.scrollHeight - content.scrollHeight}px`;
         }
       }
     );
 
-    const beforeEnter = (element: Element) => {
-      const el = element as HTMLElement;
-      el.style.height = "0px";
-    };
-
-    const enter = (element: Element, done: () => void) => {
-      const el = element as HTMLElement;
-      const h = el.scrollHeight;
-      el.style.height = `${h - 1}px`;
-      done();
-    };
-
-    const leave = (element: Element) => {
-      const el = element as HTMLElement;
-      el.style.minHeight = "0px";
-      el.style.height = "0px";
-    };
-
     const handleClickClose = () => {
-      emit("input", !props.value);
+      emit("input", !props.isShow);
     };
 
     const handleClickHidden = () => {
@@ -149,9 +146,10 @@ const Alert = defineComponent({
     };
 
     return () => (
-      <Transition ref={rootRef}>
-        {props.value && (
+      <Transition>
+        {props.isShow && (
           <div
+            ref={rootRef}
             class={[
               "vs-alert",
               { [`vs-alert--solid`]: !!props.solid },
@@ -165,16 +163,16 @@ const Alert = defineComponent({
               // colors
               {
                 [`vs-component--primary`]:
-                  !baseProps.danger &&
-                  !baseProps.success &&
-                  !baseProps.warn &&
-                  !baseProps.dark &&
-                  !baseProps.color,
+                  !props.danger &&
+                  !props.success &&
+                  !props.warn &&
+                  !props.dark &&
+                  !props.color,
               },
-              { [`vs-component--danger`]: !!baseProps.danger },
-              { [`vs-component--warn`]: !!baseProps.warn },
-              { [`vs-component--success`]: !!baseProps.success },
-              { [`vs-component--dark`]: !!baseProps.dark },
+              { [`vs-component--danger`]: !!props.danger },
+              { [`vs-component--warn`]: !!props.warn },
+              { [`vs-component--success`]: !!props.success },
+              { [`vs-component--dark`]: !!props.dark },
             ]}
           >
             {/* icon */}
@@ -208,11 +206,9 @@ const Alert = defineComponent({
             >
               {!props.hiddenContent && (
                 <div class="vs-alert__content" ref={contentRef}>
-                  <div>
-                    <div class="vs-alert__content__text" ref="textRef">
-                      {slots.default?.()}
-                      {...getPagesValue.value}
-                    </div>
+                  <div class="vs-alert__content__text">
+                    {slots.default?.()}
+                    {...getPagesValue.value}
                   </div>
                 </div>
               )}
@@ -239,7 +235,7 @@ const Alert = defineComponent({
             )}
 
             {/* pagination */}
-            {pagination()}
+            {!props.hiddenContent && pagination()}
           </div>
         )}
       </Transition>

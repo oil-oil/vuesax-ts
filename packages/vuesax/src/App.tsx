@@ -5,6 +5,7 @@ import { VsButton, VsButtonGroup, VsAlert } from "./components";
 export default defineComponent({
   setup() {
     const page = ref(1);
+    const hide = ref(false);
     return () => (
       <>
         <div style="display: flex">
@@ -63,7 +64,8 @@ export default defineComponent({
           <VsAlert>123</VsAlert>
 
           <VsAlert
-            shadow
+            // shadow
+            danger
             v-slots={{
               title: () => <div>Vuesax Framework</div>,
             }}
@@ -78,6 +80,7 @@ export default defineComponent({
           </VsAlert>
 
           <VsAlert
+            v-model:hiddenContent={hide.value}
             v-model:page={page.value}
             v-slots={{
               title: () => <div>"Vuesax Framework"</div>,

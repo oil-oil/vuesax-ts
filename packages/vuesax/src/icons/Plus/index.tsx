@@ -1,4 +1,5 @@
 import { defineComponent } from "vue";
+import "./style.scss";
 
 const IconPlus = defineComponent({
   props: {
