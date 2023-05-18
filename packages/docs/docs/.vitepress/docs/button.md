@@ -250,13 +250,6 @@ const handleClickFace = ()=> {
 }
 </script>
 <style scoped>
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  flex-wrap: wrap;
-}
 .toggle span{
     display:flex;
     align-items:center;
@@ -362,30 +355,30 @@ You can change the full style towards *flat* of a button with the `flat` propert
 
 <template #template>
 
-  ```html{4}
-<template>
-  <div class="center">
-    <VsButton
+  ```html{4,11,18}
+  <template>
+    <div class="center">
+      <VsButton
+        flat
+        :active="active.flat === 0"
+        @click="active.flat = 0"
+      >
+        Active
+      </VsButton>
+      <VsButton
+        flat
+        :active="active.flat === 1"
+        @click="active.flat = 0"
+      >
+        Default
+      </VsButton>
+      <VsButton
       flat
-      :active="active.flat === 0"
-      @click="active.flat = 0"
-    >
-      Active
-    </VsButton>
-    <VsButton
-      flat
-      :active="active.flat === 1"
-      @click="active.flat = 0"
-    >
-      Default
-    </VsButton>
-    <VsButton
-    flat
-    disabled>
-      Disabled
-    </VsButton>
-  </div>
-</template>
+      disabled>
+        Disabled
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -438,31 +431,31 @@ You can change the full style towards *border* of a button with the `border` pro
 
 <template #template>
 
-  ```html{4}
-    <template>
-  <div class="center">
-  <VsButton
-      border
-      :active="active.border === 0"
-      @click="active.border = 0"
-    >
-   Active
-  </VsButton>
-  <VsButton
-      border
-      :active="active.border === 1"
-      @click="active.border = 1"
-    >
-   Default
-  </VsButton>
-  <VsButton
-      border
-      disabled
-    >
-   Disabled
-  </VsButton>
- </div>
-</template>
+  ```html{4,11,18}
+  <template>
+    <div class="center">
+      <VsButton
+          border
+          :active="active.border === 0"
+          @click="active.border = 0"
+        >
+      Active
+      </VsButton>
+      <VsButton
+          border
+          :active="active.border === 1"
+          @click="active.border = 1"
+        >
+      Default
+      </VsButton>
+      <VsButton
+          border
+          disabled
+        >
+      Disabled
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -470,12 +463,12 @@ You can change the full style towards *border* of a button with the `border` pro
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       border: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -519,30 +512,30 @@ You can change the full style towards *Gradient* of a button with the `gradient`
 
 <template #template>
 
-  ```html{4}
-    <template>
-  <div class="center">
-    <VsButton
-      gradient
-      :active="active.gradient === 0"
-      @click="active.gradient = 0"
-    >
-      Active
-    </VsButton>
-    <VsButton
-      gradient
-      :active="active.gradient === 1"
-      @click="active.gradient = 1"
-    >
-      Default
-    </VsButton>
-    <VsButton
-      gradient
-      disabled
-    >
-      Disabled
-    </VsButton>
-  </div>
+  ```html{4,11,18}
+  <template>
+    <div class="center">
+      <VsButton
+        gradient
+        :active="active.gradient === 0"
+        @click="active.gradient = 0"
+      >
+        Active
+      </VsButton>
+      <VsButton
+        gradient
+        :active="active.gradient === 1"
+        @click="active.gradient = 1"
+      >
+        Default
+      </VsButton>
+      <VsButton
+        gradient
+        disabled
+      >
+        Disabled
+      </VsButton>
+    </div>
 </template>
   ```
 
@@ -551,12 +544,12 @@ You can change the full style towards *Gradient* of a button with the `gradient`
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       gradient: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -597,31 +590,31 @@ Change the style of the button to a relief aspect with the `relief` property, th
 
 <template #template>
 
-  ```html{4}
+  ```html{4,11,18}
   <template>
-   <div class="center">
-    <VsButton
-      relief
-      :active="active.relief === 0"
-      @click="active.relief = 0"
-    >
-      Active
-    </VsButton>
-    <VsButton
-      relief
-      :active="active.relief === 1"
-      @click="active.relief = 1"
-    >
-      Default
-    </VsButton>
-    <VsButton
-      relief
-      disabled
-    >
-      Disabled
-    </VsButton>
-  </div>
-</template>
+    <div class="center">
+      <VsButton
+        relief
+        :active="active.relief === 0"
+        @click="active.relief = 0"
+      >
+        Active
+      </VsButton>
+      <VsButton
+        relief
+        :active="active.relief === 1"
+        @click="active.relief = 1"
+      >
+        Default
+      </VsButton>
+      <VsButton
+        relief
+        disabled
+      >
+        Disabled
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -629,12 +622,12 @@ Change the style of the button to a relief aspect with the `relief` property, th
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       relief: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -674,31 +667,31 @@ Change the style of the button with the `transparent` property, the property is 
 
 <template #template>
 
-  ```html{4}
-    <template>
-      <div>
-        <Vsbutton
-          transparent
-          :active="active.transparent === 0"
-          @click="active.transparent = 0"
-        >
-          Active
-        </Vsbutton>
-        <Vsbutton
-          transparent
-          :active="active.transparent === 1"
-          @click="active.transparent = 1"
-        >
-          Default
-        </Vsbutton>
-        <Vsbutton
-          transparent
-          disabled
-        >
-          Disabled
-        </Vsbutton>
-      </div>
-    </template>
+  ```html{4,11,18}
+  <template>
+    <div>
+      <Vsbutton
+        transparent
+        :active="active.transparent === 0"
+        @click="active.transparent = 0"
+      >
+        Active
+      </Vsbutton>
+      <Vsbutton
+        transparent
+        :active="active.transparent === 1"
+        @click="active.transparent = 1"
+      >
+        Default
+      </Vsbutton>
+      <Vsbutton
+        transparent
+        disabled
+      >
+        Disabled
+      </Vsbutton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -706,12 +699,12 @@ Change the style of the button with the `transparent` property, the property is 
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       transparent: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -752,31 +745,31 @@ Change the style of the button with the `shadow` property, the property is a `bo
 
 <template #template>
 
-  ```html{4}
-<template>
-   <div class="center">
-    <VsButton
-      shadow
-      :active="active.shadow === 0"
-      @click="active.shadow = 0"
-    >
-      Active
-    </VsButton>
-    <VsButton
-      shadow
-      :active="active.shadow === 1"
-      @click="active.shadow = 1"
-    >
-      Default
-    </VsButton>
-    <VsButton
-      shadow
-      disabled
-    >
-      Disabled
-    </VsButton>
-  </div>
-</template>
+  ```html{4,11,18}
+  <template>
+    <div class="center">
+      <VsButton
+        shadow
+        :active="active.shadow === 0"
+        @click="active.shadow = 0"
+      >
+        Active
+      </VsButton>
+      <VsButton
+        shadow
+        :active="active.shadow === 1"
+        @click="active.shadow = 1"
+      >
+        Default
+      </VsButton>
+      <VsButton
+        shadow
+        disabled
+      >
+        Disabled
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -784,12 +777,12 @@ Change the style of the button with the `shadow` property, the property is a `bo
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       shadow: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -866,41 +859,41 @@ Change the color of the Button component with the `color` property and the color
 
 <template #template>
 
-  ```html{10}
-<template>
+  ```html{11,19,27,35,43,,51}
+  <template>
     <div class="center">
-    <VsButton
-      :active="active.color === 0"
-      @click="active.color = 0"
-    >
-      Default
-    </VsButton>
-    <VsButton
-      shadow
-      success
-      flat
-      :active="active.color === 1"
-      @click="active.color = 1"
-    >
-      Success
-    </VsButton>
-    <VsButton
-      danger
-      border
-      :active="active.color === 2"
-      @click="active.color = 2"
-    >
-      Danger
-    </VsButton>
-    <VsButton
-      warn
-      gradient
-      :active="active.color === 3"
-      @click="active.color = 3"
-    >
-      Warn
-    </VsButton>
-    <VsButton
+      <VsButton
+        :active="active.color === 0"
+        @click="active.color = 0"
+      >
+        Default
+      </VsButton>
+      <VsButton
+        shadow
+        success
+        flat
+        :active="active.color === 1"
+        @click="active.color = 1"
+      >
+        Success
+      </VsButton>
+      <VsButton
+        danger
+        border
+        :active="active.color === 2"
+        @click="active.color = 2"
+      >
+        Danger
+      </VsButton>
+      <VsButton
+        warn
+        gradient
+        :active="active.color === 3"
+        @click="active.color = 3"
+      >
+        Warn
+      </VsButton>
+      <VsButton
         dark
         shadow
         :active="active.color === 4"
@@ -914,7 +907,7 @@ Change the color of the Button component with the `color` property and the color
         :active="active.color === 5"
         @click="active.color = 5"
       >
-          HEX
+        HEX
       </VsButton>
       <VsButton
         color="rgb(59,222,200)"
@@ -924,8 +917,8 @@ Change the color of the Button component with the `color` property and the color
       >
         RGB
       </VsButton>
-  </div>
-</template>
+    </div>
+  </template>
   ```
 
 </template>
@@ -933,12 +926,12 @@ Change the color of the Button component with the `color` property and the color
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       color: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -1035,64 +1028,63 @@ This property makes the button have a specific size making it the same width and
 
 <template #template>
 
-  ```html{4}
-<template #example>
+  ```html{4,11,20,29,38,47}
+  <template #example>
     <div class="center">
-    <VsButton
-      icon
-      :active="active.icon === 0"
-      @click="active.icon = 0"
-    >
-      <i class='bx bx-home-alt'></i>
-    </VsButton>
-    <VsButton
-      icon
-        color="success"
-        flat
-        :active="active.icon === 1"
-        @click="active.icon = 1"
-    >
-      <i class='bx bxs-phone-call'></i>
-    </VsButton>
-    <VsButton
-      icon
-        color="danger"
-        border
-        :active="active.icon === 2"
-        @click="active.icon = 2"
-    >
-      <i class='bx bxs-heart'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="warn"
-      gradient
-      :active="active.icon === 3"
-      @click="active.icon = 3"
-    >
-      <i class='bx bxs-bell-ring'></i>
-    </VsButton>
-    <VsButton
-      icon
-        color="#7d33ff"
-        relief
-        :active="active.icon === 4"
-        @click="active.icon = 4"
-    >
-      <i class='bx bxs-paper-plane'></i>
-    </VsButton>
-    <VsButton
-      icon
-        color="rgb(59,222,200)"
+      <VsButton
+        icon
+        :active="active.icon === 0"
+        @click="active.icon = 0"
+      >
+        <i class='bx bx-home-alt'></i>
+      </VsButton>
+      <VsButton
+        icon
+          color="success"
+          flat
+          :active="active.icon === 1"
+          @click="active.icon = 1"
+      >
+        <i class='bx bxs-phone-call'></i>
+      </VsButton>
+      <VsButton
+        icon
+          color="danger"
+          border
+          :active="active.icon === 2"
+          @click="active.icon = 2"
+      >
+        <i class='bx bxs-heart'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="warn"
         gradient
-        :active="active.icon == 6"
-        @click="active.icon = 6"
-    >
-      <i class='bx bxs-purchase-tag'></i>
-    </VsButton>
- 
-  </div>
-</template>
+        :active="active.icon === 3"
+        @click="active.icon = 3"
+      >
+        <i class='bx bxs-bell-ring'></i>
+      </VsButton>
+      <VsButton
+        icon
+          color="#7d33ff"
+          relief
+          :active="active.icon === 4"
+          @click="active.icon = 4"
+      >
+        <i class='bx bxs-paper-plane'></i>
+      </VsButton>
+      <VsButton
+        icon
+          color="rgb(59,222,200)"
+          gradient
+          :active="active.icon == 6"
+          @click="active.icon = 6"
+      >
+        <i class='bx bxs-purchase-tag'></i>
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -1100,12 +1092,12 @@ This property makes the button have a specific size making it the same width and
 <template #script>
 
   ```html
-    <script setup>
+  <script setup>
     import { reactive } from 'vue'
     const active = reactive({
       icon: 0,
     })
-    </script>
+  </script>
   ```
 
 </template>
@@ -1172,7 +1164,7 @@ If you need a button with text and icon you can do them by adding them in the `s
 
 <template #template>
 
-  ```html{7}
+  ```html{7,15,23,31,39,47}
 <template #example>
     <div class="center">
       <VsButton
@@ -1311,66 +1303,66 @@ You can completely round the corners with the `circle` property, the property is
 
 <template #template>
 
-  ```html{4}
-    <template #example>
+  ```html{4,11,21,30,,39,49}
+  <template #example>
     <div class="center">
-    <VsButton
-      circle
-      :active="active.circle === 0"
-      @click="active.circle = 0"
-    >
-      Home
-    </VsButton>
-    <VsButton
-      circle
-      icon
-      success
-      flat
-      :active="active.circle === 1"
-      @click="active.circle = 1"
-    >
-      <i class="bx bxs-phone-call"></i>
-    </VsButton>
-    <VsButton
-      circle
-      danger
-      border
-      :active="active.circle === 2"
-      @click="active.circle = 2"
-    >
-      <i class="bx bxs-heart"></i> Like
-    </VsButton>
-    <VsButton
-      circle
-      color="warn"
-      gradient
-      :active="active.circle === 3"
-      @click="active.circle = 3"
-    >
-      Notifications <i class="bx bxs-bell-ring"></i>
-    </VsButton>
-    <VsButton
-      circle
-      icon
-      color="#7d33ff"
-      relief
-      :active="active.circle === 5"
-      @click="active.circle = 5"
-    >
-      <i class="bx bxs-paper-plane"></i>
-    </VsButton>
-    <VsButton
-      circle
-      icon
-      color="rgb(59,222,200)"
-      gradient
-      :active="active.circle === 6"
-      @click="active.circle = 6"
-    >
-      <i class="bx bxs-purchase-tag"></i>
-    </VsButton>
-  </div>
-</template>
+      <VsButton
+        circle
+        :active="active.circle === 0"
+        @click="active.circle = 0"
+      >
+        Home
+      </VsButton>
+      <VsButton
+        circle
+        icon
+        success
+        flat
+        :active="active.circle === 1"
+        @click="active.circle = 1"
+      >
+        <i class="bx bxs-phone-call"></i>
+      </VsButton>
+      <VsButton
+        circle
+        danger
+        border
+        :active="active.circle === 2"
+        @click="active.circle = 2"
+      >
+        <i class="bx bxs-heart"></i> Like
+      </VsButton>
+      <VsButton
+        circle
+        color="warn"
+        gradient
+        :active="active.circle === 3"
+        @click="active.circle = 3"
+      >
+        Notifications <i class="bx bxs-bell-ring"></i>
+      </VsButton>
+      <VsButton
+        circle
+        icon
+        color="#7d33ff"
+        relief
+        :active="active.circle === 5"
+        @click="active.circle = 5"
+      >
+        <i class="bx bxs-paper-plane"></i>
+      </VsButton>
+      <VsButton
+        circle
+        icon
+        color="rgb(59,222,200)"
+        gradient
+        :active="active.circle === 6"
+        @click="active.circle = 6"
+      >
+        <i class="bx bxs-purchase-tag"></i>
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -1459,66 +1451,66 @@ You can make all the corners completely straight with the `Square` property, the
 
 <template #template>
 
-  ```html{4}
-    <template #example>
-  <div class="center">
-    <VsButton
-      square
-      :active="active.square === 0"
-      @click="active.square = 0"
-    >
-      Home
-    </VsButton>
-    <VsButton
-      square
-      icon
-      success
-      flat
-      :active="active.square === 1"
-      @click="active.square = 1"
-    >
-      <i class="bx bxs-phone-call"></i>
-    </VsButton>
-    <VsButton
-      square
-      danger
-      border
-      :active="active.square === 2"
-      @click="active.square = 2"
-    >
-      <i class="bx bxs-heart"></i> Like
-    </VsButton>
-    <VsButton
-      square
-      warn
-      gradient
-      :active="active.square === 3"
-      @click="active.square = 3"
-    >
-      Notifications <i class="bx bxs-bell-ring"></i>
-    </VsButton>
-    <VsButton
-      square
-      icon
-      color="#7d33ff"
-      relief
-      :active="active.square === 5"
-      @click="active.square = 5"
-    >
-      <i class="bx bxs-paper-plane"></i>
-    </VsButton>
-    <VsButton
-      square
-      icon
-      color="rgb(59,222,200)"
-      gradient
-      :active="active.square === 6"
-      @click="active.square = 6"
-    >
-      <i class="bx bxs-purchase-tag"></i>
-    </VsButton>
-  </div>
-</template>
+  ```html{4,11,21,30,39,49,}
+  <template #example>
+    <div class="center">
+      <VsButton
+        square
+        :active="active.square === 0"
+        @click="active.square = 0"
+      >
+        Home
+      </VsButton>
+      <VsButton
+        square
+        icon
+        success
+        flat
+        :active="active.square === 1"
+        @click="active.square = 1"
+      >
+        <i class="bx bxs-phone-call"></i>
+      </VsButton>
+      <VsButton
+        square
+        danger
+        border
+        :active="active.square === 2"
+        @click="active.square = 2"
+      >
+        <i class="bx bxs-heart"></i> Like
+      </VsButton>
+      <VsButton
+        square
+        warn
+        gradient
+        :active="active.square === 3"
+        @click="active.square = 3"
+      >
+        Notifications <i class="bx bxs-bell-ring"></i>
+      </VsButton>
+      <VsButton
+        square
+        icon
+        color="#7d33ff"
+        relief
+        :active="active.square === 5"
+        @click="active.square = 5"
+      >
+        <i class="bx bxs-paper-plane"></i>
+      </VsButton>
+      <VsButton
+        square
+        icon
+        color="rgb(59,222,200)"
+        gradient
+        :active="active.square === 6"
+        @click="active.square = 6"
+      >
+        <i class="bx bxs-purchase-tag"></i>
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -1594,45 +1586,45 @@ values:
 
 <template #template>
 
-  ```html{4}
-    <template>
-  <div class="center">
-    <VsButton
-      size="xl"
-      :active="active.size === 0"
-       @click="active.size = 0"
-    >
-      XLarge
-    </VsButton>
-    <VsButton
-      size="large"
-      :active="active.size === 1"
-      @click="active.size = 1"
-    >
-      Large
-    </VsButton>
-    <VsButton
-      :active="active.size === 2"
-      @click="active.size = 2"
-    >
-      Default
-    </VsButton>
-    <VsButton
-      size="small"
-      :active="active.size === 3"
-      @click="active.size = 3"
-    >
-      Small
-    </VsButton>
-    <VsButton
-      size="mini"
-      :active="active.size === 4"
-      @click="active.size = 4"
-    >
-      Mini
-    </VsButton>
-  </div>
-</template>
+  ```html{4,11,24,31}
+  <template>
+    <div class="center">
+      <VsButton
+        size="xl"
+        :active="active.size === 0"
+        @click="active.size = 0"
+      >
+        XLarge
+      </VsButton>
+      <VsButton
+        size="large"
+        :active="active.size === 1"
+        @click="active.size = 1"
+      >
+        Large
+      </VsButton>
+      <VsButton
+        :active="active.size === 2"
+        @click="active.size = 2"
+      >
+        Default
+      </VsButton>
+      <VsButton
+        size="small"
+        :active="active.size === 3"
+        @click="active.size = 3"
+      >
+        Small
+      </VsButton>
+      <VsButton
+        size="mini"
+        :active="active.size === 4"
+        @click="active.size = 4"
+      >
+        Mini
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -1721,66 +1713,66 @@ Now you can add a loading status with the `loading` property, the property is a 
 
 <template #template>
 
-  ```html{4}
-<template>
-  <div class="center">
-    <VsButton
-      loading
-      :active="active.loading === 0"
-      @click="active.loading = 0"
-    >
-      Home
-    </VsButton>
-    <VsButton
-      loading
-      icon
-      success
-      flat
-      :active="active.loading === 1"
-      @click="active.loading = 1"
-    >
-      <i class="bx bxs-phone-call"></i>
-    </VsButton>
-    <VsButton
-      loading
-      danger
-      border
-      :active="active.loading === 2"
-      @click="active.loading = 2"
-    >
-      <i class="bx bxs-heart"></i> Like
-    </VsButton>
-    <VsButton
-      loading
-      warn
-      gradient
-      :active="active.loading === 3"
-      @click="active.loading = 3"
-    >
-      Notifications <i class="bx bxs-bell-ring"></i>
-    </VsButton>
-    <VsButton
-      loading
-      icon
-      color="#7d33ff"
-      relief
-      :active="active.loading === 4"
-      @click="active.loading = 4"
-    >
-      <i class="bx bxs-paper-plane"></i>
-    </VsButton>
-    <VsButton
-      loading
-      icon
-      color="rgb(59,222,200)"
-      gradient
-      :active="active.loading === 4"
-      @click="active.loading = 4"
-    >
-      <i class="bx bxs-purchase-tag"></i>
-    </VsButton>
-  </div>
-</template>
+  ```html{4,11,21,30,39,49}
+  <template>
+    <div class="center">
+      <VsButton
+        loading
+        :active="active.loading === 0"
+        @click="active.loading = 0"
+      >
+        Home
+      </VsButton>
+      <VsButton
+        loading
+        icon
+        success
+        flat
+        :active="active.loading === 1"
+        @click="active.loading = 1"
+      >
+        <i class="bx bxs-phone-call"></i>
+      </VsButton>
+      <VsButton
+        loading
+        danger
+        border
+        :active="active.loading === 2"
+        @click="active.loading = 2"
+      >
+        <i class="bx bxs-heart"></i> Like
+      </VsButton>
+      <VsButton
+        loading
+        warn
+        gradient
+        :active="active.loading === 3"
+        @click="active.loading = 3"
+      >
+        Notifications <i class="bx bxs-bell-ring"></i>
+      </VsButton>
+      <VsButton
+        loading
+        icon
+        color="#7d33ff"
+        relief
+        :active="active.loading === 4"
+        @click="active.loading = 4"
+      >
+        <i class="bx bxs-paper-plane"></i>
+      </VsButton>
+      <VsButton
+        loading
+        icon
+        color="rgb(59,222,200)"
+        gradient
+        :active="active.loading === 4"
+        @click="active.loading = 4"
+      >
+        <i class="bx bxs-purchase-tag"></i>
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -1878,75 +1870,75 @@ Now you can add a status of sending or uploading data to the server with the `up
 
 <template #template>
 
-  ```html{4}
-<template>
-  <div class="center">
-    <VsButton
-      upload
-      :active="active.upload === 0"
-      @click="active.upload = 0"
-    >
-      Home
-    </VsButton>
-    <VsButton
-      upload
-      icon
-      success
-      flat
-      :active="active.upload === 1"
-      @click="active.upload = 1"
-    >
-      <i class="bx bxs-phone-call"></i>
-    </VsButton>
-    <VsButton
-      upload
-      danger
-      border
-      :active="active.upload === 2"
-      @click="active.upload = 2"
-    >
-      <i class="bx bxs-heart"></i> Like
-    </VsButton>
-    <VsButton
-      upload
-      warn
-      gradient
-      :active="active.upload === 3"
-      @click="active.upload = 3"
-    >
-      Notifications <i class="bx bxs-bell-ring"></i>
-    </VsButton>
-    <VsButton
-      upload
-      dark
-      transparent
-      :active="active.upload === 4"
-      @click="active.upload = 4"
-    >
-      Dark
-    </VsButton>
-    <VsButton
-      upload
-      icon
-      color="#7d33ff"
-      relief
-      :active="active.upload === 5"
-      @click="active.upload = 5"
-    >
-      <i class="bx bxs-paper-plane"></i>
-    </VsButton>
-    <VsButton
-      upload
-      icon
-      color="rgb(59,222,200)"
-      gradient
-      :active="active.upload === 6"
-      @click="active.upload = 6"
-    >
-      <i class="bx bxs-purchase-tag"></i>
-    </VsButton>
-  </div>
-</template>
+  ```html{4,11,21,30,39,48,58,}
+  <template>
+    <div class="center">
+      <VsButton
+        upload
+        :active="active.upload === 0"
+        @click="active.upload = 0"
+      >
+        Home
+      </VsButton>
+      <VsButton
+        upload
+        icon
+        success
+        flat
+        :active="active.upload === 1"
+        @click="active.upload = 1"
+      >
+        <i class="bx bxs-phone-call"></i>
+      </VsButton>
+      <VsButton
+        upload
+        danger
+        border
+        :active="active.upload === 2"
+        @click="active.upload = 2"
+      >
+        <i class="bx bxs-heart"></i> Like
+      </VsButton>
+      <VsButton
+        upload
+        warn
+        gradient
+        :active="active.upload === 3"
+        @click="active.upload = 3"
+      >
+        Notifications <i class="bx bxs-bell-ring"></i>
+      </VsButton>
+      <VsButton
+        upload
+        dark
+        transparent
+        :active="active.upload === 4"
+        @click="active.upload = 4"
+      >
+        Dark
+      </VsButton>
+      <VsButton
+        upload
+        icon
+        color="#7d33ff"
+        relief
+        :active="active.upload === 5"
+        @click="active.upload = 5"
+      >
+        <i class="bx bxs-paper-plane"></i>
+      </VsButton>
+      <VsButton
+        upload
+        icon
+        color="rgb(59,222,200)"
+        gradient
+        :active="active.upload === 6"
+        @click="active.upload = 6"
+      >
+        <i class="bx bxs-purchase-tag"></i>
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -1989,15 +1981,15 @@ You can make the button have the full width allowed with the `block` property, t
 <template #template>
 
   ```html{4}
-<template #example>
-  <div class="center">
-    <VsButton
-      block
-    >
-      <i class='bx bxs-paint-roll' ></i> Edit Theme
-    </VsButton>
-  </div>
-</template>
+  <template #example>
+    <div class="center">
+      <VsButton
+        block
+      >
+        <i class='bx bxs-paint-roll' ></i> Edit Theme
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -2057,7 +2049,7 @@ You can also change the type of animation with the `animation-type` property and
 
 <template #template>
 
-  ```html{5,6,7}
+  ```html{5,6,7,15,16,17,26,27,28,37,38,39}
     <template>
       <div class="center">
         <Vsbutton>
@@ -2066,7 +2058,6 @@ You can also change the type of animation with the `animation-type` property and
             <i class='bx bx-home-alt' ></i>
           </template>
         </Vsbutton>
-
         <Vsbutton
           flat
           success
@@ -2077,7 +2068,6 @@ You can also change the type of animation with the `animation-type` property and
             <i class='bx bx-mail-send' ></i> Send
           </template>
         </Vsbutton>
-
         <Vsbutton
           gradient
           style="min-width: 60px"
@@ -2089,7 +2079,6 @@ You can also change the type of animation with the `animation-type` property and
             Store
           </template>
         </Vsbutton>
-
         <Vsbutton
           icon
           relief
@@ -2242,125 +2231,125 @@ Supported colors: (`facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `s
 
 <template #template>
 
-  ```html{5}
-    <template>
-  <div class="center">
-    <VsButton
-      icon
-      color="facebook"
-    >
-      <i class='bx bxl-facebook-square'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="twitter"
-    >
-      <i class='bx bxl-twitter'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="youtube"
-    >
-      <i class='bx bxl-youtube'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="linkedin"
-    >
-      <i class='bx bxl-linkedin'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="whatsapp"
-    >
-      <i class='bx bxl-whatsapp'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="twitch"
-    >
-      <i class='bx bxl-twitch'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="medium"
-    >
-      <i class='bx bxl-medium'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="skype"
-    >
-      <i class='bx bxl-skype'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="slack"
-    >
-      <i class='bx bxl-slack-old'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="messenger"
-    >
-      <i class='bx bxl-messenger'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="tumblr"
-    >
-      <i class='bx bxl-tumblr'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="dribbble"
-    >
-      <i class='bx bxl-dribbble'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="google-plu
-    s">
-      <i class='bx bxl-google-plus'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="vimeo"
-    >
-      <i class='bx bxl-vimeo'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="pinterest"
-    >
-      <i class='bx bxl-pinterest'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="spotify"
-    >
-      <i class='bx bxl-spotify'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="discord"
-    >
-      <i class='bx bxl-discord'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="amazon"
-    >
-      <i class='bx bxl-amazon'></i>
-    </VsButton>
-    <VsButton
-      icon
-      color="reddit"
-    >
-      <i class='bx bxl-reddit'></i>
-    </VsButton>
-  </div>
-</template>
+  ```html{5,11,17,23,29,35,41,47,53,59,65,71,77,83,89,95,101,107,113}
+  <template>
+    <div class="center">
+      <VsButton
+        icon
+        color="facebook"
+      >
+        <i class='bx bxl-facebook-square'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="twitter"
+      >
+        <i class='bx bxl-twitter'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="youtube"
+      >
+        <i class='bx bxl-youtube'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="linkedin"
+      >
+        <i class='bx bxl-linkedin'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="whatsapp"
+      >
+        <i class='bx bxl-whatsapp'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="twitch"
+      >
+        <i class='bx bxl-twitch'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="medium"
+      >
+        <i class='bx bxl-medium'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="skype"
+      >
+        <i class='bx bxl-skype'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="slack"
+      >
+        <i class='bx bxl-slack-old'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="messenger"
+      >
+        <i class='bx bxl-messenger'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="tumblr"
+      >
+        <i class='bx bxl-tumblr'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="dribbble"
+      >
+        <i class='bx bxl-dribbble'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="google-plu
+      s">
+        <i class='bx bxl-google-plus'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="vimeo"
+      >
+        <i class='bx bxl-vimeo'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="pinterest"
+      >
+        <i class='bx bxl-pinterest'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="spotify"
+      >
+        <i class='bx bxl-spotify'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="discord"
+      >
+        <i class='bx bxl-discord'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="amazon"
+      >
+        <i class='bx bxl-amazon'></i>
+      </VsButton>
+      <VsButton
+        icon
+        color="reddit"
+      >
+        <i class='bx bxl-reddit'></i>
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -2413,42 +2402,42 @@ these buttons usually do an important action in specific and go with a fixed pos
 
 <template #template>
 
-  ```html{6}
-<template>
-  <div class="center">
-    <VsButton
-      circle
-      icon
-      floating
-    >
-      <i class='bx bx-plus' ></i>
-    </VsButton>
-    <VsButton
-      color="whatsapp"
-      circle
-      icon
-      floating
-    >
-      <i class='bx bxl-whatsapp' ></i>
-    </VsButton>
-    <VsButton
-      color="#ff3e4e"
-      circle
-      icon
-      floating
-    >
-      <i class='bx bx-up-arrow-alt' ></i>
-    </VsButton>
-    <VsButton
-      circle
-      icon
-      disabled
-      floating
-    >
-      <i class='bx bxs-chat' ></i>
-    </VsButton>
-  </div>
-</template>
+  ```html{6,14,22,30}
+  <template>
+    <div class="center">
+      <VsButton
+        circle
+        icon
+        floating
+      >
+        <i class='bx bx-plus' ></i>
+      </VsButton>
+      <VsButton
+        color="whatsapp"
+        circle
+        icon
+        floating
+      >
+        <i class='bx bxl-whatsapp' ></i>
+      </VsButton>
+      <VsButton
+        color="#ff3e4e"
+        circle
+        icon
+        floating
+      >
+        <i class='bx bx-up-arrow-alt' ></i>
+      </VsButton>
+      <VsButton
+        circle
+        icon
+        disabled
+        floating
+      >
+        <i class='bx bxs-chat' ></i>
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -2527,70 +2516,70 @@ If you need to make a group of buttons you can use the **sub-component** `<Vsbut
 
 <template #template>
 
-  ```html{3,16}
-<template>
-  <div class="center">
-    <VsButton-group>
-      <VsButton>
-        One
-      </VsButton>
-      <VsButton>
-        Two
-      </VsButton>
-      <VsButton>
-        Three
-      </VsButton>
-      <VsButton>
-        four
-      </VsButton>
-    </VsButton-group>
-    <span class="divider" />
-    <VsButton-group>
-      <VsButton flat icon>
-        <i class='bx bx-play' ></i>
-      </VsButton>
-      <VsButton flat icon>
-        <i class='bx bx-pause' ></i>
-      </VsButton>
-      <VsButton flat icon>
-        <i class='bx bx-fast-forward' ></i>
-      </VsButton>
-      <VsButton flat icon>
-        <i class='bx bx-shuffle' ></i>
-      </VsButton>
-    </VsButton-group>
-    <span class="divider" />
-    <VsButton-group>
-      <VsButton border>
-        <i class='bx bxs-pencil' ></i> Edit
-      </VsButton>
-      <VsButton border icon>
-        <i class='bx bx-font-color' ></i>
-      </VsButton>
-      <VsButton border icon>
-        <i class='bx bx-align-middle' ></i>
-      </VsButton>
-      <VsButton border>
-        <i class='bx bx-font-size' ></i> Font size
-      </VsButton>
-    </VsButton-group>
-    <span class="divider" />
-    <VsButton-group>
-      <VsButton relief>
-        <i class='bx bx-home-alt' ></i> Home
-      </VsButton>
-      <VsButton relief>
-        <i class='bx bxs-phone-call' ></i> Contact
-      </VsButton>
-      <VsButton relief loading>
-        <i class='bx bxs-cart-alt' ></i> Products
-      </VsButton>
-      <VsButton relief upload>
-        <i class='bx bxs-envelope' ></i> Send
-      </VsButton>
-    </VsButton-group>
-  </div>
-</template>
+  ```html{3,16,18,31,33,46,48,61}
+  <template>
+    <div class="center">
+      <VsButton-group>
+        <VsButton>
+          One
+        </VsButton>
+        <VsButton>
+          Two
+        </VsButton>
+        <VsButton>
+          Three
+        </VsButton>
+        <VsButton>
+          four
+        </VsButton>
+      </VsButton-group>
+      <span class="divider" />
+      <VsButton-group>
+        <VsButton flat icon>
+          <i class='bx bx-play' ></i>
+        </VsButton>
+        <VsButton flat icon>
+          <i class='bx bx-pause' ></i>
+        </VsButton>
+        <VsButton flat icon>
+          <i class='bx bx-fast-forward' ></i>
+        </VsButton>
+        <VsButton flat icon>
+          <i class='bx bx-shuffle' ></i>
+        </VsButton>
+      </VsButton-group>
+      <span class="divider" />
+      <VsButton-group>
+        <VsButton border>
+          <i class='bx bxs-pencil' ></i> Edit
+        </VsButton>
+        <VsButton border icon>
+          <i class='bx bx-font-color' ></i>
+        </VsButton>
+        <VsButton border icon>
+          <i class='bx bx-align-middle' ></i>
+        </VsButton>
+        <VsButton border>
+          <i class='bx bx-font-size' ></i> Font size
+        </VsButton>
+      </VsButton-group>
+      <span class="divider" />
+      <VsButton-group>
+        <VsButton relief>
+          <i class='bx bx-home-alt' ></i> Home
+        </VsButton>
+        <VsButton relief>
+          <i class='bx bxs-phone-call' ></i> Contact
+        </VsButton>
+        <VsButton relief loading>
+          <i class='bx bxs-cart-alt' ></i> Products
+        </VsButton>
+        <VsButton relief upload>
+          <i class='bx bxs-envelope' ></i> Send
+        </VsButton>
+      </VsButton-group>
+    </div>
+  </template>
   ```
 
 </template>
@@ -2635,34 +2624,34 @@ This is an example of what you can achieve with simple logic and few lines of co
 <template #template>
 
   ```html
-<template>
-  <div class="center">
-    <VsButton
-      @click="handleClick"
-      :icon="success"
-      :upload="sending"
-      :color="success ? 'success' : 'primary'"
-    >
-      <span v-if="!success">
-        <i class='bx bx-mail-send' ></i>
-          Send
-      </span>
-      <i class='bx bx-check' v-else ></i>
-    </VsButton>
-    <VsButton
-      :animate-inactive="successFace"
-      @click="handleClickFace"
-      :loading="loadingFace"
-      color="facebook"
-    >
-      <i class='bx bxl-facebook-square' ></i>
-      {{ successFace ? 'Logout' : 'Facebook' }}
-      <template #animate >
-        <i class='bx bx-user' ></i> Login
-      </template>
-    </VsButton>
-  </div>
-</template>
+  <template>
+    <div class="center">
+      <VsButton
+        @click="handleClick"
+        :icon="success"
+        :upload="sending"
+        :color="success ? 'success' : 'primary'"
+      >
+        <span v-if="!success">
+          <i class='bx bx-mail-send' ></i>
+            Send
+        </span>
+        <i class='bx bx-check' v-else ></i>
+      </VsButton>
+      <VsButton
+        :animate-inactive="successFace"
+        @click="handleClickFace"
+        :loading="loadingFace"
+        color="facebook"
+      >
+        <i class='bx bxl-facebook-square' ></i>
+        {{ successFace ? 'Logout' : 'Facebook' }}
+        <template #animate >
+          <i class='bx bx-user' ></i> Login
+        </template>
+      </VsButton>
+    </div>
+  </template>
   ```
 
 </template>
@@ -2670,32 +2659,29 @@ This is an example of what you can achieve with simple logic and few lines of co
 <template #script>
 
   ```html
-    <script setup>
-    import {reactive} from 'vue'
-    const toggle = reactive({
-      sending: false,
-      success: false,
-
-      loadingFace: false,
-      successFace: false,
-    })
-    const handleClick = ()=> {
-      toggle.sending = true
-
-      setTimeout(() => {
-      toggle.sending = false
-      toggle.success = !this.success
-      }, 2000);
-    }
-    const handleClickFace = ()=> {
-      toggle.loadingFace = true
-
-      setTimeout(() => {
-        toggle.loadingFace = false
-        toggle.successFace = !toggle.successFace
-      }, 2000);
-    }
-    </script>
+  <script setup>
+  import {reactive} from 'vue'
+  const toggle = reactive({
+    sending: false,
+    success: false,
+    loadingFace: false,
+    successFace: false,
+  })
+  const handleClick = ()=> {
+    toggle.sending = true
+    setTimeout(() => {
+    toggle.sending = false
+    toggle.success = !this.success
+    }, 2000);
+  }
+  const handleClickFace = ()=> {
+    toggle.loadingFace = true
+    setTimeout(() => {
+      toggle.loadingFace = false
+      toggle.successFace = !toggle.successFace
+    }, 2000);
+  }
+  </script>
   ```
 
 </template>
@@ -2757,7 +2743,7 @@ If you need to use a button such as a vue-router link or an external link you ca
 
 <template #template>
 
-  ```html
+  ```html{4,10,17,18}
     <template>
       <div class="center">
         <Vsbutton

@@ -34,7 +34,7 @@ const props = defineProps<{
   codepen?: any;
 }>();
 </script>
-<style scoped>
+<style>
 .card .text {
   padding-top: 120px;
 }
@@ -70,6 +70,15 @@ const props = defineProps<{
   border-radius: 20px;
 }
 
+.card .text h2 a {
+  font-size: .85em;
+  float: left;
+  margin-left: -.87em;
+  padding-right: .23em;
+  margin-top: .125em;
+  opacity: 0;
+}
+
 .card .example {
   position: relative;
   z-index: 0;
@@ -82,8 +91,8 @@ const props = defineProps<{
   position: relative;
   overflow: hidden;
   transition: all 0.25s ease;
-  width: 100%;
   height: auto;
+  z-index: 0;
 }
 
 .card .example:after {
@@ -160,7 +169,7 @@ const props = defineProps<{
   border-bottom: 0px;
   padding-bottom: 10px;
   transition: all 0.25s ease;
-  z-index: 200;
+  z-index: 0;
   position: relative;
 }
 
@@ -172,15 +181,11 @@ const props = defineProps<{
   padding-left: 40px;
 }
 
-.card .text h2 {
-  padding-top: 120px;
-}
-
 .card .text p {
   padding: 5px 20px;
   margin: 0px;
   font-size: 0.85rem;
-  z-index: 200;
+  z-index: 0;
   position: relative;
 }
 
