@@ -7,7 +7,7 @@ hero :
   actions:
     - theme: gradient
       text: GetStarted
-      link: /api-examples
+      link: /button
     - theme: border
       text: GitHub
       target: _blank

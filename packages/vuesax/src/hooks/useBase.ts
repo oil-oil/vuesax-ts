@@ -1,31 +1,50 @@
-import { computed, onMounted, ref, withDefaults, defineProps } from "vue";
+import { computed, onMounted, ref } from "vue";
 
-import { getColor } from "../utils/index";
+import { getColor } from "../utils";
 
-type BaseProps = {
-  color: string | null;
-  getColor: () => any;
-  danger: boolean;
-  success: boolean;
-  warn: boolean;
-  dark: boolean;
-  primary: boolean;
-  active: boolean;
-  componentColor: null | string;
+export const BaseProps = {
+  color: {
+    type: String,
+    default: null,
+  },
+  danger: {
+    type: Boolean,
+    default: false,
+  },
+  success: {
+    type: Boolean,
+    default: false,
+  },
+  warn: {
+    type: Boolean,
+    default: false,
+  },
+  dark: {
+    type: Boolean,
+    default: false,
+  },
+  primary: {
+    type: Boolean,
+    default: false,
+  },
+  active: {
+    type: Boolean,
+    default: false,
+  },
+  componentColor: {
+    type: String,
+    default: null,
+  },
 };
 
-const useBaseProps = () => {
-  const baseColor = ref<null | string>();
+type BasePropsType = {
+  [Key in keyof typeof BaseProps]: ReturnType<
+    InstanceType<(typeof BaseProps)[Key]["type"]>["valueOf"]
+  >;
+} & { [key in string]: any };
 
-  const baseProps = withDefaults(defineProps<BaseProps>(), {
-    color: null,
-    danger: false,
-    success: false,
-    warn: false,
-    dark: false,
-    primary: false,
-    active: false,
-  });
+const useBaseProps = (baseProps: BasePropsType) => {
+  const baseColor = ref<null | string>();
 
   const isColorDark = computed(
     () =>
