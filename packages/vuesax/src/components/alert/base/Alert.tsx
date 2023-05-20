@@ -9,8 +9,8 @@ import {
   watch,
 } from "vue";
 
+import { beforeEnter, enter, leave } from "./transition.ts";
 import usePagination from "./usePagination.tsx";
-import useTransition from "./useTransition.ts";
 import IconClose from "@/icons/Close";
 import IconPlus from "@/icons/Plus";
 import baseProps from "@/utils/baseProps.ts";
@@ -80,8 +80,6 @@ const Alert = defineComponent({
       },
       slots,
     });
-
-    const { enter, beforeEnter, leave } = useTransition();
 
     /**
      * Set the rootRef height to its actual height - 1px to avoid scrollbars
@@ -210,6 +208,7 @@ const Alert = defineComponent({
                     {slots.default?.()}
                     {...getPagesValue.value}
                   </div>
+                  {pagination()}
                 </div>
               )}
             </Transition>
@@ -233,9 +232,6 @@ const Alert = defineComponent({
                 ></div>
               </div>
             )}
-
-            {/* pagination */}
-            {!props.hiddenContent && pagination()}
           </div>
         )}
       </Transition>

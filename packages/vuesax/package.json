@@ -15,7 +15,7 @@
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "boxicons": "^2.1.4",
-    "vue": "^3.2.47",
+    "vue": "^3.3.4",
     "vue-router": "4"
   },
   "devDependencies": {

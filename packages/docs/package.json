@@ -8,7 +8,7 @@
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
     "vitepress": "^1.0.0-alpha.75",
-    "vue": "^3.2.47"
+    "vue": "^3.3.4"
   },
   "scripts": {
     "dev": "vitepress dev docs --port 3000",
