@@ -70,4 +70,37 @@ describe("Alert", () => {
     cy.contains("Default Alert").should("be.visible");
     cy.get(".vs-alert__icon").should("be.visible");
   });
+
+  it("test alert progress", () => {
+    cy.mount(
+      <Alert
+        v-slots={{
+          title: () => "Alert Title",
+        }}
+        progress={70}
+      >
+        Default Alert
+      </Alert>
+    );
+    cy.contains(".vs-alert__title", "Alert Title").should("be.visible");
+    cy.contains("Default Alert").should("be.visible");
+    cy.get(".vs-alert__progress").should("be.visible");
+    cy.get(".vs-alert__progress__bar")
+      .should("have.attr", "style")
+      .and("include", "70%");
+  });
+
+  it("test alert isShow", () => {
+    cy.mount(
+      <Alert
+        v-slots={{
+          title: () => "Alert Title",
+        }}
+        isShow={false}
+      >
+        Default Alert
+      </Alert>
+    );
+    cy.get(".vs-alert").should("not.exist");
+  });
 });

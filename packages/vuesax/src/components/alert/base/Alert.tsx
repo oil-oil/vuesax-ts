@@ -227,7 +227,7 @@ const Alert = defineComponent({
             {!!props.progress && (
               <div class="vs-alert__progress">
                 <div
-                  class="alert__progress__bar"
+                  class="vs-alert__progress__bar"
                   style={{ width: `${props.progress}%` }}
                 ></div>
               </div>
