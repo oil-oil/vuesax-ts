@@ -102,20 +102,7 @@ export default defineComponent({
                   paginas necesites
                 </div>
               ),
-              "page-2": () => (
-                <div>
-                  Pagina 2 - En esta otra pagina puedes poner también lo que
-                  necesites y es dinámico osea que puedes agregar cuantas
-                  paginas necesites
-                </div>
-              ),
-              "page-3": () => (
-                <div>
-                  Pagina 3 - En esta otra pagina puedes poner también lo que
-                  necesites y es dinámico osea que puedes agregar cuantas
-                  paginas necesites
-                </div>
-              ),
+              icon: () => <i class="bx bxs-chat"></i>,
             }}
           ></VsAlert>
         </div>

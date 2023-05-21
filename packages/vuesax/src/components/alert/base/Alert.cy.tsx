@@ -54,4 +54,20 @@ describe("Alert", () => {
     cy.get("@onTitleClick").should("have.callCount", 1);
     cy.contains("Alert Content").should("not.exist");
   });
+
+  it("test alert icon", () => {
+    cy.mount(
+      <Alert
+        v-slots={{
+          title: () => "Alert Title",
+          icon: () => <i class="bx bxs-chat"></i>,
+        }}
+      >
+        Default Alert
+      </Alert>
+    );
+    cy.contains(".vs-alert__title", "Alert Title").should("be.visible");
+    cy.contains("Default Alert").should("be.visible");
+    cy.get(".vs-alert__icon").should("be.visible");
+  });
 });
