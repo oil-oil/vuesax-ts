@@ -47,7 +47,7 @@ const setVar = (propertyName: string, value: string, el: HTMLElement) => {
 const setColor = (
   colorName: string,
   color: string,
-  el: any,
+  el: HTMLElement,
   addClass?: boolean
 ) => {
   function hexToRgb(hex: string) {

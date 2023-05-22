@@ -87,7 +87,7 @@ describe("Alert", () => {
     cy.get(".vs-alert__progress").should("be.visible");
     cy.get(".vs-alert__progress__bar")
       .should("have.attr", "style")
-      .and("include", "70%");
+      .and("include", "width: 70%");
   });
 
   it("test alert isShow", () => {
