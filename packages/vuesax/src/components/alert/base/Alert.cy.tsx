@@ -5,7 +5,7 @@ describe("Alert", () => {
     cy.mount(
       <Alert v-slots={{ title: () => "Alert Title" }}>Default Alert</Alert>
     );
-    cy.contains(".vs-alert__title", "Alert Title");
+    cy.contains(".vs-alert__title", "Alert Title").should("be.visible");
     cy.contains("Default Alert").should("be.visible");
   });
 

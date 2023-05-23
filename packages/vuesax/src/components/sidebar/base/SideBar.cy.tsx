@@ -1,9 +1,9 @@
-import SideBar from "./SideBar";
+import { VsSideBar, VsSideBarGroup, VsSideBarItem } from "@/components";
 
 describe("SideBar", () => {
-  it("test SideBar header logo render", () => {
+  it("test SideBar basic render", () => {
     cy.mount(
-      <SideBar
+      <VsSideBar
         absolute
         open
         v-slots={{
@@ -30,8 +30,48 @@ describe("SideBar", () => {
             </svg>
           ),
         }}
-      ></SideBar>
+      >
+        <VsSideBarItem
+          id="home"
+          v-slots={{ icon: () => <i class="bx bx-home"></i> }}
+        >
+          Home
+        </VsSideBarItem>
+        <VsSideBarGroup
+          open
+          v-slots={{
+            header: () => (
+              <VsSideBarItem
+                arrow
+                v-slots={{ icon: () => <i class="bx bx-group"></i> }}
+              >
+                Social media
+              </VsSideBarItem>
+            ),
+          }}
+        >
+          <VsSideBarItem
+            id="Instagram"
+            v-slots={{ icon: () => <i class="bx bxl-instagram"></i> }}
+          >
+            Instagram
+          </VsSideBarItem>
+          <VsSideBarItem
+            id="twitter"
+            v-slots={{ icon: () => <i class="bx bxl-twitter"></i> }}
+          >
+            Twitter
+          </VsSideBarItem>
+          <VsSideBarItem
+            id="Facebook"
+            v-slots={{ icon: () => <i class="bx bxl-facebook"></i> }}
+          >
+            Facebook
+          </VsSideBarItem>
+        </VsSideBarGroup>
+      </VsSideBar>
     );
     cy.get(".vs-sidebar__logo").should("be.visible");
+    cy.get(".vs-sidebar").should("have.class", "vs-sidebar__item");
   });
 });
