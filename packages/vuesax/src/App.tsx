@@ -1,6 +1,11 @@
 import { defineComponent, ref } from "vue";
 
-import { VsSideBar, VsSideBarGroup, VsSideBarItem } from "./components";
+import {
+  VsSideBar,
+  VsSideBarGroup,
+  VsSideBarItem,
+  VsAlert,
+} from "./components";
 
 export default defineComponent({
   setup() {
@@ -17,7 +22,7 @@ export default defineComponent({
         <VsSideBar
           absolute
           v-model={sideBarActive.value}
-          open
+          open={false}
           v-slots={{
             header: () => (
               <svg
@@ -73,89 +78,31 @@ export default defineComponent({
                 </VsSideBarItem>
               ),
             }}
-          >
-            <VsSideBarItem
-              id="Instagram"
-              v-slots={{ icon: () => <i class="bx bxl-instagram"></i> }}
-            >
-              Instagram
-            </VsSideBarItem>
-            <VsSideBarItem
-              id="twitter"
-              v-slots={{ icon: () => <i class="bx bxl-twitter"></i> }}
-            >
-              Twitter
-            </VsSideBarItem>
-            <VsSideBarItem
-              id="Facebook"
-              v-slots={{ icon: () => <i class="bx bxl-facebook"></i> }}
-            >
-              Facebook
-            </VsSideBarItem>
-          </VsSideBarGroup>
-          <VsSideBarItem
-            id="donate"
-            v-slots={{ icon: () => <i class="bx bxs-donate-heart"></i> }}
-          >
-            Donate
-          </VsSideBarItem>
-          <VsSideBarItem
-            id="donate"
-            v-slots={{ icon: () => <i class="bx bxs-donate-heart"></i> }}
-          >
-            Donate
-          </VsSideBarItem>
-          <VsSideBarItem
-            id="donate"
-            v-slots={{ icon: () => <i class="bx bxs-donate-heart"></i> }}
-          >
-            Donate
-          </VsSideBarItem>
-          <VsSideBarItem
-            id="donate"
-            v-slots={{ icon: () => <i class="bx bxs-donate-heart"></i> }}
-          >
-            Donate
-          </VsSideBarItem>
-          <VsSideBarItem
-            id="donate"
-            v-slots={{ icon: () => <i class="bx bxs-donate-heart"></i> }}
-          >
-            Donate
-          </VsSideBarItem>
-          <VsSideBarItem
-            id="donate"
-            v-slots={{ icon: () => <i class="bx bxs-donate-heart"></i> }}
-          >
-            Donate
-          </VsSideBarItem>
-          <VsSideBarItem
-            id="donate"
-            v-slots={{ icon: () => <i class="bx bxs-donate-heart"></i> }}
-          >
-            Donate
-          </VsSideBarItem>
-          <VsSideBarItem
-            id="donate"
-            v-slots={{ icon: () => <i class="bx bxs-donate-heart"></i> }}
-          >
-            Donate
-          </VsSideBarItem>
-          <VsSideBarItem
-            id="donate"
-            v-slots={{ icon: () => <i class="bx bxs-donate-heart"></i> }}
-          >
-            Donate
-          </VsSideBarItem>
+          ></VsSideBarGroup>
         </VsSideBar>
-        <button
-          onClick={() => {
-            sw.value = !sw.value;
+        <VsAlert
+          v-slots={{
+            title: () => <div>"Vuesax Framework"</div>,
+            "page-1": () => (
+              <div>
+                Pagina 1 - En esta otra pagina puedes poner también lo que
+                necesites y es dinámico osea que puedes agregar cuantas paginas
+                necesites Pagina 1 - En esta otra pagina puedes poner también lo
+                que necesites y es dinámico osea que puedes agregar cuantas
+                paginas necesitesPagina 1 - En esta otra pagina puedes poner
+                también lo que necesites y es dinámico osea que puedes agregar
+                cuantas paginas necesites Pagina 1 - En esta otra pagina puedes
+                poner también lo que necesites y es dinámico osea que puedes
+                agregar cuantas paginas necesitesPagina 1 - En esta otra pagina
+                puedes poner también lo que necesites y es dinámico osea que
+                puedes agregar cuantas paginas necesites Pagina 1 - En esta otra
+                pagina puedes poner también lo que necesites y es dinámico osea
+                que puedes agregar cuantas paginas necesites
+              </div>
+            ),
+            icon: () => <i class="bx bxs-chat"></i>,
           }}
-          style={{ position: "absolute", left: "500px" }}
-        >
-          全部切换展开
-        </button>
+        ></VsAlert>
       </div>
     );
   },

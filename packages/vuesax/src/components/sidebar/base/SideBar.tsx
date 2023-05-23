@@ -132,7 +132,12 @@ const SideBar = defineComponent({
     watch(
       () => props.background,
       () => {
-        setColor("background", props.background, rootRef.value, true);
+        setColor(
+          "background",
+          props.background,
+          rootRef.value as HTMLElement,
+          true
+        );
       }
     );
 
@@ -166,11 +171,16 @@ const SideBar = defineComponent({
       handleReduce();
 
       if (props.background !== "background") {
-        setColor("background", props.background, rootRef.value, true);
+        setColor(
+          "background",
+          props.background,
+          rootRef.value as HTMLElement,
+          true
+        );
       }
 
       if (props.textWhite) {
-        setColor("text", "#fff", rootRef.value, true);
+        setColor("text", "#fff", rootRef.value as HTMLElement, true);
       }
     });
     return () => (

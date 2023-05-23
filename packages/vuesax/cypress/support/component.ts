@@ -24,6 +24,7 @@ import "./commands";
 import { mount } from "cypress/vue";
 import { createRouter, createWebHistory } from "vue-router";
 import "@/styles/vuesax.scss";
+import "boxicons/css/boxicons.min.css";
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
@@ -55,6 +56,8 @@ Cypress.Commands.add("mount", (component, options = {}) => {
       app.use(options.router);
     },
   });
+
+  options.global.stubs = { transition: false };
 
   return mount(component, options).then(({ wrapper }) => {
     cy.wrap(wrapper).as("vue");
