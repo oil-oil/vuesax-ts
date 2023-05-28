@@ -6,3 +6,5 @@ export { default as VsButtonGroup } from "./button/group";
 
 export { default as VsLoading } from "./loading/base";
 export { default as useLoading } from "./loading/base/useLoading";
+
+export { default as VsInput } from "./input/base";

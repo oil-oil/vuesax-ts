@@ -1,7 +1,6 @@
-import { PropType, defineComponent, ref } from "vue";
+import { ButtonHTMLAttributes, PropType, defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 
-import { Size } from "@/types/size";
 import baseProps from "@/utils/baseProps";
 import ripple, { rippleCut, rippleReverse } from "@/utils/ripple/index";
 
@@ -216,6 +215,6 @@ const Button = defineComponent({
   },
 });
 
-export default Button;
+export default Button as CompWithAttr<typeof Button, ButtonHTMLAttributes>;
 
 export type ButtonProps = InstanceType<typeof Button>["$props"];

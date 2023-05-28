@@ -24,6 +24,7 @@ type LoadingType =
   | "scale";
 
 const Loading = defineComponent({
+  name: "VsLoading",
   props: {
     text: {
       type: String,
