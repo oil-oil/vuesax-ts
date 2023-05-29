@@ -5,6 +5,7 @@ import baseProps from "@/utils/baseProps";
 import ripple, { rippleCut, rippleReverse } from "@/utils/ripple/index";
 
 import "./style.scss";
+import { getColor } from "@/utils";
 
 const Button = defineComponent({
   name: "VsButton",
@@ -201,14 +202,14 @@ const Button = defineComponent({
       <button
         {...attrs}
         class={buttonClass}
-        style={{ "--vs-color": props.color ? props.getColor(props.color) : "" }}
+        style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
         onMousedown={(e) => handleMouseDown(e)}
         onClick={onClick}
         disabled={props.disabled}
         ref="buttonRef"
       >
         <div class="vs-button__content">{slots.default?.()}</div>
-        {slots.animate?.() && animateSlot}
+        {slots.animate && animateSlot}
         {props.loading && loadingElement}
       </button>
     );

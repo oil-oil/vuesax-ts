@@ -11,16 +11,16 @@ import {
 
 import { beforeEnter, enter, leave } from "./transition.ts";
 import usePagination from "./usePagination.tsx";
+import { BaseProps } from "@/hooks/useBase.ts";
 import IconClose from "@/icons/Close";
 import IconPlus from "@/icons/Plus";
-import baseProps from "@/utils/baseProps.ts";
 
 import "./style.scss";
 
 const Alert = defineComponent({
   name: "VsAlert",
   props: {
-    ...baseProps,
+    ...BaseProps,
     isShow: {
       type: Boolean,
       default: true,

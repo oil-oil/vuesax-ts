@@ -40,7 +40,7 @@
         </li>
       </ul>
     </header>
-    <transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave">
+    <transition v-on:before-enter="beforeEnter!" v-on:enter="enter!" v-on:leave="leave!">
       <div ref="codex" v-show="active" class="con-code">
         <ul ref="ul" class="ul-codes">
           <li v-if="slots.template" :class="{ 'active': activeSlot == 0 }" @click="activeSlot = 0">Template</li>
@@ -52,7 +52,7 @@
         </ul>
         <div class="con-codes">
 
-          <transition v-on:before-enter="beforeEntercodes" v-on:enter="entercodes" v-on:leave="leavecodes">
+          <transition v-on:before-enter="beforeEntercodes!" v-on:enter="entercodes!" v-on:leave="leavecodes!">
             <div ref="slot0" key="0" v-if="activeSlot == 0" class="slot-template slots">
               <slot name="template" />
               <footer @click="toggleCode" :title="active ? 'Hide code' : 'View code'" class="footer-code">
@@ -61,7 +61,7 @@
             </div>
           </transition>
 
-          <transition v-on:before-enter="beforeEntercodes" v-on:enter="entercodes" v-on:leave="leavecodes">
+          <transition v-on:before-enter="beforeEntercodes!" v-on:enter="entercodes!" v-on:leave="leavecodes!">
             <div ref="slot1" key="1" v-if="activeSlot == 1" class="slot-script slots">
               <slot name="script" />
 
@@ -71,7 +71,7 @@
             </div>
           </transition>
 
-          <transition v-on:before-enter="beforeEntercodes" v-on:enter="entercodes" v-on:leave="leavecodes">
+          <transition v-on:before-enter="beforeEntercodes!" v-on:enter="entercodes!" v-on:leave="leavecodes!">
             <div ref="slot2" key="2" v-if="activeSlot == 2" class="slot-style slots">
               <slot name="style" />
 
@@ -81,7 +81,7 @@
             </div>
           </transition>
 
-          <Transition @before-enter="beforeEntercodes" @enter="entercodes" @leave="leavecodes">
+          <Transition @before-enter="beforeEntercodes!" @enter="entercodes!" @leave="leavecodes!">
             <div ref="slot3" key="3" v-if="activeSlot == 3" class="slot-all slots">
               <slot name="template" />
               <slot name="script" />
@@ -174,7 +174,6 @@ const copy = () => {
   //       `
   //     }
   //     clipboard(text)
-  console.log("插槽", slots)
   check.value = true
   setTimeout(() => {
     check.value = false
@@ -183,34 +182,34 @@ const copy = () => {
 
 // }
 // animation
-const beforeEnter = (el: any) => {
-  el.style.height = 0
+const beforeEnter = (el: HTMLElement) => {
+  el.style.height = "0"
 }
-const enter = (el: any, done: any) => {
+const enter = (el: HTMLElement, done: () => {}) => {
   let h = el.scrollHeight
   el.style.height = h - 1 + 'px'
   codex.value.style.height = h + 15 + 'px'
   done()
 }
-const leave = (el: any) => {
+const leave = (el: HTMLElement) => {
   el.style.height = '0px'
 }
-const beforeEntercodes = (el: any) => {
-  el.style.height = 0
-  el.style.opacity = 0
+const beforeEntercodes = (el: HTMLElement) => {
+  el.style.height = "0"
+  el.style.opacity = "0"
   el.style.position = 'absolute'
 }
-const entercodes = (el: any, done: any) => {
+const entercodes = (el: HTMLElement, done: () => {}) => {
   let h = el.scrollHeight
   el.style.position = 'relative'
   el.style.height = h - 1 + 'px'
   codex.value.style.height = h + 50 + 'px'
-  el.style.opacity = 1
+  el.style.opacity = "1"
   done()
 }
-const leavecodes = (el: any) => {
+const leavecodes = (el: HTMLElement) => {
   el.style.height = '0px'
-  el.style.opacity = 0
+  el.style.opacity = "0"
   el.style.position = 'absolute'
 }
 
