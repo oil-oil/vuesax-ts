@@ -1,17 +1,16 @@
-import { PropType, defineComponent, ref } from "vue";
+import { ButtonHTMLAttributes, PropType, defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 
-import { BaseProps } from "@/hooks/useBase";
-import { Size } from "@/types/size";
-import { getColor } from "@/utils";
+import baseProps from "@/utils/baseProps";
 import ripple, { rippleCut, rippleReverse } from "@/utils/ripple/index";
 
 import "./style.scss";
+import { getColor } from "@/utils";
 
 const Button = defineComponent({
   name: "VsButton",
   props: {
-    ...BaseProps,
+    ...baseProps,
     disabled: {
       type: Boolean,
       default: false,
@@ -217,6 +216,6 @@ const Button = defineComponent({
   },
 });
 
-export default Button;
+export default Button as CompWithAttr<typeof Button, ButtonHTMLAttributes>;
 
 export type ButtonProps = InstanceType<typeof Button>["$props"];
