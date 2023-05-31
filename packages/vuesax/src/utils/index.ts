@@ -163,12 +163,12 @@ const getColor = (color: string) => {
   return newColor;
 };
 
-const insertBody = (element: HTMLElement, parent: any) => {
+const insertBody = (element: HTMLElement, parent?: any) => {
   const target = parent || document.body;
   target.insertBefore(element, target.lastChild);
 };
 
-const removeBody = (element: HTMLElement, parent: any) => {
+const removeBody = (element: HTMLElement, parent?: any) => {
   const target = parent || document.body;
   target.removeChild(element);
 };

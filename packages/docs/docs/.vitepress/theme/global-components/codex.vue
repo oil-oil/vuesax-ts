@@ -205,6 +205,7 @@ const entercodes = (el: HTMLElement, done: () => {}) => {
   el.style.height = h - 1 + 'px'
   codex.value.style.height = h + 50 + 'px'
   el.style.opacity = "1"
+  console.log("el", el)
   done()
 }
 const leavecodes = (el: HTMLElement) => {
