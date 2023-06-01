@@ -1,16 +1,16 @@
 import { ButtonHTMLAttributes, PropType, defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 
-import baseProps from "@/utils/baseProps";
+import { BaseProps } from "@/hooks/useBase";
+import { getColor } from "@/utils";
 import ripple, { rippleCut, rippleReverse } from "@/utils/ripple/index";
 
 import "./style.scss";
-import { getColor } from "@/utils";
 
 const Button = defineComponent({
   name: "VsButton",
   props: {
-    ...baseProps,
+    ...BaseProps,
     disabled: {
       type: Boolean,
       default: false,

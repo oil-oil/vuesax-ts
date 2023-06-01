@@ -17,7 +17,7 @@
 }
 
 .vs-input-parent {
-    display: flex;
+    display: inline-flex;
     align-self: center;
     justify-content: center;
     flex-direction: column;
@@ -340,25 +340,27 @@
             top: 0px;
             left: 0px;
             pointer-events: none;
+
+            &__1 {
+                border-bottom: 2px solid -color("gray-3");
+                width: 100%;
+                height: 2px;
+                position: absolute;
+                bottom: 0px;
+                transition: all 0.25s ease;
+            }
+            &__2 {
+                border-bottom: 2px solid -color("color", 1);
+                width: 0%;
+                height: 2px;
+                position: absolute;
+                bottom: 0px;
+                transition: all 0.25s ease;
+                left: 50%;
+                transform: translate(-50%);
+            }
         }
-        &__1 {
-            border-bottom: 2px solid -color("gray-3");
-            width: 100%;
-            height: 2px;
-            position: absolute;
-            bottom: 0px;
-            transition: all 0.25s ease;
-        }
-        &__2 {
-            border-bottom: 2px solid -color("color", 1);
-            width: 0%;
-            height: 2px;
-            position: absolute;
-            bottom: 0px;
-            transition: all 0.25s ease;
-            left: 50%;
-            transform: translate(-50%);
-        }
+
         .vs-input {
             background: transparent;
             border-radius: 0px;
@@ -376,17 +378,17 @@
             background: transparent;
             z-index: 100;
             // box-shadow: none !important}
-            .vs-input-content {
-                .vs-input__affects {
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    border-radius: inherit;
-                    pointer-events: none;
-                    z-index: 10;
-                }
+        }
+        .vs-input-content {
+            .vs-input__affects {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                border-radius: inherit;
+                pointer-events: none;
+                z-index: 10;
                 &__1 {
                     box-shadow: 0px 6px 25px -6px rgba(0, 0, 0, -var(shadow-opacity));
                     width: 100%;
@@ -398,23 +400,23 @@
                     border-radius: inherit;
                 }
             }
-            .vs-input {
-                background: transparent;
-                border-radius: 0px;
-                border: 2px solid transparent;
+        }
+        .vs-input {
+            background: transparent;
+            border-radius: 0px;
+            border: 2px solid transparent;
+        }
+        &:focus {
+            transform: translate(0, 3px);
+            ~ .vs-input__icon {
+                background: -color("background") !important;
+                opacity: 1;
+                box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, -var(shadow-opacity)) !important;
             }
-            &:focus {
-                transform: translate(0, 3px);
-                ~ .vs-input__icon {
-                    background: -color("background") !important;
-                    opacity: 1;
-                    box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, -var(shadow-opacity)) !important;
-                }
-                ~ .vs-input__affects {
-                    .vs-input__affects__1 {
-                        transform: translate(0, 3px);
-                        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, -var(shadow-opacity));
-                    }
+            ~ .vs-input__affects {
+                .vs-input__affects__1 {
+                    transform: translate(0, 3px);
+                    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, -var(shadow-opacity));
                 }
             }
         }

@@ -6,14 +6,13 @@ import {
   defineComponent,
 } from "vue";
 
-import baseProps from "@/utils/baseProps";
-
 import "./style.scss";
+import { BaseProps } from "@/hooks/useBase";
 
 const Input = defineComponent({
   name: "VsInput",
   props: {
-    ...baseProps,
+    ...BaseProps,
     value: {
       type: [String, Number],
       default: "",
@@ -211,7 +210,9 @@ const Input = defineComponent({
                 { "vs-input__icon--after": props.iconAfter },
                 { "vs-input__icon--click": !!attrs["click-icon"] },
               ]}
-            ></span>
+            >
+              {slots.icon()}
+            </span>
           )}
           {props.loading && loading}
 
