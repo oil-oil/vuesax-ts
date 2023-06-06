@@ -1,12 +1,16 @@
 import { defineComponent, ref } from "vue";
 
-import { VsInput } from "./components";
+import { VsCheckbox, VsInput } from "./components";
 
 export default defineComponent({
   setup() {
+    const text = ref(false);
     return () => (
       <>
-        <VsInput type="date"></VsInput>
+        <VsCheckbox v-model={text.value} id="label" lineThrough warn>
+          label
+        </VsCheckbox>
+        <div>{text.value}</div>
       </>
     );
   },
