@@ -1,7 +1,7 @@
 @import "@/styles/mixins";
-@import "root";
 
 .vs-alert {
+  --vs-color: var(--vs-primary);
   background: -color("color", 0.1);
   color: -color("color", 1);
   width: 100%;

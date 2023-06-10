@@ -1,16 +1,22 @@
 import { defineComponent, ref } from "vue";
 
-import { VsCheckbox, VsInput } from "./components";
+import { VsButton, VsSwitch } from "./components";
 
 export default defineComponent({
   setup() {
     const text = ref(false);
     return () => (
       <>
-        <VsCheckbox v-model={text.value} id="label" lineThrough warn>
+        <VsSwitch
+          v-model={text.value}
+          id="label"
+          indeterminate
+          v-slots={{
+            on: <i class="bx bxs-volume-mute"></i>,
+          }}
+        >
           label
-        </VsCheckbox>
-        <div>{text.value}</div>
+        </VsSwitch>
       </>
     );
   },

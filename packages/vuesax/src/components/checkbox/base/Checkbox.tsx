@@ -72,9 +72,7 @@ const Checkbox = defineComponent({
           <div class="vs-checkbox-con">
             <input
               class="vs-checkbox"
-              {...attrs}
               type="checkbox"
-              id={checkboxAttrs.id}
               checked={props.modelValue}
               onChange={(e) => {
                 emit(
@@ -82,6 +80,7 @@ const Checkbox = defineComponent({
                   (e.target as HTMLInputElement).checked
                 );
               }}
+              {...checkboxAttrs}
             ></input>
             <div class="vs-checkbox-mask">
               {!slots.icon && (
