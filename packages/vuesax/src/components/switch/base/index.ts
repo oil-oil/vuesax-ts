@@ -1,4 +1,4 @@
-import { App } from "vue";
+import { App, Plugin } from "vue";
 
 import Switch from "./Switch";
 
@@ -7,4 +7,4 @@ Switch.install = (app: App) => {
   return app;
 };
 
-export default Switch;
+export default Switch as typeof Switch & Plugin;
