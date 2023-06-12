@@ -6,14 +6,14 @@ import {
   defineComponent,
 } from "vue";
 
-import baseProps from "@/utils/baseProps";
+import { BaseProps } from "@/hooks/useBase";
 
 import "./style.scss";
 
 const Input = defineComponent({
   name: "VsInput",
   props: {
-    ...baseProps,
+    ...BaseProps,
     value: {
       type: [String, Number],
       default: "",

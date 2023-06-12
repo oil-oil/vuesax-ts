@@ -1,5 +1,5 @@
 {
-  "name": "VuesaxDoucoment",
+  "name": "vuesax-docs",
   "dependencies": {
     "vuesax": "workspace:*"
   },
@@ -7,7 +7,7 @@
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
-    "vitepress": "^1.0.0-alpha.75",
+    "vitepress": "1.0.0-beta.1",
     "vue": "^3.2.47"
   },
   "scripts": {

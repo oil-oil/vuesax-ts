@@ -9,7 +9,7 @@ import {
 } from "vue";
 
 import useBaseProps, { BaseProps } from "@/hooks/useBase";
-import { setColor } from "@/utils/index";
+import { getColor, setColor } from "@/utils";
 
 const SideBar = defineComponent({
   name: "VsSideBar",
@@ -64,6 +64,7 @@ const SideBar = defineComponent({
     },
   },
   slots: ["default", "header", "footer", "logo"],
+  emits: ["update:modelValue", "update:open"],
   setup(props, { slots, emit }) {
     const rootRef = ref<HTMLElement | null>(null);
     const { isColor } = useBaseProps(props);
@@ -75,7 +76,6 @@ const SideBar = defineComponent({
         emit("update:open", false);
       }
     };
-
     watch(
       () => props.open,
       (val: boolean) => {
@@ -105,7 +105,7 @@ const SideBar = defineComponent({
       { "vs-component--warn": !!props.warn },
       { "vs-component--success": !!props.success },
       { "vs-component--dark": !!props.dark },
-      { "vs-component--is-color": !!isColor },
+      { "vs-component--is-color": !!isColor.value },
     ]);
 
     /**
@@ -187,6 +187,7 @@ const SideBar = defineComponent({
       <div
         ref={rootRef}
         class={sideBarClass.value}
+        style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
         onMouseenter={mouseEnterEvent}
         onMouseleave={mouseLeaveEvent}
       >
@@ -195,7 +196,6 @@ const SideBar = defineComponent({
           <div class="vs-sidebar__header">{slots.header?.()}</div>
         )}
         {<div class="vs-sidebar">{slots.default?.()}</div>}
-        {<div>{props.modelValue}</div>}
         {slots.footer && (
           <div class="vs-sidebar__footer">{slots.footer?.()}</div>
         )}

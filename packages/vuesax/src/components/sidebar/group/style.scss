@@ -24,6 +24,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    .vs-sidebar__item{
+      padding-left: 16px !important;
+      &:after{
+        left: -6px;
+      }
+    }
   }
   &__content {
     overflow: hidden;
@@ -45,11 +51,6 @@
     }
     .vs-sidebar__item {
       background: -color('background');
-    }
-  }
-  > .vs-sidebar__group__header {
-    .vs-sidebar__item:hover {
-      padding-left: 0px;
     }
   }
 }

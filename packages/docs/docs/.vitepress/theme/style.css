@@ -1,7 +1,8 @@
 @font-face {
-  font-family: "Poppins";
-  src: url("/Poppins/Poppins-Regular.ttf");
-  font-weight: 600;
+  font-family: "FangYuanTiVF";
+  src: url("./static/AlimamaFangYuanTiVF-Thin.woff2") format('woff2'),
+      url("./static/AlimamaFangYuanTiVF-Thin.woff") format('woff');
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -31,31 +32,44 @@
   background: rgba(37, 100, 255, 0.15);
 }
 
-/* body {
-  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 13.6px;
-} */
+input {
+  font-family: "FangYuanTiVF";
+}
 
-/* input {
-  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-} */
-
-/* button {
-  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-} */
+button {
+  font-family: "FangYuanTiVF";
+}
 
 body {
+  font-family: "FangYuanTiVF";
   margin: 0;
+}
+
+code{
+  font-family: "FangYuanTiVF";
+  font-weight: lighter;
+  font-size: smaller;
 }
 
 a {
   text-decoration: none;
   font-weight: 500;
-  color: var(--vs-theme-color) !important;
+  color: var(--vs-theme-color);
 }
 
+.Layout{
+  background-color: var(--vs-theme-bg2);
+}
+.navbar {
+  position: fixed;
+  background-color: var(--vs-theme-layout);
+  top: 0px;
+  z-index: 10;
+}
+
+.navbar a{
+  font-weight: 700;
+}
 .page-docs-content-docs h1 {
   display: none;
 }
@@ -69,6 +83,7 @@ a {
   padding: 0.25rem 0.5rem;
   margin: 0;
   font-size: 0.85em !important;
+  font-weight: bold;
   background-color: var(--vs-theme-bg2);
   border-radius: 3px;
   color: var(--vs-theme-color);

@@ -12,9 +12,11 @@ hero :
       text: GitHub
       target: _blank
       link: https://github.com
+      icon: github
     - theme: icon
       text: Discord
       link: /markdown-examples
+      icon: discord
 
   features:
     - title: Feature A

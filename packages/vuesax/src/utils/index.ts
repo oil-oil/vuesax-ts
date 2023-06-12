@@ -225,9 +225,9 @@ const setCordsPosition = (
   }
 
   if (x - 10 < element.getBoundingClientRect().width && position === "left") {
-    position = "top";
+    position = "right";
     element.classList.remove("left");
-    element.classList.add("top");
+    element.classList.add("right");
   }
 
   if (rootTop - elTop < 30 || position === "top") {

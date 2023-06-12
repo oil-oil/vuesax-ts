@@ -40,7 +40,7 @@
         </li>
       </ul>
     </header>
-    <transition v-on:before-enter="beforeEnter!" v-on:enter="enter!" v-on:leave="leave!">
+    <Transition @before-enter="beforeEnter" @enter="enter" @leave="leave">
       <div ref="codex" v-show="active" class="con-code">
         <ul ref="ul" class="ul-codes">
           <li v-if="slots.template" :class="{ 'active': activeSlot == 0 }" @click="activeSlot = 0">Template</li>
@@ -52,16 +52,16 @@
         </ul>
         <div class="con-codes">
 
-          <transition v-on:before-enter="beforeEntercodes!" v-on:enter="entercodes!" v-on:leave="leavecodes!">
+          <Transition @before-enter="beforeEntercodes" @enter="entercodes" @leave="leavecodes">
             <div ref="slot0" key="0" v-if="activeSlot == 0" class="slot-template slots">
               <slot name="template" />
               <footer @click="toggleCode" :title="active ? 'Hide code' : 'View code'" class="footer-code">
                 <i class='bx bx-hide'></i>
               </footer>
             </div>
-          </transition>
+          </Transition>
 
-          <transition v-on:before-enter="beforeEntercodes!" v-on:enter="entercodes!" v-on:leave="leavecodes!">
+          <Transition @before-enter="beforeEntercodes" @enter="entercodes" @leave="leavecodes">
             <div ref="slot1" key="1" v-if="activeSlot == 1" class="slot-script slots">
               <slot name="script" />
 
@@ -69,9 +69,9 @@
                 <i class='bx bx-hide'></i>
               </footer>
             </div>
-          </transition>
+          </Transition>
 
-          <transition v-on:before-enter="beforeEntercodes!" v-on:enter="entercodes!" v-on:leave="leavecodes!">
+          <Transition @before-enter="beforeEntercodes" @enter="entercodes" @leave="leavecodes">
             <div ref="slot2" key="2" v-if="activeSlot == 2" class="slot-style slots">
               <slot name="style" />
 
@@ -79,9 +79,9 @@
                 <i class='bx bx-hide'></i>
               </footer>
             </div>
-          </transition>
+          </Transition>
 
-          <Transition @before-enter="beforeEntercodes!" @enter="entercodes!" @leave="leavecodes!">
+          <Transition @before-enter="beforeEntercodes" @enter="entercodes" @leave="leavecodes">
             <div ref="slot3" key="3" v-if="activeSlot == 3" class="slot-all slots">
               <slot name="template" />
               <slot name="script" />
@@ -94,7 +94,7 @@
           </Transition>
         </div>
       </div>
-    </transition>
+    </Transition>
   </div>
 </template>
 <script setup lang="ts">
@@ -182,33 +182,40 @@ const copy = () => {
 
 // }
 // animation
-const beforeEnter = (el: HTMLElement) => {
+const beforeEnter = (element: Element) => {
+  const el = element as HTMLElement
   el.style.height = "0"
 }
-const enter = (el: HTMLElement, done: () => {}) => {
+const enter = (element: Element, done: () => void) => {
+  const el = element as HTMLElement
   let h = el.scrollHeight
   el.style.height = h - 1 + 'px'
-  codex.value.style.height = h + 15 + 'px'
+  codex.value.style.height = h + 5 + 'px'
   done()
 }
-const leave = (el: HTMLElement) => {
+const leave = (element: Element) => {
+  const el = element as HTMLElement
   el.style.height = '0px'
 }
-const beforeEntercodes = (el: HTMLElement) => {
+const beforeEntercodes = (element: Element) => {
+  const el = element as HTMLElement
   el.style.height = "0"
   el.style.opacity = "0"
   el.style.position = 'absolute'
 }
-const entercodes = (el: HTMLElement, done: () => {}) => {
+const entercodes = (element: Element, done: () => void) => {
+  const el = element as HTMLElement
   let h = el.scrollHeight
   el.style.position = 'relative'
   el.style.height = h - 1 + 'px'
-  codex.value.style.height = h + 50 + 'px'
+  codex.value.style.height = h + 40 + 'px'
   el.style.opacity = "1"
   console.log("el", el)
   done()
 }
-const leavecodes = (el: HTMLElement) => {
+const leavecodes = (element: Element) => {
+  const el = element as HTMLElement
+  console.log("tran", el)
   el.style.height = '0px'
   el.style.opacity = "0"
   el.style.position = 'absolute'

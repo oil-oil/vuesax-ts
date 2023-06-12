@@ -1,66 +1,47 @@
 import { defineComponent, ref } from "vue";
 
-import { VsButton, VsToolTip } from "./components";
+import {
+  VsSideBarItem,
+  VsSideBarGroup,
+  VsSideBar,
+  VsToolTip,
+  VsButton,
+} from "./components";
 
 const activeTooltip1 = ref(false);
+const active = ref("home");
 export default defineComponent({
   setup() {
     return () => (
       <div
         style={{
           display: "flex",
-          width: "500px",
-          height: "500px",
+          width: "100vw",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "space-between",
         }}
       >
-        <VsToolTip v-slots={{ tooltip: () => "This is a beautiful button" }}>
-          <VsButton flat>Do hover here</VsButton>
-        </VsToolTip>
-        <VsToolTip
-          v-model={activeTooltip1.value}
-          shadow
-          notHover
-          v-slots={{
-            tooltip: () => (
-              <div>
-                <h4>Confirm</h4>
-                <p>You are sure to delete ?</p>
-                <footer>
-                  <VsButton
-                    onClick={() => {
-                      activeTooltip1.value = false;
-                    }}
-                    danger
-                    block
-                  >
-                    Delete
-                  </VsButton>
-                  <VsButton
-                    onClick={() => {
-                      activeTooltip1.value = false;
-                    }}
-                    transparent
-                    dark
-                    block
-                  >
-                    Cancel
-                  </VsButton>
-                </footer>
-              </div>
-            ),
-          }}
-        >
-          <VsButton
-            onClick={() => {
-              activeTooltip1.value = !activeTooltip1.value;
+        <VsSideBar open v-model={active.value} style={{ top: "70px" }}>
+          <VsSideBarGroup
+            style={{ "margin-top": "10px" }}
+            open
+            v-slots={{
+              header: () => (
+                <VsSideBarItem
+                  arrow
+                  v-slots={{ icon: () => <i class="bx bx-group"></i> }}
+                >
+                  Guide
+                </VsSideBarItem>
+              ),
             }}
-            border
           >
-            Do click here
-          </VsButton>
-        </VsToolTip>
+            <VsSideBarItem id="Introduction">Introduction</VsSideBarItem>
+          </VsSideBarGroup>
+          <VsSideBarItem id="Theme">Theme</VsSideBarItem>
+          <VsSideBarItem id="Components">Components</VsSideBarItem>
+          <VsSideBarItem id="Layout">Layout</VsSideBarItem>
+        </VsSideBar>
       </div>
     );
   },

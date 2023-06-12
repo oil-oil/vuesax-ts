@@ -120,7 +120,7 @@ PROPS:
     link: null
     usage: '#square'
     code: >
-            <Vsbutton icon square > // <------
+            <Vsbutton icon square >
               <i class='bx bx-home-alt'></i>
             </Vsbutton>
   # _______________________________________

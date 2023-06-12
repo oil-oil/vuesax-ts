@@ -1,11 +1,11 @@
 import { App, Plugin } from "vue";
 
-import ToolTip from "./ToolTip.tsx";
+import Tooltip from "./Tooltip.tsx";
 import "./style.scss";
 
-ToolTip.install = (app: App) => {
-  app.component(ToolTip.name, ToolTip);
+Tooltip.install = (app: App) => {
+  app.component(Tooltip.name, Tooltip);
   return app;
 };
 
-export default ToolTip as typeof ToolTip & Plugin;
+export default Tooltip as typeof Tooltip & Plugin;

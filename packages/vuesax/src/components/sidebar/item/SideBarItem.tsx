@@ -1,4 +1,4 @@
-import { defineComponent, inject, Ref } from "vue";
+import { ButtonHTMLAttributes, defineComponent, inject, Ref } from "vue";
 import { useRouter } from "vue-router";
 
 import { BaseProps } from "@/hooks/useBase";
@@ -31,7 +31,8 @@ const SideBarItem = defineComponent({
     },
   },
   slots: ["default", "icon", "arrow"],
-  setup(props, { slots }) {
+  emits: ["click"],
+  setup(props, { slots, attrs, emit }) {
     const router = useRouter();
     const { active, updateActive } = inject<{
       active: Ref<string> | null;
@@ -47,6 +48,7 @@ const SideBarItem = defineComponent({
       } else if (props.href) {
         window.open(props.href, props.target);
       }
+      emit("click");
     };
 
     return () => (
@@ -56,6 +58,7 @@ const SideBarItem = defineComponent({
           { active: active?.value === props.id, hasIcon: !!slots.icon },
         ]}
         onClick={onClick}
+        {...attrs}
       >
         {slots.icon && <div class="vs-sidebar__item__icon">{slots.icon()}</div>}
         <div class="vs-sidebar__item__text">{slots.default?.()}</div>
@@ -70,6 +73,9 @@ const SideBarItem = defineComponent({
   },
 });
 
-export default SideBarItem;
+export default SideBarItem as CompWithAttr<
+  typeof SideBarItem,
+  ButtonHTMLAttributes
+>;
 
 export type SideBarItemProps = InstanceType<typeof SideBarItem>["$props"];

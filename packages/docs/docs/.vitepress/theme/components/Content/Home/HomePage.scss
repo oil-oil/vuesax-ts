@@ -1,0 +1,44 @@
+$color_1: black;
+
+h1 {
+	font-weight: normal;
+	color: $color_1;
+}
+a {
+	text-decoration: underline;
+	color: $color_1;
+}
+.page {
+	width: 100%;
+	position: relative;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.title-part {
+	width: 40%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.title-content {
+	max-width: 600px;
+	h1 {
+		max-width: 400px;
+	}
+}
+.button-content {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	button {
+		padding: 5px 15px;
+		border-radius: 15px;
+	}
+}
+.features-part {
+	width: 60%;
+	height: 100vh;
+}

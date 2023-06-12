@@ -11,7 +11,7 @@ import {
 import { BaseProps } from "@/hooks/useBase";
 import { getColor, insertBody, setCordsPosition } from "@/utils";
 
-const ToolTip = defineComponent({
+const Tooltip = defineComponent({
   name: "VsToolTip",
   props: {
     ...BaseProps,
@@ -87,7 +87,7 @@ const ToolTip = defineComponent({
 
         let position = "top";
         if (props.bottom) {
-          position = "botoom";
+          position = "bottom";
         } else if (props.left) {
           position = "left";
         } else if (props.right) {
@@ -248,6 +248,6 @@ const ToolTip = defineComponent({
   },
 });
 
-export default ToolTip;
+export default Tooltip;
 
-export type ToolTipProps = InstanceType<typeof ToolTip>["$props"];
+export type ToolTipProps = InstanceType<typeof Tooltip>["$props"];

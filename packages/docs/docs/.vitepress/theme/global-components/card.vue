@@ -52,16 +52,16 @@ const props = defineProps<{
   margin-bottom: 0px;
 }
 
-.card > .text ul {
+.card>.text ul {
   margin-left: 40px;
   padding-left: 0px;
 }
 
-.card > .text ul li p {
+.card>.text ul li p {
   padding-left: 5px !important;
 }
 
-.card .text > img {
+.card .text>img {
   width: 100%;
   max-width: 600px;
   margin: auto;
@@ -76,7 +76,10 @@ const props = defineProps<{
   margin-left: -.87em;
   padding-right: .23em;
   margin-top: .125em;
-  opacity: 0;
+}
+
+.card .text .warning a {
+  text-decoration: underline;
 }
 
 .card .example {
@@ -154,7 +157,7 @@ const props = defineProps<{
   z-index: 0;
 }
 
-.card .example.mobile ~ .slotcode .code {
+.card .example.mobile~.slotcode .code {
   border-radius: 20px;
   background: transparent;
 }
@@ -171,6 +174,7 @@ const props = defineProps<{
   transition: all 0.25s ease;
   z-index: 0;
   position: relative;
+  color: var(--vs-theme-color)
 }
 
 .card .text h2:hover,
@@ -179,6 +183,15 @@ const props = defineProps<{
 .card .text h5:hover,
 .card .text h6:hover {
   padding-left: 40px;
+}
+
+.card .text h2 a.header-anchor::before {
+  content: "#";
+  opacity: 0;
+}
+
+.card .text h2:hover a.header-anchor::before {
+  opacity: 1;
 }
 
 .card .text p {
