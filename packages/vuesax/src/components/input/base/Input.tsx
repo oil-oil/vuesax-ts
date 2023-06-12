@@ -6,15 +6,14 @@ import {
   defineComponent,
 } from "vue";
 
-import { BaseProps } from "@/hooks/useBase";
-
 import "./style.scss";
+import { BaseProps } from "@/hooks/useBase";
 
 const Input = defineComponent({
   name: "VsInput",
   props: {
     ...BaseProps,
-    value: {
+    modelValue: {
       type: [String, Number],
       default: "",
     },
@@ -157,14 +156,14 @@ const Input = defineComponent({
           ]}
         >
           <input
-            value={props.value}
+            value={props.modelValue}
             class={[
               "vs-input",
               { "vs-input--has-icon": slots.icon },
               { "vs-input--has-icon--after": props.iconAfter },
             ]}
-            onChange={(e) => {
-              emit("input", (e.target as HTMLInputElement)?.value);
+            onInput={(e) => {
+              emit("update:modelValue", (e.target as HTMLInputElement)?.value);
             }}
             {...attrs}
             placeholder=""
@@ -178,7 +177,7 @@ const Input = defineComponent({
               for={id.value}
               class={[
                 "vs-input__label",
-                { "vs-input__label--hidden": props.value !== "" },
+                { "vs-input__label--hidden": props.modelValue !== "" },
               ]}
             >
               {attrs.placeholder}
@@ -193,7 +192,7 @@ const Input = defineComponent({
               { "vs-input__label--placeholder": props.labelPlaceholder },
               {
                 "vs-input__label--hidden":
-                  props.value !== "" ||
+                  props.modelValue !== "" ||
                   attrs.type === "date" ||
                   attrs.type === "time",
               },
@@ -211,7 +210,9 @@ const Input = defineComponent({
                 { "vs-input__icon--after": props.iconAfter },
                 { "vs-input__icon--click": !!attrs["click-icon"] },
               ]}
-            ></span>
+            >
+              {slots.icon()}
+            </span>
           )}
           {props.loading && loading}
 

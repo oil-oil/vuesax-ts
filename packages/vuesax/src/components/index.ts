@@ -10,3 +10,5 @@ export { default as VsLoading } from "./loading/base";
 export { default as useLoading } from "./loading/base/useLoading";
 
 export { default as VsInput } from "./input/base";
+export { default as VsCheckbox } from "./checkbox/base";
+export { default as VsSwitch } from "./switch/base";

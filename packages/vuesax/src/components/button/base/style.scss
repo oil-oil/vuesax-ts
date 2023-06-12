@@ -1,7 +1,15 @@
 @import "@/styles/mixins";
-@import "root";
 
 .vs-button {
+  --vs-color-rotate: var(--vs-primary);
+  --vs-color-darken: var(--vs-primary);
+
+  // component vars
+  --vs-button-padding: 8px 12px;
+  --vs-button-margin: 5px;
+  --vs-button-border-radius: 12px;
+  --vs-button-text-color: #fff;
+
   border: 0px;
   margin: -var(button-margin);
   transition: all 0.25s ease;
@@ -15,6 +23,7 @@
   padding: 0px;
   outline: none;
   box-sizing: border-box;
+
   &.vs-component-dark {
     &.vs-button--transparent {
       color: -color("text") !important;
@@ -240,7 +249,7 @@
   }
   &:hover {
     box-shadow: 0px 10px 20px -10px -color(color, 1);
-    transform: translate(0, -3px);
+    transform: translate(0, -1.5px);
   }
 }
 .vs-button--flat {
