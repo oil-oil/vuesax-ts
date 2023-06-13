@@ -11,7 +11,6 @@ const HomePage = defineComponent({
     const to = () => {
       router.go("/documentation/components/button");
     };
-    console.log(frontmatter.value);
     return () => (
       <div class="page">
         <div class="title-part">

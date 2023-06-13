@@ -1,6 +1,6 @@
 import { useData, useRoute } from "vitepress";
 import { defineComponent, ref } from "vue";
-import "./style/NavBarLinks.scss";
+import "./style/NavbarLinks.scss";
 
 type NavItem = {
   text: string;

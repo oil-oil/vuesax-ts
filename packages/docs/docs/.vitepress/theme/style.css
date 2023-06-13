@@ -32,6 +32,10 @@
   background: rgba(37, 100, 255, 0.15);
 }
 
+*{
+  scroll-margin-top: 200px;
+}
+
 input {
   font-family: "FangYuanTiVF";
 }
@@ -60,16 +64,7 @@ a {
 .Layout{
   background-color: var(--vs-theme-bg2);
 }
-.navbar {
-  position: fixed;
-  background-color: var(--vs-theme-layout);
-  top: 0px;
-  z-index: 10;
-}
 
-.navbar a{
-  font-weight: 700;
-}
 .page-docs-content-docs h1 {
   display: none;
 }

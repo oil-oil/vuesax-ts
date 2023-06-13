@@ -15,6 +15,7 @@ export default defineConfigWithTheme({
   appearance: true,
   cleanUrls: true,
   srcDir: "./.vitepress/docs",
+  scrollOffset: 135,
   locales: {
     root: {
       label: "English",
@@ -26,6 +27,7 @@ export default defineConfigWithTheme({
       lang: "zh",
       link: "/zh",
       title: "中文vuesax",
+      titleTemplate: ":title - 唐家VuesaxTs",
       themeConfig: {
         nav: zhNavbar,
         sidebar: zhSidebar,

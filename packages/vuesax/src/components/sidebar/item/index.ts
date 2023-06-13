@@ -1,6 +1,6 @@
 import { App, Plugin } from "vue";
 
-import SideBarItem from "./SideBarItem.tsx";
+import SideBarItem from "./SidebarItem.tsx";
 
 SideBarItem.install = (app: App) => {
   app.component(SideBarItem.name, SideBarItem);

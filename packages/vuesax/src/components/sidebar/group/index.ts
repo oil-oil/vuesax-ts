@@ -1,6 +1,6 @@
 import { App, Plugin } from "vue";
 
-import SidebarGroup from "./SideBarGroup.tsx";
+import SidebarGroup from "./SidebarGroup.tsx";
 import "./style.scss";
 
 SidebarGroup.install = (app: App) => {
