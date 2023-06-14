@@ -1,8 +1,19 @@
 {
   "root": true,
   "parserOptions": {
+    "tsconfigRootDir": "./",
     "project": ["./tsconfig.json"],
     "extraFileExtensions": [".vue"]
   },
-  "extends": ["custom"]
+  "extends": ["custom"],
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ]
+  }
 }

@@ -1,0 +1,15 @@
+
+.Nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70px;
+	width: 100%;
+	position: fixed;
+	background-color: var(--vs-theme-layout);
+	top: 0px;
+	z-index: 10;
+	a{
+		font-weight: 700;
+	}
+}

@@ -1,12 +1,13 @@
 {
   "extends": "tsconfig/vuesax.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "baseUrl": "./docs/.vitepress",
+  },
   "include": [
     "docs/.vitepress/**/*.ts",
     "docs/.vitepress/**/*.d.ts",
     "docs/.vitepress/**/*.tsx",
-    "docs/.vitepress/**/*.vue"
-  ],
-  "compilerOptions": {
-    "jsx": "preserve"
-  }
+    "docs/.vitepress/**/*.vue",
+  ], 
 }

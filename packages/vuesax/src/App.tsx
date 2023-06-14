@@ -8,6 +8,8 @@ import {
   VsSwitch,
 } from "./components";
 
+const activeTooltip1 = ref(false);
+const active = ref("home");
 export default defineComponent({
   setup() {
     const select = ref([]);

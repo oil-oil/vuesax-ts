@@ -1,7 +1,7 @@
 {
   "extends": "tsconfig/vuesax.json",
   "compilerOptions": {
-    "types": ["cypress", "node"],
+    "types": ["cypress", "node","cypress-real-events"],
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./*"]
