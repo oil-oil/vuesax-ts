@@ -11,10 +11,6 @@ const Button = defineComponent({
   name: "VsButton",
   props: {
     ...BaseProps,
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
     ripple: {
       type: String,
       default: "",
@@ -205,7 +201,6 @@ const Button = defineComponent({
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
         onMousedown={(e) => handleMouseDown(e)}
         onClick={onClick}
-        disabled={props.disabled}
         ref="buttonRef"
       >
         <div class="vs-button__content">{slots.default?.()}</div>

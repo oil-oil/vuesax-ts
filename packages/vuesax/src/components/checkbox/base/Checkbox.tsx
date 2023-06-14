@@ -73,7 +73,7 @@ const Checkbox = defineComponent({
             <input
               class="vs-checkbox"
               type="checkbox"
-              checked={props.modelValue}
+              checked={props.checkedForce || props.modelValue}
               onChange={(e) => {
                 emit(
                   "update:modelValue",

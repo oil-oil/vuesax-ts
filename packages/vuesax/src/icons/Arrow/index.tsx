@@ -1,4 +1,4 @@
-import { defineComponent } from "vue";
+import { HTMLAttributes, defineComponent } from "vue";
 import "./style.scss";
 
 const IconArrow = defineComponent({
@@ -8,9 +8,10 @@ const IconArrow = defineComponent({
       default: false,
     },
   },
-  setup(props) {
+  setup(props, { attrs }) {
     return () => (
       <i
+        {...attrs}
         ref="icon"
         class={[
           "vs-icon-arrow",
@@ -23,4 +24,4 @@ const IconArrow = defineComponent({
   },
 });
 
-export default IconArrow;
+export default IconArrow as CompWithAttr<typeof IconArrow, HTMLAttributes>;

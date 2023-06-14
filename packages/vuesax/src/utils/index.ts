@@ -121,6 +121,7 @@ const setColor = (
     //     })
   }
 };
+
 const getColor = (color: string) => {
   function hexToRgb(hex: string) {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
@@ -163,17 +164,20 @@ const getColor = (color: string) => {
   return newColor;
 };
 
-const insertBody = (element: HTMLElement, parent: any) => {
+const insertBody = (element: HTMLElement, parent: HTMLElement) => {
   const target = parent || document.body;
   target.insertBefore(element, target.lastChild);
 };
 
-const removeBody = (element: HTMLElement, parent: any) => {
+const removeBody = (element: HTMLElement, parent: HTMLElement) => {
   const target = parent || document.body;
   target.removeChild(element);
 };
 
-const setCords = (element: any, parent: any) => {
+/**
+ * Set the position of an element relative to its parent element.
+ */
+const setCords = (element: HTMLElement, parent: HTMLElement) => {
   const cords = parent.getBoundingClientRect();
   const { x } = cords;
   const { y } = cords;
@@ -184,14 +188,15 @@ const setCords = (element: any, parent: any) => {
   const elTop = element.clientHeight + cords.y + scrollTop;
   const rootTop = scrollTop + window.innerHeight;
 
+  // If the element is closer to the top of the window than the bottom, align it above the parent element.
   if (rootTop - elTop < 30) {
-    // console.log('hola mundo')
     style.top = `${y + scrollTop - element.clientHeight - 4}px`;
     style.left = `${x}px`;
     style.width = `${w}px`;
     element.classList.add("top");
     parent.classList.add("top");
   } else {
+    // Otherwise, align it below the parent element.
     style.top = `${y + scrollTop + h - 4}px`;
     style.left = `${x}px`;
     style.width = `${w}px`;
