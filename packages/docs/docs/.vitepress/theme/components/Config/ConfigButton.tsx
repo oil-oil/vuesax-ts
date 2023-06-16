@@ -1,10 +1,11 @@
 import { useData, useRouter } from "vitepress";
 import { defineComponent, inject, Ref } from "vue";
+import { VsSwitch } from "vuesax/src/components";
 
 const ConfigBtn = defineComponent({
   name: "ConfigBtn",
   setup() {
-    const { site } = useData();
+    const { site, isDark } = useData();
     const router = useRouter();
 
     const getLocalesRoute = (langLink: string) => {
@@ -22,6 +23,28 @@ const ConfigBtn = defineComponent({
       isSidebarOpen: Ref<boolean>;
     }>("sidebarController");
 
+    const initTheme = () => {
+      if (
+        window.localStorage.getItem("vitepress-theme-appearance") === "dark"
+      ) {
+        isDark.value = true;
+      } else {
+        isDark.value = false;
+      }
+    };
+    initTheme();
+
+    const changeTheme = () => {
+      if (isDark.value) {
+        window.localStorage.setItem("vitepress-theme-appearance", "auto");
+        document.documentElement.classList.remove("dark");
+        console.log("isDark.value: ", isDark.value);
+      } else {
+        window.localStorage.setItem("vitepress-theme-appearance", "dark");
+        document.documentElement.classList.add("dark");
+        console.log("isDark.value: ", isDark.value);
+      }
+    };
     return () => (
       <>
         <button class="config-btn">
@@ -134,6 +157,20 @@ const ConfigBtn = defineComponent({
                 )
             )}
           </div>
+        </button>
+
+        <button
+          class="switch-theme"
+          title={`Theme ${isDark.value ? "Light" : "Deep Dark"}`}
+        >
+          <VsSwitch
+            v-model={isDark.value}
+            onClick={changeTheme}
+            v-slots={{
+              off: () => <i class="bx bxs-moon"></i>,
+              on: () => <i class="bx bxs-sun"></i>,
+            }}
+          ></VsSwitch>
         </button>
       </>
     );

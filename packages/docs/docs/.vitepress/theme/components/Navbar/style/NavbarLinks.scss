@@ -88,6 +88,7 @@
             padding: 18px 18px;
             &.selected{
                 opacity: 1;
+                color: rgba(var(--vs-primary), 1);
             }
             i{
                 transition: all 0.2s ease-out;

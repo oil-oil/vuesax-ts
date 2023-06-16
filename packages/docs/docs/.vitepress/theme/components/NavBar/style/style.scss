@@ -9,6 +9,7 @@
 	background-color: var(--vs-theme-layout);
 	top: 0px;
 	z-index: 10;
+	transition: background-color .25s ease;
 	a{
 		font-weight: 700;
 	}

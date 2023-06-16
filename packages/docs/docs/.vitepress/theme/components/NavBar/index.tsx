@@ -13,7 +13,6 @@ const NavBar = defineComponent({
         {/* <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/> */}
         <NavbarTitle class="NavBarTitle" />
         <NavbarLinks />
-        <div class="curtain"></div>
       </div>
     );
   },

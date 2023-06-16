@@ -6,6 +6,7 @@ import {
   provide,
   toRef,
   computed,
+  HTMLAttributes,
 } from "vue";
 
 import useBaseProps, { BaseProps } from "@/hooks/useBase";
@@ -65,7 +66,8 @@ const SideBar = defineComponent({
   },
   slots: ["default", "header", "footer", "logo"],
   emits: ["update:modelValue", "update:open"],
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
+    console.log("attrs: ", attrs);
     const rootRef = ref<HTMLElement | null>(null);
     const { isColor } = useBaseProps(props);
     const staticWidth = 260;
@@ -190,6 +192,7 @@ const SideBar = defineComponent({
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
         onMouseenter={mouseEnterEvent}
         onMouseleave={mouseLeaveEvent}
+        {...attrs}
       >
         {slots.logo && <div class="vs-sidebar__logo">{slots.logo?.()}</div>}
         {slots.header && (
@@ -204,6 +207,6 @@ const SideBar = defineComponent({
   },
 });
 
-export default SideBar;
+export default SideBar as CompWithAttr<typeof SideBar, HTMLAttributes>;
 
 export type ButtonProps = InstanceType<typeof SideBar>["$props"];

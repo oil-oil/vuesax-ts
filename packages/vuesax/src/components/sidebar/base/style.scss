@@ -64,11 +64,15 @@
       }
     }
     .vs-sidebar__item{
+      color:#fff !important;
       &:after{
         background: #fff !important;
       }
       &.active{
-        color: #fff !important;
+        color: rgb(var(--vs-primary)) !important;
+        &:after{
+          background:  rgb(var(--vs-primary)) !important;
+        }
       }
     }
   }

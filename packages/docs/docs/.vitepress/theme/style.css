@@ -1,7 +1,9 @@
 @font-face {
   font-family: "FangYuanTiVF";
-  src: url("./static/AlimamaFangYuanTiVF-Thin.woff2") format('woff2'),
-      url("./static/AlimamaFangYuanTiVF-Thin.woff") format('woff');
+  src:url("./static/AlimamaFangYuanTiVF-Thin.woff2") format('woff2'),
+      url("./static/AlimamaFangYuanTiVF-Thin.woff") format('woff'),
+      url("./static/AlimamaFangYuanTiVF-Thin.ttf") format('ttf');
+
   font-weight: 400;
   font-style: normal;
 }
@@ -14,6 +16,15 @@
   --vs-theme-layout: #fff;
   --vs-theme-code: #3f3d56;
   --vs-theme-code2: #363449;
+  &.dark{
+    --vs-primary: 26, 92, 255;
+    --vs-theme-bg: #292C33;;
+    --vs-theme-bg2: #343842;
+    --vs-theme-color: #fff;
+    --vs-theme-layout: #22252A;
+    --vs-theme-code: #313136;
+    --vs-theme-code2: #1e2023;
+  }
 }
 
 *::-webkit-scrollbar {
@@ -21,19 +32,20 @@
   height: 5px;
   display: block;
   background: var(--vs-theme-layout);
+  z-index: 9999;
 }
 
 *::-webkit-scrollbar-thumb {
   background: var(--vs-theme-color);
   border-radius: 5px;
+  z-index: 9999;
 }
 
 ::selection {
   background: rgba(37, 100, 255, 0.15);
 }
-
-*{
-  scroll-margin-top: 200px;
+html{
+  scroll-behavior: smooth;
 }
 
 input {
@@ -61,8 +73,10 @@ a {
   color: var(--vs-theme-color);
 }
 
-.Layout{
+.layout{
   background-color: var(--vs-theme-bg2);
+  position: relative;
+  transition: background-color .25s ease;
 }
 
 .page-docs-content-docs h1 {
@@ -83,6 +97,7 @@ a {
   border-radius: 3px;
   color: var(--vs-theme-color);
   box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.04);
+  transition: background-color .25s ease;
 }
 
 .center {

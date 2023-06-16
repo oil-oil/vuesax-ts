@@ -36,7 +36,7 @@
     border-radius: 0px 20px 20px 0px;
     transform: translate(-6px);
     transition: all .25s ease;
-    z-index: 60;
+    z-index: 999;
   }
   &.active:not(.hasIcon) {
     padding-left: 25px;
@@ -98,5 +98,14 @@
     transition: all .25s ease;
     font-size: .85rem;
     white-space: nowrap;
+  }
+}
+.textWhite{
+  .vs-sidebar__group__header{
+    .vs-sidebar__item{
+      .vs-sidebar__item__arrow{
+        color: #fff;
+      }
+    }
   }
 }

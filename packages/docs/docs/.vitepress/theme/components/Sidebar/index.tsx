@@ -12,7 +12,7 @@ const SideBar = defineComponent({
   name: "SideBar",
   setup() {
     const router = useRouter();
-    const { theme } = useData<{
+    const { theme, isDark } = useData<{
       sidebar: { text: string; items: { text: string; link: string }[] }[];
     }>();
     const sidebarController = inject<{ isSidebarOpen: Ref<boolean> }>(
@@ -31,10 +31,13 @@ const SideBar = defineComponent({
     });
     const sideBarContent = () => (
       <VsSideBar
+        // background={isDark.value ? "#161618" : "#fff"}
         open={sidebarController?.isSidebarOpen.value}
+        textWhite={isDark.value}
         v-model={sideBarValue.value}
         style={{
           top: "70px",
+          backgroundColor: "var(--vs-theme-layout)",
         }}
       >
         {theme.value.sidebar.map((item) => (
@@ -50,6 +53,9 @@ const SideBar = defineComponent({
                   router.go(link.link);
                 }}
                 id={link.text}
+                style={{
+                  backgroundColor: "var(--vs-theme-layout)",
+                }}
               >
                 {link.text}
               </VsSideBarItem>

@@ -5,20 +5,22 @@ import Config from "./components/Config/index.tsx";
 import VSContent from "./components/Content/index.tsx";
 import NavBar from "./components/Navbar/index.tsx";
 import SideBar from "./components/Sidebar/index";
+import RightSidebar from "./components/Sidebar/RightSidebar.tsx";
 
 const Layout = defineComponent({
   name: "Layout",
   setup() {
     const { page, frontmatter } = useData();
-    const data = useData();
     const isSidebarOpen = ref(true);
     const toggleSidebar = () => {
       isSidebarOpen.value = !isSidebarOpen.value;
     };
 
     provide("sidebarController", { isSidebarOpen, toggleSidebar });
+    const data = useData();
+    console.log(data);
     return () => (
-      <div class="Layout">
+      <div class="layout">
         {!page.value.isNotFound && <NavBar />}
         {!page.value.isNotFound && !(frontmatter.value.layout === "home") && (
           <SideBar />
@@ -32,7 +34,7 @@ const Layout = defineComponent({
             }}
           ></Config>
         )}
-        <VSContent class="content" />
+        <VSContent />
       </div>
     );
   },
