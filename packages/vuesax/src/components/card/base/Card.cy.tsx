@@ -208,7 +208,7 @@ describe("Card", () => {
     cy.get(".vs-card__interactions").should("have.css", "bottom", "50px");
     cy.get(".vs-card__text")
       .should("have.css", "transform", "matrix(1, 0, 0, 1, 0, 0)")
-      .should("have.css", "opacity", "1")
-      .should("have.css", "box-shadow", "rgba(0, 0, 0, 0.05) 0px 0px 30px 0px");
+      .and("have.css", "opacity", "1")
+      .and("have.css", "box-shadow", "rgba(0, 0, 0, 0.05) 0px 0px 30px 0px");
   });
 });
