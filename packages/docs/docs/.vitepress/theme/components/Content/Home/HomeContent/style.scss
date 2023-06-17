@@ -1,0 +1,27 @@
+$color_1: var(--vs-theme-color);
+
+h1 {
+	font-weight: normal;
+	color: $color_1;
+}
+a {
+	text-decoration: underline;
+	color: $color_1;
+}
+
+.title-content {
+	max-width: 600px;
+	color: $color_1;
+	h1 {
+		max-width: 400px;
+	}
+}
+.button-content {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	button {
+		padding: 5px 15px;
+		border-radius: 15px;
+	}
+}

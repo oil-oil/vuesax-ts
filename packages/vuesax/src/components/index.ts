@@ -15,3 +15,5 @@ export { default as VsSwitch } from "./switch/base";
 export { default as VsSelect } from "./select/base";
 export { default as VsOptionGroup } from "./select/group";
 export { default as VsOption } from "./select/option";
+export { default as VsCard } from "./card/base";
+export { default as VsCardGroup } from "./card/group";

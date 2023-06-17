@@ -1,9 +1,8 @@
 @font-face {
   font-family: "FangYuanTiVF";
-  src:url("./static/AlimamaFangYuanTiVF-Thin.woff2") format('woff2'),
-      url("./static/AlimamaFangYuanTiVF-Thin.woff") format('woff'),
-      url("./static/AlimamaFangYuanTiVF-Thin.ttf") format('ttf');
-
+  src:url("./public/font/AlimamaFangYuanTiVF-Thin.woff2") format('woff2'),
+      url("./public/font/AlimamaFangYuanTiVF-Thin.woff") format('woff'),
+      url("./public/font/AlimamaFangYuanTiVF-Thin.ttf") format('ttf');
   font-weight: 400;
   font-style: normal;
 }

@@ -34,7 +34,7 @@ const ConfigBtn = defineComponent({
     };
     initTheme();
 
-    const changeTheme = () => {
+    const changeTheme = (e: MouseEvent) => {
       if (isDark.value) {
         window.localStorage.setItem("vitepress-theme-appearance", "auto");
         document.documentElement.classList.remove("dark");
@@ -44,6 +44,7 @@ const ConfigBtn = defineComponent({
         document.documentElement.classList.add("dark");
         console.log("isDark.value: ", isDark.value);
       }
+      e.stopPropagation();
     };
     return () => (
       <>

@@ -2,8 +2,8 @@
 layout: home
 hero : 
   name: Vuesax
-  text: 一个提供给Vue.TS的组件框架 
-  tagline: 我们热爱我们所做的。让我们帮助你做你喜欢的事。
+  text: 一个提供给Vue.TS的组件框架
+  tagline: 我们热爱我们所做的，让我们帮助你做你喜欢的事。
   actions:
     - theme: gradient
       text: 现在开始
