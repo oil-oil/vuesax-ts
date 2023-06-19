@@ -1,4 +1,4 @@
-import { App } from "vue";
+import { App, Plugin } from "vue";
 
 import Checkbox from "./Checkbox";
 
@@ -7,4 +7,4 @@ Checkbox.install = (app: App) => {
   return app;
 };
 
-export default Checkbox;
+export default Checkbox as typeof Checkbox & Plugin;

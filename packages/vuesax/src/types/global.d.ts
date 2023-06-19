@@ -1,4 +1,4 @@
-import { DefineComponent } from "vue";
+import { DefineComponent, HTMLAttributes } from "vue";
 
 declare global {
   type Size = "xs" | "sm" | "md" | "lg" | "xl";

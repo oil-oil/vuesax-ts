@@ -1,5 +1,7 @@
 import { Content, useData } from "vitepress";
 import { defineComponent, ref, onUnmounted, computed, inject, Ref } from "vue";
+
+import RightSidebar from "../../Sidebar/RightSidebar";
 import "./style.scss";
 
 const DocsPage = defineComponent({
@@ -65,10 +67,7 @@ const DocsPage = defineComponent({
               backgroundColor: pageHeaderTrigger.value
                 ? "var(--vs-theme-bg)"
                 : "",
-              width: pageHeaderTrigger.value ? "900px" : "",
-              transition: pageHeaderTrigger.value
-                ? "background-color 0.1s ease-out"
-                : "",
+              width: pageHeaderTrigger.value ? "820px" : "",
             }}
           >
             <div ref={pageHeaderContentTitleRef} class="h1">
@@ -162,7 +161,17 @@ const DocsPage = defineComponent({
           <div class="header-effect-corner"></div>
         </div>
         <div class="page-docs-content">
+          <div class="empty-space"></div>
           <Content class="page-docs-content-docs" />
+          <RightSidebar></RightSidebar>
+        </div>
+        <div
+          class={["up", { active: pageHeaderTrigger.value }]}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
+          <i class="bx bx-chevron-up"></i>
         </div>
       </main>
     );

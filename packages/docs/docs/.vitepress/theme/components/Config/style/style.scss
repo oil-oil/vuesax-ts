@@ -77,7 +77,7 @@
                 .lang{
                     opacity: 1;
                     visibility: visible;
-                    transform: translate(0,-40px);
+                    transform: translate(-25%,-40px);
                 }
             }
             svg{
@@ -89,7 +89,7 @@
                 position: absolute;
                 top:0px;
                 left: 0px;
-                transform: translate(0,-90%);
+                transform: translate(-25%,-90%);
                 padding: 0px;
                 opacity: 0;
                 visibility: hidden;
@@ -100,6 +100,7 @@
                     padding: 0px 0px !important;
                     display: block;
                     a{
+                        white-space: nowrap;
                         padding: 7px 15px;
                         font-weight: bold;
                         background: var(--vs-theme-layout);
@@ -117,6 +118,17 @@
                 }
             }
         }
+        &.switch-theme{
+            width: max-content;
+            i{
+                font-size: 1rem;
+            }
+            .on{
+                i{
+                    color:white ;
+                }
+            }
+        }
         &:last-child{
             border-radius: 0px 20px 0px 0px;
         }
@@ -129,6 +141,7 @@
             transform: rotate(179deg);
             fill: var(--vs-theme-layout);
             stroke: var(--vs-theme-layout);
+            transition: all .25s ease;
             &.invert{
                 transform: rotate(-90deg);
                 bottom: -36px;
@@ -144,7 +157,6 @@
         transition: all .25s ease;
         font-size: 1.2rem;
         color:var(--vs-theme-color)
-        
     }
 }
 
@@ -169,8 +181,5 @@
     width: 100%;
     height :100%;
     opacity: 0;
-  }
-  i.bx{
-    color:rgba(var(--vs-primary),1)
   }
 }

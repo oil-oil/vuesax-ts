@@ -23,7 +23,7 @@ export default defineConfigWithTheme({
       link: "",
     },
     zh: {
-      label: "Chinese",
+      label: "简体中文",
       lang: "zh",
       link: "/zh",
       title: "中文vuesax",

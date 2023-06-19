@@ -112,4 +112,4 @@ const Checkbox = defineComponent({
 
 export default Checkbox as CompWithAttr<typeof Checkbox, InputHTMLAttributes>;
 
-export type InputProps = InstanceType<typeof Checkbox>["$props"];
+export type CheckboxProps = InstanceType<typeof Checkbox>["$props"];

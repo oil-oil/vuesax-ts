@@ -1,7 +1,7 @@
 .card {
 	border-radius: 20px;
 	overflow: hidden;
-	margin: 20px 0;
+	margin: 0px 0px 100px 0px;
 	width: 100%;
 	&:last-of-type {
 		margin-bottom: 0px;
@@ -56,15 +56,50 @@
 				text-decoration: underline;
 			}
 		}
-		p {
+		>p {
 			padding: 5px 20px;
 			margin: 0px;
 			font-size: 0.85rem;
 			z-index: 0;
 			position: relative;
+			line-height: 1.7;
+			color: var(--vs-theme-color);
 		}
-		li {
+		ul {
 			font-size: 0.85rem;
+			color: var(--vs-theme-color);
+		}
+		.custom-block.tip{
+			background-color: rgba(70,201,58,.04);
+    		border-color: #42b983;
+    		color: #2e825c;
+		}
+		.custom-block.warning{
+			background-color: rgba(255,186,0,.09);
+    		border-color: #ffba00;
+    		color: #cc9500;
+		}
+		.custom-block.danger{
+			background-color: rgba(255,71,87,.1);
+    		border-color: rgb(255,71,87);
+    		color: rgb(255,71,87);
+		}
+
+		.custom-block.tip,
+		.custom-block.warning,
+		.custom-block.danger{
+			font-size: .85rem;
+			padding: .1rem 1rem;
+			border-left-width: .1rem;
+			border-left-style: solid;
+			margin: 1rem 0;
+			position: relative;
+			.custom-block-title{
+				font-weight: 600;
+			}
+			p{
+				font-weight: lighter;
+			}
 		}
 	}
 	.example {
