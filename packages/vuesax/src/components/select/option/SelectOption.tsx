@@ -9,8 +9,8 @@ import {
   watch,
 } from "vue";
 
+import VsCheckbox from "../../checkbox/base/Checkbox";
 import { SelectProvider } from "../types";
-import { VsCheckbox } from "@/components";
 
 import "./style.scss";
 
@@ -82,7 +82,6 @@ const SelectOption = defineComponent({
     return () => (
       <button
         ref={optionRef}
-        {...attrs}
         class={[
           "vs-select__option",
           {
@@ -100,9 +99,13 @@ const SelectOption = defineComponent({
             activeOption.value = false;
           }
         }}
+        {...attrs}
       >
         {provider?.multiple?.value ? (
-          <VsCheckbox checkedForce={isActive.value}>
+          <VsCheckbox
+            checkedForce={isActive.value}
+            color={provider.color.value}
+          >
             {slots.default?.()}
           </VsCheckbox>
         ) : (
@@ -118,4 +121,4 @@ export default SelectOption as CompWithAttr<
   ButtonHTMLAttributes
 >;
 
-export type InputProps = InstanceType<typeof SelectOption>["$props"];
+export type SelectOptionProps = InstanceType<typeof SelectOption>["$props"];

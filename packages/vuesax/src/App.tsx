@@ -1,22 +1,20 @@
 import { defineComponent, ref, watch } from "vue";
 
-import {
-  VsButton,
-  VsOption,
-  VsOptionGroup,
-  VsSelect,
-  VsSwitch,
-} from "./components";
+import { VsOption, VsOptionGroup, VsSelect } from "./components";
 
-const activeTooltip1 = ref(false);
-const active = ref("home");
 export default defineComponent({
   setup() {
     const select = ref([]);
 
     return () => (
       <>
-        <VsSelect v-model={select.value} label="filter" filter multiple>
+        <VsSelect
+          v-model={select.value}
+          label="filter"
+          filter
+          multiple
+          color="danger"
+        >
           <VsOptionGroup title="Vue.js">
             <VsOption label="Vuesax" value="1">
               Vuesax

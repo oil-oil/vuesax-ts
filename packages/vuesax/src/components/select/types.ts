@@ -20,4 +20,5 @@ export type SelectProvider = {
   childOptions: Ref<Option[]>;
   targetSelect: Ref<boolean>;
   targetClose: Ref<boolean>;
+  color: Ref<string>;
 };
