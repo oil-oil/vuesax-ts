@@ -67,7 +67,6 @@ const SideBar = defineComponent({
   slots: ["default", "header", "footer", "logo"],
   emits: ["update:modelValue", "update:open"],
   setup(props, { slots, emit, attrs }) {
-    console.log("attrs: ", attrs);
     const rootRef = ref<HTMLElement | null>(null);
     const { isColor } = useBaseProps(props);
     const staticWidth = 260;

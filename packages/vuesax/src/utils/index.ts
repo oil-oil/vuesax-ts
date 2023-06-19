@@ -164,7 +164,7 @@ const getColor = (color: string) => {
   return newColor;
 };
 
-const insertBody = (element: HTMLElement, parent: HTMLElement) => {
+const insertBody = (element: HTMLElement, parent?: HTMLElement) => {
   const target = parent || document.body;
   target.insertBefore(element, target.lastChild);
 };

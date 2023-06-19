@@ -1,7 +1,7 @@
 import { defineComponent } from "vue";
 
-import HomeContent from "./HomeContent/index.tsx";
-import "./HomePage.scss";
+import HomeTitle from "./HomeTitle.tsx";
+import "./style.scss";
 
 const HomePage = defineComponent({
   name: "HomePage",
@@ -9,7 +9,7 @@ const HomePage = defineComponent({
     return () => (
       <div class="page">
         <div class="title-part">
-          <HomeContent></HomeContent>
+          <HomeTitle></HomeTitle>
         </div>
         <div class="features-part"></div>
       </div>

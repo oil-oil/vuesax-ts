@@ -1,7 +1,6 @@
 import { useData, useRouter } from "vitepress";
 import { defineComponent } from "vue";
 import { VsButton } from "vuesax/src/components";
-import "./style.scss";
 
 const HomeContent = defineComponent({
   name: "HomeContent",
@@ -58,22 +57,24 @@ const HomeContent = defineComponent({
       return (
         <>
           {(frontmatter.value.hero.name && frontmatter.value.hero.text && (
-            <h1>
-              <b style={{ marginRight: "10px" }}>
-                {frontmatter.value.hero.name}
-              </b>
-              {frontmatter.value.hero.text}
-              <a
-                target="_blank "
-                href="https://vuejs.org/"
-                style={{ marginLeft: "12px", textDecoration: "underline" }}
-              >
-                VueTS
-              </a>
-            </h1>
+            <div class="title-content">
+              <h1>
+                <b style={{ marginRight: "10px" }}>
+                  {frontmatter.value.hero.name}
+                </b>
+                {frontmatter.value.hero.text}
+                <a
+                  target="_blank "
+                  href="https://vuejs.org/"
+                  style={{ marginLeft: "12px", textDecoration: "underline" }}
+                >
+                  VueTS
+                </a>
+              </h1>
+            </div>
           )) || <h1>{site.value.title}</h1>}
           {(frontmatter.value.hero.text && (
-            <p>{frontmatter.value.hero.tagline}</p>
+            <p class="tagline">{frontmatter.value.hero.tagline}</p>
           )) || <p>{site.value.description}</p>}
           <div class="button-content">
             <VsButton onClick={to}>Get start</VsButton>
