@@ -7,6 +7,7 @@ import {
   computed,
   defineComponent,
   nextTick,
+  onBeforeUnmount,
   onMounted,
   onUnmounted,
   provide,
@@ -20,7 +21,7 @@ import { Option, SelectProvider } from "../types";
 import useBaseProps, { BaseProps } from "@/hooks/useBase";
 import IconArrow from "@/icons/Arrow";
 import IconClose from "@/icons/Close";
-import { getColor, insertBody, setCords } from "@/utils";
+import { getColor, insertBody, removeBody, setCords } from "@/utils";
 import "./style.scss";
 
 const Select = defineComponent({
@@ -146,6 +147,11 @@ const Select = defineComponent({
     });
 
     const handleBlur = () => {
+      console.log("optionRef.value: ", optionRef.value);
+
+      if (optionRef.value) {
+        removeBody(optionRef.value, document.body);
+      }
       nextTick(() => {
         isOptionsShow.value = false;
       });
@@ -408,7 +414,7 @@ const Select = defineComponent({
       window.addEventListener("scroll", handleScroll);
     });
 
-    onUnmounted(() => {
+    onBeforeUnmount(() => {
       handleBlur();
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
@@ -425,6 +431,7 @@ const Select = defineComponent({
       childOptions,
       targetSelect,
       targetClose,
+      color: toRef(props, "color"),
     });
 
     return () => (
@@ -648,4 +655,4 @@ const Select = defineComponent({
 
 export default Select as CompWithAttr<typeof Select, InputHTMLAttributes>;
 
-export type InputProps = InstanceType<typeof Select>["$props"];
+export type SelectProps = InstanceType<typeof Select>["$props"];
