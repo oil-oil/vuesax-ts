@@ -11,7 +11,7 @@ import {
 } from "vue";
 
 import { BaseProps } from "@/hooks/useBase";
-import { getColor, isColor, setColor } from "@/utils";
+import { getColor, setColor } from "@/utils";
 import "./style.scss";
 
 const Avatar = defineComponent({

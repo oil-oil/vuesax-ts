@@ -3,6 +3,7 @@ import path from "path";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { defineConfigWithTheme } from "vitepress";
 
+import zhHome from "./locales/zh/home";
 import zhNavbar from "./locales/zh/navbar";
 import zhSidebar from "./locales/zh/sidebar";
 
@@ -31,6 +32,7 @@ export default defineConfigWithTheme({
       themeConfig: {
         nav: zhNavbar,
         sidebar: zhSidebar,
+        home: zhHome,
       },
     },
   },
@@ -92,6 +94,28 @@ export default defineConfigWithTheme({
         ],
       },
     ],
+    home: {
+      avatarPart: {
+        title: "Segoe cute",
+        text: "DO you want to participate in our initiative?We are open.",
+        button: { red: "Open", white: "Cancel" },
+      },
+      checkPart: {
+        input: "locale",
+        checkList: ["China", "Japan", "Italy", "Germany"],
+        button: "Lets Go!",
+      },
+      search: "Search",
+      select: "Dropdown",
+      card: {
+        title: "Vuesax Ts",
+        text: "Framework",
+      },
+      custom: {
+        title: "Potted cactus",
+        button: "Button",
+      },
+    },
   },
   vite: {
     plugins: [vueJsx()],

@@ -94,6 +94,7 @@ const SelectOption = defineComponent({
         ]}
         onMousedown={() => {
           provider?.onClickOption?.(props.value, props.label);
+          console.log('props.label: ', props.label);
         }}
         onBlur={() => {
           if (provider?.targetSelect?.value && provider?.targetClose?.value) {
@@ -102,11 +103,11 @@ const SelectOption = defineComponent({
         }}
       >
         {provider?.multiple?.value ? (
-          <VsCheckbox checkedForce={isActive.value}>
-            {slots.default?.()}
+          <VsCheckbox modelValue={isActive.value}>
+            {slots.default?.() || props.label}
           </VsCheckbox>
         ) : (
-          slots.default?.()
+          slots.default?.()  || props.label
         )}
       </button>
     );

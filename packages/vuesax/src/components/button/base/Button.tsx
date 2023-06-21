@@ -196,12 +196,12 @@ const Button = defineComponent({
 
     return () => (
       <button
-        {...attrs}
         class={buttonClass}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
         onMousedown={(e) => handleMouseDown(e)}
         onClick={onClick}
-        ref="buttonRef"
+        ref="buttonRef" 
+        {...attrs}
       >
         <div class="vs-button__content">{slots.default?.()}</div>
         {slots.animate && animateSlot}

@@ -19,7 +19,7 @@ a {
 	justify-content: center;
 }
 .title-part {
-	width: 40%;
+	width: 50%;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -30,23 +30,53 @@ a {
 		color: $color_1;
 	}
 	.tagline{
-		max-width: 400px;
+		color: $color_1;
+		width: 400px;
+		margin: 5px 0 25px 0;
 	}
 	.button-content {
-		width: 400px;
+		width:400px;
 		display: flex;
 		align-items: center;
 		justify-content: start;
-		button {
-			padding: 5px 15px;
-			border-radius: 15px;
+		button:nth-child(1){
+			border-radius: 17px;
+			margin: 0 10px 0 0;
+			div{
+				padding: 14.9px 30px;
+			}
+			.bx{
+				font-size: 1.5rem;
+			}
 		}
+		button:nth-child(2){
+			border-radius: 17px;
+			margin: 0 10px 0 0;
+			div{
+				padding: 10.8px 25px;
+			}
+			.bx{
+				font-size: 1.5rem;
+			}
+		}
+		.icon-button{
+			border-radius: 16px;
+			margin: 0;
+			div{
+				padding: 12.7px;
+			}
+			.bx{
+				font-size: 1.3rem;
+			}
+		}
+		
 	}
 }
 
 .features-part {
-	width: 60%;
+	width: 50%;
 	height: 100vh;
+	position: relative;
 }
 
 

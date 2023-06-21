@@ -5,7 +5,7 @@
   --vs-color-darken: var(--vs-primary);
 
   // component vars
-  --vs-button-padding: 8px 12px;
+  --vs-button-padding: 10px 15px;
   --vs-button-margin: 5px;
   --vs-button-border-radius: 12px;
   --vs-button-text-color: #fff;
@@ -190,15 +190,14 @@
   &--size-xl {
     border-radius: 20px;
     .vs-button__content {
-      padding: 15px 20px;
-      font-size: 1.1rem;
+      padding: 20px 25px;
     }
   }
   &--size-lg {
     font-size: 1rem;
     border-radius: 15px;
     .vs-button__content {
-      padding: 10px 15px;
+      padding: 15px 20px;
     }
   }
   &--size-md {
@@ -217,8 +216,9 @@
     border-radius: 7px;
     .vs-button__content {
       padding: 3px 8px;
-    } // SIZE - CLOSE -----
+    } 
   }
+  // SIZE - CLOSE -----
   &--circle {
     border-radius: 25px;
   }
@@ -229,8 +229,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
     .vs-button__content {
-      padding: 8px 8px;
+      aspect-ratio: 1/1;
     }
     i {
       font-size: 1.15rem;

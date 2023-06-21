@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
-import { InputHTMLAttributes, defineComponent, watch } from "vue";
+import { nanoid } from "nanoid";
+import { InputHTMLAttributes, defineComponent, ref } from "vue";
 
 import VsIconsCheck from "../../../icons/Check";
 import "./style.scss";
@@ -26,10 +27,6 @@ const Checkbox = defineComponent({
       type: Boolean,
       default: false,
     },
-    checkedForce: {
-      type: Boolean,
-      default: false,
-    },
     loading: {
       type: Boolean,
       default: false,
@@ -43,13 +40,17 @@ const Checkbox = defineComponent({
   emits: ["update:modelValue"],
   setup(props, { attrs, slots, emit }) {
     const checkboxAttrs = attrs as InputHTMLAttributes;
+    const uniqueId = checkboxAttrs?.id || nanoid();
+
+    const innerCheck = ref(props.checked);
+
     return () => (
       <>
         <div
           style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
           class={[
             "vs-checkbox-content",
-            { "vs-checkbox--checked": props.modelValue },
+            { "vs-checkbox--checked": props.modelValue || innerCheck.value },
             { "vs-checkbox--disabled": checkboxAttrs.disabled },
             { "vs-checkbox--loading": props.loading },
             { "vs-checkbox--label-before": props.labelBefore },
@@ -73,14 +74,16 @@ const Checkbox = defineComponent({
             <input
               class="vs-checkbox"
               type="checkbox"
-              checked={props.checkedForce || props.modelValue}
+              checked={props.checked || props.modelValue}
               onChange={(e) => {
                 emit(
                   "update:modelValue",
                   (e.target as HTMLInputElement).checked
                 );
+                innerCheck.value = (e.target as HTMLInputElement).checked;
               }}
               {...checkboxAttrs}
+              id={uniqueId}
             ></input>
             <div class="vs-checkbox-mask">
               {!slots.icon && (
@@ -99,7 +102,7 @@ const Checkbox = defineComponent({
                   lineThrough: props.lineThrough,
                 },
               ]}
-              for={checkboxAttrs.id}
+              for={uniqueId}
             >
               {slots?.default()}
             </label>

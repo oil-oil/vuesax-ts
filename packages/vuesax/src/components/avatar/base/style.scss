@@ -148,6 +148,8 @@
     display: block;
     transition: all .25s ease;
     border-radius: inherit;
+    user-select: none;
+    -webkit-user-drag: none;
   }
   &__loading {
     position: absolute;
@@ -214,13 +216,14 @@
   }
   &__badge {
     position: absolute;
-    width: 13px;
-    height: 13px;
+    width: 26%;
+    height: 26%;
     background: -color('badge');
+    box-shadow: 0 4px 10px -1.5px rgba(var(--vs-badge),.7);
     border-radius: 50%;
     border: 2px solid -color('background') !important;
-    right: -4px;
-    bottom: -4px;
+    right: -2px;
+    bottom: -2px;
     font-size: .6rem;
     font-weight: bold;
     z-index: 200;
@@ -240,17 +243,18 @@
       min-height: 18px;
     }
     &.top-right {
-      top: -4px;
+      top: -2px;
       bottom: auto;
     }
     &.top-left {
-      top: -4px;
-      left: -4px;
+      top: -2px;
+      left: -2px;
       bottom: auto;
       right: auto;
     }
     &.bottom-left {
-      left: -4px;
+      left: -3px;
+      bottom:-1px;
       right: auto;
     }
   }

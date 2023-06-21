@@ -112,6 +112,14 @@
             visibility: visible;
             transition: all 0.25s ease 0.3s;
         }
+        .on{
+            opacity: 0 !important;
+            transition: all 0.05s !important;
+        }
+        .off{
+            opacity: 0;
+            transition: all 0.05s !important;
+        }
     }
     &:hover {
         background: -color("gray-4");

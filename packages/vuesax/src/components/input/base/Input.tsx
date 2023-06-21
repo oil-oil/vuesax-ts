@@ -8,6 +8,7 @@ import {
 
 import "./style.scss";
 import { BaseProps } from "@/hooks/useBase";
+import { getColor } from "@/utils";
 
 const Input = defineComponent({
   name: "VsInput",
@@ -38,10 +39,6 @@ const Input = defineComponent({
     loading: {
       type: Boolean,
       default: false,
-    },
-    color: {
-      type: String,
-      default: null,
     },
     state: {
       type: String,
@@ -143,6 +140,7 @@ const Input = defineComponent({
           { "vs-component--dark": !!props.dark },
           { "vs-component--is-color": !!props.color },
         ]}
+        style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
       >
         {/* input content */}
         <div

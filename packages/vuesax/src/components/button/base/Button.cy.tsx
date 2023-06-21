@@ -85,4 +85,16 @@ describe("Button", () => {
         cy.get(".vs-button__loading").should("be.visible");
       });
   });
+
+  it("test button different size", () => {
+    const sizeArr = ["xs", "sm", "md", "lg", "xl"] as const;
+
+    sizeArr.forEach((prop) => {
+      cy.mount(<Button size="xl">{prop}</Button>);
+      cy.contains(prop)
+        .should("be.visible")
+        .should("have.class", `vs-button--size-${prop}`)
+        .should("have.class", `vs-button--${prop}`);
+    });
+  });
 });

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "FangYuanTiVF";
-  src:url("./public/font/AlimamaFangYuanTiVF-Thin.woff2") format('woff2'),
-      url("./public/font/AlimamaFangYuanTiVF-Thin.woff") format('woff'),
-      url("./public/font/AlimamaFangYuanTiVF-Thin.ttf") format('ttf');
+  src:url("/font/AlimamaFangYuanTiVF-Thin.woff2") format('woff2'),
+      url("/font/AlimamaFangYuanTiVF-Thin.woff") format('woff'),
+      url("/font/AlimamaFangYuanTiVF-Thin.ttf") format('ttf');
   font-weight: 400;
   font-style: normal;
 }
@@ -15,6 +15,7 @@
   --vs-theme-layout: #fff;
   --vs-theme-code: #3f3d56;
   --vs-theme-code2: #363449;
+  --vs-theme-home-component-bg:#fff;
   &.dark{
     --vs-primary: 26, 92, 255;
     --vs-theme-bg: #292C33;;
@@ -23,6 +24,7 @@
     --vs-theme-layout: #22252A;
     --vs-theme-code: #313136;
     --vs-theme-code2: #1e2023;
+    --vs-theme-home-component-bg:#292C33;
   }
 }
 
