@@ -234,6 +234,7 @@
   &__chips {
     width: 100%;
     height: auto;
+    min-height: 30px;
     position: absolute;
     left: 0px;
     background: -color("gray-2");

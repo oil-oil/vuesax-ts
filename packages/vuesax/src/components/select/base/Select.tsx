@@ -9,7 +9,6 @@ import {
   nextTick,
   onBeforeUnmount,
   onMounted,
-  onUnmounted,
   provide,
   ref,
   toRef,
@@ -90,7 +89,7 @@ const Select = defineComponent({
     const isFilterActive = ref(false);
     const textFilter = ref("");
     const targetSelect = ref(false);
-    const targetSelectInput = ref(false);
+    const isInputHover = ref(false);
     const targetClose = ref(false);
 
     const { isColorDark } = useBaseProps(props);
@@ -147,11 +146,6 @@ const Select = defineComponent({
     });
 
     const handleBlur = () => {
-      console.log("optionRef.value: ", optionRef.value);
-
-      if (optionRef.value) {
-        removeBody(optionRef.value, document.body);
-      }
       nextTick(() => {
         isOptionsShow.value = false;
       });
@@ -166,7 +160,7 @@ const Select = defineComponent({
     };
 
     const handleWindowClick = (evt: Event) => {
-      if (!targetSelectInput.value) {
+      if (!isInputHover.value) {
         handleBlur();
       }
 
@@ -269,7 +263,7 @@ const Select = defineComponent({
       } else if (!evt.relatedTarget) {
         handleBlur();
       } else if (
-        !targetSelectInput.value ||
+        !isInputHover.value ||
         (!targetSelect.value && !isOptionsShow.value)
       ) {
         handleBlur();
@@ -398,11 +392,11 @@ const Select = defineComponent({
     );
 
     watch(isOptionsShow, () => {
-      nextTick(() => {
-        if (isOptionsShow.value) {
+      if (isOptionsShow.value) {
+        nextTick(() => {
           insertOptions();
-        }
-      });
+        });
+      }
       childOptions.value = [];
       uids.value = [];
     });
@@ -416,6 +410,9 @@ const Select = defineComponent({
 
     onBeforeUnmount(() => {
       handleBlur();
+      if (optionRef.value) {
+        removeBody(optionRef.value, document.body);
+      }
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
     });
@@ -471,12 +468,12 @@ const Select = defineComponent({
           ]}
           onMouseleave={(e) => {
             if (e.relatedTarget !== optionRef.value) {
-              targetSelectInput.value = false;
+              isInputHover.value = false;
               targetSelect.value = false;
             }
           }}
           onMouseenter={() => {
-            targetSelectInput.value = true;
+            isInputHover.value = true;
           }}
         >
           {/* input */}
@@ -610,11 +607,11 @@ const Select = defineComponent({
                 ref={optionRef}
                 onMouseleave={() => {
                   targetSelect.value = false;
-                  targetSelectInput.value = false;
+                  isInputHover.value = false;
                 }}
                 onMouseenter={() => {
                   targetSelect.value = true;
-                  targetSelectInput.value = true;
+                  isInputHover.value = true;
                 }}
               >
                 <div class="vs-select__options__content" ref={contentRef}>

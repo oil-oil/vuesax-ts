@@ -1,19 +1,20 @@
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 
-import { VsAvatar, VsAvatarGroup } from "./components";
+import { VsAvatar, VsAvatarGroup, VsOption, VsSelect } from "./components";
 
 export default defineComponent({
   setup() {
+    const options = ["vue", "react", "angular"];
+    const value = ref("");
     return () => (
       <>
-        <VsAvatarGroup>
-          <VsAvatar color="#7d33ff">Cat</VsAvatar>
-          <VsAvatar color="#7d33ff">Cat</VsAvatar>
-          <VsAvatar color="#7d33ff">Cat</VsAvatar>
-          <VsAvatar color="#7d33ff">Cat</VsAvatar>
-          <VsAvatar color="#7d33ff">Cat</VsAvatar>
-          <VsAvatar color="#7d33ff">Cat</VsAvatar>
-        </VsAvatarGroup>
+        <VsSelect v-model={value.value} multiple>
+          {options.map((item) => (
+            <VsOption value={item} label={item}>
+              {item}
+            </VsOption>
+          ))}
+        </VsSelect>
       </>
     );
   },

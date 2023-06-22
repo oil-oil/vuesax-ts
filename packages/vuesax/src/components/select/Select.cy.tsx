@@ -44,4 +44,21 @@ describe("Select", () => {
         .and("include", `--vs-color: ${color}`);
     });
   });
+
+  it("test select modelValue", () => {
+    const onClick = cy.spy().as("onClick");
+    cy.mount(
+      <Select modelValue="vue" onUpdate:modelValue={onClick}>
+        {options.map((item) => (
+          <SelectOption value={item}>{item}</SelectOption>
+        ))}
+      </Select>
+    );
+
+    cy.get(".vs-select-content").click();
+    cy.contains(".activeOption", "vue").should("be.visible");
+
+    cy.contains(".vs-select__option", "react").click();
+    cy.get("@onClick").should("be.calledWith", "react");
+  });
 });
