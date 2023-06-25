@@ -6,7 +6,7 @@ import VsIconsArrow from "@/icons/Arrow";
 
 import "./style.scss";
 
-const SideBarItem = defineComponent({
+const SidebarItem = defineComponent({
   name: "SideBarItem",
   props: {
     ...BaseProps,
@@ -73,9 +73,9 @@ const SideBarItem = defineComponent({
   },
 });
 
-export default SideBarItem as CompWithAttr<
-  typeof SideBarItem,
+export default SidebarItem as CompWithAttr<
+  typeof SidebarItem,
   ButtonHTMLAttributes
 >;
 
-export type SideBarItemProps = InstanceType<typeof SideBarItem>["$props"];
+export type SidebarItemProps = InstanceType<typeof SidebarItem>["$props"];
