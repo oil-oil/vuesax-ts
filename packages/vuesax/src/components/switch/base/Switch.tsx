@@ -83,4 +83,4 @@ const Switch = defineComponent({
 
 export default Switch as CompWithAttr<typeof Switch, InputHTMLAttributes>;
 
-export type InputProps = InstanceType<typeof Switch>["$props"];
+export type SwitchProps = InstanceType<typeof Switch>["$props"];

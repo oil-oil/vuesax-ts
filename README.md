@@ -1,81 +1,27 @@
-# Turborepo starter
+# vuesax-ts
 
-This is an official starter Turborepo.
+## Status: Alpha
 
-## Using this example
+vuesax-ts is a component library that updates and enhances the functionality of [vuesax-next](https://github.com/lusaxweb/vuesax-next), which is no longer being actively developed.
 
-Run the following command:
+**vuesax-ts** provides full **Vue 3** + **typescript** support and uses **Vite** for component compilation.
 
-```sh
-npx create-turbo@latest
-```
+| Feature            | Vuesax 4        | Vuesax-ts        |
+| ------------------ | --------------- | ---------------- |
+| Component files    | `.ts`           | `.tsx`           |
+| CSS Processor      | Sass            | Sass             |
+| Build tools        | Webpack, babel  | Vite             |
+| Documentation      | Vuepress v1.1.0 | Vitepress v1.0.0 |
+| Typescript support | Yes             | More complete    |
+| Styles format      | `sass`          | `scss`           |
 
-## What's inside?
+We would love our users to test with vuesax-ts to find bugs so we can fix them on the fly.
 
-This Turborepo includes the following packages/apps:
 
-### Apps and Packages
+## Contribute
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+We're currently working hard on refactoring and testing all components within vuesax-next, and we want YOU to join us! 🌟 Whether you're a seasoned developer or an aspiring newbie, we welcome anyone interested in contributing to vuesax-ts. 💪🏼
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+So, how can you get involved? 🤔 It's super easy - just head over to my GitHub page to find out more information. 🚀 And if you have any valuable suggestions or comments, don't hesitate to raise them in the GitHub issue! 🙌🏼 We always welcome feedback and will actively consider your ideas.
 
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+Let's work together to make vuesax-ts the best component library out there!

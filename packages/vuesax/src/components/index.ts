@@ -22,3 +22,8 @@ export { default as VsCard } from "./card/base";
 export { default as VsCardGroup } from "./card/group";
 export { default as VsAvatar } from "./avatar/base";
 export { default as VsAvatarGroup } from "./avatar/group";
+
+export { default as VsTable } from "./table/base";
+export { default as VsTh } from "./table/th";
+export { default as VsTr } from "./table/tr";
+export { default as VsTd } from "./table/td";
