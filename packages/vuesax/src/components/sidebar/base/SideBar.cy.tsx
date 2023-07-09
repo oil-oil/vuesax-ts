@@ -1,4 +1,4 @@
-import { VsSideBar, VsSideBarGroup, VsSideBarItem } from "@/components";
+import { VsSidebar, VsSidebarGroup, VsSidebarItem } from "@/components";
 
 const sideBarArr = [
   { text: "Home", icon: () => <i class="bx bx-home"></i> },
@@ -16,7 +16,7 @@ const sideBarGroupArr = {
 describe("SideBar", () => {
   it("test SideBar basic render", () => {
     cy.mount(
-      <VsSideBar
+      <VsSidebar
         modelValue="Home"
         absolute
         open
@@ -46,30 +46,30 @@ describe("SideBar", () => {
         }}
       >
         {sideBarArr.map((item) => (
-          <VsSideBarItem id={item.text} v-slots={{ icon: item.icon }}>
+          <VsSidebarItem id={item.text} v-slots={{ icon: item.icon }}>
             {item.text}
-          </VsSideBarItem>
+          </VsSidebarItem>
         ))}
-        <VsSideBarGroup
+        <VsSidebarGroup
           open
           v-slots={{
             header: () => (
-              <VsSideBarItem
+              <VsSidebarItem
                 arrow
                 v-slots={{ icon: sideBarGroupArr.header.icon }}
               >
                 {sideBarGroupArr.header.text}
-              </VsSideBarItem>
+              </VsSidebarItem>
             ),
           }}
         >
           {sideBarGroupArr.content.map((item) => (
-            <VsSideBarItem id={item.text} v-slots={{ icon: item.icon }}>
+            <VsSidebarItem id={item.text} v-slots={{ icon: item.icon }}>
               {item.text}
-            </VsSideBarItem>
+            </VsSidebarItem>
           ))}
-        </VsSideBarGroup>
-      </VsSideBar>
+        </VsSidebarGroup>
+      </VsSidebar>
     );
     cy.get(".vs-sidebar__logo").should("be.visible");
     cy.get(".vs-sidebar").should("be.visible");
@@ -78,7 +78,7 @@ describe("SideBar", () => {
   it("test SideBar v-model", () => {
     const onClick = cy.spy().as("onClick");
     cy.mount(
-      <VsSideBar
+      <VsSidebar
         modelValue="Home"
         onUpdate:modelValue={onClick}
         absolute
@@ -109,30 +109,30 @@ describe("SideBar", () => {
         }}
       >
         {sideBarArr.map((item) => (
-          <VsSideBarItem id={item.text} v-slots={{ icon: item.icon }}>
+          <VsSidebarItem id={item.text} v-slots={{ icon: item.icon }}>
             {item.text}
-          </VsSideBarItem>
+          </VsSidebarItem>
         ))}
-        <VsSideBarGroup
+        <VsSidebarGroup
           open
           v-slots={{
             header: () => (
-              <VsSideBarItem
+              <VsSidebarItem
                 arrow
                 v-slots={{ icon: sideBarGroupArr.header.icon }}
               >
                 {sideBarGroupArr.header.text}
-              </VsSideBarItem>
+              </VsSidebarItem>
             ),
           }}
         >
           {sideBarGroupArr.content.map((item) => (
-            <VsSideBarItem id={item.text} v-slots={{ icon: item.icon }}>
+            <VsSidebarItem id={item.text} v-slots={{ icon: item.icon }}>
               {item.text}
-            </VsSideBarItem>
+            </VsSidebarItem>
           ))}
-        </VsSideBarGroup>
-      </VsSideBar>
+        </VsSidebarGroup>
+      </VsSidebar>
     );
     cy.get(".vs-sidebar__logo").should("be.visible");
     cy.contains("Music").click();
@@ -147,7 +147,7 @@ describe("SideBar", () => {
 
   it("test SideBarGroup fold", () => {
     cy.mount(
-      <VsSideBar
+      <VsSidebar
         modelValue="Home"
         absolute
         open
@@ -177,29 +177,29 @@ describe("SideBar", () => {
         }}
       >
         {sideBarArr.map((item) => (
-          <VsSideBarItem id={item.text} v-slots={{ icon: item.icon }}>
+          <VsSidebarItem id={item.text} v-slots={{ icon: item.icon }}>
             {item.text}
-          </VsSideBarItem>
+          </VsSidebarItem>
         ))}
-        <VsSideBarGroup
+        <VsSidebarGroup
           v-slots={{
             header: () => (
-              <VsSideBarItem
+              <VsSidebarItem
                 arrow
                 v-slots={{ icon: sideBarGroupArr.header.icon }}
               >
                 {sideBarGroupArr.header.text}
-              </VsSideBarItem>
+              </VsSidebarItem>
             ),
           }}
         >
           {sideBarGroupArr.content.map((item) => (
-            <VsSideBarItem id={item.text} v-slots={{ icon: item.icon }}>
+            <VsSidebarItem id={item.text} v-slots={{ icon: item.icon }}>
               {item.text}
-            </VsSideBarItem>
+            </VsSidebarItem>
           ))}
-        </VsSideBarGroup>
-      </VsSideBar>
+        </VsSidebarGroup>
+      </VsSidebar>
     );
     cy.get(".vs-sidebar__group__content").should("not.exist");
     cy.get(".vs-sidebar__group").click().should("have.class", "open");

@@ -7,7 +7,7 @@ import {
   Transition,
 } from "vue";
 
-const SideBarGroup = defineComponent({
+const SidebarGroup = defineComponent({
   name: "SideBarGroup",
   props: {
     open: {
@@ -95,6 +95,6 @@ const SideBarGroup = defineComponent({
   },
 });
 
-export default SideBarGroup;
+export default SidebarGroup;
 
-export type SideBarGroupProps = InstanceType<typeof SideBarGroup>["$props"];
+export type SidebarGroupProps = InstanceType<typeof SidebarGroup>["$props"];

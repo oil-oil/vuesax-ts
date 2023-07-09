@@ -12,7 +12,7 @@ import {
 import useBaseProps, { BaseProps } from "@/hooks/useBase";
 import { getColor, setColor } from "@/utils";
 
-const SideBar = defineComponent({
+const Sidebar = defineComponent({
   name: "VsSideBar",
   props: {
     ...BaseProps,
@@ -206,6 +206,6 @@ const SideBar = defineComponent({
   },
 });
 
-export default SideBar as CompWithAttr<typeof SideBar, HTMLAttributes>;
+export default Sidebar as CompWithAttr<typeof Sidebar, HTMLAttributes>;
 
-export type ButtonProps = InstanceType<typeof SideBar>["$props"];
+export type SidebarProps = InstanceType<typeof Sidebar>["$props"];

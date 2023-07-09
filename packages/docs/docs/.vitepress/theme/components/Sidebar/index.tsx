@@ -2,9 +2,9 @@
 import { useData, useRouter } from "vitepress";
 import { defineComponent, computed, inject, Ref } from "vue";
 import {
-  VsSideBar,
-  VsSideBarItem,
-  VsSideBarGroup,
+  VsSidebar,
+  VsSidebarItem,
+  VsSidebarGroup,
 } from "vuesax/src/components";
 import "./style/style.scss";
 
@@ -30,7 +30,7 @@ const SideBar = defineComponent({
       return "";
     });
     const sideBarContent = () => (
-      <VsSideBar
+      <VsSidebar
         // background={isDark.value ? "#161618" : "#fff"}
         open={sidebarController?.isSidebarOpen.value}
         textWhite={isDark.value}
@@ -41,14 +41,14 @@ const SideBar = defineComponent({
         }}
       >
         {theme.value.sidebar.map((item) => (
-          <VsSideBarGroup
+          <VsSidebarGroup
             open
             v-slots={{
-              header: () => <VsSideBarItem arrow>{item.text}</VsSideBarItem>,
+              header: () => <VsSidebarItem arrow>{item.text}</VsSidebarItem>,
             }}
           >
             {item.items.map((link) => (
-              <VsSideBarItem
+              <VsSidebarItem
                 onClick={() => {
                   router.go(link.link);
                 }}
@@ -58,11 +58,11 @@ const SideBar = defineComponent({
                 }}
               >
                 {link.text}
-              </VsSideBarItem>
+              </VsSidebarItem>
             ))}
-          </VsSideBarGroup>
+          </VsSidebarGroup>
         ))}
-      </VsSideBar>
+      </VsSidebar>
     );
     return () => sideBarContent();
   },

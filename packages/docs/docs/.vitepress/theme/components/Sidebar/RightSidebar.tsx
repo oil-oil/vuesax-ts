@@ -1,5 +1,12 @@
 import { useRoute } from "vitepress";
-import { defineComponent, onMounted, onUnmounted, ref, watch } from "vue";
+import {
+  defineComponent,
+  nextTick,
+  onMounted,
+  onUnmounted,
+  ref,
+  watch,
+} from "vue";
 import "./style/RightSidebar.scss";
 
 const RightSidebar = defineComponent({
@@ -12,7 +19,6 @@ const RightSidebar = defineComponent({
         if (!timeout) {
           timeout = setTimeout(() => {
             timeout = null;
-            // func.apply(context, args);
             func();
           }, wait);
         }
@@ -25,13 +31,14 @@ const RightSidebar = defineComponent({
     watch(
       () => route.path,
       () => {
-        elements.value = Array.from(document.getElementsByTagName("h2"));
+        nextTick(() => {
+          elements.value = Array.from(document.getElementsByTagName("h2"));
+        });
       }
     );
 
     const scrollEvent = throttle(() => {
-      const titles = Array.from(document.getElementsByTagName("h2"));
-      titles.forEach((title, index) => {
+      elements.value.forEach((title, index) => {
         const { top } = title.getBoundingClientRect();
         if (top < 300 && top > 100) {
           active.value = index;
