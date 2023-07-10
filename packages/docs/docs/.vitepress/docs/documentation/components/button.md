@@ -265,22 +265,7 @@ const handleClickFace = ()=> {
 
 <template #example>
   <div class="center">
-    <VsButton
-      :active="active.default === 0"
-      @click="active.default = 0"
-    >
-      Active
-    </VsButton>
-    <VsButton
-      :active="active.default === 1"
-      @click="active.default = 1"
-    >
-      Default
-    </VsButton>
-    <VsButton
-    disabled>
-      Disabled
-    </VsButton>
+    <DefaultButton></DefaultButton>
   </div>
 </template>
 
@@ -323,7 +308,7 @@ const handleClickFace = ()=> {
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/charming-maxwell-ms0xf?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark">
+<Card codesandbox="https://codesandbox.io/embed/charming-maxwell-ms0xf?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark" subtitle="Flat">
 
 ## Flat
 
@@ -398,7 +383,7 @@ You can change the full style towards *flat* of a button with the `flat` propert
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-border-zc0td?fontsize=14&hidenavigation=1&theme=dark">
+<Card codesandbox="https://codesandbox.io/embed/vuesax-button-border-zc0td?fontsize=14&hidenavigation=1&theme=dark" subtitle="Border">
 
 ## Border
 
@@ -475,7 +460,7 @@ You can change the full style towards *border* of a button with the `border` pro
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-gradient-7en0i?fontsize=14&hidenavigation=1&theme=dark">
+<Card codesandbox="https://codesandbox.io/embed/vuesax-button-gradient-7en0i?fontsize=14&hidenavigation=1&theme=dark" subtitle="Gradient">
 
 ## Gradient
 
@@ -557,7 +542,7 @@ You can change the full style towards *Gradient* of a button with the `gradient`
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-relief-7dfh7?fontsize=14&hidenavigation=1&theme=dark">
+<Card codesandbox="https://codesandbox.io/embed/vuesax-button-relief-7dfh7?fontsize=14&hidenavigation=1&theme=dark" subtitle="Relief">
 
 ## Relief
 
@@ -634,7 +619,7 @@ Change the style of the button to a relief aspect with the `relief` property, th
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-transparent-4t6d6?fontsize=14&hidenavigation=1&theme=dark">
+<Card codesandbox="https://codesandbox.io/embed/vuesax-button-transparent-4t6d6?fontsize=14&hidenavigation=1&theme=dark" subtitle="Transparent">
 
 ## Transparent
 
@@ -712,7 +697,7 @@ Change the style of the button with the `transparent` property, the property is 
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-shadow-ufx6y?fontsize=14&hidenavigation=1&theme=dark">
+<Card codesandbox="https://codesandbox.io/embed/vuesax-button-shadow-ufx6y?fontsize=14&hidenavigation=1&theme=dark" subtitle="Shadow">
 
 ## Shadow
 
@@ -790,7 +775,7 @@ Change the style of the button with the `shadow` property, the property is a `bo
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-colors-gje98?fontsize=14&hidenavigation=1&theme=dark">
+<Card codesandbox="https://codesandbox.io/embed/vuesax-button-colors-gje98?fontsize=14&hidenavigation=1&theme=dark" subtitle="Color">
 
 ## Color
 
@@ -939,7 +924,7 @@ Change the color of the Button component with the `color` property and the color
 
 </Card>
 
-<Card>
+<Card subtitle="Icon">
 
 ## Icon
 
@@ -1105,7 +1090,7 @@ This property makes the button have a specific size making it the same width and
 
 </Card>
 
-<Card>
+<Card subtitle="IconText">
 
 ## Icon - Text
 
@@ -1235,7 +1220,7 @@ If you need a button with text and icon you can do them by adding them in the `s
 
 </Card>
 
-<Card>
+<Card subtitle="Circle">
 
 ## Circle
 
@@ -1383,7 +1368,7 @@ You can completely round the corners with the `circle` property, the property is
 
 </Card>
 
-<Card>
+<Card subtitle="Square">
 
 ## Square
 
@@ -1531,7 +1516,7 @@ You can make all the corners completely straight with the `Square` property, the
 
 </Card>
 
-<Card>
+<Card subtitle="Size">
 
 ## Size
 
@@ -1645,7 +1630,7 @@ values:
 
 </Card>
 
-<Card>
+<Card subtitle="Loading">
 
 ## Loading <Badge text="New"/>
 
@@ -1793,7 +1778,7 @@ Now you can add a loading status with the `loading` property, the property is a 
 
 </Card>
 
-<Card>
+<Card subtitle="Upload">
 
 ## Upload <Badge text="New"/>
 
@@ -1959,7 +1944,7 @@ Now you can add a status of sending or uploading data to the server with the `up
 
 </Card>
 
-<Card>
+<Card subtitle="Block">
 
 ## Block <Badge text="New"/>
 
@@ -1996,7 +1981,7 @@ You can make the button have the full width allowed with the `block` property, t
 
 </Card>
 
-<Card>
+<Card subtitle="Animate">
 
 ## Animate <Badge text="New"/>
 
@@ -2098,7 +2083,7 @@ You can also change the type of animation with the `animation-type` property and
 
 </Card>
 
-<Card>
+<Card subtitle="Social">
 
 ## Social <Badge text="New"/>
 
@@ -2356,7 +2341,7 @@ Supported colors: (`facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `s
 
 </Card>
 
-<Card>
+<Card subtitle="Floating">
 
 ## Floating <Badge text="New"/>
 
@@ -2444,7 +2429,7 @@ these buttons usually do an important action in specific and go with a fixed pos
 
 </Card>
 
-<Card>
+<Card subtitle="Group">
 
 ## Group <Badge text="New"/>
 
@@ -2586,7 +2571,7 @@ If you need to make a group of buttons you can use the **sub-component** `<Vsbut
 
 </Card>
 
-<Card>
+<Card subtitle="Toggle">
 
 ## Toggle <Badge text="New"/>
 
@@ -2708,7 +2693,7 @@ i.bx:not(.bx-check) {
 
 </Card>
 
-<Card>
+<Card subtitle="ToHref">
 
 ## To - href <Badge text="New"/>
 
@@ -2772,11 +2757,5 @@ If you need to use a button such as a vue-router link or an external link you ca
   ```
 
 </template>
-
-</Card>
-
-<Card>
-
-## API
 
 </Card>

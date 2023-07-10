@@ -1,4 +1,10 @@
-import { ButtonHTMLAttributes, PropType, defineComponent, ref } from "vue";
+import {
+  ButtonHTMLAttributes,
+  PropType,
+  computed,
+  defineComponent,
+  ref,
+} from "vue";
 import { useRouter } from "vue-router";
 
 import { BaseProps } from "@/hooks/useBase";
@@ -116,7 +122,7 @@ const Button = defineComponent({
 
     const loadingElement = <div class="vs-button__loading"></div>;
 
-    const buttonClass = [
+    const buttonClass = computed(() => [
       "vs-button",
       `vs-button--size-${props.size}`,
       { [`vs-button--${props.componentColor}`]: props.componentColor },
@@ -161,7 +167,7 @@ const Button = defineComponent({
       { "vs-button--transparent": props.transparent },
       { "vs-button--shadow": props.shadow },
       { "vs-button--floating": props.floating },
-    ];
+    ]);
 
     const handleMouseDown = (evt: MouseEvent) => {
       if (props.ripple === "reverse") {
@@ -196,11 +202,11 @@ const Button = defineComponent({
 
     return () => (
       <button
-        class={buttonClass}
+        class={buttonClass.value}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
         onMousedown={(e) => handleMouseDown(e)}
         onClick={onClick}
-        ref="buttonRef" 
+        ref="buttonRef"
         {...attrs}
       >
         <div class="vs-button__content">{slots.default?.()}</div>

@@ -135,9 +135,9 @@ const Navbar = defineComponent({
 
       if (props.paddingScroll) {
         if (scrollT && scrollT > 0) {
-          paddingScrollActive.value = true;
-        } else {
           paddingScrollActive.value = false;
+        } else {
+          paddingScrollActive.value = true;
         }
       }
 
@@ -220,7 +220,7 @@ const Navbar = defineComponent({
             hidden: hidden.value,
             shadowActive: shadowActive.value,
             textWhite: props.textWhite,
-            paddingScroll: !paddingScrollActive.value,
+            paddingScroll: paddingScrollActive.value,
             vsNavbarSquare: props.square,
             // colors
             "vs-component--primary": !!props.primary,

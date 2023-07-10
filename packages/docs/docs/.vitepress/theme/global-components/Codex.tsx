@@ -1,4 +1,6 @@
-import { defineComponent, Transition, ref } from "vue";
+import { getHighlighter } from "shiki";
+import { useData } from "vitepress";
+import { defineComponent, Transition, ref, onMounted } from "vue";
 import "./Codex.scss";
 
 const Codex = defineComponent({
@@ -10,19 +12,57 @@ const Codex = defineComponent({
     codepen: {
       type: String,
     },
+    subtitle: {
+      type: String,
+      default: "Default",
+    },
   },
   slots: ["default", "template", "script", "style"],
-  setup(props, { slots }) {
+  setup(props) {
+    const { page } = useData();
     const active = ref(false);
     const check = ref(false);
-    const activeSlot = ref(0);
 
     const codexRef = ref<HTMLElement>();
     const ulRef = ref<HTMLElement>();
-    const slot0 = ref<HTMLElement>();
-    const slot1 = ref<HTMLElement>();
-    const slot2 = ref<HTMLElement>();
-    const slot3 = ref<HTMLElement>();
+
+    const template = ref<string>();
+    const title = ref<string>();
+    let file: any;
+    onMounted(() => {
+      title.value = document
+        .getElementsByTagName("h1")
+        .item(0)
+        ?.innerText.trim();
+
+      file = (import.meta as any).glob(
+        "../global-components/template/**/*.vue",
+        {
+          as: "raw",
+          eager: true,
+        }
+      );
+
+      const renderTemplate = async () => {
+        const highlighter = await getHighlighter({
+          theme: "material-theme-palenight",
+          langs: ["vue"],
+          paths: {
+            themes: "/shiki",
+            languages: "/shiki/language",
+            wasm: "/shiki",
+          },
+        });
+        template.value = highlighter.codeToHtml(
+          file[`./template/${page.value.title}/${props.subtitle}.vue`],
+          {
+            lang: "vue",
+          }
+        );
+      };
+
+      renderTemplate();
+    });
 
     // watch:{
     //   '$vsTheme.openCode': function (val) {
@@ -54,43 +94,11 @@ const Codex = defineComponent({
       //     codesandbox.value.url = codesandbox.value
       window.open(url);
     };
-    // const clipboard = async (text:string)=>{
-    //   const aux = document.createElement("textarea")
-    //   aux.value = text
-    //   aux.className = "vs-clipboard"
-    //   document.body.appendChild(aux);
-    //       aux.focus();
-    //       aux.select();
-    //       // document.execCommand("copy");
-    //       await navigator.clipboard.writeText(text)
-    //       document.body.removeChild(aux);
-    // }
+
     const copy = () => {
-      // let slot = 'template'
-      // if(activeSlot.value === 0){
-      //   let text = slots.template
-      // }else if(activeSlot.value === 1){
-      //   slot = 'script'
-      //   let text = slots.script
-      // }
-
-      //     if(activeSlot.value == 1) {
-      //       slot = 'script'
-      //     } else if (activeSlot.value == 2) {
-      //       slot = 'style'
-      //     }
-      //     // let text = slots.[slot].elm.innerText
-      //     if(slots){
-      //       let t = slots.[slot]
-      //     if (activeSlot.value == 3) {
-      //       t = `
-      //         ${props.slots['template'] ? props.slots['template'][0].elm.innerText.trim() : ''}
-      //         ${this.slots['script'] ? this.slots['script'][0].elm.innerText.trim() : ''}
-      //         ${this.slots['style'] ? this.slots['style'][0].elm.innerText.trim() : ''}
-
-      //       `
-      //     }
-      //     clipboard(text)
+      navigator.clipboard.writeText(
+        file[`./template/${page.value.title}/${props.subtitle}.vue`]
+      );
       check.value = true;
       setTimeout(() => {
         check.value = false;
@@ -178,7 +186,9 @@ const Codex = defineComponent({
             <li
               title="Copy code"
               class={{ copied: check.value }}
-              onClick={copy}
+              onClick={() => {
+                copy();
+              }}
             >
               {(!check.value && <i class="bx bx-copy"></i>) || (
                 <i class="bx bx-check"></i>
@@ -206,125 +216,23 @@ const Codex = defineComponent({
         <Transition onBeforeEnter={beforeEnter} onEnter={enter} onLeave={leave}>
           {active.value && (
             <div ref={codexRef} class="con-code">
-              <ul ref={ulRef} class="ul-codes">
-                {slots.template && (
-                  <li
-                    class={{ active: activeSlot.value === 0 }}
-                    onClick={() => {
-                      activeSlot.value = 0;
-                    }}
-                  >
-                    Template
-                  </li>
-                )}
-                {slots.script && (
-                  <li
-                    class={{ active: activeSlot.value === 1 }}
-                    onClick={() => {
-                      activeSlot.value = 1;
-                    }}
-                  >
-                    Script
-                  </li>
-                )}
-                {slots.style && (
-                  <li
-                    class={{ active: activeSlot.value === 2 }}
-                    onClick={() => {
-                      activeSlot.value = 2;
-                    }}
-                  >
-                    Style
-                  </li>
-                )}
-                {Object.keys(slots).length > 1 && (
-                  <li
-                    class={{ active: activeSlot.value === 3 }}
-                    onClick={() => {
-                      activeSlot.value = 3;
-                    }}
-                  >
-                    All
-                  </li>
-                )}
-              </ul>
+              <div ref={ulRef} class="ul-codes"></div>
               <div class="con-codes">
                 <Transition
                   onBeforeEnter={beforeEntercodes}
                   onEnter={entercodes}
                   onLeave={leavecodes}
                 >
-                  {activeSlot.value === 0 && (
-                    <div ref="slot0" key="0" class="slot-template slots">
-                      {slots.template?.()}
-                      <footer
-                        onClick={toggleCode}
-                        title={active.value ? "Hide code" : "View code"}
-                        class="footer-code"
-                      >
-                        <i class="bx bx-hide"></i>
-                      </footer>
-                    </div>
-                  )}
-                </Transition>
-
-                <Transition
-                  onBeforeEnter={beforeEntercodes}
-                  onEnter={entercodes}
-                  onLeave={leavecodes}
-                >
-                  {activeSlot.value === 1 && (
-                    <div ref="slot1" key="1" class="slot-script slots">
-                      {slots.script?.()}
-                      <footer
-                        onClick={toggleCode}
-                        title={active.value ? "Hide code" : "View code"}
-                        class="footer-code"
-                      >
-                        <i class="bx bx-hide"></i>
-                      </footer>
-                    </div>
-                  )}
-                </Transition>
-
-                <Transition
-                  onBeforeEnter={beforeEntercodes}
-                  onEnter={entercodes}
-                  onLeave={leavecodes}
-                >
-                  {activeSlot.value === 2 && (
-                    <div ref="slot2" key="2" class="slot-style slots">
-                      {slots.style?.()}
-                      <footer
-                        onClick={toggleCode}
-                        title={active.value ? "Hide code" : "View code"}
-                        class="footer-code"
-                      >
-                        <i class="bx bx-hide"></i>
-                      </footer>
-                    </div>
-                  )}
-                </Transition>
-
-                <Transition
-                  onBeforeEnter={beforeEntercodes}
-                  onEnter={entercodes}
-                  onLeave={leavecodes}
-                >
-                  {activeSlot.value === 3 && (
-                    <div ref="slot3" key="3" class="slot-all slots">
-                      {slots.template?.()}
-                      {slots.script?.()}
-                      {slots.style?.()}
-                      <footer
-                        onClick={toggleCode}
-                        title={active.value ? "Hide code" : "View code"}
-                        class="footer-code"
-                      >
-                        <i class="bx bx-hide"></i>
-                      </footer>
-                    </div>
-                  )}
+                  <div key="3" class="slot-all slots">
+                    <div class="language-html" v-html={template.value}></div>
+                    <footer
+                      onClick={toggleCode}
+                      title={active.value ? "Hide code" : "View code"}
+                      class="footer-code"
+                    >
+                      <i class="bx bx-hide"></i>
+                    </footer>
+                  </div>
                 </Transition>
               </div>
             </div>
