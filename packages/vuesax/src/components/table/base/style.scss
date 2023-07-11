@@ -40,6 +40,9 @@
       }
     }
     &__tbody {
+      th{
+        font-weight: lighter;
+      }
       &:empty {
         display: none;
         background: #000;
@@ -76,6 +79,7 @@
     }
     &__thead {
       width: 100%;
+      font-weight: bold;
       .vs-table__th {
         background: -color("gray-2");
         &:first-child {

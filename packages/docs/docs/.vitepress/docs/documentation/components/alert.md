@@ -124,7 +124,7 @@ Use the `footer` slot to add a footer to the alert where for example you can add
 
 </card>
 
-<card subtitle="Progress">
+<card subtitle="ProgressBar">
 
 ## Progress bar <Badge text="New"/>
 
@@ -149,7 +149,7 @@ If you need an alert to have time to hide, you can do so by joining some propert
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Alert/Api.tsx"
+import Api from "../../../theme/global-components/template/Alert/API.tsx"
 </script>
 
 <Api></Api>

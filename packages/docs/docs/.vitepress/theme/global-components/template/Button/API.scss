@@ -1,0 +1,81 @@
+.api{
+    .title{
+        font-size: 1.5rem;
+        padding: 15px 20px 10px 40px;
+        margin: 0;
+        border-bottom: 0px;
+        transition: all 0.25s ease;
+        z-index: 0;
+        position: relative;
+        color: var(--vs-theme-color);
+        &:hover{
+            padding-left: 59px;
+        }
+
+    }
+    .content{
+        padding: 0 25px 10px 25px;
+        background-color: var(--vs-theme-layout);
+        border-radius: 5px 20px 20px 5px;
+        margin-top: 20px;
+        .sub-title{
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 25px 25px;
+            margin: 0;
+            padding-bottom: 15px;
+            transition: all 0.25s ease;
+            z-index: 0;
+            position: relative;
+            color: var(--vs-theme-color);
+        }
+        .vs-table__tbody{
+            th{
+                line-height: 20px;
+                padding: 20px 12px;
+            }
+            tr{
+                .vs-table__th:nth-child(2){
+                    color:#e2777a;
+                }
+                .vs-table__th:nth-child(5){
+                    color:#7ec699;
+                }
+                .vs-table__th:nth-child(6) .vs-table__th__content{
+                    flex-direction: column;
+                    a{
+                        user-select: none;
+                        padding: 3px 10px;
+                        display: flex;
+                        align-items: center;
+                        transition: all .25s ease;
+                        cursor: pointer;
+                        border-radius: 18px;
+                        &:hover{
+                            background-color: var(--vs-theme-bg2);
+                            transition: all .25s ease;
+                            
+                        }
+                    }
+                }
+                .vs-table__th:nth-child(7) .vs-table__th__content{
+                    flex-direction: column;
+                    a{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 36px;
+                        height: 36px;
+                        aspect-ratio: 1/1;
+                        border-radius: 100%;
+                        transition: all .25s ease;
+                        &:hover{
+                            background-color: #fe596715;
+                            transition: all .25s ease;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
