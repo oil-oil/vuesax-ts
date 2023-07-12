@@ -25,10 +25,10 @@ const Navbar = defineComponent({
     };
     return () => (
       <VsNavbar
-        style={{ borderRadius: "0" }}
         textWhite={isDark.value}
         dark={isDark.value}
         fixed
+        square
         v-slots={{
           left: () => (
             <a

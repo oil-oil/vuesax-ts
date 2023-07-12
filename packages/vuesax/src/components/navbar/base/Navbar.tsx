@@ -8,6 +8,7 @@ import {
 } from "vue";
 
 import { BaseProps } from "@/hooks/useBase";
+import useThrottle from "@/hooks/useThrottle";
 import { getColor } from "@/utils";
 
 import "./style.scss";
@@ -112,46 +113,40 @@ const Navbar = defineComponent({
       setModel,
     });
 
-    const onScroll = () => {
-      if (props.targetScroll) {
-        const scrollT = props.targetScroll
-          ? document.querySelector(props.targetScroll)?.scrollTop
-          : window.scrollY;
-        if (props.hideScroll) {
-          if (scrollT && Math.sign(scrollT - scrollTop.value) === 1) {
-            hidden.value = true;
-          } else {
-            hidden.value = false;
-          }
+    const onScroll = useThrottle(() => {
+      const scrollT = props.targetScroll
+        ? document.querySelector(props.targetScroll)?.scrollTop
+        : window.scrollY;
+      if (props.hideScroll) {
+        if (scrollT && Math.sign(scrollT - scrollTop.value) === 1) {
+          hidden.value = true;
+        } else {
+          hidden.value = false;
         }
-
-        if (props.shadowScroll) {
-          if (scrollT && scrollT > 0) {
-            shadowActive.value = true;
-          } else {
-            shadowActive.value = false;
-          }
-        }
-
-        if (props.paddingScroll) {
-          if (scrollT && scrollT > 0) {
-            paddingScrollActive.value = true;
-          } else {
-            paddingScrollActive.value = false;
-          }
-        }
-        if (scrollT) scrollTop.value = scrollT;
       }
-    };
+
+      if (props.shadowScroll) {
+        if (scrollT && scrollT > 0) {
+          shadowActive.value = true;
+        } else {
+          shadowActive.value = false;
+        }
+      }
+
+      if (props.paddingScroll) {
+        if (scrollT && scrollT > 0) {
+          paddingScrollActive.value = false;
+        } else {
+          paddingScrollActive.value = true;
+        }
+      }
+
+      if (scrollT) scrollTop.value = scrollT;
+    }, 200);
 
     const handleScroll = () => {
       if (props.hideScroll || props.shadowScroll || props.paddingScroll) {
-        if (props.targetScroll) {
-          const scrollElement = document.querySelector(props.targetScroll);
-          scrollElement?.addEventListener("scroll", onScroll);
-        } else {
-          window.addEventListener("scroll", onScroll);
-        }
+        window.addEventListener("scroll", onScroll);
       }
     };
 
@@ -225,8 +220,7 @@ const Navbar = defineComponent({
             hidden: hidden.value,
             shadowActive: shadowActive.value,
             textWhite: props.textWhite,
-            paddingScroll: props.paddingScroll,
-            paddingScrollActive: paddingScrollActive.value,
+            paddingScroll: paddingScrollActive.value,
             vsNavbarSquare: props.square,
             // colors
             "vs-component--primary": !!props.primary,

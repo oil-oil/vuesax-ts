@@ -16,6 +16,7 @@ import IconClose from "@/icons/Close";
 import IconPlus from "@/icons/Plus";
 
 import "./style.scss";
+import { getColor } from "@/utils/index.ts";
 
 const Alert = defineComponent({
   name: "VsAlert",
@@ -67,7 +68,7 @@ const Alert = defineComponent({
     },
   },
   slots: ["default", "icon", "title"],
-  emits: ["update:page", "update:hiddenContent", "input"],
+  emits: ["update:page", "update:hiddenContent", "update:isShow"],
   setup(props, { slots, emit }) {
     const { page } = toRefs(props);
     const rootRef = ref<HTMLElement | null>(null);
@@ -131,12 +132,13 @@ const Alert = defineComponent({
           }, 250);
         } else {
           root.style.height = `${root.scrollHeight - content.scrollHeight}px`;
+          root.style.width = "100%";
         }
       }
     );
 
     const handleClickClose = () => {
-      emit("input", !props.isShow);
+      emit("update:isShow", !props.isShow);
     };
 
     const handleClickHidden = () => {
@@ -144,7 +146,7 @@ const Alert = defineComponent({
     };
 
     return () => (
-      <Transition>
+      <Transition onBeforeEnter={beforeEnter} onEnter={enter} onLeave={leave}>
         {props.isShow && (
           <div
             ref={rootRef}
@@ -172,6 +174,7 @@ const Alert = defineComponent({
               { [`vs-component--success`]: !!props.success },
               { [`vs-component--dark`]: !!props.dark },
             ]}
+            style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
           >
             {/* icon */}
             {slots.icon && <div class="vs-alert__icon">{slots.icon()}</div>}

@@ -1,6 +1,7 @@
 {
   "name": "vuesax-docs",
   "dependencies": {
+    "shiki": "^0.14.3",
     "vuesax": "workspace:*"
   },
   "devDependencies": {

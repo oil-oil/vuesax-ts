@@ -11,7 +11,7 @@
   transition: all .25s ease;
   color: -color('text');
   --vs-color: var(--vs-background);
-  &.paddingScroll:not(.paddingScrollActive) {
+  &.paddingScroll {
     padding-top: 20px;
     padding-bottom: 20px;
     .vs-navbar__group__items {

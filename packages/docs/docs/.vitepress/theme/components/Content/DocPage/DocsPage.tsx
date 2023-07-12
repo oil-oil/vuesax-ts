@@ -1,7 +1,9 @@
 import { Content, useData } from "vitepress";
 import { defineComponent, ref, onUnmounted, computed, inject, Ref } from "vue";
+import { VsButton, VsInput } from "vuesax/src/components";
 
 import RightSidebar from "../../Sidebar/RightSidebar";
+
 import "./style.scss";
 
 const DocsPage = defineComponent({
@@ -165,6 +167,32 @@ const DocsPage = defineComponent({
           <Content class="page-docs-content-docs" />
           <RightSidebar></RightSidebar>
         </div>
+        <footer class="page-footer">
+          <div class="update-time">
+            <span class="title">Last Update:</span>
+            <span class="time">1/13/2023</span>
+          </div>
+          <div class="next-control">
+            <div class="prev">
+              <i class="bx bx-chevron-left"></i>Button
+            </div>
+            <div class="next">
+              Loading<i class="bx bx-chevron-right"></i>
+            </div>
+          </div>
+          <div class="subscribe">
+            <h4 class="title">
+              <b style={{ color: "rgb(var(--vs-primary))" }}>Subscribe</b> to
+              our Weekly Newsletter
+            </h4>
+            <VsInput
+              class="vs-input"
+              state="primary"
+              placeholder="Subscribe"
+            ></VsInput>
+            <VsButton class="vs-button">Subscribe!!</VsButton>
+          </div>
+        </footer>
         <div
           class={["up", { active: pageHeaderTrigger.value }]}
           onClick={() => {

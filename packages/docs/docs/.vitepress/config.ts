@@ -16,6 +16,7 @@ export default defineConfigWithTheme({
   appearance: true,
   cleanUrls: true,
   srcDir: "./.vitepress/docs",
+  outDir: "./dist",
   scrollOffset: 135,
   locales: {
     root: {
