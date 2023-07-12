@@ -27,3 +27,5 @@ export { default as VsTable } from "./table/base";
 export { default as VsTh } from "./table/th";
 export { default as VsTr } from "./table/tr";
 export { default as VsTd } from "./table/td";
+
+export { default as VsPagination } from "./pagination/base";

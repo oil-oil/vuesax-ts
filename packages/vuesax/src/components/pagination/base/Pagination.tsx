@@ -1,4 +1,12 @@
-import { PropType, computed, defineComponent, nextTick, ref, watch } from "vue";
+import {
+  PropType,
+  computed,
+  defineComponent,
+  nextTick,
+  onMounted,
+  ref,
+  watch,
+} from "vue";
 
 import "./style.scss";
 
@@ -7,11 +15,12 @@ import IconArrow from "@/icons/Arrow";
 import { getColor } from "@/utils";
 
 const Pagination = defineComponent({
+  name: "VsPagination",
   props: {
     ...BaseProps,
     modelValue: {
       type: Number,
-      default: 0,
+      default: 1,
     },
     infinite: {
       type: Boolean,
@@ -21,7 +30,7 @@ const Pagination = defineComponent({
       type: Boolean,
       default: false,
     },
-    margin: {
+    noMargin: {
       type: Boolean,
       default: false,
     },
@@ -66,10 +75,17 @@ const Pagination = defineComponent({
   setup(props, { emit, slots }) {
     const innerValue = ref<number>(0);
     const paginationRef = ref<HTMLElement>();
-
     const activeClassMove = ref<boolean>(false);
-
     const leftActive = ref<number>(0);
+
+    const buttonArrRef = computed<HTMLElement[]>(() => {
+      if (paginationRef.value) {
+        return (
+          Array.from(paginationRef.value.childNodes) as HTMLElement[]
+        ).filter((item) => item.tagName === "BUTTON");
+      }
+      return [];
+    });
 
     const isDisabledItem = (item: number) =>
       props.disabledItems?.indexOf(item) !== -1;
@@ -77,20 +93,25 @@ const Pagination = defineComponent({
     const isLoadingItem = (item: number) =>
       props.loadingItems?.indexOf(item) !== -1;
 
-    const setValuePage = (page: number) => {
-      emit("input", page);
+    const resetActivePosition = () => {
+      nextTick(() => {
+        const activeIndex = buttonArrRef.value.findIndex(
+          (item) => Number(item.innerText) === props.modelValue
+        );
+        const paginationLeftOffset = paginationRef.value?.offsetLeft as number;
+        const buttonLeftOffset = buttonArrRef.value[activeIndex].offsetLeft;
+        leftActive.value = buttonLeftOffset + paginationLeftOffset;
+
+        setTimeout(() => {
+          activeClassMove.value = false;
+        }, 300);
+      });
     };
 
     watch(
       () => props.length,
       () => {
-        nextTick(() => {
-          const offsetLeftPagination = paginationRef.value?.offsetLeft;
-
-          setTimeout(() => {
-            activeClassMove.value = false;
-          }, 300);
-        });
+        resetActivePosition();
       }
     );
 
@@ -115,30 +136,24 @@ const Pagination = defineComponent({
           }
 
           innerValue.value = value;
-          setValuePage(value);
         } else {
           innerValue.value = props.modelValue;
           if (paginationRef.value) {
             activeClassMove.value = true;
-            nextTick(() => {
-              const offsetLeftPage = paginationRef.value;
-              // todo
-              setTimeout(() => {
-                activeClassMove.value = false;
-              });
-            });
+            resetActivePosition();
           }
         }
       }
     );
 
-    const computedProgress = computed(() => {
-      let percent = 0;
-
-      percent = (props.modelValue * 100) / props.length;
-
-      return percent;
+    onMounted(() => {
+      innerValue.value = props.modelValue;
+      resetActivePosition();
     });
+
+    const computedProgress = computed(
+      () => (props.modelValue * 100) / props.length
+    );
 
     const renderDotted = (text = "...") => (
       <div
@@ -149,7 +164,7 @@ const Pagination = defineComponent({
           },
         ]}
         onClick={() => {
-          if (props.dottedNumber && props.modelValue === props.length) {
+          if (props.modelValue === props.length || text !== "...>") {
             innerValue.value -= props.dottedNumber;
           } else if (text === "...>") {
             innerValue.value += props.dottedNumber;
@@ -207,8 +222,8 @@ const Pagination = defineComponent({
 
     const getButtons = (start = 1, end = 6) => {
       const buttons: number[] = [];
-      Array.from({ length: end - start }).forEach(() => {
-        buttons.push(start);
+      Array.from({ length: end - start + 1 }).forEach((_, index) => {
+        buttons.push(start + index);
       });
 
       return buttons;
@@ -261,7 +276,7 @@ const Pagination = defineComponent({
             circle: props.shape === "circle",
             square: props.shape === "square",
             disabled: props.disabled,
-            notMargin: !props.margin,
+            noMargin: props.noMargin,
             "vs-component--primary":
               !props.danger &&
               !props.success &&
@@ -279,7 +294,7 @@ const Pagination = defineComponent({
         {!props.onlyArrow && !slots.default?.() && (
           <div
             class={["vs-pagination__active", { move: activeClassMove.value }]}
-            style={{ left: leftActive.value }}
+            style={{ left: `${leftActive.value}px` }}
           >
             {props.shape === "dotted" ? "" : props.modelValue}
           </div>
