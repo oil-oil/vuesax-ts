@@ -61,6 +61,7 @@ export default defineConfigWithTheme({
             part: [
               { text: "Button", link: "/documentation/components/button" },
               { text: "Alert", link: "/documentation/components/alert" },
+              { text: "Loading", link: "/documentation/components/loading" }
             ],
           },
         ],
@@ -92,6 +93,7 @@ export default defineConfigWithTheme({
         items: [
           { text: "Button", link: "/documentation/components/button" },
           { text: "Alert", link: "/documentation/components/alert" },
+          { text: "Loading", link: "/documentation/components/loading" },
         ],
       },
     ],

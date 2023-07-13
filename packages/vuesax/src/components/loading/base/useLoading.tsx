@@ -3,44 +3,46 @@ import {
   createApp,
   onMounted,
   onUnmounted,
-  App,
   computed,
+  h,
   watch,
+  nextTick,
 } from "vue";
 
 import Loading, { LoadingProps } from "./Loading";
 
 type LoadingHookProps = Omit<LoadingProps, "isVisible">;
 
-const useLoading = (props: LoadingHookProps | null) => {
+const useLoading = (props?: LoadingHookProps) => {
   const isVisible = ref(false);
 
   const LoadingDom = document.createElement("div");
-
   const app = computed(() =>
-    createApp(Loading, {
-      ...props,
-      isVisible: isVisible.value,
+    createApp({
+      render: () => h(Loading, { ...props, isVisible: isVisible.value }),
     })
   );
 
   const mountLoading = () => {
     app.value.mount(LoadingDom);
     document.body.appendChild(LoadingDom);
-    document.body.style.overflowY = "hidden";
+    // document.body.style.overflowY = "hidden";
   };
 
   const unMountLoading = () => {
     app.value.unmount();
     document.body.removeChild(LoadingDom);
-    document.body.style.overflowY = "auto";
+    // document.body.style.overflowY = "auto";
   };
 
   watch(isVisible, () => {
     if (isVisible.value) {
-      mountLoading();
-    } else {
-      unMountLoading();
+      nextTick(() => {
+        const vsLoading = LoadingDom.querySelector(
+          ".vs-loading"
+        ) as HTMLElement;
+        vsLoading.style.position = "fixed";
+      });
     }
   });
 

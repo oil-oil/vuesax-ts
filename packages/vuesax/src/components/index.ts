@@ -10,6 +10,7 @@ export { default as VsNavbarItem } from "./navbar/item";
 export { default as VsNavbarGroup } from "./navbar/group";
 export { default as VsToolTip } from "./tooltip/base";
 export { default as VsLoading } from "./loading/base";
+export type { VsLoadingProps } from "./loading/base";
 export { default as useLoading } from "./loading/base/useLoading";
 
 export { default as VsInput } from "./input/base";

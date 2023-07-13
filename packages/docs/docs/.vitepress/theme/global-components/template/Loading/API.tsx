@@ -1,4 +1,4 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 import { VsTable, VsTh, VsTr } from "vuesax/src/components";
 import "./Api.scss";
 
@@ -7,11 +7,11 @@ const AlertApi = defineComponent({
   setup() {
     const props = ref([
       [
-        "type	",
-        "string",
-        "waves corners border points square gradient rectangle circles square-rotates cale",
-        "Change the animation of the loading.",
-        "default",
+        "active",
+        "boolean",
+        "boolean",
+        "Determine if the component is visible.",
+        "true",
       ],
       [
         "color",

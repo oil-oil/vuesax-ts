@@ -16,6 +16,7 @@ export default [
     items: [
       { text: "Button 按钮", link: "/zh/documentation/components/button" },
       { text: "Alert 警告", link: "/zh/documentation/components/alert" },
+      { text: "Loading 加载", link: "/zh/documentation/components/loading" },
     ],
   },
 ];
