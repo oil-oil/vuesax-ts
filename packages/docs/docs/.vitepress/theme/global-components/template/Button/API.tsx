@@ -7,11 +7,11 @@ const AlertApi = defineComponent({
   setup() {
     const props = ref([
       [
-        "type	",
+        "color",
         "string",
-        "waves corners border points square gradient rectangle circles square-rotates cale",
-        "Change the animation of the loading.",
-        "default",
+        "primary success danger warning dark RGB HEX",
+        "Change the color of the component and some of its sub components.",
+        "primary",
       ],
       [
         "color",

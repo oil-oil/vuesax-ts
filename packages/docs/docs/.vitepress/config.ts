@@ -61,7 +61,8 @@ export default defineConfigWithTheme({
             part: [
               { text: "Button", link: "/documentation/components/button" },
               { text: "Alert", link: "/documentation/components/alert" },
-              { text: "Loading", link: "/documentation/components/loading" }
+              { text: "Loading", link: "/documentation/components/loading" },
+              { text: "Input", link: "/documentation/components/input" },
             ],
           },
         ],
@@ -94,6 +95,7 @@ export default defineConfigWithTheme({
           { text: "Button", link: "/documentation/components/button" },
           { text: "Alert", link: "/documentation/components/alert" },
           { text: "Loading", link: "/documentation/components/loading" },
+          { text: "Input", link: "/documentation/components/input" },
         ],
       },
     ],
