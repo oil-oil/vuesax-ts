@@ -46,9 +46,9 @@ describe("Select", () => {
   });
 
   it("test select modelValue", () => {
-    const onClick = cy.spy().as("onClick");
+    const onUpdate = cy.spy().as("onUpdate");
     cy.mount(
-      <Select modelValue="vue" onUpdate:modelValue={onClick}>
+      <Select modelValue="vue" onUpdate:modelValue={onUpdate}>
         {options.map((item) => (
           <SelectOption value={item}>{item}</SelectOption>
         ))}
@@ -59,6 +59,6 @@ describe("Select", () => {
     cy.contains(".activeOption", "vue").should("be.visible");
 
     cy.contains(".vs-select__option", "react").click();
-    cy.get("@onClick").should("be.calledWith", "react");
+    cy.get("@onUpdate").should("be.calledWith", "react");
   });
 });

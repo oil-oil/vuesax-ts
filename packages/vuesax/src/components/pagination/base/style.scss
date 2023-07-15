@@ -6,7 +6,8 @@
   display: flex;
   align-self: center;
   justify-content: center;
-  &.noMargin {
+  width: fit-content;
+  &.compact {
     .vs-pagination {
       &__dotted {
         background: -color("gray-3");
@@ -59,7 +60,7 @@
       }
     }
   }
-  &.buttonsDotted {
+  &.dotted {
     .vs-pagination {
       &__arrow {
         width: 15px;

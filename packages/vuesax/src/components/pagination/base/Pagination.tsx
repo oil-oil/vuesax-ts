@@ -4,6 +4,7 @@ import {
   defineComponent,
   nextTick,
   onMounted,
+  onUnmounted,
   ref,
   watch,
 } from "vue";
@@ -30,10 +31,6 @@ const Pagination = defineComponent({
       type: Boolean,
       default: false,
     },
-    noMargin: {
-      type: Boolean,
-      default: false,
-    },
     showArrow: {
       type: Boolean,
       default: true,
@@ -43,7 +40,7 @@ const Pagination = defineComponent({
       default: false,
     },
     shape: {
-      type: String as PropType<"circle" | "square" | "dotted">,
+      type: String as PropType<"circle" | "square" | "dotted" | "compact">,
     },
     disabled: {
       type: Boolean,
@@ -70,22 +67,13 @@ const Pagination = defineComponent({
       default: 5,
     },
   },
-  slots: ["default"],
-  emit: ["update:modelValue"],
+  emits: ["update:modelValue"],
   setup(props, { emit, slots }) {
     const innerValue = ref<number>(0);
     const paginationRef = ref<HTMLElement>();
+    const buttonRefs = ref<HTMLElement[]>([]);
     const activeClassMove = ref<boolean>(false);
     const leftActive = ref<number>(0);
-
-    const buttonArrRef = computed<HTMLElement[]>(() => {
-      if (paginationRef.value) {
-        return (
-          Array.from(paginationRef.value.childNodes) as HTMLElement[]
-        ).filter((item) => item.tagName === "BUTTON");
-      }
-      return [];
-    });
 
     const isDisabledItem = (item: number) =>
       props.disabledItems?.indexOf(item) !== -1;
@@ -95,16 +83,21 @@ const Pagination = defineComponent({
 
     const resetActivePosition = () => {
       nextTick(() => {
-        const activeIndex = buttonArrRef.value.findIndex(
-          (item) => Number(item.innerText) === props.modelValue
-        );
-        const paginationLeftOffset = paginationRef.value?.offsetLeft as number;
-        const buttonLeftOffset = buttonArrRef.value[activeIndex].offsetLeft;
-        leftActive.value = buttonLeftOffset + paginationLeftOffset;
+        if (buttonRefs.value) {
+          const activeIndex = buttonRefs.value.findIndex(
+            (item) => Number(item.dataset?.index) === props.modelValue
+          );
 
-        setTimeout(() => {
-          activeClassMove.value = false;
-        }, 300);
+          const paginationLeftOffset = paginationRef.value
+            ?.offsetLeft as number;
+
+          const buttonLeftOffset = buttonRefs.value[activeIndex].offsetLeft;
+          leftActive.value = buttonLeftOffset + paginationLeftOffset;
+
+          setTimeout(() => {
+            activeClassMove.value = false;
+          }, 300);
+        }
       });
     };
 
@@ -117,27 +110,24 @@ const Pagination = defineComponent({
 
     watch(
       () => props.modelValue,
-      (_, preValue) => {
-        if (
-          isDisabledItem(props.modelValue) ||
-          isLoadingItem(props.modelValue)
-        ) {
-          let value = props.modelValue;
-          if (value > preValue) {
+      (newValue, oldValue) => {
+        if (isDisabledItem(newValue) || isLoadingItem(newValue)) {
+          let value = newValue;
+          if (value > oldValue) {
             value += 1;
           } else {
             value -= 1;
           }
 
           if (value > props.length) {
-            value = props.infinite ? 1 : preValue;
+            value = props.infinite ? 1 : oldValue;
           } else if (value <= 0) {
-            value = props.infinite ? props.length : preValue;
+            value = props.infinite ? props.length : oldValue;
           }
 
           innerValue.value = value;
         } else {
-          innerValue.value = props.modelValue;
+          innerValue.value = newValue;
           if (paginationRef.value) {
             activeClassMove.value = true;
             resetActivePosition();
@@ -155,8 +145,16 @@ const Pagination = defineComponent({
       () => (props.modelValue * 100) / props.length
     );
 
-    const renderDotted = (text = "...") => (
+    const renderDotted = (
+      index: number,
+      text: "..." | "...>" | "<..." = "..."
+    ) => (
       <div
+        key={text}
+        data-index={text}
+        ref={(el) => {
+          buttonRefs.value[index] = el as HTMLElement;
+        }}
         class={[
           "vs-pagination__dotted",
           {
@@ -175,6 +173,7 @@ const Pagination = defineComponent({
           } else if (innerValue.value < 1) {
             innerValue.value = 1;
           }
+
           emit("update:modelValue", innerValue.value);
         }}
       >
@@ -186,34 +185,44 @@ const Pagination = defineComponent({
       </div>
     );
 
-    const renderButton = (page: number) => (
-      <button
-        class={[
-          "vs-pagination__button",
-          {
-            active: page === props.modelValue,
-            prevActive: page === props.modelValue - 1,
-            nextActive: page === props.modelValue + 1,
-            disabled: isDisabledItem(page),
-            loading: isLoadingItem(page),
-          },
-        ]}
-        onClick={() => {
-          emit("update:modelValue", page);
-        }}
-      >
-        {props.shape === "dotted" ? null : page}
-      </button>
-    );
+    const renderButton = (index: number, page = 1) => {
+      const isDisabled = isDisabledItem(page);
+      const isLoading = isLoadingItem(page);
+      return (
+        <button
+          ref={(el) => {
+            buttonRefs.value[index] = el as HTMLElement;
+          }}
+          key={index}
+          data-index={page}
+          class={[
+            "vs-pagination__button",
+            {
+              active: page === props.modelValue,
+              prevActive: page === props.modelValue - 1,
+              nextActive: page === props.modelValue + 1,
+              disabled: isDisabled,
+              loading: isLoading,
+            },
+          ]}
+          disabled={isDisabled || isLoading}
+          onClick={() => {
+            emit("update:modelValue", page);
+          }}
+        >
+          {props.shape === "dotted" ? null : page}
+        </button>
+      );
+    };
 
     const renderButtons = (array: ("...>" | "<..." | number)[]) => {
       const buttons: JSX.Element[] = [];
 
-      array.forEach((item) => {
+      array.forEach((item, index) => {
         if (item === "...>" || item === "<...") {
-          buttons.push(renderDotted(item));
+          buttons.push(renderDotted(index, item));
         } else {
-          buttons.push(renderButton(item));
+          buttons.push(renderButton(index, item));
         }
       });
 
@@ -258,6 +267,7 @@ const Pagination = defineComponent({
           ...getButtons(nextRange, length),
         ]);
       }
+
       if (props.shape === "dotted" || props.length <= 6) {
         return renderButtons([
           ...getButtons(1, props.length === 0 ? 1 : props.length),
@@ -272,11 +282,11 @@ const Pagination = defineComponent({
         class={[
           "vs-pagination-content",
           {
-            buttonsDotted: props.shape === "dotted",
+            dotted: props.shape === "dotted",
             circle: props.shape === "circle",
             square: props.shape === "square",
+            compact: props.shape === "compact",
             disabled: props.disabled,
-            noMargin: props.noMargin,
             "vs-component--primary":
               !props.danger &&
               !props.success &&
@@ -291,7 +301,7 @@ const Pagination = defineComponent({
         ]}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
       >
-        {!props.onlyArrow && !slots.default?.() && (
+        {!props.onlyArrow && (
           <div
             class={["vs-pagination__active", { move: activeClassMove.value }]}
             style={{ left: `${leftActive.value}px` }}
@@ -306,8 +316,9 @@ const Pagination = defineComponent({
             class="vs-pagination__arrow prev"
             disabled={props.infinite ? false : props.modelValue <= 1}
             onClick={() => {
+              innerValue.value -= 1;
               if (innerValue.value > 0) {
-                emit("update:modelValue", innerValue);
+                emit("update:modelValue", innerValue.value);
               } else if (props.infinite) {
                 emit("update:modelValue", props.length);
               }
@@ -317,11 +328,7 @@ const Pagination = defineComponent({
           </button>
         )}
 
-        {slots.default && (
-          <div class="vs-pagination__slot">{slots.default?.()}</div>
-        )}
-
-        {!props.onlyArrow && !slots.default?.() && (
+        {!props.onlyArrow && (
           <div class="vs-pagination" ref={paginationRef}>
             {getPages.value}
           </div>
@@ -345,9 +352,13 @@ const Pagination = defineComponent({
           </button>
         )}
 
+        {/* progress */}
         {props.progress && (
           <div class="vs-pagination__progress">
-            <div class="progress" style={{ width: computedProgress.value }} />
+            <div
+              class="progress"
+              style={{ width: `${computedProgress.value}%` }}
+            />
           </div>
         )}
       </div>

@@ -1,31 +1,18 @@
 import { defineComponent, ref } from "vue";
 
-import { VsNavbar, VsNavbarGroup, VsNavbarItem, VsButton } from "./components";
+import { VsPagination } from "./components";
 
 export default defineComponent({
   setup() {
-    const active = ref(0);
+    const page = ref(1);
     return () => (
       <>
-        <VsButton
-          border
-          active={active.value === 0}
-          onClick={() => {
-            active.value = 0;
-          }}
-        >
-          active
-        </VsButton>
-        <VsButton
-          border
-          active={active.value === 1}
-          onClick={() => {
-            active.value = 1;
-          }}
-        >
-          default
-        </VsButton>
-        <div style={{ height: "1000px" }}></div>
+        <VsPagination
+          length={6}
+          v-model={page.value}
+          loadingItems={[3, 4, 9, 10, 11, 12, 19]}
+          progress
+        ></VsPagination>
       </>
     );
   },
