@@ -12,11 +12,11 @@ import "./style.scss";
 import { setColor, setVar } from "@/utils";
 
 type LoadingType =
-  | "rotate"
   | "waves"
   | "corners"
   | "points"
   | "square"
+  | "border"
   | "gradient"
   | "rectangle"
   | "circles"
@@ -51,7 +51,7 @@ const Loading = defineComponent({
       default: null,
     },
     progress: {
-      type: String,
+      type: Number,
       default: null,
     },
     scale: {
@@ -63,19 +63,14 @@ const Loading = defineComponent({
       default: true,
     },
   },
-  emits: [
-    "update:isVisible",
-    "update:percent",
-    "update:progress",
-    "update:text",
-  ],
+  emits: ["update:isVisible", "update:text"],
   setup(props) {
     const rootRef = ref<HTMLElement>();
 
     const initStyle = () => {
       if (rootRef.value) {
-        setColor("color", props.color, rootRef.value);
-        setColor("background", props.background, rootRef.value);
+        setColor("color", props.color, rootRef.value, true);
+        setColor("background", props.background, rootRef.value, true);
         if (props.opacity) {
           setVar("opacity", props.opacity, rootRef.value);
         }
@@ -83,11 +78,20 @@ const Loading = defineComponent({
     };
 
     watch(
+      () => props.color,
+      () => {
+        initStyle();
+      }
+    );
+
+    watch(
       () => props.isVisible,
       () => {
-        nextTick(() => {
-          initStyle();
-        });
+        if (props.isVisible) {
+          nextTick(() => {
+            initStyle();
+          });
+        }
       }
     );
 
@@ -122,7 +126,7 @@ const Loading = defineComponent({
                 ))}
               </div>
               {props.text && (
-                <div class="loading__load__text">{props.text}</div>
+                <div class="vs-loading__load__text">{props.text}</div>
               )}
             </div>
 

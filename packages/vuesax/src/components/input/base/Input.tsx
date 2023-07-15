@@ -66,6 +66,10 @@ const Input = defineComponent({
       type: Boolean,
       default: false,
     },
+    isIconClick: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { attrs, slots, emit }) {
     const id = computed(() => `vs-input--${attrs.id || "id"}`);
@@ -108,7 +112,6 @@ const Input = defineComponent({
     );
 
     const loading = <div class="vs-input__loading" />;
-
     return () => (
       <div
         class={[
@@ -206,8 +209,9 @@ const Input = defineComponent({
               class={[
                 "vs-input__icon",
                 { "vs-input__icon--after": props.iconAfter },
-                { "vs-input__icon--click": !!attrs["click-icon"] },
+                { "vs-input__icon--click": props.isIconClick },
               ]}
+              onClick={()=>{emit("click")}}
             >
               {slots.icon()}
             </span>
