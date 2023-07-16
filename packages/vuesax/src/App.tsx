@@ -1,18 +1,23 @@
 import { defineComponent, ref } from "vue";
 
-import { VsPagination } from "./components";
+import { VsButton, VsInput, VsPagination, useModal } from "./components";
 
 export default defineComponent({
   setup() {
-    const page = ref(1);
+    const { open, close } = useModal({
+      title: "Modal Title",
+      content: "Modal Content",
+    });
+    const isShow = ref(true);
     return () => (
       <>
-        <VsPagination
-          length={6}
-          v-model={page.value}
-          loadingItems={[3, 4, 9, 10, 11, 12, 19]}
-          progress
-        ></VsPagination>
+        <VsButton
+          onClick={() => {
+            open();
+          }}
+        >
+          isShow
+        </VsButton>
       </>
     );
   },

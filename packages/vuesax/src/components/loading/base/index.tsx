@@ -7,5 +7,6 @@ Loading.install = (app: App) => {
   app.component(Loading.name, Loading);
   return app;
 };
+
 export type VsLoadingProps = LoadingProps;
 export default Loading as typeof Loading & Plugin;

@@ -26,13 +26,11 @@ const useLoading = (props?: LoadingHookProps) => {
   const mountLoading = () => {
     app.value.mount(LoadingDom);
     document.body.appendChild(LoadingDom);
-    // document.body.style.overflowY = "hidden";
   };
 
   const unMountLoading = () => {
     app.value.unmount();
     document.body.removeChild(LoadingDom);
-    // document.body.style.overflowY = "auto";
   };
 
   watch(isVisible, () => {

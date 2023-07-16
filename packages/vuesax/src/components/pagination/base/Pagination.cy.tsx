@@ -84,4 +84,26 @@ describe("Pagination", () => {
       cy.get("@onUpdate").should("be.calledWith", 20 - index);
     });
   });
+
+  it("test pagination progress", () => {
+    const length = 20;
+    const onUpdate = cy.spy().as("onUpdate");
+    cy.mount(<Pagination length={length} onUpdate:modelValue={onUpdate} />);
+    Array.from({ length: length - 1 }).forEach((_, index) => {
+      cy.get("button.next").click();
+      cy.get("@onUpdate").should("be.calledWith", index + 2);
+    });
+
+    cy.mount(
+      <Pagination
+        length={length}
+        onUpdate:modelValue={onUpdate}
+        modelValue={20}
+      />
+    );
+    Array.from({ length: length - 1 }).forEach((_, index) => {
+      cy.get("button.prev").click();
+      cy.get("@onUpdate").should("be.calledWith", 20 - index);
+    });
+  });
 });

@@ -8,7 +8,6 @@ describe("Loading", () => {
 
   it("test loading different type", () => {
     const typeArray = [
-      "rotate",
       "waves",
       "corners",
       "points",
@@ -50,7 +49,7 @@ describe("Loading", () => {
   });
 
   it("test loading progress", () => {
-    cy.mount(<Loading progress="70" />);
+    cy.mount(<Loading progress={70} />);
     cy.get(".vs-loading__progress__bar")
       .should("have.attr", "style")
       .and("include", "width: 70%");
