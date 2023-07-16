@@ -211,6 +211,7 @@ $background-color_2: var(--vs-theme-bg2);
 		align-items: center;
 		justify-content: center;
 		.update-time{
+			color: var(--vs-theme-color);
 			width: 100%;
 			display: flex;
 			align-items: center;
@@ -226,6 +227,7 @@ $background-color_2: var(--vs-theme-bg2);
 			}
 		}
 		.next-control{
+			color: var(--vs-theme-color);
 			width: 760px;
 			font-weight: bold;
 			margin: 40px 0 0 0;
@@ -265,17 +267,34 @@ $background-color_2: var(--vs-theme-bg2);
 			margin: 70px 0 70px 0 ;
 			width: 350px;
 			.title{
+				color: var(--vs-theme-color);
 				margin-bottom: 40px;
 			}
-			.vs-input{
+			.vs-input-parent{
+				position: relative;
 				margin-top: 0px;
 				width: 100%;
 				height: 40px;
+				background-color: var(--vs-theme-bg);
+				.vs-input-content{
+					width: 100%;
+					.vs-input{
+						width: 90%;
+						box-shadow: 0 10px 20px -10px rgba(var(--vs-primary),.6)!important;
+						background-color: rgba(var(--vs-primary),0.1)!important;
+					}
+					label{
+						color: var(--vs-theme-color);
+					}
+				}
 			}
 			.vs-button{
 				position: absolute;
 				right: 0;
 				bottom: 22px;
+				box-shadow: 0 10px 20px -10px rgba(var(--vs-primary),.6)!important;
+				&:hover{
+					transform: translateY(-5px)!important;				}
 			}
 		}
 	}
