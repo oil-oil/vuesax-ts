@@ -1,4 +1,4 @@
-import Table from "./base/table";
+import Table from "./base/Table";
 import Td from "./td/TableTd";
 import Th from "./th/TableTh";
 import Tr from "./tr/TableTr";

@@ -1,6 +1,6 @@
 import { App, Plugin } from "vue";
 
-import Table from "./table.tsx";
+import Table from "./Table.tsx";
 
 Table.install = (app: App) => {
   app.component(Table.name, Table);

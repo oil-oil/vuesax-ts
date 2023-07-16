@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { InputHTMLAttributes, defineComponent, ref, watch } from "vue";
+import { InputHTMLAttributes, defineComponent } from "vue";
 
 import "./style.scss";
 import { BaseProps } from "@/hooks/useBase";

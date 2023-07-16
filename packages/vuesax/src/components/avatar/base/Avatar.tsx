@@ -75,7 +75,6 @@ const Avatar = defineComponent({
   setup(props, { slots, attrs }) {
     const textLength = ref(0);
     const index = ref<number>(0);
-    const elRef = ref<HTMLElement>();
     const badgeRef = ref<HTMLElement>();
 
     const max = inject<Ref<number> | null>("max", null);

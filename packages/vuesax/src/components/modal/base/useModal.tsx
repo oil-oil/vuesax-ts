@@ -1,4 +1,4 @@
-import { ref, createApp, onMounted, onUnmounted, computed, h } from "vue";
+import { ref, createApp, onMounted, onUnmounted, computed } from "vue";
 
 import Modal, { ModalProps } from "./Modal";
 import { VsButton } from "@/components";

@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted } from "vue";
+import { defineComponent, ref } from "vue";
 
 import IconsArrow from "../../../icons/Arrow";
 import "./style.scss";
@@ -13,11 +13,7 @@ const CardGroup = defineComponent({
       <div class="vs-card__group">
         <button
           class="vs-card__group-prev"
-          onClick={(evt: MouseEvent) => {
-            console.log(
-              cardsRef.value?.scrollLeft,
-              cardsRef.value?.clientWidth
-            );
+          onClick={() => {
             cardsRef.value?.scrollTo(
               cardsRef.value.scrollLeft - cardsRef.value.clientWidth,
               0
@@ -32,11 +28,7 @@ const CardGroup = defineComponent({
         </div>
         <button
           class="vs-card__group-next"
-          onClick={(evt: MouseEvent) => {
-            console.log(
-              cardsRef.value?.scrollLeft,
-              cardsRef.value?.clientWidth
-            );
+          onClick={() => {
             cardsRef.value?.scrollTo(
               cardsRef.value.scrollLeft + cardsRef.value.clientWidth,
               0

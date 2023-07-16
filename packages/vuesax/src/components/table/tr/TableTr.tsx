@@ -1,7 +1,6 @@
 import {
   HTMLAttributes,
   PropType,
-  Ref,
   Transition,
   defineComponent,
   inject,
