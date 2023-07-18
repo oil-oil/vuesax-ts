@@ -16,4 +16,4 @@ jobs:
         run: pnpm install
 
       - name: Run component test
-        run: "pnpm -F vuesax cypress:run"
+        run: "pnpm -F vuesax-ts cypress:run"

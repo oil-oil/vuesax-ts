@@ -28,3 +28,4 @@ dist-ssr
 
 # cypress
 cypress/videos
+cypress/screenshots
