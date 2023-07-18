@@ -12,7 +12,8 @@ jobs:
         with:
           version: 7.30.3
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
-        with:
-          component: true
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run component test
+        run: "pnpm -F vuesax cypress:run"
