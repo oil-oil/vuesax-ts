@@ -1,8 +1,8 @@
-import Loading from "./Loading";
+import { VsLoading } from "@/components";
 
 describe("Loading", () => {
   it("test loading basic render", () => {
-    cy.mount(<Loading />);
+    cy.mount(<VsLoading />);
     cy.get(".vs-loading ").get(".vs-loading--default").should("be.visible");
   });
 
@@ -20,18 +20,18 @@ describe("Loading", () => {
     ] as const;
 
     typeArray.forEach((type) => {
-      cy.mount(<Loading type={type} />);
+      cy.mount(<VsLoading type={type} />);
       cy.get(`.vs-loading--${type}`).should("be.visible");
     });
   });
 
   it("test loading isVisible", () => {
-    cy.mount(<Loading isVisible={false} />);
+    cy.mount(<VsLoading isVisible={false} />);
     cy.get(".vs-loading--default").should("not.exist");
   });
 
   it("test loading style", () => {
-    cy.mount(<Loading background="#7a76cb" color="#fff" opacity="0.7" />);
+    cy.mount(<VsLoading background="#7a76cb" color="#fff" opacity="0.7" />);
     cy.get(".vs-loading--default")
       .should("have.css", "color", "rgb(0, 0, 0)")
       .should(
@@ -42,14 +42,14 @@ describe("Loading", () => {
   });
 
   it("test loading text and percent", () => {
-    cy.mount(<Loading text="Loading text" percent="70" />);
+    cy.mount(<VsLoading text="Loading text" percent="70" />);
     cy.get(".vs-loading--default").should("be.visible");
-    cy.contains("Loading text").should("have.class", "loading__load__text");
+    cy.contains("Loading text").should("have.class", "vs-loading__load__text");
     cy.contains("70").should("have.class", "vs-loading__load__percent");
   });
 
   it("test loading progress", () => {
-    cy.mount(<Loading progress={70} />);
+    cy.mount(<VsLoading progress={70} />);
     cy.get(".vs-loading__progress__bar")
       .should("have.attr", "style")
       .and("include", "width: 70%");

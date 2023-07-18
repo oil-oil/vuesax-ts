@@ -1,16 +1,23 @@
 {
-  "name": "vuesax",
-  "private": true,
-  "version": "0.0.0",
+  "name": "vuesax-ts",
+  "version": "0.0.1",
   "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "dist/es/index.js",
+  "module": "dist/lib/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src --fix --cache",
-    "cypress:open": "npx cypress open"
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run --component"
   },
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^3.0.1",
@@ -31,5 +38,12 @@
     "vite": "^4.3.2",
     "vite-plugin-dts": "^2.3.0",
     "vue-tsc": "^1.4.2"
-  }
+  },
+  "keywords": [
+    "vuesax",
+    "component library",
+    "ui framework",
+    "ui",
+    "vue"
+  ]
 }

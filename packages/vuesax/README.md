@@ -1,18 +1,27 @@
-# Vue 3 + TypeScript + Vite
+# vuesax-ts
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Status: Alpha
 
-## Recommended IDE Setup
+vuesax-ts is a component library that updates and enhances the functionality of [vuesax-next](https://github.com/lusaxweb/vuesax-next), which is no longer being actively developed.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+**vuesax-ts** provides full **Vue 3** + **typescript** support and uses **Vite** for component compilation.
 
-## Type Support For `.vue` Imports in TS
+| Feature            | Vuesax 4        | Vuesax-ts        |
+| ------------------ | --------------- | ---------------- |
+| Component files    | `.ts`           | `.tsx`           |
+| CSS Processor      | Sass            | Sass             |
+| Build tools        | Webpack, babel  | Vite             |
+| Documentation      | Vuepress v1.1.0 | Vitepress v1.0.0 |
+| Typescript support | Yes             | More complete    |
+| Styles format      | `sass`          | `scss`           |
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+We would love our users to test with vuesax-ts to find bugs so we can fix them on the fly.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Contribute
+
+We're currently working hard on refactoring and testing all components within vuesax-next, and we want YOU to join us! 🌟 Whether you're a seasoned developer or an aspiring newbie, we welcome anyone interested in contributing to vuesax-ts. 💪🏼
+
+So, how can you get involved? 🤔 It's super easy - just head over to my GitHub page to find out more information. 🚀 And if you have any valuable suggestions or comments, don't hesitate to raise them in the GitHub issue! 🙌🏼 We always welcome feedback and will actively consider your ideas.
+
+Let's work together to make vuesax-ts the best component library out there!

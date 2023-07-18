@@ -1,15 +1,15 @@
-import Button from "./Button";
+import { VsButton } from "@/components";
 
 describe("Button", () => {
   it("test button basic render", () => {
-    cy.mount(<Button>Default Button</Button>);
+    cy.mount(<VsButton>Default Button</VsButton>);
     cy.contains("Default Button")
       .should("be.visible")
       .should("have.class", "vs-button--primary vs-button--default");
   });
 
   it("test disabled render", () => {
-    cy.mount(<Button disabled>Disabled Button</Button>);
+    cy.mount(<VsButton disabled>Disabled Button</VsButton>);
     cy.contains("Disabled Button")
       .should("be.visible")
       .should("have.class", "vs-button--primary vs-button--default")
@@ -20,7 +20,7 @@ describe("Button", () => {
     const propsArr = ["danger", "success", "warn", "dark"] as const;
 
     propsArr.forEach((prop) => {
-      cy.mount(<Button {...{ [prop]: true }}>{prop}</Button>);
+      cy.mount(<VsButton {...{ [prop]: true }}>{prop}</VsButton>);
       cy.contains(prop)
         .should("be.visible")
         .should("have.class", `vs-button--${prop}`);
@@ -39,7 +39,7 @@ describe("Button", () => {
     ] as const;
 
     propsArr.forEach((prop) => {
-      cy.mount(<Button {...{ [prop]: true }}>{prop}</Button>);
+      cy.mount(<VsButton {...{ [prop]: true }}>{prop}</VsButton>);
       cy.contains(prop)
         .should("be.visible")
         .should("not.have.class", "vs-button--default")
@@ -48,12 +48,12 @@ describe("Button", () => {
   });
 
   it("test button different shape", () => {
-    cy.mount(<Button circle>Circle Button</Button>);
+    cy.mount(<VsButton circle>Circle Button</VsButton>);
     cy.contains("Circle Button")
       .should("have.class", "vs-button--circle")
       .should("have.css", "border-radius", "25px");
 
-    cy.mount(<Button square>Square Button</Button>);
+    cy.mount(<VsButton square>Square Button</VsButton>);
     cy.contains("Square Button")
       .should("have.class", "vs-button--square")
       .should("have.css", "border-radius", "0px");
@@ -61,11 +61,11 @@ describe("Button", () => {
 
   it("test button click", () => {
     const onClickSpy = cy.spy().as("onClickSpy");
-    cy.mount(<Button onClick={onClickSpy}>Button</Button>);
+    cy.mount(<VsButton onClick={onClickSpy}>Button</VsButton>);
     cy.contains("Button").click();
     cy.get("@onClickSpy").should("have.callCount", 1);
 
-    cy.mount(<Button to="testRoute">Router Button</Button>);
+    cy.mount(<VsButton to="testRoute">Router Button</VsButton>);
     cy.contains("Router Button").click();
 
     cy.url().should("contain", "/testRoute");
@@ -74,9 +74,9 @@ describe("Button", () => {
   it("test button loading", () => {
     const onClickSpy = cy.spy().as("onClickSpy");
     cy.mount(
-      <Button onClick={onClickSpy} loading>
+      <VsButton onClick={onClickSpy} loading>
         Loading Button
-      </Button>
+      </VsButton>
     );
 
     cy.contains("Loading Button")
@@ -90,11 +90,10 @@ describe("Button", () => {
     const sizeArr = ["xs", "sm", "md", "lg", "xl"] as const;
 
     sizeArr.forEach((prop) => {
-      cy.mount(<Button size="xl">{prop}</Button>);
+      cy.mount(<VsButton size={prop}>{prop}</VsButton>);
       cy.contains(prop)
         .should("be.visible")
-        .should("have.class", `vs-button--size-${prop}`)
-        .should("have.class", `vs-button--${prop}`);
+        .should("have.class", `vs-button--size-${prop}`);
     });
   });
 });

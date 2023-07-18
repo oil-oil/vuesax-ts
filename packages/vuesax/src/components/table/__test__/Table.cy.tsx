@@ -1,7 +1,4 @@
-import Table from "./base/Table";
-import Td from "./td/TableTd";
-import Th from "./th/TableTh";
-import Tr from "./tr/TableTr";
+import { VsTable, VsTd, VsTh, VsTr } from "@/components";
 
 const data = [
   {
@@ -79,27 +76,27 @@ const data = [
 describe("Table", () => {
   it("test table basic render", () => {
     cy.mount(
-      <Table
+      <VsTable
         v-slots={{
           header: () => <h1>Table header</h1>,
           thead: () => (
-            <Tr>
-              <Th>Id</Th>
-              <Th>Name</Th>
-              <Th>Email</Th>
-            </Tr>
+            <VsTr>
+              <VsTh>Id</VsTh>
+              <VsTh>Name</VsTh>
+              <VsTh>Email</VsTh>
+            </VsTr>
           ),
           tbody: () =>
             data.map(({ username, email, id }) => (
-              <Tr>
-                <Td checkbox>{id}</Td>
-                <Td>{username}</Td>
-                <Td>{email}</Td>
-              </Tr>
+              <VsTr>
+                <VsTd checkbox>{id}</VsTd>
+                <VsTd>{username}</VsTd>
+                <VsTd>{email}</VsTd>
+              </VsTr>
             )),
           footer: () => <span>footer</span>,
         }}
-      ></Table>
+      ></VsTable>
     );
 
     cy.contains(".vs-table__header", "Table header").should("be.visible");
@@ -118,27 +115,27 @@ describe("Table", () => {
 
   it("test table expand", () => {
     cy.mount(
-      <Table
+      <VsTable
         v-slots={{
           header: () => <h1>Table header</h1>,
           thead: () => (
-            <Tr>
-              <Th>Id</Th>
-              <Th>Name</Th>
-              <Th>Email</Th>
-            </Tr>
+            <VsTr>
+              <VsTh>Id</VsTh>
+              <VsTh>Name</VsTh>
+              <VsTh>Email</VsTh>
+            </VsTr>
           ),
           tbody: () =>
             data.map(({ username, email, id }) => (
-              <Tr v-slots={{ expand: () => <h1>Expand content</h1> }}>
-                <Td>{id}</Td>
-                <Td>{username}</Td>
-                <Td>{email}</Td>
-              </Tr>
+              <VsTr v-slots={{ expand: () => <h1>Expand content</h1> }}>
+                <VsTd>{id}</VsTd>
+                <VsTd>{username}</VsTd>
+                <VsTd>{email}</VsTd>
+              </VsTr>
             )),
           footer: () => <span>footer</span>,
         }}
-      ></Table>
+      ></VsTable>
     );
 
     cy.contains(".vs-table__td", "1")
@@ -158,28 +155,28 @@ describe("Table", () => {
 
   it("test table striped", () => {
     cy.mount(
-      <Table
+      <VsTable
         striped
         v-slots={{
           header: () => <h1>Table header</h1>,
           thead: () => (
-            <Tr>
-              <Th>Id</Th>
-              <Th>Name</Th>
-              <Th>Email</Th>
-            </Tr>
+            <VsTr>
+              <VsTh>Id</VsTh>
+              <VsTh>Name</VsTh>
+              <VsTh>Email</VsTh>
+            </VsTr>
           ),
           tbody: () =>
             data.map(({ username, email, id }) => (
-              <Tr v-slots={{ expand: () => <h1>Expand content</h1> }}>
-                <Td>{id}</Td>
-                <Td>{username}</Td>
-                <Td>{email}</Td>
-              </Tr>
+              <VsTr v-slots={{ expand: () => <h1>Expand content</h1> }}>
+                <VsTd>{id}</VsTd>
+                <VsTd>{username}</VsTd>
+                <VsTd>{email}</VsTd>
+              </VsTr>
             )),
           footer: () => <span>footer</span>,
         }}
-      ></Table>
+      ></VsTable>
     );
 
     cy.get(".vs-table__tr:nth-child(2n)").should(

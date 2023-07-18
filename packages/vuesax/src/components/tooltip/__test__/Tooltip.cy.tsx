@@ -1,5 +1,4 @@
-import VsToolTip from "./index";
-import { VsButton } from "@/components";
+import { VsButton, VsToolTip } from "@/components";
 
 describe("Tooltip", () => {
   it("test Tooltip", () => {

@@ -1,9 +1,9 @@
-import Alert from "./Alert";
+import { VsAlert } from "@/components";
 
 describe("Alert", () => {
   it("test alert basic render", () => {
     cy.mount(
-      <Alert v-slots={{ title: () => "Alert Title" }}>Default Alert</Alert>
+      <VsAlert v-slots={{ title: () => "Alert Title" }}>Default Alert</VsAlert>
     );
     cy.contains(".vs-alert__title", "Alert Title").should("be.visible");
     cy.contains("Default Alert").should("be.visible");
@@ -12,7 +12,7 @@ describe("Alert", () => {
   it("test button different status", () => {
     const propsArr = ["danger", "success", "warn", "dark"] as const;
     propsArr.forEach((prop) => {
-      cy.mount(<Alert {...{ [prop]: true }}>{prop}</Alert>);
+      cy.mount(<VsAlert {...{ [prop]: true }}>{prop}</VsAlert>);
       cy.get(`.vs-component--${prop}`).should("be.visible");
     });
   });
@@ -27,7 +27,7 @@ describe("Alert", () => {
       "relief",
     ] as const;
     propsArr.forEach((prop) => {
-      cy.mount(<Alert {...{ [prop]: true }}>{prop}</Alert>);
+      cy.mount(<VsAlert {...{ [prop]: true }}>{prop}</VsAlert>);
       cy.get(`.vs-alert--${prop}`).should("be.visible");
     });
   });
@@ -36,13 +36,13 @@ describe("Alert", () => {
     const onTitleClick = cy.spy().as("onTitleClick");
 
     cy.mount(
-      <Alert
+      <VsAlert
         v-slots={{ title: () => "Alert Title" }}
         hiddenContent={false}
         onUpdate:hiddenContent={onTitleClick}
       >
         Alert Content
-      </Alert>
+      </VsAlert>
     );
 
     cy.get<VueWrapper>("@vue").then((wrapper) => {
@@ -57,14 +57,14 @@ describe("Alert", () => {
 
   it("test alert icon", () => {
     cy.mount(
-      <Alert
+      <VsAlert
         v-slots={{
           title: () => "Alert Title",
           icon: () => <i class="bx bxs-chat"></i>,
         }}
       >
         Default Alert
-      </Alert>
+      </VsAlert>
     );
     cy.contains(".vs-alert__title", "Alert Title").should("be.visible");
     cy.contains("Default Alert").should("be.visible");
@@ -73,14 +73,14 @@ describe("Alert", () => {
 
   it("test alert progress", () => {
     cy.mount(
-      <Alert
+      <VsAlert
         v-slots={{
           title: () => "Alert Title",
         }}
         progress={70}
       >
         Default Alert
-      </Alert>
+      </VsAlert>
     );
     cy.contains(".vs-alert__title", "Alert Title").should("be.visible");
     cy.contains("Default Alert").should("be.visible");
@@ -92,14 +92,14 @@ describe("Alert", () => {
 
   it("test alert isShow", () => {
     cy.mount(
-      <Alert
+      <VsAlert
         v-slots={{
           title: () => "Alert Title",
         }}
         isShow={false}
       >
         Default Alert
-      </Alert>
+      </VsAlert>
     );
     cy.get(".vs-alert").should("not.exist");
   });

@@ -8,8 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-lib
-es
+dist
 dist-ssr
 *.local
 
@@ -26,3 +25,6 @@ dist-ssr
 
 # Eslint cache
 .eslintcache
+
+# cypress
+cypress/videos

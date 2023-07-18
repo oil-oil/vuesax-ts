@@ -1,4 +1,5 @@
-import VsAvatar from "./Avatar";
+import avatar2 from "./avatar-2.png";
+import { VsAvatar } from "@/components";
 
 describe("Avatar", () => {
   it("test Avatar all props render", () => {
@@ -19,7 +20,7 @@ describe("Avatar", () => {
           ),
         }}
       >
-        <img src="/avatars/avatar-2.png" alt="" />
+        <img src={avatar2} alt="" />
       </VsAvatar>
     );
     cy.get(".vs-avatar__badge,writing").should("be.visible");
