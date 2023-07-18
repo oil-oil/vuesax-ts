@@ -9,7 +9,7 @@ import "./style.scss";
 const DocsPage = defineComponent({
   name: "DocsPage",
   setup() {
-    const { page } = useData();
+    const { page, isDark } = useData();
     const pageHeaderContentTitleRef = ref();
     const pageHeaderTrigger = ref(false);
     const pageHeaderDelta = ref();
@@ -187,8 +187,9 @@ const DocsPage = defineComponent({
             </h4>
             <VsInput
               class="vs-input"
-              state="primary"
-              placeholder="Subscribe"
+              state={isDark.value ? "dark" : "primary"}
+              type="email"
+              labelPlaceholder="Email"
             ></VsInput>
             <VsButton class="vs-button">Subscribe!!</VsButton>
           </div>

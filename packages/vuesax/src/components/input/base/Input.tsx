@@ -211,9 +211,6 @@ const Input = defineComponent({
                 { "vs-input__icon--after": props.iconAfter },
                 { "vs-input__icon--click": props.isIconClick },
               ]}
-              onClick={() => {
-                emit("click");
-              }}
             >
               {slots.icon()}
             </span>
