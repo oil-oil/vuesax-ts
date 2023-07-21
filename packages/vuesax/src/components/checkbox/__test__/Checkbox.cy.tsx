@@ -1,12 +1,12 @@
-import Checkbox from "./Checkbox";
+import { VsCheckbox } from "@/components";
 
 describe("Input", () => {
   it("test input basic render", () => {
     const onClick = cy.spy().as("onClick");
     cy.mount(
-      <Checkbox id="default" modelValue={false} onUpdate:modelValue={onClick}>
+      <VsCheckbox id="default" modelValue={false} onUpdate:modelValue={onClick}>
         Default Checkbox
-      </Checkbox>
+      </VsCheckbox>
     );
     cy.contains(".vs-checkbox-label", "Default Checkbox").should("be.visible");
     cy.get("#default")
@@ -26,25 +26,25 @@ describe("Input", () => {
     const propsArr = ["success", "danger", "warn", "dark"];
     propsArr.forEach((prop) => {
       cy.mount(
-        <Checkbox {...{ [prop]: true }} id="default">
+        <VsCheckbox {...{ [prop]: true }} id="default">
           {prop}
-        </Checkbox>
+        </VsCheckbox>
       );
       cy.get(`.vs-component--${prop}`).click();
     });
 
-    cy.mount(<Checkbox color="#7d33ff" id="default"></Checkbox>);
+    cy.mount(<VsCheckbox color="#7d33ff" id="default"></VsCheckbox>);
 
     cy.get("[style='--vs-color: 125,51,255;']").should("be.visible");
-    cy.mount(<Checkbox color="rgb(59,222,200)" id="default"></Checkbox>);
+    cy.mount(<VsCheckbox color="rgb(59,222,200)" id="default"></VsCheckbox>);
     cy.get("[style='--vs-color: 59,222,200;']").should("be.visible");
   });
 
   it("test checkbox different status", () => {
     cy.mount(
-      <Checkbox id="default" labelBefore lineThrough>
+      <VsCheckbox id="default" labelBefore lineThrough>
         lineThrough Checkbox
-      </Checkbox>
+      </VsCheckbox>
     );
 
     cy.get("#default").click();
@@ -56,7 +56,7 @@ describe("Input", () => {
 
   it("test checkbox with icon", () => {
     cy.mount(
-      <Checkbox
+      <VsCheckbox
         id="default"
         labelBefore
         lineThrough
@@ -65,7 +65,7 @@ describe("Input", () => {
         }}
       >
         lineThrough Checkbox
-      </Checkbox>
+      </VsCheckbox>
     );
 
     cy.get("#default").click();

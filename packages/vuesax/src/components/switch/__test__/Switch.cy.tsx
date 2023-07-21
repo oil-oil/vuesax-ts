@@ -1,8 +1,8 @@
-import Switch from "./Switch";
+import { VsSwitch } from "@/components";
 
 describe("Switch", () => {
   it("test button basic render", () => {
-    cy.mount(<Switch>Default Switch</Switch>);
+    cy.mount(<VsSwitch>Default Switch</VsSwitch>);
     cy.contains(".vs-switch__text.off", "Default Switch")
       .should("be.visible")
       .parent()
@@ -10,7 +10,7 @@ describe("Switch", () => {
   });
 
   it("test disabled render", () => {
-    cy.mount(<Switch disabled>Disabled Switch</Switch>);
+    cy.mount(<VsSwitch disabled>Disabled Switch</VsSwitch>);
     cy.contains(".vs-switch__text.off", "Disabled Switch")
       .parent()
       .should("have.class", "vs-component--primary");
@@ -25,7 +25,7 @@ describe("Switch", () => {
     const propsArr = ["danger", "success", "warn", "dark"] as const;
 
     propsArr.forEach((prop) => {
-      cy.mount(<Switch {...{ [prop]: true }}>{prop}</Switch>);
+      cy.mount(<VsSwitch {...{ [prop]: true }}>{prop}</VsSwitch>);
       cy.contains(prop)
         .parent()
         .should("be.visible")
@@ -34,7 +34,7 @@ describe("Switch", () => {
   });
 
   it("test switch square shape", () => {
-    cy.mount(<Switch square>square</Switch>);
+    cy.mount(<VsSwitch square>square</VsSwitch>);
     cy.contains("square")
       .parent()
       .should("be.visible")
@@ -42,16 +42,16 @@ describe("Switch", () => {
   });
 
   it("test switch indeterminate", () => {
-    cy.mount(<Switch indeterminate></Switch>);
+    cy.mount(<VsSwitch indeterminate></VsSwitch>);
     cy.get(".vs-switch.vs-switch--indeterminate").should("be.visible");
   });
 
   it("test switch modelValue", () => {
     const onClick = cy.spy().as("onClick");
     cy.mount(
-      <Switch modelValue={false} onUpdate:modelValue={onClick}>
+      <VsSwitch modelValue={false} onUpdate:modelValue={onClick}>
         switch
-      </Switch>
+      </VsSwitch>
     );
     cy.contains(".vs-switch__text.off", "switch").should("be.visible");
     cy.get<VueWrapper>("@vue").then((wrapper) => {
@@ -67,9 +67,9 @@ describe("Switch", () => {
   it("test switch loading", () => {
     const onClickSpy = cy.spy().as("onClick");
     cy.mount(
-      <Switch onUpdate:modelValue={onClickSpy} loading>
+      <VsSwitch onUpdate:modelValue={onClickSpy} loading>
         Loading Switch
-      </Switch>
+      </VsSwitch>
     );
 
     cy.get(".vs-switch").click({ force: true });
@@ -78,14 +78,14 @@ describe("Switch", () => {
 
   it("test switch icon", () => {
     cy.mount(
-      <Switch
+      <VsSwitch
         v-slots={{
           on: <i class="bx bxs-volume-full"></i>,
           off: <i class="bx bxs-volume-mute"></i>,
         }}
       >
         Loading Switch
-      </Switch>
+      </VsSwitch>
     );
 
     cy.get(".bxs-volume-mute").should("be.visible");

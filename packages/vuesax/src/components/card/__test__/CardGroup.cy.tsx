@@ -1,6 +1,6 @@
-import VsCardGroup from "./CardGroup";
 import VsButton from "../../button/base";
 import VsCard from "../base/Card";
+import VsCardGroup from "../group/CardGroup";
 
 describe("Card", () => {
   const i = ["1", "2", "3", "4", "5", "6"];

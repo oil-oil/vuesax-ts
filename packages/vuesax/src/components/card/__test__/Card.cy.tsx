@@ -1,5 +1,5 @@
-import VsCard from "./Card";
-import VsButton from "../../button/base";
+import foto1 from "./foto1.png";
+import { VsButton, VsCard } from "@/components";
 
 describe("Card", () => {
   it("test Card type-1 render", () => {
@@ -8,7 +8,7 @@ describe("Card", () => {
         type="1"
         v-slots={{
           title: () => <h3>pot with a plant</h3>,
-          img: () => <img src="/foto1.png" />,
+          img: () => <img src={foto1} />,
           text: () => (
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
           ),
@@ -47,7 +47,7 @@ describe("Card", () => {
         type="2"
         v-slots={{
           title: () => <h3>pot with a plant</h3>,
-          img: () => <img src="/foto1.png" />,
+          img: () => <img src={foto1} />,
           text: () => (
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
           ),
@@ -91,7 +91,7 @@ describe("Card", () => {
         type="3"
         v-slots={{
           title: () => <h3>pot with a plant</h3>,
-          img: () => <img src="/foto1.png" />,
+          img: () => <img src={foto1} />,
           text: () => (
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
           ),
@@ -130,7 +130,7 @@ describe("Card", () => {
         type="4"
         v-slots={{
           title: () => <h3>pot with a plant</h3>,
-          img: () => <img src="/foto1.png" />,
+          img: () => <img src={foto1} />,
           text: () => (
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
           ),
@@ -174,7 +174,7 @@ describe("Card", () => {
         type="5"
         v-slots={{
           title: () => <h3>pot with a plant</h3>,
-          img: () => <img src="/foto1.png" />,
+          img: () => <img src={foto1} />,
           text: () => (
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
           ),

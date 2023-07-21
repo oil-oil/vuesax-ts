@@ -60,7 +60,7 @@ const useModal = (props: ModalHookProps) => {
               ),
           }}
         >
-          {props?.content}
+          {content}
         </Modal>
       ),
     })

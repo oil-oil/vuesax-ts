@@ -14,27 +14,27 @@ export default defineConfig({
   },
   build: {
     minify: false,
-    cssCodeSplit: false,
     lib: {
-      entry: "src/components/index.ts",
+      entry: "src/index.ts",
       formats: ["es", "cjs"],
     },
-    outDir: "lib",
+    outDir: "es",
     rollupOptions: {
       external: ["vue"],
+      input: "src/index.ts",
       output: [
         {
           format: "es",
           entryFileNames: "[name].js",
           preserveModules: true,
-          dir: "es",
+          dir: "dist/es",
           preserveModulesRoot: "src",
         },
         {
           format: "cjs",
           entryFileNames: "[name].js",
           preserveModules: true,
-          dir: "lib",
+          dir: "dist/lib",
           preserveModulesRoot: "src",
         },
       ],
@@ -44,8 +44,9 @@ export default defineConfig({
     vue(),
     vueJsx(),
     dts({
-      outputDir: "es",
+      outputDir: ["dist/lib", "dist/es"],
       tsConfigFilePath: "./tsconfig.json",
+      entryRoot: "src",
     }),
   ],
 });

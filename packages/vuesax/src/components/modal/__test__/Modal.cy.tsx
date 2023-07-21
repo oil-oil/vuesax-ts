@@ -1,14 +1,14 @@
-import Modal from "./Modal";
+import { VsModal } from "@/components";
 
 describe("Modal", () => {
   it("test modal basic render", () => {
     cy.mount(
-      <Modal
+      <VsModal
         modelValue={true}
         v-slots={{ header: () => "header", footer: () => "footer" }}
       >
         content
-      </Modal>
+      </VsModal>
     );
     cy.contains(".vs-modal__header", "header").should("be.visible");
     cy.contains(".vs-modal__content", "content").should("be.visible");
@@ -17,9 +17,9 @@ describe("Modal", () => {
 
   it("test modal with square shape", () => {
     cy.mount(
-      <Modal square modelValue={true}>
+      <VsModal square modelValue={true}>
         content
-      </Modal>
+      </VsModal>
     );
     cy.get(".vs-modal.vs-modal--square")
       .should("be.visible")
@@ -30,9 +30,9 @@ describe("Modal", () => {
     const onCloseClick = cy.spy().as("onCloseClick");
 
     cy.mount(
-      <Modal modelValue={false} onUpdate:modelValue={onCloseClick}>
+      <VsModal modelValue={false} onUpdate:modelValue={onCloseClick}>
         content
-      </Modal>
+      </VsModal>
     );
 
     cy.get(".vs-modal-content").should("not.exist");
