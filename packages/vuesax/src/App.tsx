@@ -1,31 +1,70 @@
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent } from "vue";
 
-import { VsRadio } from "./components";
+import { VsButton, useNotification } from "./components";
 
 export default defineComponent({
   setup() {
-    const active = ref("0");
-    watch(active, () => {
-      console.log(active.value);
-    });
+    const { open, close, clear } = useNotification();
+    let key: string;
     return () => (
       <>
-        <VsRadio
-          v-model={active.value}
-          value="1"
-          v-slots={{ icon: () => <i class="bx bx-yen"></i> }}
+        <VsButton
+          onClick={() => {
+            key = open({
+              success: true,
+              text: "These documents refer to the latest version of vuesax (4.0+), to see the documents of the previous versions you can do it here 👉 Vuesax 3.x",
+              title: "Documentation Vuesax 4.0+",
+            });
+            console.log(key);
+          }}
         >
-          Option 1
-        </VsRadio>
-        <VsRadio v-model={active.value} value="2">
-          Option 2
-        </VsRadio>
-        <VsRadio disabled v-model={active.value} value="3">
-          Option 3
-        </VsRadio>
-        <VsRadio v-model={active.value} value="4">
-          Option 4
-        </VsRadio>
+          open
+        </VsButton>
+        <VsButton
+          onClick={() => {
+            open({
+              warn: true,
+              position: "bottom-left",
+              text: "These documents refer to the latest version of vuesax (4.0+), to see the documents of the previous versions you can do it here 👉 Vuesax 3.x",
+              title: "Documenasdasdtation Vuesax 4.0+",
+            });
+          }}
+        >
+          bottom-left
+        </VsButton>
+        <VsButton
+          onClick={() => {
+            open({
+              warn: true,
+              position: "top-center",
+              text: "These documents refer to the latest version of vuesax (4.0+), to see the documents of the previous versions you can do it here 👉 Vuesax 3.x",
+              title: "Documenasdasdtation Vuesax 4.0+",
+            });
+          }}
+        >
+          top-center
+        </VsButton>
+        <VsButton
+          onClick={() => {
+            open({
+              warn: true,
+              position: "bottom-center",
+              text: "These documents refer to the latest version of vuesax (4.0+), to see the documents of the previous versions you can do it here 👉 Vuesax 3.x",
+              title: "Documenasdasdtation Vuesax 4.0+",
+            });
+          }}
+        >
+          bottom-center
+        </VsButton>
+        <VsButton
+          onClick={() => {
+            close();
+          }}
+        >
+          close
+        </VsButton>
+        <VsButton onClick={clear}>clear</VsButton>
+
         <div style={{ height: "1000px" }}></div>
       </>
     );
