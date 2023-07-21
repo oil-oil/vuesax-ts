@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid/non-secure";
-import { createApp, ref, TransitionGroup } from "vue";
+import { createApp, ref, TransitionGroup, VNode } from "vue";
 
 import Notification, { NotificationProps } from "./Notification";
 
@@ -13,6 +13,7 @@ type Position =
 
 type NotificationHookProps = Omit<NotificationProps, "isVisible"> & {
   position?: Position;
+  icon?: VNode;
 };
 
 const useNotification = () => {
@@ -104,6 +105,7 @@ const useNotification = () => {
           close(key, props.position || "bottom-right");
         }}
         key={key}
+        v-slots={props.icon && { icon: () => props.icon }}
       ></Notification>,
     ]);
 

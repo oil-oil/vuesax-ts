@@ -2,6 +2,8 @@ import {
   defineComponent,
   onMounted,
   onUnmounted,
+  PropType,
+  Ref,
   ref,
   Transition,
   watch,
@@ -17,9 +19,6 @@ const Notification = defineComponent({
   name: "VsNotification",
   props: {
     ...BaseProps,
-    index: {
-      type: Number,
-    },
     isVisible: {
       type: Boolean,
       default: true,
@@ -36,10 +35,6 @@ const Notification = defineComponent({
       type: Boolean,
       default: false,
     },
-    // icon: {
-    //   type: Boolean,
-    //   default: false,
-    // },
     clickClose: {
       type: Boolean,
       default: false,
@@ -69,16 +64,11 @@ const Notification = defineComponent({
       default: null,
     },
     loading: {
-      type: Boolean,
-      default: false,
+      type: Object as PropType<Ref<boolean>>,
     },
     progressAuto: {
       type: Boolean,
-      default: true,
-    },
-    progress: {
-      type: Number,
-      default: null,
+      default: false,
     },
     duration: {
       type: Number,
@@ -87,10 +77,6 @@ const Notification = defineComponent({
     noPadding: {
       type: Boolean,
       default: false,
-    },
-    classNotification: {
-      type: String,
-      default: null,
     },
   },
   emits: ["onClick", "clickClose", "onDestroy"],
@@ -114,19 +100,19 @@ const Notification = defineComponent({
 
     onMounted(() => {
       innerIsVisible.value = props.isVisible;
-      innerProgress.value = props.progress;
       if (elRef.value) {
         setColor("color", props.color, elRef.value);
         setColor("border", props.color, elRef.value);
       }
-      if (props.progressAuto && props.progress) {
+      if (props.progressAuto) {
         intervalProgress = setInterval(() => {
           innerProgress.value += 1;
+          if (innerProgress.value >= 100) {
+            clearInterval(intervalProgress);
+            innerIsVisible.value = false;
+            emit("clickClose");
+          }
         }, props.duration / 100);
-      } else if (props.progress && !props.progressAuto) {
-        setTimeout(() => {
-          innerIsVisible.value = false;
-        }, props.progress);
       }
     });
     onUnmounted(() => {
@@ -135,7 +121,7 @@ const Notification = defineComponent({
 
     const handleClickClose = () => {
       innerIsVisible.value = false;
-      emit("clickClose", props.index);
+      emit("clickClose");
     };
 
     const beforeEnter = () => {
@@ -233,7 +219,7 @@ const Notification = defineComponent({
               { "vs-notification--square": props.square },
               { "vs-notification--width-all": props.width === "100%" },
               { "vs-notification--width-auto": props.width === "auto" },
-              { "vs-notification--loading": props.loading },
+              { "vs-notification--loading": props.loading?.value },
               { "vs-notification--notPadding": props.noPadding },
               { "vs-notification--primary": props.primary },
               { "vs-notification--success": props.success },
@@ -250,11 +236,11 @@ const Notification = defineComponent({
             }}
             ref={elRef}
           >
-            {!props.loading && slots.icon && icon()}
-            {!props.loading && content()}
+            {!props.loading?.value && slots.icon && icon()}
+            {!props.loading?.value && content()}
             {props.buttonClose && closeBtn()}
-            {props.loading && loading()}
-            {props.progress && progress()}
+            {props.loading?.value && loading()}
+            {props.progressAuto && progress()}
           </div>
         )}
       </Transition>

@@ -72,6 +72,8 @@
         &.vs-notification--border {
           border: 3px solid transparent;
           border-top: 3px solid -color('border');
+          --vs-text:var(--vs-dark);
+          background: rgb(var(--vs-background));
         }
       }
       .notification-enter-from {
@@ -101,6 +103,8 @@
         &.vs-notification--border {
           border: 3px solid transparent;
           border-bottom: 3px solid -color('border');
+          --vs-text:var(--vs-dark);
+          background: rgb(var(--vs-background));
         }
       }
       .notification-enter-from {
@@ -130,6 +134,8 @@
         &.vs-notification--border {
           border: 3px solid transparent;
           border-left: 3px solid -color('border');
+          --vs-text:var(--vs-dark);
+          background: rgb(var(--vs-background));
         }
       }
       .notification-enter-from {
@@ -153,6 +159,8 @@
         &.vs-notification--border {
           border: 3px solid transparent;
           border-left: 3px solid -color('border');
+          --vs-text:var(--vs-dark);
+          background: rgb(var(--vs-background));
         }
       }
       .notification-enter-from {
@@ -167,7 +175,7 @@
 }
 .vs-notification {
     --vs-color: var(--vs-background);
-    --vs-border: var(--vs-background);
+    --vs-border: var(--vs-color);
     --vs-opacity: .6;
     max-height: 112px;
     padding: 20px;
@@ -244,6 +252,8 @@
       &.vs-notification--border {
         border: 0px solid transparent !important;
         border-right: 3px solid -color('border') !important;
+        --vs-text:var(--vs-dark);
+        background: rgb(var(--vs-background));
       }
       &:after {
         content: '';
@@ -287,6 +297,9 @@
     &.vs-notification--border {
       border: 3px solid transparent;
       border-right: 3px solid -color('border');
+      --vs-text:var(--vs-dark);
+      background: rgb(var(--vs-background));
+
     }
     &__progress {
       width: 0%;
