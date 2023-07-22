@@ -10,9 +10,9 @@ vuesax-ts is a component library that updates and enhances the functionality of 
 | ------------------ | --------------- | ---------------- |
 | Component files    | `.ts`           | `.tsx`           |
 | CSS Processor      | Sass            | Sass             |
-| Build tools        | Webpack, babel  | Vite             |
-| Documentation      | Vuepress v1.1.0 | Vitepress v1.0.0 |
-| Typescript support | Yes             | More complete    |
+| Build tools        | Webpack, babel  | **Vite**             |
+| Documentation      | Vuepress v1.1.0 | **Vitepress v1.0.0** |
+| Typescript support | Yes             | **More complete**    |
 | Styles format      | `sass`          | `scss`           |
 
 We would love our users to test with vuesax-ts to find bugs so we can fix them on the fly.

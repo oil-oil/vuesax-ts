@@ -131,7 +131,7 @@ const Notification = defineComponent({
       }
     };
 
-    const enter = (el: Element, done: () => void) => {
+    const enter = (_: Element, done: () => void) => {
       if (elRef.value) {
         const h = elRef.value.scrollHeight;
         elRef.value.style.maxHeight = `${h + 40}px`;
@@ -144,7 +144,7 @@ const Notification = defineComponent({
       }
     };
 
-    const leave = (el: Element, done: () => void) => {
+    const leave = (_: Element, done: () => void) => {
       if (elRef.value) {
         // const parent = elRef.value.parentNode;
         setTimeout(() => {

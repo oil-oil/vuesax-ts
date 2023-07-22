@@ -20,7 +20,7 @@ export default defineConfig({
     },
     outDir: "es",
     rollupOptions: {
-      external: ["vue"],
+      external: ["vue", "nanoid", "boxicons", "vue-router"],
       input: "src/index.ts",
       output: [
         {
