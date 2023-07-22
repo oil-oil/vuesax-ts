@@ -20,20 +20,18 @@ export default defineConfig({
     },
     outDir: "es",
     rollupOptions: {
-      external: ["vue", "nanoid", "boxicons", "vue-router"],
+      external: ["vue"],
       input: "src/index.ts",
       output: [
         {
           format: "es",
           entryFileNames: "[name].js",
-          preserveModules: true,
           dir: "dist/es",
           preserveModulesRoot: "src",
         },
         {
           format: "cjs",
           entryFileNames: "[name].js",
-          preserveModules: true,
           dir: "dist/lib",
           preserveModulesRoot: "src",
         },

@@ -2,7 +2,7 @@
   "name": "vuesax-docs",
   "dependencies": {
     "shiki": "^0.14.3",
-    "vuesax": "workspace:*"
+    "vuesax-ts": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue-jsx": "^3.0.1",
