@@ -1,7 +1,7 @@
-import { App as VueApp, createApp } from "vue";
+import { App as VueApp, createApp } from "vue/dist/vue.runtime.esm-bundler";
 
 import App from "./App";
-import * as vsComponents from "./components/index";
+import * as vsComponents from "./components";
 import {
   defineVuesaxOptions,
   VuesaxOptions,
@@ -20,5 +20,5 @@ const install = (app: VueApp, options?: VuesaxOptions) => {
     defineVuesaxOptions(options);
   }
 };
-
+export * from "./components";
 export default install;
