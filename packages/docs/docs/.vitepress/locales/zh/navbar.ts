@@ -27,6 +27,7 @@ export default [
           },
           { text: "Input 输入框", link: "/zh/documentation/components/input" },
           { text: "Checkbox 选择框", link: "zh/documentation/components/checkbox" },
+          { text: "Switch 开关", link: "zh/documentation/components/switch" },
         ],
       },
     ],

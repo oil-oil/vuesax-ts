@@ -5,5 +5,8 @@
     }
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["vitepress"]
+  "cSpell.words": [
+    "vitepress",
+    "vuesax"
+  ]
 }

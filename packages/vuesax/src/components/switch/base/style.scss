@@ -12,6 +12,7 @@
 .vs-switch {
     color: #fff;
     padding: 5px;
+    margin: 10px;
     border-radius: 20px;
     min-width: 48px;
     width: min-content;
@@ -112,11 +113,11 @@
             visibility: visible;
             transition: all 0.25s ease 0.3s;
         }
-        .on{
+        .on {
             opacity: 0 !important;
             transition: all 0.05s !important;
         }
-        .off{
+        .off {
             opacity: 0;
             transition: all 0.05s !important;
         }
@@ -146,7 +147,7 @@
         padding: 5px;
         padding-left: 25px;
         transition: all 0.25s ease 0.05s;
-        color: -color("text");
+        color: rgb(44, 62, 80);
         z-index: 9;
         display: flex;
         align-items: center;
@@ -173,7 +174,7 @@
         position: absolute;
         z-index: 10;
         left: 4px;
-        color: -color("text");
+        color: rgb(44, 62, 80);
         display: flex;
         align-items: center;
         justify-content: center;

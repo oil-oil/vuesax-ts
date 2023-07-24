@@ -8,8 +8,9 @@ import zhNavbar from "./locales/zh/navbar";
 import zhSidebar from "./locales/zh/sidebar";
 
 export default defineConfigWithTheme({
+  head:[['link',{rel:'icon',href:'/vuesax-only.png'}]],
   title: "Vue.Ts Framework Components",
-  titleTemplate: ":title - VuesaxTs",
+  titleTemplate: "Vue.Ts Framework Components - Vuesax",
   lang: "en",
   description: "We love what we do. Let us help you do what You love.",
   lastUpdated: true,
@@ -64,6 +65,7 @@ export default defineConfigWithTheme({
               { text: "Loading", link: "/documentation/components/loading" },
               { text: "Input", link: "/documentation/components/input" },
               { text: "Checkbox", link: "/documentation/components/checkbox" },
+              { text: "Switch", link: "/documentation/components/switch" },
             ],
           },
         ],
@@ -98,6 +100,7 @@ export default defineConfigWithTheme({
           { text: "Loading", link: "/documentation/components/loading" },
           { text: "Input", link: "/documentation/components/input" },
           { text: "Checkbox", link: "/documentation/components/checkbox" },
+          { text: "Switch", link: "/documentation/components/switch" },
         ],
       },
     ],
