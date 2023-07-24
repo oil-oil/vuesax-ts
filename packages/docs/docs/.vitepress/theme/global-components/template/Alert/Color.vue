@@ -57,6 +57,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { VsAlert } from "vuesax-ts";
 
 const color = ref("primary");
 </script>

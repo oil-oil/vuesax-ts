@@ -1,14 +1,13 @@
 // https://vitepress.dev/guide/custom-theme
 import { Theme } from "vitepress";
-import Vuesax from "vuesax";
+import Vuesax from "vuesax-ts";
 
+import "vuesax-ts/dist/es/style.css";
 import Card from "./global-components/Card.tsx";
 import DocsWarn from "./global-components/docsWarn.tsx";
 import Layout from "./Layout.tsx";
 
-import "./style.css";
-
-import "vuesax/src/styles/vuesax.scss";
+import "./style.scss";
 
 const theme: Theme = {
   Layout,

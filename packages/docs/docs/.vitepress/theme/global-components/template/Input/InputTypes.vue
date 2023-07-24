@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { reactive } from "vue";
-import { VsInput } from "vuesax/src/components";
+import { VsInput } from "vuesax-ts";
 
 const value = reactive({
   text: "",

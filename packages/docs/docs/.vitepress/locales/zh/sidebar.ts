@@ -18,6 +18,7 @@ export default [
       { text: "Alert 警告", link: "/zh/documentation/components/alert" },
       { text: "Loading 加载", link: "/zh/documentation/components/loading" },
       { text: "Input 输入框", link: "/zh/documentation/components/input" },
+      { text: "Checkbox 选择框", link: "zh/documentation/components/checkbox" },
     ],
   },
 ];

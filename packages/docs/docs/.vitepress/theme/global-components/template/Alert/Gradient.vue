@@ -12,6 +12,8 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { VsAlert } from "vuesax-ts";
+</script>
 
 <style scoped></style>

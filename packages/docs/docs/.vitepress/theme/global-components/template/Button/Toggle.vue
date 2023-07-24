@@ -29,6 +29,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { VsButton } from "vuesax-ts";
 
 const sending = ref(false);
 const success = ref(false);

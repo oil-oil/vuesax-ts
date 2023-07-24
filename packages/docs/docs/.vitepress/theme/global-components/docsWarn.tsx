@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { VsAlert } from "vuesax/src/components";
+import { VsAlert } from "vuesax-ts";
 
 const docsWarn = defineComponent({
   name: "docsWarn",

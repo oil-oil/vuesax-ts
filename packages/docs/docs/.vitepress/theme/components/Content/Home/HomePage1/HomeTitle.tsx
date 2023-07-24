@@ -1,6 +1,6 @@
 import { useData, useRouter } from "vitepress";
 import { defineComponent } from "vue";
-import { VsButton } from "vuesax/src/components";
+import { VsButton } from "vuesax-ts";
 
 const HomeContent = defineComponent({
   name: "HomeContent",

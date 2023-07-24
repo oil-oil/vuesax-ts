@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { VsAlert } from "vuesax-ts";
 
 const activeShow = ref(true);
 </script>

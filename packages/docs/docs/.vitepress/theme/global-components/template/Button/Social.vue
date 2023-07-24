@@ -82,6 +82,8 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { VsButton } from "vuesax-ts";
+</script>
 
 <style scoped></style>

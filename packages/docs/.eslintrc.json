@@ -15,5 +15,6 @@
         "peerDependencies": false
       }
     ]
-  }
+  },
+    "vue/no-v-model-argument":["error"]
 }

@@ -21,7 +21,7 @@
     &.striped {
       .vs-table__tr {
         &:nth-child(2n) {
-          background: -color("gray-1") !important;
+          background: -color("gray-1");
         }
       }
     }
@@ -40,7 +40,7 @@
       }
     }
     &__tbody {
-      th{
+      th {
         font-weight: lighter;
       }
       &:empty {

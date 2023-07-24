@@ -11,7 +11,7 @@ import {
   VsCard,
   VsSwitch,
   VsLoading,
-} from "vuesax/src/components";
+} from "vuesax-ts";
 import "./HomeFeatures.scss";
 
 const HomeFeatures = defineComponent({

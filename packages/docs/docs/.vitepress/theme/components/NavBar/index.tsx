@@ -1,6 +1,6 @@
 import { useData, useRouter, useRoute } from "vitepress";
 import { defineComponent } from "vue";
-import { VsNavbar, VsNavbarItem, VsNavbarGroup } from "vuesax/src/components";
+import { VsNavbar, VsNavbarItem, VsNavbarGroup } from "vuesax-ts";
 import "./style.scss";
 
 const Navbar = defineComponent({

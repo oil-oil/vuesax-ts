@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { VsInput } from "vuesax/src/components";
+import { VsInput } from "vuesax-ts";
 
 const email = ref("vuesax@gmail.com");
 const name = ref();

@@ -35,6 +35,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { VsButton } from "vuesax-ts";
 
 const active = ref(0);
 </script>

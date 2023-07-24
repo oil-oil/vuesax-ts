@@ -1,4 +1,4 @@
-import { App as VueApp, createApp } from "vue/dist/vue.runtime.esm-bundler";
+import { App as VueApp, createApp } from "vue";
 
 import App from "./App";
 import * as vsComponents from "./components";

@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { VsInput } from "vuesax/src/components";
+import { VsInput } from "vuesax-ts";
 
 const name = ref();
 const password = ref();

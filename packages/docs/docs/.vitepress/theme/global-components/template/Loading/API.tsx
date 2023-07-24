@@ -1,6 +1,5 @@
-import { defineComponent, onMounted, ref } from "vue";
-import { VsTable, VsTh, VsTr } from "vuesax/src/components";
-import "./Api.scss";
+import { defineComponent, ref } from "vue";
+import { VsTable, VsTh, VsTr } from "vuesax-ts";
 
 const AlertApi = defineComponent({
   name: "AlertApi",

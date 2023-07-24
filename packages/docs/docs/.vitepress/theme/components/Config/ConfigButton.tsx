@@ -1,6 +1,6 @@
 import { useData, useRouter } from "vitepress";
 import { defineComponent, inject, Ref } from "vue";
-import { VsSwitch } from "vuesax/src/components";
+import { VsSwitch } from "vuesax-ts";
 
 const ConfigBtn = defineComponent({
   name: "ConfigBtn",

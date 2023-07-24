@@ -18,8 +18,8 @@
 
 <script setup lang="ts">
 import { reactive } from "vue";
-import { VsLoading, useLoading } from "vuesax/src/components";
-import type { VsLoadingProps } from "vuesax/src/components";
+import type { VsLoadingProps } from "vuesax-ts";
+import { VsLoading, useLoading } from "vuesax-ts";
 
 const selectType = reactive<VsLoadingProps>({});
 const { open, close } = useLoading(selectType);

@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { VsInput } from "vuesax/src/components";
+import { VsInput } from "vuesax-ts";
 
 const value = ref("");
 const hasVisiblePassword = ref(false);

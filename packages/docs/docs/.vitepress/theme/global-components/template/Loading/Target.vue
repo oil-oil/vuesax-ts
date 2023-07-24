@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { VsLoading } from "vuesax/src/components";
+import { VsLoading } from "vuesax-ts";
 
 const active = ref(false);
 const isVisible = ref(false);

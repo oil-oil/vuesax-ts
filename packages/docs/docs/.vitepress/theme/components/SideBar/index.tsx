@@ -1,11 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import { useData, useRouter } from "vitepress";
 import { defineComponent, computed, inject, Ref } from "vue";
-import {
-  VsSidebar,
-  VsSidebarItem,
-  VsSidebarGroup,
-} from "vuesax/src/components";
+import { VsSidebar, VsSidebarItem, VsSidebarGroup } from "vuesax-ts";
 import "./style/style.scss";
 
 const SideBar = defineComponent({

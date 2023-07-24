@@ -1,6 +1,5 @@
 import { defineComponent, ref } from "vue";
-import { VsTable, VsTh, VsTr } from "vuesax/src/components";
-import "./Api.scss";
+import { VsTable, VsTh, VsTr } from "vuesax-ts";
 
 const AlertApi = defineComponent({
   name: "AlertApi",
@@ -166,6 +165,7 @@ const AlertApi = defineComponent({
             ></VsTable>
           </div>
           <p class="sub-title">Slots</p>
+          <div class="table">
           <VsTable
             striped
             v-slots={{
@@ -208,6 +208,7 @@ const AlertApi = defineComponent({
                 )),
             }}
           ></VsTable>
+          </div>
         </div>
       </div>
     );
