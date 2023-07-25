@@ -1,5 +1,5 @@
 import { useData } from "vitepress";
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent, onMounted, onUnmounted, reactive, ref } from "vue";
 import {
   VsAvatar,
   VsAvatarGroup,
@@ -48,6 +48,12 @@ const HomeFeatures = defineComponent({
     const switchPart = reactive({
       switchActive: false,
     });
+    onMounted(()=>{
+      document.body.classList.add("home")
+    })
+    onUnmounted(()=>{
+      document.body.classList.remove("home")
+    })
     return () => (
       <>
         <div class="avatar-card">

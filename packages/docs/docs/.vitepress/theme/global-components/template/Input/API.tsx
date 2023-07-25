@@ -92,25 +92,37 @@ const AlertApi = defineComponent({
     const usageUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return `alert#closable`;
+          return "input#label-placeholder";
 
         case 1:
-          return `alert#color`;
+          return "input#label";
 
         case 2:
-          return `alert#solid`;
+          return "input#label-placeholder";
 
         case 3:
-          return `alert#hidden-content`;
+          return "input#color";
 
         case 4:
-          return `alert#pagination`;
+          return "input#state";
 
         case 5:
-          return `alert#progress-bar`;
+          return "input#progress";
 
         case 6:
-          return `alert#closable`;
+          return "input#loading";
+
+        case 7:
+          return "input#input-type"
+
+        case 8:
+          return "input#border"
+
+        case 9:
+          return "input#shadow"
+
+        case 10:
+          return "input#icon"
         default:
           return "";
       }
@@ -118,16 +130,10 @@ const AlertApi = defineComponent({
     const slotsUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return `alert#icon`;
+          return "input#icon";
 
         case 1:
-          return `alert#title`;
-
-        case 2:
-          return `alert#pagination`;
-
-        case 3:
-          return `alert#footer`;
+          return "input#message";
 
         default:
           return "";
@@ -169,7 +175,7 @@ const AlertApi = defineComponent({
                       </VsTh>
                       <VsTh>
                         <a
-                          href={`https://github.com/lusaxweb/vuesax/issues/new?title=[Alert]%20prop%20(${line[0]})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
+                          href={`https://github.com/oil-oil/vuesax-ts/issues/new?title=[Alert]%20prop%20(${line[0]})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
                         >
                           <i class="bx bx-bug"></i>
                         </a>
@@ -214,7 +220,7 @@ const AlertApi = defineComponent({
                     </VsTh>
                     <VsTh>
                       <a
-                        href={`https://github.com/lusaxweb/vuesax/issues/new?title=[Alert]%20prop%20(${line[0]})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
+                        href={`https://github.com/oil-oil/vuesax-ts/issues/new?title=[Alert]%20prop%20(${line[0]})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
                       >
                         <i class="bx bx-bug"></i>
                       </a>

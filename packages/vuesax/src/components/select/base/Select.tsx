@@ -345,15 +345,15 @@ const Select = defineComponent({
       }
     };
 
-    const getMessage = (type: string) => {
+    const getMessage = (type: string) => (
       <Transition onBeforeEnter={beforeEnter} onEnter={enter} onLeave={leave}>
         {!!slots[`message-${type}`] && (
           <div class={["vs-select__message", `vs-select__message--${type}`]}>
             {slots[`message-${type}`]?.()}
           </div>
         )}
-      </Transition>;
-    };
+      </Transition>
+    );
 
     const resetPlaceholderTransition = () => {
       if (placeholderRef.value) {

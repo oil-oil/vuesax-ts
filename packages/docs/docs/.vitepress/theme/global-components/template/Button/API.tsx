@@ -8,13 +8,6 @@ const AlertApi = defineComponent({
       [
         "color",
         "string",
-        "primary success danger warning dark RGB HEX",
-        "Change the color of the component and some of its sub components.",
-        "primary",
-      ],
-      [
-        "color",
-        "string",
         "primary success danger warn dark RGB HEX",
         "Change the color of the component and some of its sub components.",
         "primary",
@@ -71,13 +64,13 @@ const AlertApi = defineComponent({
     const usageUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return `alert#closable`;
+          return "button#color";
 
         case 1:
-          return `alert#color`;
+          return "button#border";
 
         case 2:
-          return `alert#solid`;
+          return `alert#`;
 
         case 3:
           return `alert#hidden-content`;

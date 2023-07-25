@@ -43,25 +43,19 @@
 }
 [class*="--primary"] {
   --vs-color: var(--vs-primary);
-  --vs-text:var(--vs-background)
 }
 [class*="--default"] {
   --vs-color: var(--vs-primary);
-  --vs-text:var(--vs-background)
 }
 [class*="--danger"] {
   --vs-color: var(--vs-danger);
-  --vs-text:var(--vs-background)
 }
 [class*="--success"] {
   --vs-color: var(--vs-success);
-  --vs-text:var(--vs-background)
 }
 [class*="--dark"] {
   --vs-color: var(--vs-dark);
-  --vs-text:var(--vs-background)
 }
 [class*="--warn"] {
   --vs-color: var(--vs-warn);
-  --vs-text:var(--vs-background)
 }

@@ -64,25 +64,25 @@ const CheckboxApi = defineComponent({
           const usageUrl = (lineIndex: number) => {
             switch (lineIndex) {
               case 0:
-                return `alert#closable`;
+                return "checkbox#default";
       
               case 1:
-                return `alert#color`;
+                return "checkbox#color";
       
               case 2:
-                return `alert#solid`;
+                return "checkbox#loading";
       
               case 3:
-                return `alert#hidden-content`;
+                return "checkbox#linethrough";
       
               case 4:
-                return `alert#pagination`;
+                return "checkbox#indeterminate";
       
               case 5:
-                return `alert#progress-bar`;
+                return "checkbox#label";
       
               case 6:
-                return `alert#closable`;
+                return "checkbox#default";
               default:
                 return "";
             }
@@ -90,16 +90,10 @@ const CheckboxApi = defineComponent({
           const slotsUrl = (lineIndex: number) => {
             switch (lineIndex) {
               case 0:
-                return `alert#icon`;
+                return "checkbox#icon";
       
               case 1:
-                return `alert#title`;
-      
-              case 2:
-                return `alert#pagination`;
-      
-              case 3:
-                return `alert#footer`;
+                return "checkbox#default";
       
               default:
                 return "";
@@ -140,7 +134,7 @@ const CheckboxApi = defineComponent({
                             </VsTh>
                             <VsTh>
                               <a
-                                href={`https://github.com/lusaxweb/vuesax/issues/new?title=[Alert]%20prop%20(${line[0]})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
+                                href={`https://github.com/oil-oil/vuesax-ts/issues/new?title=[Alert]%20prop%20(${line[0]})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
                               >
                                 <i class="bx bx-bug"></i>
                               </a>
@@ -185,7 +179,7 @@ const CheckboxApi = defineComponent({
                           </VsTh>
                           <VsTh>
                             <a
-                              href={`https://github.com/lusaxweb/vuesax/issues/new?title=[Alert]%20prop%20(${line[0]})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
+                              href={`https://github.com/oil-oil/vuesax-ts/issues/new?title=[Alert]%20prop%20(${line[0]})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
                             >
                               <i class="bx bx-bug"></i>
                             </a>
