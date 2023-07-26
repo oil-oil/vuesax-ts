@@ -17,11 +17,11 @@ import { ref } from "vue";
 import { VsSelect, VsOption } from "vuesax-ts"
 
 const colors = ref([
-    { color: "danger", value: 0 },
-    { color: "success", value: 0 },
-    { color: "warn", value: 0 },
-    { color: "dark", value: 0 },
-    { color: "primary", value: 0 },
+    { color: "danger", value: "1" },
+    { color: "success", value: "2" },
+    { color: "warn", value: "3" },
+    { color: "dark", value: "4" },
+    { color: "primary", value: "5" },
 ])
 </script>
 

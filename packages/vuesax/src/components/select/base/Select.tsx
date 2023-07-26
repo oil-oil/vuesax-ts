@@ -471,10 +471,6 @@ const Select = defineComponent({
       }
     });
 
-    watch(valueLabel, () => {
-      console.log(valueLabel);
-    });
-
     onBeforeUnmount(() => {
       handleBlur();
       if (optionRef.value) {
@@ -573,7 +569,7 @@ const Select = defineComponent({
             }}
           ></input>
           {/* label */}
-          {(!props.multiple || props.label) && (
+          {(props.label || props.labelPlaceholder) && !props.placeholder && (
             <label
               class={[
                 "vs-select__label",
@@ -581,7 +577,9 @@ const Select = defineComponent({
                   "vs-select__label--placeholder": props.labelPlaceholder,
                   "vs-select__label--label": props.label,
                   "vs-select__label--hidden":
-                    props.labelPlaceholder && props.modelValue,
+                    (Array.isArray(props.modelValue)
+                      ? props.modelValue.length !== 0
+                      : props.modelValue) && !props.label,
                 },
               ]}
               for={uniqueId}
@@ -591,13 +589,14 @@ const Select = defineComponent({
           )}
 
           {/* placeholder */}
-          {!props.multiple && !props.label && props.placeholder && (
+          {!props.label && props.placeholder && (
             <label
               class={[
                 "vs-select__label",
                 {
-                  "vs-select__label--hidden":
-                    props.modelValue || textFilter.value,
+                  "vs-select__label--hidden": Array.isArray(props.modelValue)
+                    ? props.modelValue.length !== 0
+                    : props.modelValue || textFilter.value,
                 },
               ]}
               ref={placeholderRef}

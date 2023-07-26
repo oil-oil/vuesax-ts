@@ -20,12 +20,12 @@ onMounted(() => {
     console.log(colors.value)
 })
 const colors = ref([
-    { color: "danger", value: "0" },
-    { color: "success", value: "1" },
-    { color: "warn", value: "2" },
-    { color: "dark", value: "3" },
-    { color: "#7d33ff", value: "4" },
-    { color: "rgb(59,222,200)", value: "5" },
+    { color: "danger", value: "1" },
+    { color: "success", value: "2" },
+    { color: "warn", value: "3" },
+    { color: "dark", value: "4" },
+    { color: "#7d33ff", value: "5" },
+    { color: "rgb(59,222,200)", value: "6" },
 ])
 </script>
 

@@ -36,7 +36,7 @@
                 <VsOption label="Nodejs" value="6">Nodejs</VsOption>
             </VsOptionGroup>
         </VsSelect>
-        <VsSelect v-model="value3" label="Group Multiple Filter" filter multiple class="select">
+        <VsSelect v-model="value3" labelPlaceholder="Group Multiple Filter" filter multiple class="select">
             <VsOptionGroup>
                 <template #title>
                     Vuejs

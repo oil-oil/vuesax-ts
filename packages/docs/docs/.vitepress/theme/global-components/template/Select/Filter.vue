@@ -8,7 +8,7 @@
             <VsOption label="Typescript" value="5">Typescript</VsOption>
             <VsOption label="Nodejs" value="6">Nodejs</VsOption>
         </VsSelect>
-        <VsSelect v-model="value2" label="Filter Multiple" multiple filter class="select">
+        <VsSelect v-model="value2" labelPlaceholder="Filter Multiple" multiple filter class="select">
             <VsOption label="Vuesax" value="1">Vuesax</VsOption>
             <VsOption label="Vue" value="2">Vue</VsOption>
             <VsOption label="Javascript" value="3">Javascript</VsOption>

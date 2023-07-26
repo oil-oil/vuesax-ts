@@ -4,16 +4,15 @@ import { VsSelect, VsOption, VsOptionGroup } from "./components";
 
 export default defineComponent({
   setup() {
-    const value = ref("1");
-    // watch(value, () => {
-    //   console.log("value", value.value);
-    // });
+    const value = ref([]);
+
     return () => (
       <VsSelect
         color="success"
         v-model={value.value}
-        placeholder="Select"
+        labelPlaceholder="Select"
         class="select"
+        multiple
       >
         <VsOptionGroup v-slots={{ title: () => <>VueTs</> }}>
           <VsOption label="Vuesax" value="1">
