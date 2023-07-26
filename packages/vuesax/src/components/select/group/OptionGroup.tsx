@@ -3,6 +3,7 @@ import { HTMLAttributes, defineComponent } from "vue";
 import "./style.scss";
 
 const OptionGroup = defineComponent({
+  name: "VsSelectOptionGroup",
   props: {
     title: {
       type: String,

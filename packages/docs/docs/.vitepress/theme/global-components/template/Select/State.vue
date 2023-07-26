@@ -1,7 +1,7 @@
 <template>
     <div class="center">
-        <VsSelect v-for="(color, index) in colors" :key="index" :state="color.color" v-model="color.value"
-            :labelPlaceholder="color.color" class="select">
+        <VsSelect v-for="(color, index) in colors" :key="index" :state="color.color" :color="color.color"
+            v-model="color.value" :labelPlaceholder="color.color" class="select">
             <VsOption label="Vuesax" value="1">Vuesax</VsOption>
             <VsOption label="Vue" value="2">Vue</VsOption>
             <VsOption label="Javascript" value="3">Javascript</VsOption>
@@ -18,10 +18,10 @@ import { VsSelect, VsOption } from "vuesax-ts"
 
 const colors = ref([
     { color: "danger", value: 0 },
-    { color: "success", value: 1 },
-    { color: "warn", value: 2 },
-    { color: "dark", value: 3 },
-    { color: "primary", value: 4 },
+    { color: "success", value: 0 },
+    { color: "warn", value: 0 },
+    { color: "dark", value: 0 },
+    { color: "primary", value: 0 },
 ])
 </script>
 
