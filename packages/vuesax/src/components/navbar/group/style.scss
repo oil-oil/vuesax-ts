@@ -1,18 +1,18 @@
-@import '../../../styles/mixins';
+@import "../../../styles/mixins";
 .vs-navbar__group {
   position: relative;
   &:hover {
     .vs-navbar__group__item {
       opacity: 1;
-      .arrow{
+      .arrow {
         transform: rotate(180deg);
-        transition: all .25s ease;
+        transition: all 0.25s ease;
       }
     }
     .vs-navbar__group__items {
       opacity: 1;
       visibility: visible;
-      transform: translate(0, 110%);
+      transform: translate(0, 40px);
     }
   }
   &__item {
@@ -20,37 +20,40 @@
     background: transparent;
     color: inherit;
     font-weight: bold;
-    transition: all .25s ease, color 0s;
-    opacity: .7;
+    transition:
+      all 0.25s ease,
+      color 0s;
+    opacity: 0.7;
     border: 0px;
     display: flex;
-    .arrow{
+    .arrow {
       margin-right: -10px;
       transform: rotate(0deg);
-      transition: all .25s ease;
+      transition: all 0.25s ease;
     }
   }
   &__items {
     position: absolute;
-    bottom: 0px;
+    // bottom: 0px;
+    top: 20px;
     left: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin-bottom: -12px;
-    transform: translate(0, 90%);
-    background: -color('color');
+    // transform: translate(0, 90%);
+    background: -color("color");
     border-radius: 5px 18px 18px 18px;
     padding: 10px;
     min-width: 160px;
     opacity: 0;
-    box-shadow: 0px 5px 20px 0px rgba(0,0,0, -var('shadow-opacity'));
-    transition: all .25s ease;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, -var("shadow-opacity"));
+    transition: all 0.2s ease;
     color: inherit;
     visibility: hidden;
     &:after {
-      content: '';
+      content: "";
       left: 0px;
       top: -24px;
       background: transparent;
@@ -65,18 +68,18 @@
       position: relative;
       padding: 5px 10px;
       &:before {
-        content: '';
+        content: "";
         left: 0px;
         top: 0px;
         width: 4px;
         height: 4px;
-        background: -color('text');
+        background: -color("text");
         position: absolute;
         border-radius: 50%;
         top: calc(50% - 2px);
         opacity: 0;
         transform: translate(-10px);
-        transition: all .25s ease;
+        transition: all 0.25s ease;
       }
       &.active {
         &:before {
