@@ -500,16 +500,11 @@ const Select = defineComponent({
           "vs-select-content",
           {
             block: props.block,
-            "vs-component--primary":
-              !props.danger &&
-              !props.success &&
-              !props.warn &&
-              !props.dark &&
-              !props.color,
-            "vs-component--danger": !!props.danger,
-            "vs-component--warn": !!props.warn,
-            "vs-component--success": !!props.success,
-            "vs-component--dark": !!props.dark,
+            "vs-component--primary": props.color === "primary",
+            "vs-component--danger": props.color === "danger",
+            "vs-component--warn": props.color === "warn",
+            "vs-component--success": props.color === "success",
+            "vs-component--dark": props.color === "dark",
           },
         ]}
         style={{

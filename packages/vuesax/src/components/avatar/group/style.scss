@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@import "../../../styles/mixins";
 .vs-avatar__group {
   display: flex;
   align-items: center;
@@ -12,36 +12,36 @@
     .vs-avatar-content {
       position: relative;
       z-index: 2;
-      border: 3px solid vs-color('background');
+      border: 3px solid vs-color("background");
       margin: 0px;
-      &.history{
-        &::after{
-            top: 0px;
+      &.history {
+        &::after {
+          top: 0px;
         }
       }
     }
   }
   &:not(.float) {
     .vs-avatar-content {
-      margin-left: -18px;
+      margin-left: -34px;
       position: relative;
       z-index: 2;
-      .vs-avatar{
-        img{
-            transform: translate(0.5px, -0.3px);
+      .vs-avatar {
+        img {
+          transform: translate(0.5px, -0.3px);
         }
       }
-      &.history{
-        &::after{
-            top: 0px;
+      &.history {
+        &::after {
+          top: 0px;
         }
-        .vs-avatar{
-            background: rgba(var(--vs-color),0);
+        .vs-avatar {
+          background: rgba(var(--vs-color), 0);
         }
       }
       &:hover {
         .vs-avatar {
-          box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,.1);
+          box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
         }
         img {
           transform: scale(1);
@@ -54,14 +54,14 @@
       }
       &:not(.vs-change-color) {
         .vs-avatar {
-          background: vs-color('background');
+          background: vs-color("background");
         }
       }
       img {
         width: calc(100% - 6px);
-      }      // border: 3px solid vs-color('background')
+      } // border: 3px solid vs-color('background')
       &:hover:not(.vs-avatar-content--hasIcons) {
-        transform: translate(-10px);
+        transform: translate(-12px);
         .vs-avatar {
           transform: scale(1);
         }

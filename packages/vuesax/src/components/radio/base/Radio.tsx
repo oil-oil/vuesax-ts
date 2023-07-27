@@ -82,16 +82,11 @@ const Radio = defineComponent({
             disabled: props.disabled,
             loading: props.loading,
             active: isChecked.value,
-            "vs-component--primary":
-              !props.danger &&
-              !props.warn &&
-              !props.success &&
-              !props.dark &&
-              !props.color,
-            "vs-component--danger": props.danger,
-            "vs-component--warn": props.warn,
-            "vs-component--success": props.success,
-            "vs-component--dark": props.dark,
+            "vs-component--primary": props.color === "primary",
+            "vs-component--danger": props.color === "danger",
+            "vs-component--warn": props.color === "warn",
+            "vs-component--success": props.color === "success",
+            "vs-component--dark": props.color === "dark",
           },
         ]}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}

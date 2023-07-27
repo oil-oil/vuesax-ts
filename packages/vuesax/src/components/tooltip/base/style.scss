@@ -1,18 +1,18 @@
-@import '../../../styles/mixins';
-@import 'root';
+@import "../../../styles/mixins";
+@import "root";
 
 .vs-tooltip-enter-active,
 .vs-tooltip-leave-active {
-  transition: all .25s ease;
+  transition: all 0.25s ease;
 }
 .vs-tooltip-enter-from,
 .vs-tooltip-leave-to {
   opacity: 0;
   &.top {
-    transform: translate(0,5px);
+    transform: translate(0, 5px);
   }
   &.bottom {
-    transform: translate(0,-5px);
+    transform: translate(0, -5px);
   }
   &.left {
     transform: translate(5px);
@@ -30,22 +30,25 @@
     }
   }
 }
+.vs-tooltip-content {
+  width: max-content;
+}
 .vs-tooltip {
-  background: -color('color');
-  color: -color('background');
+  background: -color("color");
+  color: -color("background");
   position: absolute;
   z-index: 1000000;
   text-align: center;
   padding: 5px 10px;
   border-radius: 12px;
-  font-size: .85rem;
+  font-size: 0.85rem;
   max-width: 350px;
   min-width: 30px;
   min-height: 30px;
   &.loading {
-    color: -color('background', .2);
+    color: -color("background", 0.2);
     * {
-      opacity: .5;
+      opacity: 0.5;
       pointer-events: none;
     }
   }
@@ -60,62 +63,62 @@
     border-radius: 50%;
     opacity: 1 !important;
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       width: 100%;
       height: 100%;
       border-radius: inherit;
-      border: 2px solid -color('background', 1);
-      border-top: 2px solid -color('background', 0);
-      border-left: 2px solid -color('background', 0);
-      border-bottom: 2px solid -color('background', 0);
+      border: 2px solid -color("background", 1);
+      border-top: 2px solid -color("background", 0);
+      border-left: 2px solid -color("background", 0);
+      border-bottom: 2px solid -color("background", 0);
       box-sizing: border-box;
-      transition: all .25s ease;
+      transition: all 0.25s ease;
       display: block;
-      box-shadow: 0px 0px 0px 0px -color('color',1);
-      animation: loadingTooltip .6s ease infinite;
+      box-shadow: 0px 0px 0px 0px -color("color", 1);
+      animation: loadingTooltip 0.6s ease infinite;
     }
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       width: 100%;
       height: 100%;
       border-radius: inherit;
-      border: 2px dashed -color('background',1);
-      border-top: 2px solid -color('background', 0);
-      border-left: 2px solid -color('background', 0);
-      border-bottom: 2px solid -color('background', 0);
+      border: 2px dashed -color("background", 1);
+      border-top: 2px solid -color("background", 0);
+      border-left: 2px solid -color("background", 0);
+      border-bottom: 2px solid -color("background", 0);
       box-sizing: border-box;
-      transition: all .25s ease;
+      transition: all 0.25s ease;
       display: block;
-      box-shadow: 0px 0px 0px 0px -color('color',1);
-      animation: loadingTooltip .6s linear infinite;
+      box-shadow: 0px 0px 0px 0px -color("color", 1);
+      animation: loadingTooltip 0.6s linear infinite;
     }
   }
   &.borderThick {
-    background: -color('background');
-    color: -color('color');
-    box-shadow: 0px 2px 10px 0px rgba(0,0,0, -var(shadow-opacity));
+    background: -color("background");
+    color: -color("color");
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, -var(shadow-opacity));
     &.top {
-      border-bottom: 4px solid -color('color');
+      border-bottom: 4px solid -color("color");
       &:after {
         bottom: -7px;
       }
     }
     &.left {
-      border-right: 4px solid -color('color');
+      border-right: 4px solid -color("color");
       &:after {
         right: -7px;
       }
     }
     &.right {
-      border-left: 4px solid -color('color');
+      border-left: 4px solid -color("color");
       &:after {
         left: -7px;
       }
     }
     &.bottom {
-      border-top: 4px solid -color('color');
+      border-top: 4px solid -color("color");
       &:after {
         top: -7px;
       }
@@ -128,17 +131,17 @@
       border-radius: inherit;
       top: 0px;
       left: 0px;
-      content: '';
+      content: "";
       position: absolute;
     }
     &:after {
-      background: -color('color') !important;
+      background: -color("color") !important;
     }
   }
   &.border {
-    background: -color('background');
-    color: -color('color');
-    border: 2px solid -color('color');
+    background: -color("background");
+    color: -color("color");
+    border: 2px solid -color("color");
     &:before {
       width: 100%;
       height: 100%;
@@ -147,11 +150,11 @@
       border-radius: inherit;
       top: 0px;
       left: 0px;
-      content: '';
+      content: "";
       position: absolute;
     }
     &:after {
-      border: 2px solid -color('color');
+      border: 2px solid -color("color");
       width: 12px !important;
       height: 12px !important;
     }
@@ -168,9 +171,9 @@
     }
   }
   &.shadow {
-    background: -color('background');
-    color: -color('color');
-    box-shadow: 0px 2px 10px 0px rgba(0,0,0, -var(shadow-opacity));
+    background: -color("background");
+    color: -color("color");
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, -var(shadow-opacity));
     &:before {
       width: 100%;
       height: 100%;
@@ -179,11 +182,11 @@
       border-radius: inherit;
       top: 0px;
       left: 0px;
-      content: '';
+      content: "";
       position: absolute;
     }
     &:after {
-      box-shadow: 0px 2px 10px 0px rgba(0,0,0, -var(shadow-opacity));
+      box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, -var(shadow-opacity));
     }
   }
   &.isDark {
@@ -192,7 +195,7 @@
   }
   &.top {
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -3px;
       background: inherit;
@@ -206,7 +209,7 @@
   }
   &.bottom {
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: -3px;
       background: inherit;
@@ -220,28 +223,28 @@
   }
   &.left {
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       right: -3px;
       background: inherit;
       width: 10px;
       height: 10px;
       top: 50%;
-      transform: translate(0,-50%) rotate(45deg);
+      transform: translate(0, -50%) rotate(45deg);
       z-index: -2;
       border-radius: 0px 2px 0px 0px;
     }
   }
   &.right {
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       left: -3px;
       background: inherit;
       width: 10px;
       height: 10px;
       top: 50%;
-      transform: translate(0,-50%) rotate(45deg);
+      transform: translate(0, -50%) rotate(45deg);
       z-index: -2;
       border-radius: 0px 0px 0px 2px;
     }
@@ -254,4 +257,4 @@
   100% {
     transform: rotate(360deg);
   }
-};
+}
