@@ -1,7 +1,9 @@
 import { nanoid } from "nanoid/non-secure";
 import {
+  Component,
   InputHTMLAttributes,
   PropType,
+  Slots,
   Transition,
   VNode,
   computed,
@@ -406,6 +408,67 @@ const Select = defineComponent({
 
       window.addEventListener("resize", handleResize);
       window.addEventListener("scroll", handleScroll);
+
+      if (props.multiple) {
+        slots.default?.().forEach((vnodeGroup) => {
+          // Determine if the outermost layer is a group component
+          if ((vnodeGroup.type as Component).name === "VsSelectOptionGroup") {
+            (vnodeGroup.children as Slots)
+              .default?.()
+              .forEach((vnodeCorrect) => {
+                // Determine if it is an option component
+                if (
+                  // Convert modelValue to array and push inside
+                  (vnodeCorrect.type as Component).name === "VsSelectOption" &&
+                  (Array.isArray(props.modelValue)
+                    ? props.modelValue
+                    : [props.modelValue]
+                  ).includes(vnodeCorrect.props?.value) &&
+                  Array.isArray(valueLabel.value)
+                ) {
+                  valueLabel.value.push({
+                    label: vnodeCorrect.props?.label,
+                    value: vnodeCorrect.props?.value,
+                  });
+                }
+              });
+          }
+          // Determine if the outermost layer is an option component
+          else if (
+            (vnodeGroup.type as Component).name === "VsSelectOption" &&
+            (Array.isArray(props.modelValue)
+              ? props.modelValue
+              : [props.modelValue]
+            ).includes(vnodeGroup.props?.value) &&
+            Array.isArray(valueLabel.value)
+          ) {
+            valueLabel.value.push({
+              label: vnodeGroup.props?.label,
+              value: vnodeGroup.props?.value,
+            });
+          }
+        });
+      } else {
+        slots.default?.().forEach((vnodeGroup) => {
+          if ((vnodeGroup.type as Component).name === "VsSelectOptionGroup") {
+            (vnodeGroup.children as Slots)
+              .default?.()
+              .forEach((vnodeCorrect) => {
+                if (
+                  (vnodeCorrect.type as Component).name === "VsSelectOption" &&
+                  props.modelValue === vnodeCorrect.props?.value
+                ) {
+                  valueLabel.value = vnodeCorrect.props?.label;
+                }
+              });
+          } else if (
+            (vnodeGroup.type as Component).name === "VsSelectOption" &&
+            props.modelValue === vnodeGroup.props?.value
+          ) {
+            valueLabel.value = vnodeGroup.props?.label;
+          }
+        });
+      }
     });
 
     onBeforeUnmount(() => {
@@ -505,9 +568,8 @@ const Select = defineComponent({
               textFilter.value = (e.target as HTMLInputElement)?.value;
             }}
           ></input>
-
           {/* label */}
-          {(!props.multiple || props.label) && (
+          {(props.label || props.labelPlaceholder) && !props.placeholder && (
             <label
               class={[
                 "vs-select__label",
@@ -515,7 +577,9 @@ const Select = defineComponent({
                   "vs-select__label--placeholder": props.labelPlaceholder,
                   "vs-select__label--label": props.label,
                   "vs-select__label--hidden":
-                    !textFilter.value && textFilter.value,
+                    (Array.isArray(props.modelValue)
+                      ? props.modelValue.length !== 0
+                      : props.modelValue) && !props.label,
                 },
               ]}
               for={uniqueId}
@@ -525,13 +589,14 @@ const Select = defineComponent({
           )}
 
           {/* placeholder */}
-          {!props.multiple && !props.label && (
+          {!props.label && props.placeholder && (
             <label
               class={[
                 "vs-select__label",
                 {
-                  "vs-select__label--hidden":
-                    props.modelValue || textFilter.value,
+                  "vs-select__label--hidden": Array.isArray(props.modelValue)
+                    ? props.modelValue.length !== 0
+                    : props.modelValue || textFilter.value,
                 },
               ]}
               ref={placeholderRef}
