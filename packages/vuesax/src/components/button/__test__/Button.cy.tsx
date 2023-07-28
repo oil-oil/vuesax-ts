@@ -1,29 +1,28 @@
 import { VsButton } from "@/components";
+import { COLOR_MAP } from "@/test-utils/color";
 
 describe("Button", () => {
   it("test button basic render", () => {
     cy.mount(<VsButton>Default Button</VsButton>);
     cy.contains("Default Button")
       .should("be.visible")
-      .should("have.class", "vs-button--primary vs-button--default");
+      .should("have.class", "vs-button--default");
   });
 
   it("test disabled render", () => {
     cy.mount(<VsButton disabled>Disabled Button</VsButton>);
     cy.contains("Disabled Button")
       .should("be.visible")
-      .should("have.class", "vs-button--primary vs-button--default")
+      .should("have.class", "vs-button--default")
       .should("be.disabled");
   });
 
-  it("test button different status", () => {
-    const propsArr = ["danger", "success", "warn", "dark"] as const;
-
-    propsArr.forEach((prop) => {
-      cy.mount(<VsButton {...{ [prop]: true }}>{prop}</VsButton>);
-      cy.contains(prop)
-        .should("be.visible")
-        .should("have.class", `vs-button--${prop}`);
+  it("test button different colors", () => {
+    Object.entries(COLOR_MAP).forEach(([status, color]) => {
+      cy.mount(<VsButton color={status as Status}>{status}</VsButton>);
+      cy.get(".vs-button")
+        .should("have.attr", "style")
+        .and("include", `--vs-color: ${color};`);
     });
   });
 

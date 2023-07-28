@@ -7,15 +7,18 @@ import {
   toRef,
   computed,
   HTMLAttributes,
+  PropType,
 } from "vue";
 
-import useBaseProps, { BaseProps } from "@/hooks/useBase";
 import { getColor, setColor } from "@/utils";
 
 const Sidebar = defineComponent({
   name: "VsSideBar",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+      default: null,
+    },
     modelValue: {
       type: String,
     },
@@ -68,7 +71,6 @@ const Sidebar = defineComponent({
   emits: ["update:modelValue", "update:open"],
   setup(props, { slots, emit, attrs }) {
     const rootRef = ref<HTMLElement | null>(null);
-    const { isColor } = useBaseProps(props);
     const staticWidth = 260;
     const reduceInternal = ref(false);
 
@@ -100,13 +102,6 @@ const Sidebar = defineComponent({
       { relative: props.relative },
       { absolute: props.absolute },
       { right: props.right },
-      // colors
-      { "vs-component--primary": !!props.primary },
-      { "vs-component--danger": !!props.danger },
-      { "vs-component--warn": !!props.warn },
-      { "vs-component--success": !!props.success },
-      { "vs-component--dark": !!props.dark },
-      { "vs-component--is-color": !!isColor.value },
     ]);
 
     /**

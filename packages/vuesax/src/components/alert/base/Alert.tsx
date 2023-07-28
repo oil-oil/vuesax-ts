@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import {
+  PropType,
   Transition,
   defineComponent,
   nextTick,
@@ -11,17 +12,18 @@ import {
 
 import { beforeEnter, enter, leave } from "./transition.ts";
 import usePagination from "./usePagination.tsx";
-import { BaseProps } from "@/hooks/useBase.ts";
 import IconClose from "@/icons/Close";
 import IconPlus from "@/icons/Plus";
-
 import "./style.scss";
 import { getColor } from "@/utils/index.ts";
 
 const Alert = defineComponent({
   name: "VsAlert",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+      default: null,
+    },
     isShow: {
       type: Boolean,
       default: true,
@@ -152,27 +154,15 @@ const Alert = defineComponent({
             ref={rootRef}
             class={[
               "vs-alert",
-              { [`vs-alert--solid`]: !!props.solid },
-              { [`vs-alert--border`]: !!props.border },
-              { [`vs-alert--shadow`]: !!props.shadow },
-              { [`vs-alert--gradient`]: !!props.gradient },
-              { [`vs-alert--flat`]: !!props.flat },
-              { [`vs-alert--relief`]: !!props.relief },
-              { [`vs-alert--pages`]: getPagesValue.value.length > 0 },
-
-              // colors
               {
-                [`vs-component--primary`]:
-                  !props.danger &&
-                  !props.success &&
-                  !props.warn &&
-                  !props.dark &&
-                  !props.color,
+                "vs-alert--solid": !!props.solid,
+                "vs-alert--border": !!props.border,
+                "vs-alert--shadow": !!props.shadow,
+                "vs-alert--gradient": !!props.gradient,
+                "vs-alert--flat": !!props.flat,
+                "vs-alert--relief": !!props.relief,
+                "vs-alert--pages": getPagesValue.value.length > 0,
               },
-              { [`vs-component--danger`]: !!props.danger },
-              { [`vs-component--warn`]: !!props.warn },
-              { [`vs-component--success`]: !!props.success },
-              { [`vs-component--dark`]: !!props.dark },
             ]}
             style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
           >

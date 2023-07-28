@@ -8,7 +8,7 @@ const AvatarApi = defineComponent({
       [
         "color",
         "string",
-        "primary success danger warn dark RGB HEX",
+        "primary success color="danger" warn dark RGB HEX",
         "Change the color of the component.",
         "gray-2",
       ],

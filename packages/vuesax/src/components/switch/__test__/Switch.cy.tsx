@@ -1,4 +1,5 @@
 import { VsSwitch } from "@/components";
+import { COLOR_MAP } from "@/test-utils/color";
 
 describe("Switch", () => {
   it("test button basic render", () => {
@@ -21,15 +22,12 @@ describe("Switch", () => {
     cy.get(".vs-switch__text.on").should("not.be.visible");
   });
 
-  it("test switch different status", () => {
-    const propsArr = ["danger", "success", "warn", "dark"] as const;
-
-    propsArr.forEach((prop) => {
-      cy.mount(<VsSwitch {...{ [prop]: true }}>{prop}</VsSwitch>);
-      cy.contains(prop)
-        .parent()
-        .should("be.visible")
-        .should("have.class", `vs-component--${prop}`);
+  it("test switch different color", () => {
+    Object.entries(COLOR_MAP).forEach(([status, color]) => {
+      cy.mount(<VsSwitch color={status as Status}>{status}</VsSwitch>);
+      cy.get(".vs-switch")
+        .should("have.attr", "style")
+        .and("include", `--vs-color: ${color};`);
     });
   });
 

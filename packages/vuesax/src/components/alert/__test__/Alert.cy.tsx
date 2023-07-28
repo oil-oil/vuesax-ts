@@ -1,4 +1,5 @@
 import { VsAlert } from "@/components";
+import { COLOR_MAP } from "@/test-utils/color";
 
 describe("Alert", () => {
   it("test alert basic render", () => {
@@ -10,10 +11,11 @@ describe("Alert", () => {
   });
 
   it("test button different status", () => {
-    const propsArr = ["danger", "success", "warn", "dark"] as const;
-    propsArr.forEach((prop) => {
-      cy.mount(<VsAlert {...{ [prop]: true }}>{prop}</VsAlert>);
-      cy.get(`.vs-component--${prop}`).should("be.visible");
+    Object.entries(COLOR_MAP).forEach(([status, color]) => {
+      cy.mount(<VsAlert color={status as Status}>{status}</VsAlert>);
+      cy.get(".vs-alert")
+        .should("have.attr", "style")
+        .and("include", `--vs-color: ${color};`);
     });
   });
 

@@ -1,7 +1,6 @@
 import { ButtonHTMLAttributes, defineComponent, inject, Ref } from "vue";
 import { useRouter } from "vue-router";
 
-import { BaseProps } from "@/hooks/useBase";
 import VsIconsArrow from "@/icons/Arrow";
 
 import "./style.scss";
@@ -9,7 +8,10 @@ import "./style.scss";
 const SidebarItem = defineComponent({
   name: "SideBarItem",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+      default: null,
+    },
     to: {
       type: String,
     },

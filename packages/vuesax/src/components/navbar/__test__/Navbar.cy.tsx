@@ -12,7 +12,7 @@ describe("Navbar", () => {
       <VsNavbar
         fixed
         textWhite
-        primary
+        color="primary"
         v-model={active.basic}
         v-slots={{
           left: () => <>1111</>,
@@ -57,7 +57,7 @@ describe("Navbar", () => {
       <VsNavbar
         fixed
         textWhite
-        primary
+        color="primary"
         v-model={active.click}
         v-slots={{
           left: () => <>1111</>,

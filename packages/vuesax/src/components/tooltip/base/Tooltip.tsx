@@ -6,15 +6,18 @@ import {
   ref,
   watch,
   Transition,
+  PropType,
 } from "vue";
 
-import { BaseProps } from "@/hooks/useBase";
 import { getColor, insertBody, setCordsPosition } from "@/utils";
 
 const Tooltip = defineComponent({
   name: "VsToolTip",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+      default: null,
+    },
     modelValue: {
       type: Boolean,
       default: false,

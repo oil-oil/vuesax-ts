@@ -1,10 +1,16 @@
 {
   "extends": "tsconfig/vuesax.json",
   "compilerOptions": {
-    "types": ["cypress", "node", "cypress-real-events"],
+    "types": [
+      "cypress",
+      "node",
+      "cypress-real-events"
+    ],
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ],
     }
   },
   "include": [
@@ -14,5 +20,9 @@
     "src/**/*.vue",
     "./cypress.d.ts"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

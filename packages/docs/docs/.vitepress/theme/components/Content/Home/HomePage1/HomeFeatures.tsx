@@ -61,7 +61,7 @@ const HomeFeatures = defineComponent({
             badge
             badgeColor="danger"
             size="80"
-            primary
+            color="primary" 
             v-slots={{ badge: () => 28 }}
           >
             <img src="/foto1.png" alt="" />
@@ -84,7 +84,7 @@ const HomeFeatures = defineComponent({
             <VsInput
               class="check-input"
               label-placeholder={theme.value.home.checkPart.input}
-              primary
+              color="primary" 
             ></VsInput>
             <VsButton border icon size="xs">
               <i class="bx bx-chevron-right"></i>
@@ -119,7 +119,7 @@ const HomeFeatures = defineComponent({
           </VsSelect>
         </div>
         <div class="bottom-card">
-          <VsButton danger icon size="xs">
+          <VsButton color="danger" icon size="xs">
             <i class="bx bx-play"></i>
           </VsButton>
           <VsButton warn icon size="xs">
@@ -153,7 +153,7 @@ const HomeFeatures = defineComponent({
               ),
               interactions: () => (
                 <>
-                  <VsButton size="xs" danger icon>
+                  <VsButton size="xs" color="danger" icon>
                     <i class="bx bx-heart"></i>
                   </VsButton>
                   <VsButton shadow>
