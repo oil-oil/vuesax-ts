@@ -9,7 +9,6 @@ import {
   watch,
 } from "vue";
 
-import { BaseProps } from "@/hooks/useBase";
 import VsIconsClose from "@/icons/Close";
 import { setColor } from "@/utils";
 
@@ -18,7 +17,10 @@ import "./style.scss";
 const Notification = defineComponent({
   name: "VsNotification",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+      default: null,
+    },
     isVisible: {
       type: Boolean,
       default: true,
@@ -209,23 +211,19 @@ const Notification = defineComponent({
           <div
             class={[
               "vs-notification",
-              { "vs-notification--color": props.color },
-              { "vs-notification--border": props.border },
-              { "vs-notification--icon": slots.icon },
-              { "vs-notification--onClick": props.isCursor },
-              //   { "vs-notification--onClickClose": props.onClickClose },
-              { "vs-notification--flat": props.flat },
-              { "vs-notification--sticky": props.sticky },
-              { "vs-notification--square": props.square },
-              { "vs-notification--width-all": props.width === "100%" },
-              { "vs-notification--width-auto": props.width === "auto" },
-              { "vs-notification--loading": props.loading?.value },
-              { "vs-notification--notPadding": props.noPadding },
-              { "vs-notification--primary": props.primary },
-              { "vs-notification--success": props.success },
-              { "vs-notification--warn": props.warn },
-              { "vs-notification--dark": props.dark },
-              { "vs-notification--danger": props.danger },
+              {
+                "vs-notification--color": props.color,
+                "vs-notification--border": props.border,
+                "vs-notification--icon": slots.icon,
+                "vs-notification--onClick": props.isCursor,
+                "vs-notification--flat": props.flat,
+                "vs-notification--sticky": props.sticky,
+                "vs-notification--square": props.square,
+                "vs-notification--width-all": props.width === "100%",
+                "vs-notification--width-auto": props.width === "auto",
+                "vs-notification--loading": props.loading?.value,
+                "vs-notification--notPadding": props.noPadding,
+              },
             ]}
             onClick={() => {
               emit("onClick");

@@ -10,14 +10,16 @@ import {
 
 import "./style.scss";
 
-import { BaseProps } from "@/hooks/useBase";
 import IconArrow from "@/icons/Arrow";
 import { getColor } from "@/utils";
 
 const Pagination = defineComponent({
   name: "VsPagination",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+      default: null,
+    },
     modelValue: {
       type: Number,
       default: 1,
@@ -286,16 +288,7 @@ const Pagination = defineComponent({
             square: props.shape === "square",
             compact: props.shape === "compact",
             disabled: props.disabled,
-            "vs-component--primary":
-              !props.danger &&
-              !props.success &&
-              !props.warn &&
-              !props.dark &&
-              !props.color,
-            "vs-component--danger": !!props.danger,
-            "vs-component--warn": !!props.warn,
-            "vs-component--success": !!props.success,
-            "vs-component--dark": !!props.dark,
+            "vs-component--primary": !props.color,
           },
         ]}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}

@@ -1,7 +1,6 @@
 import { nanoid } from "nanoid";
-import { InputHTMLAttributes, computed, defineComponent } from "vue";
+import { InputHTMLAttributes, PropType, computed, defineComponent } from "vue";
 
-import { BaseProps } from "@/hooks/useBase";
 import { getColor } from "@/utils";
 
 import "./style.scss";
@@ -9,7 +8,10 @@ import "./style.scss";
 const Radio = defineComponent({
   name: "VsRadio",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+      default: null,
+    },
     modelValue: {
       type: String,
     },
@@ -82,11 +84,6 @@ const Radio = defineComponent({
             disabled: props.disabled,
             loading: props.loading,
             active: isChecked.value,
-            "vs-component--primary": props.color === "primary",
-            "vs-component--danger": props.color === "danger",
-            "vs-component--warn": props.color === "warn",
-            "vs-component--success": props.color === "success",
-            "vs-component--dark": props.color === "dark",
           },
         ]}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}

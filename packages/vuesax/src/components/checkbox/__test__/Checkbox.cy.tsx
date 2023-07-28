@@ -1,4 +1,5 @@
 import { VsCheckbox } from "@/components";
+import { COLOR_MAP } from "@/test-utils/color";
 
 describe("Input", () => {
   it("test input basic render", () => {
@@ -22,22 +23,13 @@ describe("Input", () => {
     cy.get("#default").should("not.be.checked");
   });
 
-  it("test checkbox different styles", () => {
-    const propsArr = ["success", "danger", "warn", "dark"];
-    propsArr.forEach((prop) => {
-      cy.mount(
-        <VsCheckbox {...{ [prop]: true }} id="default">
-          {prop}
-        </VsCheckbox>
-      );
-      cy.get(`.vs-component--${prop}`).click();
+  it("test checkbox different color", () => {
+    Object.entries(COLOR_MAP).forEach(([status, color]) => {
+      cy.mount(<VsCheckbox color={status as Status}>{status}</VsCheckbox>);
+      cy.get(".vs-checkbox-content")
+        .should("have.attr", "style")
+        .and("include", `--vs-color: ${color};`);
     });
-
-    cy.mount(<VsCheckbox color="#7d33ff" id="default"></VsCheckbox>);
-
-    cy.get("[style='--vs-color: 125,51,255;']").should("be.visible");
-    cy.mount(<VsCheckbox color="rgb(59,222,200)" id="default"></VsCheckbox>);
-    cy.get("[style='--vs-color: 59,222,200;']").should("be.visible");
   });
 
   it("test checkbox different status", () => {

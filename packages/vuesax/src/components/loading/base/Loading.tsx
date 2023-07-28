@@ -26,20 +26,20 @@ type LoadingType =
 const Loading = defineComponent({
   name: "VsLoading",
   props: {
+    color: {
+      type: String as PropType<Color>,
+      default: null,
+    },
+    background: {
+      type: String as PropType<Color>,
+      default: null,
+    },
     text: {
       type: String,
       default: null,
     },
     type: {
       type: String as PropType<LoadingType>,
-      default: null,
-    },
-    color: {
-      type: String,
-      default: null,
-    },
-    background: {
-      type: String,
       default: null,
     },
     opacity: {

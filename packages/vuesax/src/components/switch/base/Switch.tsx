@@ -1,14 +1,17 @@
 /* eslint-disable no-param-reassign */
-import { InputHTMLAttributes, defineComponent } from "vue";
+import { InputHTMLAttributes, PropType, defineComponent } from "vue";
 
 import "./style.scss";
-import { BaseProps } from "@/hooks/useBase";
+
 import { getColor } from "@/utils";
 
 const Switch = defineComponent({
   name: "VsSwitch",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+      default: null,
+    },
     modelValue: {
       type: Boolean,
       default: false,
@@ -42,19 +45,8 @@ const Switch = defineComponent({
             "vs-switch--square": props.square,
             "vs-switch--indeterminate": props.indeterminate,
             "vs-switch--icon": props.icon,
+            "vs-component--primary": !props.color,
           },
-          {
-            [`vs-component--primary`]:
-              !props.danger &&
-              !props.success &&
-              !props.warn &&
-              !props.dark &&
-              !props.color,
-          },
-          { [`vs-component--danger`]: !!props.danger },
-          { [`vs-component--warn`]: !!props.warn },
-          { [`vs-component--success`]: !!props.success },
-          { [`vs-component--dark`]: !!props.dark },
         ]}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
       >

@@ -1,9 +1,20 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["es5", "dom"],
-    "types": ["cypress", "node","cypress-real-events"],
+    "lib": [
+      "es5",
+      "dom"
+    ],
+    "types": [
+      "cypress",
+      "node",
+      "cypress-real-events"
+    ],
     "jsx": "preserve"
   },
-  "include": ["./**/*.ts", "../cypress.d.ts", "../src/components/**/*.cy.tsx"]
+  "include": [
+    "./**/*.ts",
+    "../cypress.d.ts",
+    "../src/components/**/*.cy.tsx"
+  ]
 }

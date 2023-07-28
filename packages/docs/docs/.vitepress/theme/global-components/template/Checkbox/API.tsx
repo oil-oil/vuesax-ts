@@ -15,7 +15,7 @@ const CheckboxApi = defineComponent({
             [
               "color",
               "string",
-              "primary success danger warn dark RGB HEX",
+              "primary success color="danger" warn dark RGB HEX",
               "Change the color of the component and some of its sub components.",
               "primary",
             ],

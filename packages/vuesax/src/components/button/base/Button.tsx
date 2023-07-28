@@ -7,7 +7,6 @@ import {
 } from "vue";
 import { useRouter } from "vue-router";
 
-import { BaseProps } from "@/hooks/useBase";
 import { getColor } from "@/utils";
 import ripple, { rippleCut, rippleReverse } from "@/utils/ripple/index";
 
@@ -16,7 +15,14 @@ import "./style.scss";
 const Button = defineComponent({
   name: "VsButton",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+      default: null,
+    },
+    active: {
+      type: Boolean,
+      default: false,
+    },
     ripple: {
       type: String,
       default: "",
@@ -125,32 +131,19 @@ const Button = defineComponent({
     const buttonClass = computed(() => [
       "vs-button",
       `vs-button--size-${props.size}`,
-      { [`vs-button--${props.componentColor}`]: props.componentColor },
-      { "vs-button--fff": props.color === "#fff" },
-      { "vs-button--active": props.active },
-      { "vs-button--active-disabled": props.activeDisabled },
-      { "vs-button--icon": props.icon },
-      { "vs-button--circle": props.circle },
-      { "vs-button--square": props.square },
-      { "vs-button--loading": props.loading },
-      { "vs-button--upload": props.upload },
-      { "vs-button--block": props.block },
-      { "vs-button--animate": slots.animate },
-      { [`vs-button--animate-${props.animationType}`]: props.animationType },
-      { "vs-button--animate-inactive": props.animateInactive },
       {
-        "vs-button--primary":
-          !props.danger &&
-          !props.success &&
-          !props.warn &&
-          !props.dark &&
-          !props.color,
-      },
-      { "vs-button--danger": props.danger },
-      { "vs-button--warn": props.warn },
-      { "vs-button--success": props.success },
-      { "vs-button--dark": props.dark },
-      {
+        "vs-button--fff": props.color === "#fff",
+        "vs-button--active": props.active,
+        "vs-button--active-disabled": props.activeDisabled,
+        "vs-button--icon": props.icon,
+        "vs-button--circle": props.circle,
+        "vs-button--square": props.square,
+        "vs-button--loading": props.loading,
+        "vs-button--upload": props.upload,
+        "vs-button--block": props.block,
+        "vs-button--animate": slots.animate,
+        [`vs-button--animate-${props.animationType}`]: props.animationType,
+        "vs-button--animate-inactive": props.animateInactive,
         "vs-button--default":
           !props.flat &&
           !props.border &&
@@ -159,14 +152,14 @@ const Button = defineComponent({
           !props.transparent &&
           !props.shadow &&
           !props.floating,
+        "vs-button--flat": props.flat,
+        "vs-button--border": props.border,
+        "vs-button--gradient": props.gradient,
+        "vs-button--relief": props.relief,
+        "vs-button--transparent": props.transparent,
+        "vs-button--shadow": props.shadow,
+        "vs-button--floating": props.floating,
       },
-      { "vs-button--flat": props.flat },
-      { "vs-button--border": props.border },
-      { "vs-button--gradient": props.gradient },
-      { "vs-button--relief": props.relief },
-      { "vs-button--transparent": props.transparent },
-      { "vs-button--shadow": props.shadow },
-      { "vs-button--floating": props.floating },
     ]);
 
     const handleMouseDown = (evt: MouseEvent) => {
@@ -177,7 +170,7 @@ const Button = defineComponent({
       } else if (props.flat) {
         ripple(
           evt,
-          (props.componentColor || props.color || "primary") &&
+          (props.color || "primary") &&
             !props.active &&
             document.activeElement !== buttonRef.value
             ? "inherit"

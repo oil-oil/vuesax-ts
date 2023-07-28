@@ -26,7 +26,7 @@ const ripple = (evt: MouseEvent, color: any = "", solid = false) => {
   effect.className = "vs-ripple";
   if (solid) {
     effect.classList.add("vs-ripple--solid");
-    // setColor('color', color || 'primary', effectContent)
+    setColor("color", color || "primary", effectContent);
   }
   effect.style.transition = `all ${time}s ease`;
 
