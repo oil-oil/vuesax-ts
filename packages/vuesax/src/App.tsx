@@ -1,45 +1,23 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 
-import { VsSelect, VsOption, VsOptionGroup } from "./components";
+import {  VsAvatar ,VsAvatarGroup} from "./components";
 
 export default defineComponent({
   setup() {
-    const value = ref([]);
-
     return () => (
-      <VsSelect
-        color="success"
-        v-model={value.value}
-        labelPlaceholder="Select"
-        class="select"
-        multiple
-      >
-        <VsOptionGroup v-slots={{ title: () => <>VueTs</> }}>
-          <VsOption label="Vuesax" value="1">
-            Vuesax
-          </VsOption>
-          <VsOption label="Vue" value="2">
-            Vue
-          </VsOption>
-          <VsOption label="Javascript" value="3">
-            Javascript
-          </VsOption>
-        </VsOptionGroup>
-        <VsOptionGroup v-slots={{ title: () => <>Other</> }}>
-          <VsOption label="Scss" value="4">
-            Scss
-          </VsOption>
-          <VsOption label="Typescript" value="5">
-            Typescript
-          </VsOption>
-          <VsOption label="Nodejs" value="6">
-            Nodejs
-          </VsOption>
-        </VsOptionGroup>
-        <VsOption label="JETT" value="7">
-          JETT
-        </VsOption>
-      </VsSelect>
+      <VsAvatarGroup max={7}>
+            <VsAvatar name="lili" color="primary"></VsAvatar>
+            <VsAvatar name="lili" color="success"></VsAvatar>
+            <VsAvatar name="lili" color="warn"></VsAvatar>
+            <VsAvatar name="lili" color="danger"></VsAvatar>
+            <VsAvatar name="lili" color="dark"></VsAvatar>
+            <VsAvatar name="lili" color="primary"></VsAvatar>
+            <VsAvatar name="lili" color="primary"></VsAvatar>
+            <VsAvatar name="lili" color="primary"></VsAvatar>
+            <VsAvatar name="lili" color="primary"></VsAvatar>
+            <VsAvatar name="lili" color="primary"></VsAvatar>
+            <VsAvatar name="lili" color="primary"></VsAvatar>
+      </VsAvatarGroup>
     );
   },
 });

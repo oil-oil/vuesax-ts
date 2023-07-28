@@ -8,24 +8,26 @@ import {
   inject,
   Ref,
   HTMLAttributes,
+  PropType,
 } from "vue";
 
 import { BaseProps } from "@/hooks/useBase";
 import { getColor, setColor } from "@/utils";
 import "./style.scss";
 
+type badgeType =
+  | "bottom-left"
+  | "top-right"
+  | "top-left"
+  ;
+
 const Avatar = defineComponent({
   name: "VsAvatar",
   props: {
     ...BaseProps,
-    badgeTopLeft: {
-      type: Boolean,
-    },
-    badgeTopRight: {
-      type: Boolean,
-    },
-    badgeBottomLeft: {
-      type: Boolean,
+    badgePosition:{
+      type: String as PropType<badgeType>,
+      default:"bottom-right"
     },
     pointer: {
       type: Boolean,
@@ -95,7 +97,7 @@ const Avatar = defineComponent({
           }
           return result[0].toUpperCase();
         }
-        if (namePart[0].length < 7) {
+        if (namePart[0].length < 6) {
           return namePart[0];
         }
         return namePart[0][0].toUpperCase();
@@ -159,9 +161,9 @@ const Avatar = defineComponent({
           {
             isSlot: slots.badge,
             writing: props.writing,
-            "top-right": props.badgeTopRight,
-            "top-left": props.badgeTopLeft,
-            "bottom-left": props.badgeBottomLeft,
+            "top-right": props.badgePosition === "top-right",
+            "top-left": props.badgePosition === "top-left",
+            "bottom-left": props.badgePosition === "bottom-left",
           },
         ]}
         ref={badgeRef}
@@ -217,11 +219,11 @@ const Avatar = defineComponent({
             "vs-avatar-content--hasIcons": slots.icons,
             "vs-avatar-content--size": props.size,
             // colors
-            "vs-component--primary": !!props.primary,
-            "vs-component--danger": !!props.danger,
-            "vs-component--warn": !!props.warn,
-            "vs-component--success": !!props.success,
-            "vs-component--dark": !!props.dark,
+            "vs-component--primary": props.color === "primary",
+            "vs-component--danger": props.color === "danger",
+            "vs-component--warn": props.color === "warn",
+            "vs-component--success": props.color === "success",
+            "vs-component--dark": props.color === "dark",
             "vs-component--is-color":
               props.color ||
               props.primary ||

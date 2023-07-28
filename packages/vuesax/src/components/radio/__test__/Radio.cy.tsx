@@ -6,6 +6,7 @@ describe("Radio", () => {
   const value = reactive({
     render: "0",
     click: "0",
+    color: "0",
   });
   it("test Radio basic render", () => {
     cy.mount(
@@ -35,5 +36,17 @@ describe("Radio", () => {
       wrapper.setProps({ modelValue: "2" });
     });
     cy.get(".vs-radio input").should("be.checked");
+  });
+
+  it("test Radio different color", () => {
+    const propsArr = ["primary", "success", "danger", "warn", "dark"];
+    propsArr.forEach((prop) => {
+      cy.mount(
+        <VsRadio v-model={value.color} value="3" color={prop}>
+          Option 3
+        </VsRadio>
+      );
+      cy.get(`.vs-component--${prop}`).should("be.visible");
+    });
   });
 });

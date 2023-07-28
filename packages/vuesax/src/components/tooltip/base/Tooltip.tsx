@@ -182,10 +182,15 @@ const Tooltip = defineComponent({
       activeTooltip.value = false;
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousedown", handleMouseDownNotHover);
+      const tooltips = document.querySelectorAll(".vs-tooltip");
+      tooltips.forEach((tooltip) => {
+        tooltip.remove();
+      });
     });
 
     const tooltip = (
       <div
+        ref={tooltipRef}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
         class={[
           "vs-tooltip",
@@ -203,13 +208,12 @@ const Tooltip = defineComponent({
             loading: props.loading,
           },
           // colors
-          { "vs-component--primary": !!props.primary },
-          { "vs-component--danger": !!props.danger },
-          { "vs-component--warn": !!props.warn },
-          { "vs-component--success": !!props.success },
-          { "vs-component--dark": !!props.dark },
+          { "vs-component--primary": props.color === "primary" },
+          { "vs-component--danger": props.color === "danger" },
+          { "vs-component--warn": props.color === "warn" },
+          { "vs-component--success": props.color === "success" },
+          { "vs-component--dark": props.color === "dark" },
         ]}
-        // ref={tooltipRef}
       >
         {slots.tooltip?.()}
         {props.loading && <div class="vs-tooltip__loading"></div>}
