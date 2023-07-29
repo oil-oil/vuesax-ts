@@ -1,7 +1,14 @@
-import { ButtonHTMLAttributes, defineComponent, inject, Ref } from "vue";
+import {
+  ButtonHTMLAttributes,
+  defineComponent,
+  inject,
+  PropType,
+  Ref,
+} from "vue";
 import { useRouter } from "vue-router";
 
 import VsIconsArrow from "@/icons/Arrow";
+import { Color, CompWithAttr } from "@/types/utils";
 
 import "./style.scss";
 
@@ -10,7 +17,6 @@ const SidebarItem = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     to: {
       type: String,

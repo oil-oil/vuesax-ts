@@ -4,6 +4,7 @@ import { InputHTMLAttributes, PropType, defineComponent, ref } from "vue";
 
 import "./style.scss";
 import VsIconsCheck from "@/icons/Check";
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor } from "@/utils";
 
 const Checkbox = defineComponent({
@@ -11,7 +12,6 @@ const Checkbox = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     modelValue: {
       type: Boolean,
@@ -57,7 +57,6 @@ const Checkbox = defineComponent({
               "vs-checkbox--disabled": checkboxAttrs.disabled,
               "vs-checkbox--loading": props.loading,
               "vs-checkbox--label-before": props.labelBefore,
-              [`vs-component--primary`]: !props.color,
             },
           ]}
         >

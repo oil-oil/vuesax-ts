@@ -25,7 +25,7 @@ const colors = ref([
     { color: "warn", value: "3" },
     { color: "dark", value: "4" },
     { color: "#7d33ff", value: "5" },
-    { color: "rgb(59,222,200)", value: "6" },
+    { color: "rgb(59, 222, 200)", value: "6" },
 ])
 </script>
 

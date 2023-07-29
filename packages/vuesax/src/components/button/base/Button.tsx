@@ -7,6 +7,7 @@ import {
 } from "vue";
 import { useRouter } from "vue-router";
 
+import { Color, CompWithAttr, Size } from "@/types/utils";
 import { getColor } from "@/utils";
 import ripple, { rippleCut, rippleReverse } from "@/utils/ripple/index";
 
@@ -17,7 +18,7 @@ const Button = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
+      default: "primary",
     },
     active: {
       type: Boolean,
@@ -123,7 +124,9 @@ const Button = defineComponent({
               props?.animationType,
           },
         ]}
-      ></div>
+      >
+        {slots.animate?.()}
+      </div>
     );
 
     const loadingElement = <div class="vs-button__loading"></div>;

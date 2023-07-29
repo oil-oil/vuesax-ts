@@ -3,6 +3,7 @@ import { InputHTMLAttributes, PropType, defineComponent } from "vue";
 
 import "./style.scss";
 
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor } from "@/utils";
 
 const Switch = defineComponent({
@@ -10,7 +11,6 @@ const Switch = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     modelValue: {
       type: Boolean,
@@ -45,7 +45,6 @@ const Switch = defineComponent({
             "vs-switch--square": props.square,
             "vs-switch--indeterminate": props.indeterminate,
             "vs-switch--icon": props.icon,
-            "vs-component--primary": !props.color,
           },
         ]}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}

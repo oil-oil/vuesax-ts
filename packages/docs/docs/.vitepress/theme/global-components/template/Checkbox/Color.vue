@@ -1,12 +1,12 @@
 <template>
     <div class="center">
         <VsCheckbox v-model="primary">Primary</VsCheckbox>
-        <VsCheckbox v-model="success" success>Success</VsCheckbox>
-        <VsCheckbox v-model="danger" danger>Danger</VsCheckbox>
-        <VsCheckbox v-model="warn" warn>Warning</VsCheckbox>
-        <VsCheckbox v-model="dark" dark>Dark</VsCheckbox>
+        <VsCheckbox v-model="success" color="success">Success</VsCheckbox>
+        <VsCheckbox v-model="danger" color="danger">Danger</VsCheckbox>
+        <VsCheckbox v-model="warn" color="warn">Warning</VsCheckbox>
+        <VsCheckbox v-model="dark" color="dark">Dark</VsCheckbox>
         <VsCheckbox v-model="hex" colo="#7d33ff">HEX</VsCheckbox>
-        <VsCheckbox v-model="rgb" color="rgb(59,222,200)">RGB</VsCheckbox>
+        <VsCheckbox v-model="rgb" color="rgb(59, 222, 200)">RGB</VsCheckbox>
     </div>
 </template>
 

@@ -349,7 +349,7 @@ if you want to change the text color to white you can do it with the property `t
             <vs-navbar-item :active="active == '#7d33ff'" id="#7d33ff">
               HEX
             </vs-navbar-item>
-            <vs-navbar-item :active="active == 'rgb(59,222,200)'" id="rgb(59,222,200)">
+            <vs-navbar-item :active="active == 'rgb(59, 222, 200)'" id="rgb(59, 222, 200)">
               RGB
             </vs-navbar-item>
           </template>

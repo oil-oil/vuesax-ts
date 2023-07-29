@@ -1,7 +1,8 @@
-import { HTMLAttributes, defineComponent, onMounted, ref } from "vue";
+import { ThHTMLAttributes, defineComponent, onMounted, ref } from "vue";
 
 import IconArrow from "@/icons/Arrow";
 import "./style.scss";
+import { CompWithAttr } from "@/types/utils";
 
 const sortMap = {
   null: "desc",
@@ -57,6 +58,6 @@ const TableTh = defineComponent({
   },
 });
 
-export default TableTh as CompWithAttr<typeof TableTh, HTMLAttributes>;
+export default TableTh as CompWithAttr<typeof TableTh, ThHTMLAttributes>;
 
 export type TableThProps = InstanceType<typeof TableTh>["$props"];

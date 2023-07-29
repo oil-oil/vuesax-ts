@@ -9,6 +9,7 @@ import {
 } from "vue";
 import "./style.scss";
 
+import { Color } from "@/types/utils";
 import { setColor, setVar } from "@/utils";
 
 type LoadingType =
@@ -28,7 +29,6 @@ const Loading = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     background: {
       type: String as PropType<Color>,
@@ -68,7 +68,7 @@ const Loading = defineComponent({
     const rootRef = ref<HTMLElement>();
 
     const initStyle = () => {
-      if (rootRef.value) {
+      if (rootRef.value && props.color) {
         setColor("color", props.color, rootRef.value, true);
         setColor("background", props.background, rootRef.value, true);
         if (props.opacity) {

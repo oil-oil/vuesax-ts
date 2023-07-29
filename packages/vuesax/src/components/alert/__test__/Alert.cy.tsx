@@ -1,5 +1,6 @@
 import { VsAlert } from "@/components";
-import { COLOR_MAP } from "@/test-utils/color";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 describe("Alert", () => {
   it("test alert basic render", () => {
@@ -11,8 +12,8 @@ describe("Alert", () => {
   });
 
   it("test button different status", () => {
-    Object.entries(COLOR_MAP).forEach(([status, color]) => {
-      cy.mount(<VsAlert color={status as Status}>{status}</VsAlert>);
+    Object.entries(colors).forEach(([status, color]) => {
+      cy.mount(<VsAlert color={status as Color}>{status}</VsAlert>);
       cy.get(".vs-alert")
         .should("have.attr", "style")
         .and("include", `--vs-color: ${color};`);

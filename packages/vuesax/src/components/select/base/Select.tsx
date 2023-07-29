@@ -21,7 +21,9 @@ import { beforeEnter, enter, leave } from "./transition";
 import { Option, SelectProvider } from "../types";
 import IconArrow from "@/icons/Arrow";
 import IconClose from "@/icons/Close";
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor, insertBody, removeBody, setCords } from "@/utils";
+
 import "./style.scss";
 
 const Select = defineComponent({
@@ -29,7 +31,6 @@ const Select = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     modelValue: {
       type: [Array, String] as PropType<string[] | string>,

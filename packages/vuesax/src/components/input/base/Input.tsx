@@ -9,14 +9,15 @@ import {
 
 import "./style.scss";
 
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor } from "@/utils";
 
+type Status = "primary" | "warn" | "danger" | "success" | "dark";
 const Input = defineComponent({
   name: "VsInput",
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     modelValue: {
       type: [String, Number],
@@ -122,7 +123,6 @@ const Input = defineComponent({
             textWhite: props.textWhite,
             square: props.square,
             // colors
-            "vs-component--primary": !props.color,
             "vs-component--is-color": !!props.color,
           },
         ]}

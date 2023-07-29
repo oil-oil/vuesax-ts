@@ -1,5 +1,6 @@
 import { VsButton } from "@/components";
-import { COLOR_MAP } from "@/test-utils/color";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 describe("Button", () => {
   it("test button basic render", () => {
@@ -18,8 +19,8 @@ describe("Button", () => {
   });
 
   it("test button different colors", () => {
-    Object.entries(COLOR_MAP).forEach(([status, color]) => {
-      cy.mount(<VsButton color={status as Status}>{status}</VsButton>);
+    Object.entries(colors).forEach(([status, color]) => {
+      cy.mount(<VsButton color={status as Color}>{status}</VsButton>);
       cy.get(".vs-button")
         .should("have.attr", "style")
         .and("include", `--vs-color: ${color};`);

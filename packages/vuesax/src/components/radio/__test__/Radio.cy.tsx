@@ -1,5 +1,6 @@
 import { VsRadio } from "@/components";
-import { COLOR_MAP } from "@/test-utils/color";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 describe("Radio", () => {
   it("test radio basic render", () => {
@@ -27,8 +28,8 @@ describe("Radio", () => {
   });
 
   it("test radio different color", () => {
-    Object.entries(COLOR_MAP).forEach(([status, color]) => {
-      cy.mount(<VsRadio color={status as Status}>{status}</VsRadio>);
+    Object.entries(colors).forEach(([status, color]) => {
+      cy.mount(<VsRadio color={status as Color}>{status}</VsRadio>);
       cy.get(".vs-radio-content")
         .should("have.attr", "style")
         .and("include", `--vs-color: ${color};`);

@@ -26,7 +26,7 @@ const Navbar = defineComponent({
     return () => (
       <VsNavbar
         textWhite={isDark.value}
-        dark={isDark.value}
+        color={isDark.value ? "dark" : "#fff"}
         fixed
         square
         v-slots={{

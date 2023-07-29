@@ -245,7 +245,7 @@ Easily add a pagination with the `vs-pagination` component, the required propert
           <vs-radio color="#7d33ff" v-model="color" val="#7d33ff">
             HEX
           </vs-radio>
-          <vs-radio color="rgb(59,222,200)" v-model="color" val="rgb(59,222,200)">
+          <vs-radio color="rgb(59, 222, 200)" v-model="color" val="rgb(59, 222, 200)">
             RGB
           </vs-radio>
         </div>

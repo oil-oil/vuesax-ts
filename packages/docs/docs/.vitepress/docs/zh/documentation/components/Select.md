@@ -66,7 +66,7 @@ PROPS:
                     value: '5'
                   },
                   {
-                    color: 'rgb(59,222,200)',
+                    color: 'rgb(59, 222, 200)',
                     value: '6'
                   },
 
@@ -633,7 +633,7 @@ Change the color of the component with the `color` property, the allowed values 
               value: '5'
             },
             {
-              color: 'rgb(59,222,200)',
+              color: 'rgb(59, 222, 200)',
               value: '6'
             },
 

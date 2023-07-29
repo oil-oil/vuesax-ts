@@ -1,5 +1,6 @@
 import { VsButton, VsToolTip } from "@/components";
-import { COLOR_MAP } from "@/test-utils/color";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 describe("Tooltip", () => {
   it("test tooltip basic render", () => {
@@ -13,10 +14,10 @@ describe("Tooltip", () => {
   });
 
   it("test tooltip color", () => {
-    Object.entries(COLOR_MAP).forEach(([status, color]) => {
+    Object.entries(colors).forEach(([status, color]) => {
       cy.mount(
         <VsToolTip
-          color={status as Status}
+          color={status as Color}
           v-slots={{ tooltip: () => "This is a beautiful Button" }}
         >
           {" "}

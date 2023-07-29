@@ -1,5 +1,6 @@
 import { VsCheckbox } from "@/components";
-import { COLOR_MAP } from "@/test-utils/color";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 describe("Input", () => {
   it("test input basic render", () => {
@@ -24,8 +25,8 @@ describe("Input", () => {
   });
 
   it("test checkbox different color", () => {
-    Object.entries(COLOR_MAP).forEach(([status, color]) => {
-      cy.mount(<VsCheckbox color={status as Status}>{status}</VsCheckbox>);
+    Object.entries(colors).forEach(([status, color]) => {
+      cy.mount(<VsCheckbox color={status as Color}>{status}</VsCheckbox>);
       cy.get(".vs-checkbox-content")
         .should("have.attr", "style")
         .and("include", `--vs-color: ${color};`);

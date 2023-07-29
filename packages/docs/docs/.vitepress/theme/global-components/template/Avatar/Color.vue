@@ -6,7 +6,7 @@
         <VsAvatar name="Warn" color="warn"></VsAvatar>
         <VsAvatar name="Dark" color="dark"></VsAvatar>
         <VsAvatar name="HEX" color="#7d33ff"></VsAvatar>
-        <VsAvatar name="RGB" color="rgb(59,222,200)"></VsAvatar>
+        <VsAvatar name="RGB" color="rgb(59, 222, 200)"></VsAvatar>
     </div>
 </template>
 

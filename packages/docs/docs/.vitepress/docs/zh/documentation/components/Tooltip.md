@@ -462,8 +462,8 @@ Change the position of the tooltip with the properties
             This is a beautiful button
           </template>
         </vs-tooltip>
-        <vs-tooltip color="rgb(59,222,200)">
-          <vs-button color="rgb(59,222,200)" flat>
+        <vs-tooltip color="rgb(59, 222, 200)">
+          <vs-button color="rgb(59, 222, 200)" flat>
             RGB
           </vs-button>
           <template #tooltip>

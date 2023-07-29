@@ -612,7 +612,7 @@ Allowed values ​​are:
         <vs-button flat color="#7d33ff" icon @click="openNotification('top-center', '#7d33ff')">
           <i class='bx bx-border-top' ></i>
         </vs-button>
-        <vs-button flat color="rgb(59,222,200)" icon @click="openNotification(null, 'rgb(59,222,200)')">
+        <vs-button flat color="rgb(59, 222, 200)" icon @click="openNotification(null, 'rgb(59, 222, 200)')">
           <i class='bx bx-border-radius b-r'></i>
         </vs-button>
       </div>
@@ -686,8 +686,8 @@ Add the icon provided as the value of the `icon` property to the notification
           @click="openNotification('top-center', '#7d33ff', `<i class='bx bx-bell' ></i>`)">
           <i class='bx bx-border-top' ></i> <i class='bx bx-bell' ></i>
         </vs-button>
-        <vs-button flat color="rgb(59,222,200)" icon
-          @click="openNotification(null, 'rgb(59,222,200)', `<i class='bx bx-calendar' ></i>`)">
+        <vs-button flat color="rgb(59, 222, 200)" icon
+          @click="openNotification(null, 'rgb(59, 222, 200)', `<i class='bx bx-calendar' ></i>`)">
           <i class='bx bx-border-radius b-r'></i> <i class='bx bx-calendar' ></i>
         </vs-button>
       </div>
@@ -781,8 +781,8 @@ Add a progress bar to the notification, if the value of the `progress` property 
           @click="openNotification('top-center', '#7d33ff')">
           <i class='bx bx-border-top' ></i>
         </vs-button>
-        <vs-button flat color="rgb(59,222,200)" icon
-          @click="openNotification(null, 'rgb(59,222,200)')">
+        <vs-button flat color="rgb(59, 222, 200)" icon
+          @click="openNotification(null, 'rgb(59, 222, 200)')">
           <i class='bx bx-border-radius b-r'></i>
         </vs-button>
       </div>
@@ -957,7 +957,7 @@ Change the style of the notification with the `square` property so as not to hav
         <vs-button square border color="#7d33ff" icon @click="openNotification('top-center', '#7d33ff')">
           <i class='bx bx-border-top' ></i>
         </vs-button>
-        <vs-button square border color="rgb(59,222,200)" icon @click="openNotification(null, 'rgb(59,222,200)')">
+        <vs-button square border color="rgb(59, 222, 200)" icon @click="openNotification(null, 'rgb(59, 222, 200)')">
           <i class='bx bx-border-radius b-r'></i>
         </vs-button>
       </div>
@@ -1056,8 +1056,8 @@ Change the notification style with the `border` property by adding a border of t
           @click="openNotification('top-center', '#7d33ff', `<i class='bx bx-bell' ></i>`)">
           <i class='bx bx-border-top' ></i> <i class='bx bx-bell' ></i>
         </vs-button>
-        <vs-button flat color="rgb(59,222,200)" icon
-          @click="openNotification(null, 'rgb(59,222,200)', `<i class='bx bx-calendar' ></i>`)">
+        <vs-button flat color="rgb(59, 222, 200)" icon
+          @click="openNotification(null, 'rgb(59, 222, 200)', `<i class='bx bx-calendar' ></i>`)">
           <i class='bx bx-border-radius b-r'></i> <i class='bx bx-calendar' ></i>
         </vs-button>
       </div>
@@ -1171,9 +1171,9 @@ Change the style of the notification with the `flat` property, having this prope
         </vs-button>
         <vs-button
           flat
-          color="rgb(59,222,200)"
+          color="rgb(59, 222, 200)"
           icon
-          @click="openNotification(null, 'rgb(59,222,200)')">
+          @click="openNotification(null, 'rgb(59, 222, 200)')">
           <i class='bx bx-border-radius b-r'></i>
         </vs-button>
       </div>
@@ -1267,8 +1267,8 @@ Add a loading animation to the notification, having this property will only show
           @click="openNotification('top-center', '#7d33ff')">
           <i class='bx bx-border-top' ></i>
         </vs-button>
-        <vs-button gradient color="rgb(59,222,200)" icon
-          @click="openNotification(null, 'rgb(59,222,200)')">
+        <vs-button gradient color="rgb(59, 222, 200)" icon
+          @click="openNotification(null, 'rgb(59, 222, 200)')">
           <i class='bx bx-border-radius b-r'></i>
         </vs-button>
       </div>
@@ -1430,8 +1430,8 @@ You can add a style to the paste component to the nearest corner with the `stick
           @click="openNotification('top-center', '#7d33ff')">
           <i class='bx bx-border-top' ></i>
         </vs-button>
-        <vs-button flat color="rgb(59,222,200)" icon
-          @click="openNotification(null, 'rgb(59,222,200)')">
+        <vs-button flat color="rgb(59, 222, 200)" icon
+          @click="openNotification(null, 'rgb(59, 222, 200)')">
           <i class='bx bx-border-radius b-r'></i>
         </vs-button>
       </div>
