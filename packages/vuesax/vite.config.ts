@@ -16,7 +16,6 @@ export default defineConfig({
     minify: false,
     lib: {
       entry: "src/index.ts",
-      formats: ["es", "cjs"],
     },
     outDir: "es",
     rollupOptions: {
@@ -45,6 +44,7 @@ export default defineConfig({
       outputDir: ["dist/lib", "dist/es"],
       tsConfigFilePath: "./tsconfig.json",
       entryRoot: "src",
+      copyDtsFiles: true,
     }),
   ],
 });

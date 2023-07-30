@@ -1,4 +1,6 @@
 import { VsInput } from "@/components";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 describe("Input", () => {
   it("test input basic render", () => {
@@ -16,12 +18,12 @@ describe("Input", () => {
       .should("be.disabled");
   });
 
-  it("test input different status", () => {
-    const propsArr = ["danger", "success", "warn", "primary"] as const;
-
-    propsArr.forEach((prop) => {
-      cy.mount(<VsInput {...{ [prop]: true }} value={prop}></VsInput>);
-      cy.get(`.vs-component--${prop}`).should("be.visible");
+  it("test input different color", () => {
+    Object.entries(colors).forEach(([status, color]) => {
+      cy.mount(<VsInput color={status as Color}>{status}</VsInput>);
+      cy.get(".vs-input-parent")
+        .should("have.attr", "style")
+        .and("include", `--vs-color: ${color};`);
     });
   });
 
@@ -74,16 +76,17 @@ describe("Input", () => {
     });
   });
 
-  it("test input different state", () => {
+  it("test input different status", () => {
     const propsArr = ["primary", "danger", "success", "warn", "dark"] as const;
 
     propsArr.forEach((prop) => {
       cy.mount(
-        <VsInput state={prop} label={prop}>
+        <VsInput status={prop} label={prop}>
           {prop}
         </VsInput>
       );
-      cy.get(`.vs-input-parent--state-${prop}`).should("be.visible");
+
+      cy.get(`.vs-input-parent--status-${prop}`).should("be.visible");
     });
   });
 

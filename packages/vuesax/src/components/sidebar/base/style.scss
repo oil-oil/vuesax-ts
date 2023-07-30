@@ -1,5 +1,4 @@
 @import "@/styles/mixins";
-@import "root";
 
 @keyframes delayOpacity {
   0% {
@@ -97,6 +96,11 @@
     .vs-sidebar {
       &__footer {
         padding: 10px 0px;
+
+  &.reduce {
+    .vs-sidebar {
+      &__footer {
+        padding: 10px 0px
       }
       &__header {
         .vs-avatar-content {
@@ -185,4 +189,5 @@
     }
   }
 }
+
 // .vs-sidebar

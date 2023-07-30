@@ -18,10 +18,10 @@ describe("Card", () => {
               ),
               interactions: () => (
                 <>
-                  <VsButton danger icon>
+                  <VsButton color="danger" icon>
                     <i class="bx bx-heart"></i>
                   </VsButton>
-                  <VsButton class="btn-chat" shadow primary>
+                  <VsButton class="btn-chat" shadow color="primary">
                     <i class="bx bx-chat"></i>
                     <span class="span">54</span>
                   </VsButton>

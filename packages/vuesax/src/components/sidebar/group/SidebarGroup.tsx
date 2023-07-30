@@ -5,7 +5,10 @@ import {
   watch,
   onMounted,
   Transition,
+  HTMLAttributes,
 } from "vue";
+
+import { CompWithAttr } from "@/types/utils";
 
 const SidebarGroup = defineComponent({
   name: "SideBarGroup",
@@ -95,6 +98,9 @@ const SidebarGroup = defineComponent({
   },
 });
 
-export default SidebarGroup;
+export default SidebarGroup as CompWithAttr<
+  typeof SidebarGroup,
+  HTMLAttributes
+>;
 
 export type SidebarGroupProps = InstanceType<typeof SidebarGroup>["$props"];

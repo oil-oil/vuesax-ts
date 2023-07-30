@@ -7,5 +7,8 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve"
   },
-  "include": ["vite.config.ts", "cypress.config.ts"]
+  "include": [
+    "vite.config.ts",
+    "cypress.config.ts"
+  ]
 }

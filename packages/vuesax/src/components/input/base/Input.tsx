@@ -1,19 +1,24 @@
 /* eslint-disable no-param-reassign */
 import {
   InputHTMLAttributes,
+  PropType,
   Transition,
   computed,
   defineComponent,
 } from "vue";
 
 import "./style.scss";
-import { BaseProps } from "@/hooks/useBase";
+
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor } from "@/utils";
 
+type Status = "primary" | "warn" | "danger" | "success" | "dark";
 const Input = defineComponent({
   name: "VsInput",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+    },
     modelValue: {
       type: [String, Number],
       default: "",
@@ -39,9 +44,6 @@ const Input = defineComponent({
     loading: {
       type: Boolean,
       default: false,
-    },
-    state: {
-      type: String,
     },
     progress: {
       type: Number,
@@ -70,18 +72,12 @@ const Input = defineComponent({
       type: Boolean,
       default: false,
     },
+    status: {
+      type: String as PropType<Status>,
+    },
   },
   setup(props, { attrs, slots, emit }) {
     const id = computed(() => `vs-input--${attrs.id || "id"}`);
-    const hasColor = computed(
-      () =>
-        props.color ||
-        props.primary ||
-        props.danger ||
-        props.success ||
-        props.dark ||
-        props.warn
-    );
 
     const beforeEnter = (element: Element) => {
       const el = element as HTMLElement;
@@ -116,32 +112,19 @@ const Input = defineComponent({
       <div
         class={[
           "vs-input-parent",
-          { [`vs-input-parent--state-${props.state}`]: !!props.state },
-          { "vs-input-parent--border": !!props.border },
-          { "vs-input-parent--shadow": !!props.shadow },
           {
+            [`vs-input-parent--status-${props.status}`]: !!props.status,
+            "vs-input-parent--border": !!props.border,
+            "vs-input-parent--shadow": !!props.shadow,
             "vs-input-content--has-label":
               props.label || props.labelPlaceholder,
+            block: props.block,
+            transparent: props.transparent,
+            textWhite: props.textWhite,
+            square: props.square,
+            // colors
+            "vs-component--is-color": !!props.color,
           },
-          { block: props.block },
-          { transparent: props.transparent },
-          { textWhite: props.textWhite },
-          { square: props.square },
-
-          // colors
-          {
-            "vs-component--primary":
-              !props.danger &&
-              !props.success &&
-              !props.warn &&
-              !props.dark &&
-              !props.color,
-          },
-          { "vs-component--danger": !!props.danger },
-          { "vs-component--warn": !!props.warn },
-          { "vs-component--success": !!props.success },
-          { "vs-component--dark": !!props.dark },
-          { "vs-component--is-color": !!props.color },
         ]}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
       >
@@ -149,7 +132,7 @@ const Input = defineComponent({
         <div
           class={[
             "vs-input-content",
-            { "vs-input-content--has-color": hasColor.value },
+            { "vs-input-content--has-color": props.color },
             {
               "vs-input-content--has-label":
                 props.label || props.labelPlaceholder,

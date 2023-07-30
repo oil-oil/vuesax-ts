@@ -1,5 +1,7 @@
 import { Ref } from "vue";
 
+import { Color } from "@/types/utils";
+
 export type Option = {
   label: string;
   value: string;
@@ -20,5 +22,5 @@ export type SelectProvider = {
   childOptions: Ref<Option[]>;
   targetSelect: Ref<boolean>;
   targetClose: Ref<boolean>;
-  color: Ref<string>;
+  color: Ref<Color | undefined>;
 };

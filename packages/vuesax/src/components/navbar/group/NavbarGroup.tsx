@@ -1,14 +1,11 @@
 import { defineComponent, inject, provide, ref } from "vue";
 
 import { NavbarProvider } from "../types";
-import { BaseProps } from "@/hooks/useBase";
+
 import "./style.scss";
 
 const NavbarGroup = defineComponent({
   name: "VsNavbarGroup",
-  props: {
-    ...BaseProps,
-  },
   slots: ["default", "items"],
   setup(_, { slots }) {
     const elRef = ref<HTMLElement>();

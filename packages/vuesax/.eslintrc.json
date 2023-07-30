@@ -1,6 +1,8 @@
 {
   "root": true,
-  "extends": ["custom"],
+  "extends": [
+    "custom"
+  ],
   "parserOptions": {
     "tsconfigRootDir": "./",
     "project": [
@@ -8,7 +10,9 @@
       "./tsconfig.node.json",
       "./cypress/tsconfig.json"
     ],
-    "extraFileExtensions": [".vue"]
+    "extraFileExtensions": [
+      ".vue"
+    ]
   },
   "rules": {
     "import/no-extraneous-dependencies": [
@@ -18,6 +22,7 @@
         "optionalDependencies": false,
         "peerDependencies": false
       }
-    ]
+    ],
+    "import/prefer-default-export": "off"
   }
 }

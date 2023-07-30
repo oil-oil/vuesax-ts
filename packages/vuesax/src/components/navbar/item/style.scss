@@ -1,4 +1,5 @@
-@import '../../../styles/mixins';
+@import '@/styles/mixins';
+
 .vs-navbar__item {
   padding: 10px 15px;
   margin: 0px;
@@ -9,9 +10,11 @@
   transition: all .25s ease, color 0s;
   font-weight: bold;
   color: inherit;
+
   &.active {
     opacity: 1;
   }
+
   &:hover {
     opacity: 1;
   }

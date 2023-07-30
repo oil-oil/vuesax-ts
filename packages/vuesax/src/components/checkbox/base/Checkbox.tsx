@@ -1,16 +1,18 @@
 /* eslint-disable no-param-reassign */
 import { nanoid } from "nanoid";
-import { InputHTMLAttributes, defineComponent, ref } from "vue";
+import { InputHTMLAttributes, PropType, defineComponent, ref } from "vue";
 
-import VsIconsCheck from "../../../icons/Check";
 import "./style.scss";
-import { BaseProps } from "@/hooks/useBase";
+import VsIconsCheck from "@/icons/Check";
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor } from "@/utils";
 
 const Checkbox = defineComponent({
   name: "VsCheckbox",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+    },
     modelValue: {
       type: Boolean,
       default: false,
@@ -50,24 +52,12 @@ const Checkbox = defineComponent({
           style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
           class={[
             "vs-checkbox-content",
-            { "vs-checkbox--checked": props.modelValue || innerCheck.value },
-            { "vs-checkbox--disabled": checkboxAttrs.disabled },
-            { "vs-checkbox--loading": props.loading },
-            { "vs-checkbox--label-before": props.labelBefore },
-
-            // colors
             {
-              [`vs-component--primary`]:
-                !props.danger &&
-                !props.success &&
-                !props.warn &&
-                !props.dark &&
-                !props.color,
+              "vs-checkbox--checked": props.modelValue || innerCheck.value,
+              "vs-checkbox--disabled": checkboxAttrs.disabled,
+              "vs-checkbox--loading": props.loading,
+              "vs-checkbox--label-before": props.labelBefore,
             },
-            { [`vs-component--danger`]: !!props.danger },
-            { [`vs-component--warn`]: !!props.warn },
-            { [`vs-component--success`]: !!props.success },
-            { [`vs-component--dark`]: !!props.dark },
           ]}
         >
           <div class="vs-checkbox-con">

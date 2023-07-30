@@ -10,47 +10,14 @@
       to easily create your visual approach to the end user
     </VsAlert>
     <div class="flex">
-      <VsButton
-        :active="color === 'primary'"
-        @click="color = 'primary'"
-        flat
-        primary
-        >Primary</VsButton
-      >
-      <VsButton
-        :active="color === 'success'"
-        @click="color = 'success'"
-        flat
-        success
-        >Success</VsButton
-      >
-      <VsButton
-        :active="color === 'danger'"
-        @click="color = 'danger'"
-        flat
-        danger
-        >Danger</VsButton
-      >
-      <VsButton :active="color === 'warn'" @click="color = 'warn'" flat warn
-        >Warn</VsButton
-      >
-      <VsButton :active="color === 'dark'" @click="color = 'dark'" flat dark
-        >Dark</VsButton
-      >
-      <VsButton
-        :active="color === '#7d33ff'"
-        @click="color = '#7d33ff'"
-        flat
-        color="#7d33ff"
-        >HEX</VsButton
-      >
-      <VsButton
-        :active="color === 'rgb(59,222,200)'"
-        @click="color = 'rgb(59,222,200)'"
-        flat
-        color="rgb(59,222,200)"
-        >RGB</VsButton
-      >
+      <VsButton :active="color === 'primary'" @click="color = 'primary'" flat color="primary">Primary</VsButton>
+      <VsButton :active="color === 'success'" @click="color = 'success'" flat success>Success</VsButton>
+      <VsButton :active="color === 'danger'" @click="color = 'danger'" flat danger>Danger</VsButton>
+      <VsButton :active="color === 'warn'" @click="color = 'warn'" flat color="warn">Warn</VsButton>
+      <VsButton :active="color === 'dark'" @click="color = 'dark'" flat color="dark">Dark</VsButton>
+      <VsButton :active="color === '#7d33ff'" @click="color = '#7d33ff'" flat color="#7d33ff">HEX</VsButton>
+      <VsButton :active="color === 'rgb(59, 222, 200)'" @click="color = 'rgb(59, 222, 200)'" flat
+        color="rgb(59, 222, 200)">RGB</VsButton>
     </div>
   </div>
 </template>
@@ -67,6 +34,7 @@ const color = ref("primary");
   display: flex;
   justify-items: center;
 }
+
 .vs-button--active {
   border-radius: 0 0 12px 12px;
   transform: translateY(-5px);

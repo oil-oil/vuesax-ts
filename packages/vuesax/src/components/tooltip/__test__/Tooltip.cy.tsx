@@ -1,29 +1,32 @@
 import { VsButton, VsToolTip } from "@/components";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 describe("Tooltip", () => {
-  it("test Tooltip basic render", () => {
+  it("test tooltip basic render", () => {
     cy.mount(
-        <VsToolTip v-slots={{ tooltip: () => <>This is a beautiful Button</> }}>
-          <VsButton flat>Do hover here</VsButton>
-        </VsToolTip>
+      <VsToolTip v-slots={{ tooltip: () => <>This is a beautiful Button</> }}>
+        <VsButton flat>Do hover here</VsButton>
+      </VsToolTip>
     );
     cy.contains("Do hover here").realHover();
     cy.get(".vs-tooltip").should("be.visible");
   });
 
-  it("test Tooltip color", () => {
-    const colors = ["primary", "warn", "success", "danger", "dark"];
-    colors.forEach((color) => {
+  it("test tooltip color", () => {
+    Object.entries(colors).forEach(([status, color]) => {
       cy.mount(
         <VsToolTip
-          color={color}
-          v-slots={{ tooltip: () => <>This is a beautiful Button</> }}
+          color={status as Color}
+          v-slots={{ tooltip: () => "This is a beautiful Button" }}
         >
+          {" "}
           <VsButton flat>Do hover here</VsButton>
         </VsToolTip>
       );
-      cy.contains("Do hover here").realHover();
-      cy.get(`.vs-tooltip.vs-component--${color}`).should("be.visible");
+      cy.get(".vs-tooltip")
+        .should("have.attr", "style")
+        .and("include", `--vs-color: ${color};`);
     });
   });
 });

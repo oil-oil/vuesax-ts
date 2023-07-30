@@ -9,6 +9,9 @@ module.exports = {
     sourceType: "module",
     ecmaVersion: 2020,
     extraFileExtensions: [".vue"],
+    ecmaFeatures: {
+      "jsx": true
+    }
   },
   extends: [
     "airbnb-base",

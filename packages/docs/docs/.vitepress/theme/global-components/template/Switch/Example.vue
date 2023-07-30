@@ -15,7 +15,7 @@
         </div>
         <div class="flex">
             <p>Desktop notifications</p>
-            <VsSwitch warn v-model="active3">
+            <VsSwitch color="warn" v-model="active3">
                 <i class='bx bxs-message'></i>
             </VsSwitch>
         </div>
@@ -32,7 +32,7 @@
         </div>
         <div class="flex">
             <p>Allow to send test data to improve this product</p>
-            <VsSwitch success v-model="active5"><template #off>
+            <VsSwitch color="success" v-model="active5"><template #off>
                     <i class='bx bx-x'></i>
                 </template>
                 <template #on>

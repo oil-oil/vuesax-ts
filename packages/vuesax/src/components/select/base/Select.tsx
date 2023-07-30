@@ -19,16 +19,19 @@ import {
 
 import { beforeEnter, enter, leave } from "./transition";
 import { Option, SelectProvider } from "../types";
-import useBaseProps, { BaseProps } from "@/hooks/useBase";
 import IconArrow from "@/icons/Arrow";
 import IconClose from "@/icons/Close";
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor, insertBody, removeBody, setCords } from "@/utils";
+
 import "./style.scss";
 
 const Select = defineComponent({
   name: "VsSelect",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+    },
     modelValue: {
       type: [Array, String] as PropType<string[] | string>,
     },
@@ -93,8 +96,6 @@ const Select = defineComponent({
     const targetSelect = ref(false);
     const isInputHover = ref(false);
     const targetClose = ref(false);
-
-    const { isColorDark } = useBaseProps(props);
 
     const insertOptions = () => {
       const options = optionRef.value as HTMLElement;
@@ -648,17 +649,8 @@ const Select = defineComponent({
                 class={[
                   "vs-select__options",
                   {
-                    isColorDark: isColorDark.value,
-                    "vs-component--primary":
-                      !props.danger &&
-                      !props.success &&
-                      !props.warn &&
-                      !props.dark &&
-                      !props.color,
-                    "vs-component--danger": !!props.danger,
-                    "vs-component--warn": !!props.warn,
-                    "vs-component--success": !!props.success,
-                    "vs-component--dark": !!props.dark,
+                    isColorDark: props.color === "dark",
+                    "vs-component--primary": !props.color,
                   },
                 ]}
                 style={{

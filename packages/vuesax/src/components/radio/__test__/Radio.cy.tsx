@@ -1,33 +1,22 @@
-import { reactive } from "vue";
-
 import { VsRadio } from "@/components";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 describe("Radio", () => {
-  const value = reactive({
-    render: "0",
-    click: "0",
-    color: "0",
-  });
-  it("test Radio basic render", () => {
-    cy.mount(
-      <VsRadio v-model={value.render} value="1">
-        Option 1
-      </VsRadio>
-    );
+  it("test radio basic render", () => {
+    cy.mount(<VsRadio>Option 1</VsRadio>);
     cy.get(".vs-radio-content").should("be.visible");
     cy.contains("Option 1").should("be.visible");
   });
+
   it("test Radio click", () => {
     const clickSpy = cy.spy().as("onClick");
     cy.mount(
-      <VsRadio
-        modelValue={value.click}
-        onUpdate:modelValue={clickSpy}
-        value="2"
-      >
+      <VsRadio modelValue="0" onUpdate:modelValue={clickSpy} value="2">
         Option 2
       </VsRadio>
     );
+
     cy.get(".vs-radio input").should("not.be.checked");
     cy.contains("Option 2").click();
     cy.get("@onClick").should("be.calledWith", "2");
@@ -38,15 +27,12 @@ describe("Radio", () => {
     cy.get(".vs-radio input").should("be.checked");
   });
 
-  it("test Radio different color", () => {
-    const propsArr = ["primary", "success", "danger", "warn", "dark"];
-    propsArr.forEach((prop) => {
-      cy.mount(
-        <VsRadio v-model={value.color} value="3" color={prop}>
-          Option 3
-        </VsRadio>
-      );
-      cy.get(`.vs-component--${prop}`).should("be.visible");
+  it("test radio different color", () => {
+    Object.entries(colors).forEach(([status, color]) => {
+      cy.mount(<VsRadio color={status as Color}>{status}</VsRadio>);
+      cy.get(".vs-radio-content")
+        .should("have.attr", "style")
+        .and("include", `--vs-color: ${color};`);
     });
   });
 });

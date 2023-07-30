@@ -1,6 +1,7 @@
 import { HTMLAttributes, defineComponent } from "vue";
 
 import "./style.scss";
+import { CompWithAttr } from "@/types/utils";
 
 const OptionGroup = defineComponent({
   name: "VsSelectOptionGroup",

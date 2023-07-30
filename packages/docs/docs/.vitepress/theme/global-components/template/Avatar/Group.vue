@@ -1,6 +1,6 @@
 <template>
     <div class="center">
-        <VsAvatarGroup max="7">
+        <VsAvatarGroup :max="7">
             <VsAvatar><img src="/avatars/avatar-10.png"></VsAvatar>
             <VsAvatar><img src="/avatars/avatar-9.png"></VsAvatar>
             <VsAvatar>
@@ -9,26 +9,26 @@
             <VsAvatar>
                 <img src="/avatars/avatar-7.png">
             </VsAvatar>
-            <vs-avatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-6.png">
-            </vs-avatar>
-            <vs-avatar>
+            </VsAvatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-5.png">
-            </vs-avatar>
-            <vs-avatar>
+            </VsAvatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-4.png">
-            </vs-avatar>
-            <vs-avatar>
+            </VsAvatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-3.png">
-            </vs-avatar>
-            <vs-avatar>
+            </VsAvatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-2.png">
-            </vs-avatar>
-            <vs-avatar>
+            </VsAvatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-1.png">
-            </vs-avatar>
+            </VsAvatar>
         </VsAvatarGroup>
-        <VsAvatarGroup max="8" float>
+        <VsAvatarGroup :max="8" float>
             <VsAvatar><img src="/avatars/avatar-10.png"></VsAvatar>
             <VsAvatar><img src="/avatars/avatar-9.png"></VsAvatar>
             <VsAvatar>
@@ -37,24 +37,24 @@
             <VsAvatar>
                 <img src="/avatars/avatar-7.png">
             </VsAvatar>
-            <vs-avatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-6.png">
-            </vs-avatar>
-            <vs-avatar>
+            </VsAvatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-5.png">
-            </vs-avatar>
-            <vs-avatar>
+            </VsAvatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-4.png">
-            </vs-avatar>
-            <vs-avatar>
+            </VsAvatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-3.png">
-            </vs-avatar>
-            <vs-avatar>
+            </VsAvatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-2.png">
-            </vs-avatar>
-            <vs-avatar>
+            </VsAvatar>
+            <VsAvatar>
                 <img src="/avatars/avatar-1.png">
-            </vs-avatar>
+            </VsAvatar>
         </VsAvatarGroup>
     </div>
 </template>
@@ -64,7 +64,7 @@ import { VsAvatar, VsAvatarGroup } from "vuesax-ts"
 </script>
 
 <style scoped>
-.vs-avatar-content {
+.VsAvatar-content {
     margin: 0 15px 0 15px;
 }
 </style>

@@ -6,15 +6,18 @@ import {
   ref,
   watch,
   Transition,
+  PropType,
 } from "vue";
 
-import { BaseProps } from "@/hooks/useBase";
+import { Color } from "@/types/utils";
 import { getColor, insertBody, setCordsPosition } from "@/utils";
 
 const Tooltip = defineComponent({
   name: "VsToolTip",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+    },
     modelValue: {
       type: Boolean,
       default: false,
@@ -207,12 +210,6 @@ const Tooltip = defineComponent({
             borderThick: props.borderThick,
             loading: props.loading,
           },
-          // colors
-          { "vs-component--primary": props.color === "primary" },
-          { "vs-component--danger": props.color === "danger" },
-          { "vs-component--warn": props.color === "warn" },
-          { "vs-component--success": props.color === "success" },
-          { "vs-component--dark": props.color === "dark" },
         ]}
       >
         {slots.tooltip?.()}

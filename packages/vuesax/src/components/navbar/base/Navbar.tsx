@@ -1,4 +1,5 @@
 import {
+  PropType,
   defineComponent,
   nextTick,
   onMounted,
@@ -7,8 +8,8 @@ import {
   ref,
 } from "vue";
 
-import { BaseProps } from "@/hooks/useBase";
 import useThrottle from "@/hooks/useThrottle";
+import { Color } from "@/types/utils";
 import { getColor } from "@/utils";
 
 import "./style.scss";
@@ -16,7 +17,9 @@ import "./style.scss";
 const Navbar = defineComponent({
   name: "VsNavbar",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+    },
     modelValue: {
       type: String,
       default: "",
@@ -222,19 +225,7 @@ const Navbar = defineComponent({
             textWhite: props.textWhite,
             paddingScroll: paddingScrollActive.value,
             vsNavbarSquare: props.square,
-            // colors
-            "vs-component--primary": !!props.primary,
-            "vs-component--danger": !!props.danger,
-            "vs-component--warn": !!props.warn,
-            "vs-component--success": !!props.success,
-            "vs-component--dark": !!props.dark,
-            "vs-component--is-color":
-              props.color ||
-              props.primary ||
-              props.danger ||
-              props.success ||
-              props.warn ||
-              props.dark,
+            "vs-component--is-color": props.color,
           },
         ]}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}

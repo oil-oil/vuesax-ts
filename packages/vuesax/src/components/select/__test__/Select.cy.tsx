@@ -1,4 +1,6 @@
 import { VsOption, VsSelect } from "@/components";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 const options = ["vue", "react", "angular"];
 describe("Select", () => {
@@ -17,18 +19,9 @@ describe("Select", () => {
   });
 
   it("test select different color", () => {
-    const colors = [
-      { status: "danger", color: "255, 71, 87" },
-      { status: "success", color: "70, 201, 58" },
-      { status: "warn", color: "255, 186, 0" },
-      { status: "dark", color: "34, 37, 42" },
-      { status: "#7d33ff", color: "125,51,255" },
-      { status: "rgb(59,222,200)", color: "59,222,200" },
-    ];
-
-    colors.forEach(({ status, color }) => {
+    Object.entries(colors).forEach(([status, color]) => {
       cy.mount(
-        <VsSelect color={status}>
+        <VsSelect color={status as Color}>
           {options.map((item) => (
             <VsOption>{item}</VsOption>
           ))}

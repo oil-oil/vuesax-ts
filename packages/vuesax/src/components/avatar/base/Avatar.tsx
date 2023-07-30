@@ -4,30 +4,28 @@ import {
   computed,
   watch,
   onMounted,
-  InputHTMLAttributes,
   inject,
   Ref,
   HTMLAttributes,
   PropType,
 } from "vue";
 
-import { BaseProps } from "@/hooks/useBase";
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor, setColor } from "@/utils";
+
 import "./style.scss";
 
-type badgeType =
-  | "bottom-left"
-  | "top-right"
-  | "top-left"
-  ;
+type BadgeType = "bottom-left" | "top-right" | "top-left";
 
 const Avatar = defineComponent({
   name: "VsAvatar",
   props: {
-    ...BaseProps,
-    badgePosition:{
-      type: String as PropType<badgeType>,
-      default:"bottom-right"
+    color: {
+      type: String as PropType<Color>,
+    },
+    badgePosition: {
+      type: String as PropType<BadgeType>,
+      default: "bottom-right",
     },
     pointer: {
       type: Boolean,
@@ -198,7 +196,7 @@ const Avatar = defineComponent({
 
     const icons = () => <div class="vs-avatar__icons">{slots.icons?.()}</div>;
 
-    const Attrs = attrs as InputHTMLAttributes;
+    const avatarAttrs = attrs as HTMLAttributes;
     return () => (
       <div
         style={{
@@ -218,22 +216,9 @@ const Avatar = defineComponent({
             "vs-avatar-content--latest": isLatest.value,
             "vs-avatar-content--hasIcons": slots.icons,
             "vs-avatar-content--size": props.size,
-            // colors
-            "vs-component--primary": props.color === "primary",
-            "vs-component--danger": props.color === "danger",
-            "vs-component--warn": props.color === "warn",
-            "vs-component--success": props.color === "success",
-            "vs-component--dark": props.color === "dark",
-            "vs-component--is-color":
-              props.color ||
-              props.primary ||
-              props.danger ||
-              props.success ||
-              props.warn ||
-              props.dark,
           },
         ]}
-        {...Attrs}
+        {...avatarAttrs}
       >
         {props.loading && loading()}
         {avatar()}

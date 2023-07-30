@@ -9,16 +9,18 @@ import {
   watch,
 } from "vue";
 
-import { BaseProps } from "@/hooks/useBase";
 import VsIconsClose from "@/icons/Close";
-import { getColor, setColor } from "@/utils";
+import { Color } from "@/types/utils";
+import { setColor } from "@/utils";
 
 import "./style.scss";
 
 const Notification = defineComponent({
   name: "VsNotification",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+    },
     isVisible: {
       type: Boolean,
       default: true,
@@ -91,7 +93,7 @@ const Notification = defineComponent({
       () => props.isVisible,
       () => {
         innerIsVisible.value = props.isVisible;
-        if (elRef.value) {
+        if (elRef.value && props.color) {
           setColor("color", props.color, elRef.value);
           setColor("border", props.color, elRef.value);
         }
@@ -100,7 +102,7 @@ const Notification = defineComponent({
 
     onMounted(() => {
       innerIsVisible.value = props.isVisible;
-      if (elRef.value) {
+      if (elRef.value && props.color) {
         setColor("color", props.color, elRef.value);
         setColor("border", props.color, elRef.value);
       }
@@ -115,6 +117,7 @@ const Notification = defineComponent({
         }, props.duration / 100);
       }
     });
+
     onUnmounted(() => {
       clearInterval(intervalProgress);
     });
@@ -146,14 +149,8 @@ const Notification = defineComponent({
 
     const leave = (_: Element, done: () => void) => {
       if (elRef.value) {
-        // const parent = elRef.value.parentNode;
         setTimeout(() => {
           done();
-          // if (parent?.childNodes.length === 1) {
-          //   document.body.removeChild(parent);
-          // }
-          // parent?.removeChild(elRef.value!);
-          // this.$destroy();
           emit("onDestroy");
         }, 250);
       }
@@ -209,23 +206,19 @@ const Notification = defineComponent({
           <div
             class={[
               "vs-notification",
-              { "vs-notification--color": props.color },
-              { "vs-notification--border": props.border },
-              { "vs-notification--icon": slots.icon },
-              { "vs-notification--onClick": props.isCursor },
-              //   { "vs-notification--onClickClose": props.onClickClose },
-              { "vs-notification--flat": props.flat },
-              { "vs-notification--sticky": props.sticky },
-              { "vs-notification--square": props.square },
-              { "vs-notification--width-all": props.width === "100%" },
-              { "vs-notification--width-auto": props.width === "auto" },
-              { "vs-notification--loading": props.loading?.value },
-              { "vs-notification--notPadding": props.noPadding },
-              { "vs-notification--primary": props.primary },
-              { "vs-notification--success": props.success },
-              { "vs-notification--warn": props.warn },
-              { "vs-notification--dark": props.dark },
-              { "vs-notification--danger": props.danger },
+              {
+                "vs-notification--color": props.color,
+                "vs-notification--border": props.border,
+                "vs-notification--icon": slots.icon,
+                "vs-notification--onClick": props.isCursor,
+                "vs-notification--flat": props.flat,
+                "vs-notification--sticky": props.sticky,
+                "vs-notification--square": props.square,
+                "vs-notification--width-all": props.width === "100%",
+                "vs-notification--width-auto": props.width === "auto",
+                "vs-notification--loading": props.loading?.value,
+                "vs-notification--notPadding": props.noPadding,
+              },
             ]}
             style={{ "--vs-color": props.color ? getColor(props.color) : "" ,width:props.width === "100%" || props.width === "100vw" || props.width === "auto"?"":props.width,maxWidth:props.width === "100%"|| props.width === "100vw" || props.width === "auto"?"":props.width}}
             onClick={() => {
@@ -248,5 +241,6 @@ const Notification = defineComponent({
     );
   },
 });
+
 export default Notification;
 export type NotificationProps = InstanceType<typeof Notification>["$props"];

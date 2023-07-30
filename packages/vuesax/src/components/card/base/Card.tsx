@@ -1,12 +1,14 @@
-import { defineComponent, InputHTMLAttributes } from "vue";
+import { defineComponent, HTMLAttributes, PropType } from "vue";
 
-import { BaseProps } from "@/hooks/useBase";
 import "./style.scss";
+import { Color, CompWithAttr } from "@/types/utils";
 
 const Card = defineComponent({
   name: "VsCard",
   props: {
-    ...BaseProps,
+    color: {
+      type: String as PropType<Color>,
+    },
     type: {
       type: [String, Boolean],
       default: "1",
@@ -14,35 +16,27 @@ const Card = defineComponent({
   },
   slots: ["title", "text", "buttons", "interactions"],
   setup(props, { slots, attrs }) {
-    const cardAttrs = attrs as InputHTMLAttributes;
-
-    const title = <div class="vs-card__title">{slots.title?.()}</div>;
-
-    const text = (
-      <div class="vs-card__text">
-        {slots.title && title}
-        {slots.text?.()}
-      </div>
-    );
-
-    const buttons = <div class="vs-card__buttons">{slots.buttons?.()}</div>;
-
-    const interactions = (
-      <div class="vs-card__interactions">{slots.interactions?.()}</div>
-    );
-
-    const img = (
-      <div class="vs-card__img">
-        {slots.img?.()}
-        {slots.interactions && interactions}
-      </div>
-    );
+    const cardAttrs = attrs as HTMLAttributes;
 
     const card = (
       <div class="vs-card" {...cardAttrs}>
-        {slots.img && img}
-        {slots.text && text}
-        {slots.button && buttons}
+        {slots.img && (
+          <div class="vs-card__img">
+            {slots.img?.()}
+            {slots.interactions && (
+              <div class="vs-card__interactions">{slots.interactions?.()}</div>
+            )}
+          </div>
+        )}
+        {slots.text && (
+          <div class="vs-card__text">
+            {slots.title && <div class="vs-card__title">{slots.title?.()}</div>}
+            {slots.text?.()}
+          </div>
+        )}
+        {slots.button && (
+          <div class="vs-card__buttons">{slots.buttons?.()}</div>
+        )}
       </div>
     );
 
@@ -51,6 +45,6 @@ const Card = defineComponent({
     );
   },
 });
-export default Card as CompWithAttr<typeof Card, InputHTMLAttributes>;
+export default Card as CompWithAttr<typeof Card, HTMLAttributes>;
 
 export type CardProps = InstanceType<typeof Card>["$props"];

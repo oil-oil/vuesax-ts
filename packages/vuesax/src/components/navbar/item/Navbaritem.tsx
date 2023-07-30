@@ -2,13 +2,12 @@ import { defineComponent, inject, nextTick, onMounted, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 
 import { NavbarProvider } from "../types";
-import { BaseProps } from "@/hooks/useBase";
+
 import "./style.scss";
 
 const NavbarItem = defineComponent({
   name: "VsNavbarItem",
   props: {
-    ...BaseProps,
     active: {
       type: Boolean,
       default: false,
