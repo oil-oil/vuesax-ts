@@ -18,7 +18,7 @@
             </template>
             <img src="/avatars/avatar-3.png" alt="">
         </VsAvatar>
-        <VsAvatar loading badge writing badgeColor="rgb(59,222,200)">
+        <VsAvatar loading badge writing badgeColor="rgb(59, 222, 200)">
             <img src="/avatars/avatar-4.png" alt="">
         </VsAvatar>
         <VsAvatar loading badge badgePosition="top-right" badgeColor="#7d33ff">

@@ -43,7 +43,7 @@ PROPS:
                 <vs-checkbox color="#7d33ff" v-model="option6">
                   dark
                 </vs-checkbox>
-                <vs-checkbox color="rgb(59,222,200)" v-model="option7">
+                <vs-checkbox color="rgb(59, 222, 200)" v-model="option7">
                   RGB
                 </vs-checkbox>
               </div>
@@ -184,7 +184,7 @@ SLOTS:
                     <i class='bx bx-brightness' ></i>
                   </template>
                 </vs-checkbox>
-                <vs-checkbox color="rgb(59,222,200)" v-model="option7">
+                <vs-checkbox color="rgb(59, 222, 200)" v-model="option7">
                   <template #icon>
                     <i class='bx bxs-paint' ></i>
                   </template>
@@ -290,7 +290,7 @@ Change the color of the component with the `color` property, the allowed values 
         <vs-checkbox color="#7d33ff" v-model="option6">
           HEX
         </vs-checkbox>
-        <vs-checkbox color="rgb(59,222,200)" v-model="option7">
+        <vs-checkbox color="rgb(59, 222, 200)" v-model="option7">
           RGB
         </vs-checkbox>
       </div>
@@ -572,7 +572,7 @@ Change the icon inside the checkbox component with the`slot="icon"`
             <i class='bx bx-brightness' ></i>
           </template>
         </vs-checkbox>
-        <vs-checkbox color="rgb(59,222,200)" v-model="option7">
+        <vs-checkbox color="rgb(59, 222, 200)" v-model="option7">
           <template #icon>
             <i class='bx bxs-paint' ></i>
           </template>

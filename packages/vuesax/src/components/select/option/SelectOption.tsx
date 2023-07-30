@@ -11,6 +11,7 @@ import {
 
 import VsCheckbox from "../../checkbox/base/Checkbox";
 import { SelectProvider } from "../types";
+import { CompWithAttr } from "@/types/utils";
 
 import "./style.scss";
 

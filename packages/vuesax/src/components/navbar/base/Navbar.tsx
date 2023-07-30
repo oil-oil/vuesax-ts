@@ -9,6 +9,7 @@ import {
 } from "vue";
 
 import useThrottle from "@/hooks/useThrottle";
+import { Color } from "@/types/utils";
 import { getColor } from "@/utils";
 
 import "./style.scss";
@@ -18,7 +19,6 @@ const Navbar = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     modelValue: {
       type: String,

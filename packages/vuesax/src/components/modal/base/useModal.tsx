@@ -49,7 +49,7 @@ const useModal = (props: ModalHookProps) => {
                   }}
                 >
                   {showCancel && (
-                    <VsButton transparent dark>
+                    <VsButton transparent color="dark">
                       {cancelText || "Cancel"}
                     </VsButton>
                   )}

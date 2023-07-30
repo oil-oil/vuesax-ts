@@ -63,7 +63,7 @@ PROPS:
                 <vs-switch warn v-model="active4" />
                 <vs-switch dark v-model="active5" />
                 <vs-switch color="#7d33ff" v-model="active6" />
-                <vs-switch color="rgb(59,222,200)" v-model="active7" />
+                <vs-switch color="rgb(59, 222, 200)" v-model="active7" />
               </div>
             </template>
 
@@ -301,7 +301,7 @@ Change the color of the component when it is in active state, the allowed values
         <vs-switch warn v-model="active4" />
         <vs-switch dark v-model="active5" />
         <vs-switch color="#7d33ff" v-model="active6" />
-        <vs-switch color="rgb(59,222,200)" v-model="active7" />
+        <vs-switch color="rgb(59, 222, 200)" v-model="active7" />
       </div>
     </template>
   ```

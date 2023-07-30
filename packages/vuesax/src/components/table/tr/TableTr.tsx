@@ -11,6 +11,7 @@ import {
 
 import "./style.scss";
 import { TableProvider } from "../types";
+import { CompWithAttr } from "@/types/utils";
 
 const TableTr = defineComponent({
   name: "VsTr",

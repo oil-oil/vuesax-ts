@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import { InputHTMLAttributes, PropType, computed, defineComponent } from "vue";
 
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor } from "@/utils";
 
 import "./style.scss";
@@ -10,7 +11,6 @@ const Radio = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     modelValue: {
       type: String,

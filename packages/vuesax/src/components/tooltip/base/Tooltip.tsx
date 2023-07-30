@@ -9,6 +9,7 @@ import {
   PropType,
 } from "vue";
 
+import { Color } from "@/types/utils";
 import { getColor, insertBody, setCordsPosition } from "@/utils";
 
 const Tooltip = defineComponent({
@@ -16,7 +17,6 @@ const Tooltip = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     modelValue: {
       type: Boolean,
@@ -210,12 +210,6 @@ const Tooltip = defineComponent({
             borderThick: props.borderThick,
             loading: props.loading,
           },
-          // colors
-          { "vs-component--primary": props.color === "primary" },
-          { "vs-component--danger": props.color === "danger" },
-          { "vs-component--warn": props.color === "warn" },
-          { "vs-component--success": props.color === "success" },
-          { "vs-component--dark": props.color === "dark" },
         ]}
       >
         {slots.tooltip?.()}

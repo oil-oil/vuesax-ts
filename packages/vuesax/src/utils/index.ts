@@ -1,40 +1,8 @@
+import colors from "@/styles/colors";
+import { InnerColor } from "@/types/utils";
+
 /* eslint-disable no-param-reassign */
-const isColor = (color: string) => {
-  const vsColors = [
-    "primary",
-    "secondary",
-    "success",
-    "danger",
-    "warning",
-    "dark",
-    "light",
-    "warn",
-    // social colors
-    "facebook",
-    "twitter",
-    "youtube",
-    "pinterest",
-    "linkedin",
-    "snapchat",
-    "whatsapp",
-    "tumblr",
-    "reddit",
-    "spotify",
-    "amazon",
-    "medium",
-    "vimeo",
-    "skype",
-    "dribbble",
-    "slack",
-    "yahoo",
-    "twitch",
-    "discord",
-    "telegram",
-    "google-plus",
-    "messenger",
-  ];
-  return vsColors.includes(color);
-};
+const isColor = (color: string) => Object.keys(colors).includes(color);
 
 const setVar = (propertyName: string, value: string, el: HTMLElement) => {
   if (!el) {
@@ -96,8 +64,7 @@ const setColor = (
       el.classList.add("vs-change-color");
     }
   } else if (isColor(color)) {
-    const style = window.getComputedStyle(document.body);
-    newColor = style.getPropertyValue(`--vs-${color}`);
+    newColor = colors[color as InnerColor];
     setVar(colorName, newColor, el);
     if (addClass) {
       el.classList.add("vs-change-color");
@@ -156,8 +123,7 @@ const getColor = (color: string) => {
     const rgb = hexToRgb(color);
     newColor = `${rgb!.r},${rgb!.g},${rgb!.b}`;
   } else if (isColor(color)) {
-    const style = window.getComputedStyle(document.body);
-    newColor = style.getPropertyValue(`--vs-${color}`);
+    newColor = colors[color as InnerColor];
   } else if (isRGBNumbers) {
     newColor = color;
   }

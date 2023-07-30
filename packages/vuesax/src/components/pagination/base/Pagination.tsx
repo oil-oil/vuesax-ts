@@ -11,6 +11,7 @@ import {
 import "./style.scss";
 
 import IconArrow from "@/icons/Arrow";
+import { Color } from "@/types/utils";
 import { getColor } from "@/utils";
 
 const Pagination = defineComponent({
@@ -18,7 +19,6 @@ const Pagination = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     modelValue: {
       type: Number,
@@ -288,7 +288,6 @@ const Pagination = defineComponent({
             square: props.shape === "square",
             compact: props.shape === "compact",
             disabled: props.disabled,
-            "vs-component--primary": !props.color,
           },
         ]}
         style={{ "--vs-color": props.color ? getColor(props.color) : "" }}

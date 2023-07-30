@@ -1,13 +1,13 @@
 import { defineComponent, HTMLAttributes, PropType } from "vue";
 
 import "./style.scss";
+import { Color, CompWithAttr } from "@/types/utils";
 
 const Card = defineComponent({
   name: "VsCard",
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     type: {
       type: [String, Boolean],

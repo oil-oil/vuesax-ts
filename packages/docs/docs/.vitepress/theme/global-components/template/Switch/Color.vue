@@ -6,7 +6,7 @@
         <VsSwitch color="warn" v-model="active4"></VsSwitch>
         <VsSwitch color="dark" v-model="active5"></VsSwitch>
         <VsSwitch color="#7d33ff" v-model="active6"></VsSwitch>
-        <VsSwitch color="rgb(59,222,200)" v-model="active7"></VsSwitch>
+        <VsSwitch color="rgb(59, 222, 200)" v-model="active7"></VsSwitch>
     </div>
 </template>
 

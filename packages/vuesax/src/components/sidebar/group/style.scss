@@ -1,9 +1,11 @@
-@import '../../../styles/mixins';
+@import '@/styles/mixins';
+
 .vs-sidebar__group {
   padding: 0px;
   width: 100%;
   // min-width: 260px;
   position: relative;
+
   &.open {
     .vs-sidebar__group__content {
       &:after {
@@ -11,30 +13,37 @@
         opacity: 1;
       }
     }
-    > .vs-sidebar__group__header {
+
+    >.vs-sidebar__group__header {
       .vs-sidebar__item {
         opacity: 1;
       }
+
       .vs-sidebar__item__arrow {
         transform: rotate(45deg) !important;
       }
     }
   }
+
   &__header {
     display: flex;
     align-items: center;
     justify-content: center;
-    .vs-sidebar__item{
+
+    .vs-sidebar__item {
       padding-left: 16px !important;
-      &:after{
+
+      &:after {
         left: -6px;
       }
     }
   }
+
   &__content {
     overflow: hidden;
     transition: all .25s ease;
     position: relative;
+
     &:after {
       content: '';
       position: absolute;
@@ -49,6 +58,7 @@
       border-radius: 0px 10px 10px 0px;
       z-index: 60;
     }
+
     .vs-sidebar__item {
       background: -color('background');
     }

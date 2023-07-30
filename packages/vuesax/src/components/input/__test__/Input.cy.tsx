@@ -1,5 +1,6 @@
 import { VsInput } from "@/components";
-import { COLOR_MAP } from "@/test-utils/color";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 describe("Input", () => {
   it("test input basic render", () => {
@@ -18,8 +19,8 @@ describe("Input", () => {
   });
 
   it("test input different color", () => {
-    Object.entries(COLOR_MAP).forEach(([status, color]) => {
-      cy.mount(<VsInput color={status as Status}>{status}</VsInput>);
+    Object.entries(colors).forEach(([status, color]) => {
+      cy.mount(<VsInput color={status as Color}>{status}</VsInput>);
       cy.get(".vs-input-parent")
         .should("have.attr", "style")
         .and("include", `--vs-color: ${color};`);

@@ -13,7 +13,7 @@ PROPS:
                 HEX
               </template>
             </vs-avatar>
-            <vs-avatar color="rgb(59,222,200)">
+            <vs-avatar color="rgb(59, 222, 200)">
               <template #text>
                 RGB
               </template>
@@ -414,7 +414,7 @@ Change the color of the compound with the `color` property, the colors allowed a
             HEX
           </template>
         </vs-avatar>
-        <vs-avatar color="rgb(59,222,200)">
+        <vs-avatar color="rgb(59, 222, 200)">
           <template #text>
             RGB
           </template>

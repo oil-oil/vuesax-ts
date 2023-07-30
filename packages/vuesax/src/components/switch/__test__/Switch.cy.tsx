@@ -1,5 +1,6 @@
 import { VsSwitch } from "@/components";
-import { COLOR_MAP } from "@/test-utils/color";
+import colors from "@/styles/colors";
+import { Color } from "@/types/utils";
 
 describe("Switch", () => {
   it("test button basic render", () => {
@@ -23,8 +24,8 @@ describe("Switch", () => {
   });
 
   it("test switch different color", () => {
-    Object.entries(COLOR_MAP).forEach(([status, color]) => {
-      cy.mount(<VsSwitch color={status as Status}>{status}</VsSwitch>);
+    Object.entries(colors).forEach(([status, color]) => {
+      cy.mount(<VsSwitch color={status as Color}>{status}</VsSwitch>);
       cy.get(".vs-switch")
         .should("have.attr", "style")
         .and("include", `--vs-color: ${color};`);

@@ -167,7 +167,7 @@ Add the radio type input with the component `<vs-radio />`
         <vs-radio color="#7d33ff" v-model="picked" val="6">
           HEX
         </vs-radio>
-        <vs-radio color="rgb(59,222,200)" v-model="picked" val="7">
+        <vs-radio color="rgb(59, 222, 200)" v-model="picked" val="7">
           RGB
         </vs-radio>
       </div>

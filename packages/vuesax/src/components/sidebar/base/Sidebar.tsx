@@ -10,6 +10,7 @@ import {
   PropType,
 } from "vue";
 
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor, setColor } from "@/utils";
 
 const Sidebar = defineComponent({
@@ -17,7 +18,6 @@ const Sidebar = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     modelValue: {
       type: String,

@@ -2,10 +2,16 @@
   "root": true,
   "parserOptions": {
     "tsconfigRootDir": "./",
-    "project": ["./tsconfig.json"],
-    "extraFileExtensions": [".vue"]
+    "project": [
+      "./tsconfig.json"
+    ],
+    "extraFileExtensions": [
+      ".vue"
+    ]
   },
-  "extends": ["custom"],
+  "extends": [
+    "custom"
+  ],
   "rules": {
     "import/no-extraneous-dependencies": [
       "error",
@@ -16,5 +22,7 @@
       }
     ]
   },
-    "vue/no-v-model-argument":["error"]
+  "vue/no-v-model-argument": [
+    "error"
+  ]
 }

@@ -15,6 +15,7 @@ import usePagination from "./usePagination.tsx";
 import IconClose from "@/icons/Close";
 import IconPlus from "@/icons/Plus";
 import "./style.scss";
+import { Color } from "@/types/utils.ts";
 import { getColor } from "@/utils/index.ts";
 
 const Alert = defineComponent({
@@ -22,7 +23,6 @@ const Alert = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     isShow: {
       type: Boolean,

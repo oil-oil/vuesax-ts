@@ -10,7 +10,9 @@ import {
   PropType,
 } from "vue";
 
+import { Color, CompWithAttr } from "@/types/utils";
 import { getColor, setColor } from "@/utils";
+
 import "./style.scss";
 
 type BadgeType = "bottom-left" | "top-right" | "top-left";
@@ -20,7 +22,6 @@ const Avatar = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     badgePosition: {
       type: String as PropType<BadgeType>,
@@ -215,13 +216,6 @@ const Avatar = defineComponent({
             "vs-avatar-content--latest": isLatest.value,
             "vs-avatar-content--hasIcons": slots.icons,
             "vs-avatar-content--size": props.size,
-            // colors
-            "vs-component--primary": props.color === "primary",
-            "vs-component--danger": props.color === "danger",
-            "vs-component--warn": props.color === "warn",
-            "vs-component--success": props.color === "success",
-            "vs-component--dark": props.color === "dark",
-            "vs-component--is-color": props.color,
           },
         ]}
         {...avatarAttrs}

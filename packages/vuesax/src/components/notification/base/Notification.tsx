@@ -10,6 +10,7 @@ import {
 } from "vue";
 
 import VsIconsClose from "@/icons/Close";
+import { Color } from "@/types/utils";
 import { setColor } from "@/utils";
 
 import "./style.scss";
@@ -19,7 +20,6 @@ const Notification = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null,
     },
     isVisible: {
       type: Boolean,
@@ -93,7 +93,7 @@ const Notification = defineComponent({
       () => props.isVisible,
       () => {
         innerIsVisible.value = props.isVisible;
-        if (elRef.value) {
+        if (elRef.value && props.color) {
           setColor("color", props.color, elRef.value);
           setColor("border", props.color, elRef.value);
         }
@@ -102,7 +102,7 @@ const Notification = defineComponent({
 
     onMounted(() => {
       innerIsVisible.value = props.isVisible;
-      if (elRef.value) {
+      if (elRef.value && props.color) {
         setColor("color", props.color, elRef.value);
         setColor("border", props.color, elRef.value);
       }
@@ -117,6 +117,7 @@ const Notification = defineComponent({
         }, props.duration / 100);
       }
     });
+
     onUnmounted(() => {
       clearInterval(intervalProgress);
     });
@@ -148,14 +149,8 @@ const Notification = defineComponent({
 
     const leave = (_: Element, done: () => void) => {
       if (elRef.value) {
-        // const parent = elRef.value.parentNode;
         setTimeout(() => {
           done();
-          // if (parent?.childNodes.length === 1) {
-          //   document.body.removeChild(parent);
-          // }
-          // parent?.removeChild(elRef.value!);
-          // this.$destroy();
           emit("onDestroy");
         }, 250);
       }
@@ -245,5 +240,6 @@ const Notification = defineComponent({
     );
   },
 });
+
 export default Notification;
 export type NotificationProps = InstanceType<typeof Notification>["$props"];
