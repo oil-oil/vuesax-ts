@@ -1,6 +1,6 @@
-import { App as VueApp, createApp } from "vue";
+import {  App as VueApp } from "vue";
 
-import App from "./App";
+
 import * as vsComponents from "./components";
 import {
   defineVuesaxOptions,
@@ -8,8 +8,9 @@ import {
 } from "./utils/defineVuesaxOptions";
 import "./styles/vuesax.scss";
 import "boxicons/css/boxicons.min.css";
+// import App from "./App.vue";
 
-createApp(App).mount("#app");
+// createApp(App).mount("#app");
 const install = (app: VueApp, options?: VuesaxOptions) => {
   // Components
   Object.values(vsComponents).forEach((vsComponent) => {

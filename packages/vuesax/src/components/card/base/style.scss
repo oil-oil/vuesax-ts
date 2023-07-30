@@ -15,7 +15,7 @@
         .vs-card__text {
           transform: translate(0);
           opacity: 1;
-          box-shadow: 0px 0px 30px 0px rgba(0,0,0, -var('shadow-opacity'));
+          box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, -var("shadow-opacity"));
         }
         .vs-card__img {
           border-radius: 6px 40px 6px 40px;
@@ -29,19 +29,19 @@
       }
       &__interactions {
         bottom: 6px;
-        transition: all .25s ease;
+        transition: all 0.25s ease;
         z-index: 20;
       }
       &__text {
-        background: -color('background',1);
-        box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var('shadow-opacity'));
+        background: -color("background", 1);
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var("shadow-opacity"));
         border-radius: 6px 20px 6px 20px;
         margin-top: -50px;
         z-index: 10;
         position: relative;
         width: calc(100% - 30px);
         padding-top: 10px;
-        transition: all .25s ease;
+        transition: all 0.25s ease;
         transform: translate(0, 25px);
         opacity: 0;
       }
@@ -52,7 +52,7 @@
       box-shadow: none;
       max-width: 300px;
       &:hover {
-        transform: translate(0,-5px);
+        transform: translate(0, -5px);
         .vs-card__img {
           img {
             transform: scale(1);
@@ -75,12 +75,12 @@
         bottom: auto;
       }
       &__text {
-        background: -color('background',.8);
+        background: -color("background", 0.8);
         position: absolute;
         bottom: 0px;
         backdrop-filter: saturate(180%) blur(20px);
         border-radius: 0px 0px 20px 20px;
-        transition: all .25s ease;
+        transition: all 0.25s ease;
         p {
           opacity: 1;
         }
@@ -118,7 +118,7 @@
       box-shadow: none;
       overflow: hidden;
       &:hover {
-        transform: scale(.95);
+        transform: scale(0.95);
         .vs-card__img {
           img {
             transform: scale(1.15);
@@ -153,14 +153,14 @@
       &__text {
         position: absolute;
         bottom: 0px;
-        background: -color('background', .9);
+        background: -color("background", 0.9);
         padding-top: 30px;
-        border-radiu: 0px 0px 20px 20px;
-        background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.5) 100%);
+        border-radius: 0px 0px 20px 20px;
+        background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
         color: transparent;
-        font-size: .9rem;
-        transform: translate(0,45%);
-        transition: all .25s ease;
+        font-size: 0.9rem;
+        transform: translate(0, 45%);
+        transition: all 0.25s ease;
         p {
           opacity: 1;
         }
@@ -170,7 +170,7 @@
   &.type-1 {
     .vs-card {
       &:hover {
-        box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var('shadow-opacity'));
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var("shadow-opacity"));
         transform: translate(0, 5px);
         .vs-card__img {
           img {
@@ -182,23 +182,23 @@
   }
 }
 .vs-card {
-  background: -color('background');
-  color: -color('text');
+  background: -color("background");
+  color: -color("text");
   width: 100%;
   max-width: 350px;
-  box-shadow: 0px 5px 20px 0px rgba(0,0,0, -var('shadow-opacity'));
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, -var("shadow-opacity"));
   border-radius: 20px;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
   cursor: pointer;
   position: relative;
   &__text {
-    font-size: .85rem;
+    font-size: 0.85rem;
     padding: 0px 15px;
     padding-bottom: 15px;
     p {
       font-size: inherit;
       margin: 0px;
-      opacity: .8;
+      opacity: 0.8;
     }
   }
   &__title {
@@ -231,12 +231,12 @@
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-    transition: all .25s ease;
+    transition: all 0.25s ease;
     img {
       width: 100%;
       border-radius: 20px;
       display: block;
-      transition: all .25s ease;
+      transition: all 0.25s ease;
     }
   }
 }

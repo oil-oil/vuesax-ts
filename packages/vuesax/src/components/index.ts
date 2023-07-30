@@ -42,4 +42,4 @@ export { default as VsRadio } from "./radio/base";
 export { default as VsNotification } from "./notification/base";
 export type { VsNotificationProps } from "./notification/base";
 export { default as useNotification } from "./notification/base/useNotification";
-export type { NotificationHookProps } from "./notification/base/useNotification";
+export type { NotificationHookProps,Position } from "./notification/base/useNotification";

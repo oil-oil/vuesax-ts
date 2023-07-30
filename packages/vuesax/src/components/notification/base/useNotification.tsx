@@ -14,6 +14,7 @@ type Position =
 type NotificationHookProps = Omit<NotificationProps, "isVisible"> & {
   position?: Position;
   icon?: VNode;
+  content?:VNode
 };
 
 const useNotification = () => {
@@ -105,7 +106,7 @@ const useNotification = () => {
           close(key, props.position || "bottom-right");
         }}
         key={key}
-        v-slots={props.icon && { icon: () => props.icon }}
+        v-slots={{...props.icon?{icon:()=>props.icon}:{},...props.content?{content:()=>props.content}:{}}}
       ></Notification>,
     ]);
 
@@ -117,4 +118,4 @@ const useNotification = () => {
 
 export default useNotification;
 
-export type { NotificationHookProps };
+export type { NotificationHookProps, Position };

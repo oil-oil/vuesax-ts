@@ -152,6 +152,9 @@
                 align-items: center;
                 .vs-avatar__group {
                     scale: 1.2;
+                    .vs-avatar-content {
+                        margin-left: -22px;
+                    }
                 }
             }
         }

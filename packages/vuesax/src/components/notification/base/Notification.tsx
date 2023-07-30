@@ -11,7 +11,7 @@ import {
 
 import { BaseProps } from "@/hooks/useBase";
 import VsIconsClose from "@/icons/Close";
-import { setColor } from "@/utils";
+import { getColor, setColor } from "@/utils";
 
 import "./style.scss";
 
@@ -80,7 +80,7 @@ const Notification = defineComponent({
     },
   },
   emits: ["onClick", "clickClose", "onDestroy"],
-  slots: ["default", "content"],
+  slots: ["default", "content","icon"],
   setup(props, { slots, emit }) {
     const elRef = ref<HTMLElement>();
     const innerIsVisible = ref(false);
@@ -227,6 +227,7 @@ const Notification = defineComponent({
               { "vs-notification--dark": props.dark },
               { "vs-notification--danger": props.danger },
             ]}
+            style={{ "--vs-color": props.color ? getColor(props.color) : "" ,width:props.width === "100%" || props.width === "100vw" || props.width === "auto"?"":props.width,maxWidth:props.width === "100%"|| props.width === "100vw" || props.width === "auto"?"":props.width}}
             onClick={() => {
               emit("onClick");
               if (props.clickClose) {
