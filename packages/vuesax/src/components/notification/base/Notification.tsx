@@ -11,7 +11,7 @@ import {
 
 import VsIconsClose from "@/icons/Close";
 import { Color } from "@/types/utils";
-import { setColor } from "@/utils";
+import { setColor,getColor } from "@/utils";
 
 import "./style.scss";
 

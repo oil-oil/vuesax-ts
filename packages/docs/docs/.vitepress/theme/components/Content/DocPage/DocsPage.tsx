@@ -187,7 +187,7 @@ const DocsPage = defineComponent({
             </h4>
             <VsInput
               class="vs-input"
-              state={isDark.value ? "dark" : "primary"}
+              status={isDark.value ? "dark" : "primary"}
               type="email"
               labelPlaceholder="Email"
             ></VsInput>

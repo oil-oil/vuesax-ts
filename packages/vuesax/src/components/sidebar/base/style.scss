@@ -9,6 +9,7 @@
   }
 }
 .vs-sidebar-content {
+  --vs-color: var(--vs-primary);
   position: fixed;
   left: 0px;
   top: 0px;
@@ -96,98 +97,98 @@
     .vs-sidebar {
       &__footer {
         padding: 10px 0px;
-
-  &.reduce {
-    .vs-sidebar {
-      &__footer {
-        padding: 10px 0px
       }
-      &__header {
-        .vs-avatar-content {
-          width: 44px !important;
-          height: 44px !important;
+    }
+    &.reduce {
+      .vs-sidebar {
+        &__footer {
+          padding: 10px 0px;
+        }
+        &__header {
+          .vs-avatar-content {
+            width: 44px !important;
+            height: 44px !important;
+          }
+        }
+        &__logo {
+          img {
+            width: 80%;
+          }
         }
       }
-      &__logo {
-        img {
-          width: 80%;
+      .vs-sidebar__item {
+        padding-left: 16px !important;
+        min-height: 47px;
+        &:not(.hasIcon) {
+          .vs-sidebar__item__text {
+            font-size: 0.5rem;
+          }
+        }
+        &.hasIcon {
+          .vs-sidebar__item__text {
+            transform: translate(-10px);
+            margin-left: -50px;
+          }
+        }
+        &__arrow {
+          position: absolute;
+          left: 36px;
+          top: 10px;
+          animation: delayOpacity 0.6s ease;
+          width: 5px;
+          height: 5px;
+        }
+        &:hover {
+          .vs-sidebar__item__text-tooltip {
+            opacity: 1;
+            left: 60px;
+          }
+        }
+      }
+      .vs-sidebar__item.hasIcon {
+        padding: 0px !important;
+        &:after {
+          left: -6px;
         }
       }
     }
-    .vs-sidebar__item {
-      padding-left: 16px !important;
-      min-height: 47px;
-      &:not(.hasIcon) {
-        .vs-sidebar__item__text {
-          font-size: 0.5rem;
-        }
-      }
-      &.hasIcon {
-        .vs-sidebar__item__text {
-          transform: translate(-10px);
-          margin-left: -50px;
-        }
-      }
-      &__arrow {
-        position: absolute;
-        left: 36px;
-        top: 10px;
-        animation: delayOpacity 0.6s ease;
-        width: 5px;
-        height: 5px;
-      }
-      &:hover {
-        .vs-sidebar__item__text-tooltip {
-          opacity: 1;
-          left: 60px;
-        }
-      }
-    }
-    .vs-sidebar__item.hasIcon {
-      padding: 0px !important;
-      &:after {
-        left: -6px;
-      }
-    }
-  }
-  .vs-sidebar__logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 25px 0px;
-    min-height: 80px;
-    img {
-      max-width: 120px;
-      max-height: 35px;
-    }
-  }
-  .vs-sidebar {
-    overflow-x: hidden;
-    width: 100%;
-    flex-grow: 1;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    &::-webkit-scrollbar {
-      width: 0px;
-    }
-    &__header {
+    .vs-sidebar__logo {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
-      padding: 10px;
+      padding: 25px 0px;
+      min-height: 80px;
+      img {
+        max-width: 120px;
+        max-height: 35px;
+      }
     }
-    &__footer {
-      display: flex;
-      align-items: center;
-      justify-self: flex-start;
+    .vs-sidebar {
+      overflow-x: hidden;
       width: 100%;
-      padding: 10px;
+      flex-grow: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+      &__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 10px;
+      }
+      &__footer {
+        display: flex;
+        align-items: center;
+        justify-self: flex-start;
+        width: 100%;
+        padding: 10px;
+      }
     }
   }
 }
-
-// .vs-sidebar
