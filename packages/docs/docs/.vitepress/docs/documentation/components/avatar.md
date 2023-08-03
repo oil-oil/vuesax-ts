@@ -90,7 +90,7 @@ You can put an icon inside an avatar when for example an image is not yet added 
 
 ## Loading <Badge text="New"/>
 
-Add a loading animation to the component, this property is a `boolean` so you can add it without any value
+Add a loading animation to the component, this property is a `boolean`
 
 </card>
 

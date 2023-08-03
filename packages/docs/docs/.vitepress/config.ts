@@ -30,7 +30,7 @@ export default defineConfigWithTheme({
       lang: "zh",
       link: "/zh",
       title: "中文vuesax",
-      titleTemplate: ":title - 唐家VuesaxTs",
+      titleTemplate: ":title - Vuesax-ts",
       themeConfig: {
         nav: zhNavbar,
         sidebar: zhSidebar,

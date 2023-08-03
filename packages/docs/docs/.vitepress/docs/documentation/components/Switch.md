@@ -40,25 +40,25 @@ Add icons to the component in the default slot or the `on` or `off` status slots
 
 <card subtitle="Loading">
 
-## Loading <Badge text="New"/>
+## Loading
 
-Add a loading animation to the component with the `loading` property, the property is a` boolean` so you can add it without any value.
+Add a loading animation to the component with the `loading` property, the property is a` boolean` 
 
 </card>
 
 <card subtitle="Indeterminate">
 
-## Indeterminate <Badge text="New"/>
+## Indeterminate
 
-Add an undetermined state to the compound with the `indeterminate` property, the property is a` boolean` so you can add it without any value.
+Add an undetermined state to the compound with the `indeterminate` property, the property is a` boolean` 
 
 </card>
 
 <card subtitle="Square">
 
-## Square <Badge text="New"/>
+## Square
 
-Change the circular style to square with the `square` property, the property is a` boolean` so you can add it without any value.
+Change the circular style to square with the `square` property, the property is a` boolean` 
 
 </card>
 

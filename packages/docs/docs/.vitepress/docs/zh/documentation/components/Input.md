@@ -63,7 +63,7 @@ Add an icon to the input easily with the slot icon if you want the icon to be be
 
 <card subtitle="Message">
 
-## Message <Badge text="New"/>
+## Message
 
 You can add a message below the input with the `slot="message- {vuesax color}"` to report that a field is missing or the value is wrong
 
@@ -71,7 +71,7 @@ You can add a message below the input with the `slot="message- {vuesax color}"` 
 
 <card subtitle="State">
 
-## State <Badge text="New"/>
+## State
 
 Change the color of the input for some state, the allowed states are (primary, success, danger, warn, dark)
 
@@ -79,7 +79,7 @@ Change the color of the input for some state, the allowed states are (primary, s
 
 <card subtitle="Progress">
 
-## Progress <Badge text="New"/>
+## Progress
 
 Add a validation progress bar, the most common is its use to validate passwords and correct data within the input, its value is (0 - 100).
 
@@ -97,9 +97,9 @@ Add a validation progress bar, the most common is its use to validate passwords 
 
 <card subtitle="Loading">
 
-## Loading <Badge text="New"/>
+## Loading
 
-Add a loading animation to the input with the `loading` property, the property is a `Boolean`, so you can add it without any value.
+Add a loading animation to the input with the `loading` property, the property is a `Boolean`, 
 
 </card>
 
@@ -113,17 +113,17 @@ Change the type of input with the `type` property as a native html input, the de
 
 <card subtitle="Border">
 
-## Border <Badge text="New"/>
+## Border
 
-Change everything is style of the component with the `border` property, the property is a `Boolean`, so you can add it without any value.
+Change everything is style of the component with the `border` property, the property is a `Boolean`, 
 
 </card>
 
 <card subtitle="Shadow">
 
-## Shadow <Badge text="New"/>
+## Shadow
 
-Change everything is style of the component with the `shadow` property, the property is a `Boolean`, so you can add it without any value.
+Change everything is style of the component with the `shadow` property, the property is a `Boolean`, 
 
 </card>
 

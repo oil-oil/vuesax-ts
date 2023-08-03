@@ -38,9 +38,9 @@ Group options within the select with the sub-component `vs-option-group`, as the
 
 <card subtitle="Filter">
 
-## Filter <Badge text="New"/>
+## Filter
 
-You can add the functionality of filtering options with the `filter` property, this property is a `boolean` so you can add it without any value
+You can add the functionality of filtering options with the `filter` property, this property is a `boolean`
 
 </card>
 
@@ -48,7 +48,7 @@ You can add the functionality of filtering options with the `filter` property, t
 
 ## Multiple
 
-Add the functionality of multiple selection of options with the `multiple` property, this property is a `boolean` so you can add it without any value
+Add the functionality of multiple selection of options with the `multiple` property, this property is a `boolean`
 
 :::tip
 The value of the select must be an array
@@ -58,15 +58,15 @@ The value of the select must be an array
 
 <card subtitle="Loading">
 
-## Loading <Badge text="New"/>
+## Loading
 
-Add a loading animation to the select with the `loading` property, this property is a `boolean` so you can add it without any value
+Add a loading animation to the select with the `loading` property, this property is a `boolean`
 
 </card>
 
 <card subtitle="State">
 
-## State <Badge text="New"/>
+## State
 
 Change the style of the component to the color passed in the `state` property, the allowed colors are only the main ones of vuesax
 
@@ -78,7 +78,7 @@ This property can be used to indicate a missing field to the user or when someth
 
 <card subtitle="Message">
 
-## Message <Badge text="New"/>
+## Message
 
 Add an item below the select showing a message to the user
 

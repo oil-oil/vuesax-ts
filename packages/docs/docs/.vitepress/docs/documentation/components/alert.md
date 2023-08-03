@@ -7,7 +7,7 @@
 
 <docs-warn />
 
-Easily generate an alert with this component apart from functionalities such as hiding it and showing its color change and title icons among other things
+Alert component is a component used to display important information. They are typically presented in the form of a pop-up or slide-out panel and can display alert, error, success, or information messages.
 
 </card>
 
@@ -15,7 +15,7 @@ Easily generate an alert with this component apart from functionalities such as 
 
 ## Solid <Badge text="New"/>
 
-You can change the style of the component by adding the `solid` property, the property is a` boolean` so you can add it without any value.
+You can set the alert to a solid color background by adding the `solid` property, the property is a` boolean` 
 
 </card>
 
@@ -23,7 +23,7 @@ You can change the style of the component by adding the `solid` property, the pr
 
 ## Border <Badge text="New"/>
 
-You can change the style of the component by adding the `border` property, the property is a` boolean` so you can add it without any value.
+You can style the alert with a shadow by adding the `border` property, the property is a` boolean` value.
 
 </card>
 
@@ -31,7 +31,7 @@ You can change the style of the component by adding the `border` property, the p
 
 ## Shadow <Badge text="New"/>
 
-You can change the style of the component by adding the `shadow` property, the property is a` boolean` so you can add it without any value.
+You can change the style of the component by adding the `shadow` property, the property is a` boolean` value.
 
 </card>
 
@@ -39,7 +39,7 @@ You can change the style of the component by adding the `shadow` property, the p
 
 ## Gradient <Badge text="New"/>
 
-You can change the style of the component by adding the `gradient` property, the property is a `boolean` so you can add it without any value.
+You can change the style of the component by adding the `gradient` property, the property is a `boolean` value.
 
 </card>
 
@@ -47,7 +47,7 @@ You can change the style of the component by adding the `gradient` property, the
 
 ## Relief <Badge text="New"/>
 
-You can change the style of the component by adding the `relief` property, the property is a` boolean` so you can add it without any value.
+You can change the style of the component by adding the `relief` property, the property is a` boolean` value.
 
 </card>
 
@@ -55,7 +55,7 @@ You can change the style of the component by adding the `relief` property, the p
 
 ## Animate
 
-A beautiful and simple animation to show and hide the alert to the user
+A beautiful and simple animation to show and hide the alert to the user 
 
 
 </card>
@@ -128,7 +128,7 @@ Use the `footer` slot to add a footer to the alert where for example you can add
 
 ## Progress bar <Badge text="New"/>
 
-You can add a progress bar to the alert with the progress property and a number of (`0 - 100`)
+You can add a progress bar to the alert with the `progress` property and a number of (`0 - 100`)
 
 </card>
 
@@ -136,7 +136,7 @@ You can add a progress bar to the alert with the progress property and a number 
 
 ## Closable <Badge text="New"/>
 
-You can add a close alert icon with the `closable` property, the property is a` boolean` so you can add it without any value.
+You can add a close alert icon with the `closable` property, the property is a` boolean` 
 
 </card>
 
