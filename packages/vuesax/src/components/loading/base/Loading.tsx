@@ -29,7 +29,7 @@ const Loading = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default:null,
+      default: null,
     },
     background: {
       type: String as PropType<Color>,

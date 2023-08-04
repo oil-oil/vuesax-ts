@@ -11,7 +11,7 @@ import {
 
 import VsIconsClose from "@/icons/Close";
 import { Color } from "@/types/utils";
-import { setColor,getColor } from "@/utils";
+import { setColor, getColor } from "@/utils";
 
 import "./style.scss";
 
@@ -82,7 +82,7 @@ const Notification = defineComponent({
     },
   },
   emits: ["onClick", "clickClose", "onDestroy"],
-  slots: ["default", "content","icon"],
+  slots: ["default", "content", "icon"],
   setup(props, { slots, emit }) {
     const elRef = ref<HTMLElement>();
     const innerIsVisible = ref(false);
@@ -220,7 +220,21 @@ const Notification = defineComponent({
                 "vs-notification--notPadding": props.noPadding,
               },
             ]}
-            style={{ "--vs-color": props.color ? getColor(props.color) : "" ,width:props.width === "100%" || props.width === "100vw" || props.width === "auto"?"":props.width,maxWidth:props.width === "100%"|| props.width === "100vw" || props.width === "auto"?"":props.width}}
+            style={{
+              "--vs-color": props.color ? getColor(props.color) : "",
+              width:
+                props.width === "100%" ||
+                props.width === "100vw" ||
+                props.width === "auto"
+                  ? ""
+                  : props.width,
+              maxWidth:
+                props.width === "100%" ||
+                props.width === "100vw" ||
+                props.width === "auto"
+                  ? ""
+                  : props.width,
+            }}
             onClick={() => {
               emit("onClick");
               if (props.clickClose) {

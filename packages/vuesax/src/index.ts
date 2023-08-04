@@ -1,5 +1,4 @@
-import {  App as VueApp } from "vue";
-
+import { App as VueApp } from "vue";
 
 import * as vsComponents from "./components";
 import {

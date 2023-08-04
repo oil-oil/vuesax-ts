@@ -14,16 +14,11 @@ type Position =
 type NotificationHookProps = Omit<NotificationProps, "isVisible"> & {
   position?: Position;
   icon?: VNode;
-  content?:VNode
+  content?: VNode;
 };
 
 const useNotification = () => {
-  let root:HTMLDivElement;
-  onMounted(()=>{
-    root = document.createElement("div");
-    document.body.appendChild(root);
-    app.mount(root);
-  })
+  let root: HTMLDivElement;
 
   const notificationPosition = {
     "top-left": ref<[string, JSX.Element][]>([]),
@@ -51,6 +46,12 @@ const useNotification = () => {
         ))}
       </>
     ),
+  });
+
+  onMounted(() => {
+    root = document.createElement("div");
+    document.body.appendChild(root);
+    app.mount(root);
   });
 
   const close = (key?: string, position?: Position) => {
@@ -109,7 +110,10 @@ const useNotification = () => {
           close(key, props.position || "bottom-right");
         }}
         key={key}
-        v-slots={{...props.icon?{icon:()=>props.icon}:{},...props.content?{content:()=>props.content}:{}}}
+        v-slots={{
+          ...(props.icon ? { icon: () => props.icon } : {}),
+          ...(props.content ? { content: () => props.content } : {}),
+        }}
       ></Notification>,
     ]);
 

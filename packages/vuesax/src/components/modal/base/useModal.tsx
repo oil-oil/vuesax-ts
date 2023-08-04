@@ -27,7 +27,7 @@ const useModal = (props: ModalHookProps) => {
     ...rest
   } = props;
 
-  let ModalDom:HTMLDivElement;
+  let ModalDom: HTMLDivElement;
   const app = computed(() =>
     createApp({
       render: () => (
