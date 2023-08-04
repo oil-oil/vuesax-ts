@@ -21,21 +21,26 @@ const Card = defineComponent({
   slots: ["default"],
   setup(props, { slots }) {
     const { theme, page } = useData<{ mobileActive: boolean }>();
-    const ExampleComponentsArr: [string, { default: DefineComponent }][] =
+    const exampleComponentsArr: [string, { default: DefineComponent }][] =
       Object.entries(
         (import.meta as any).glob("./template/**/*.vue", { eager: true })
       );
+    
     return () => (
       <div class="card">
         <div class="text">{slots.default?.()}</div>
         <div class={["example", { mobile: theme.value.mobileActive }]}>
           <div class="center">
-            {ExampleComponentsArr.map((arr) => {
+            
+            {exampleComponentsArr.map((arr) => {
+             
+             console.log(arr[0],page.value.title,props.subtitle)
               if (
                 arr[0] ===
                 `./template/${page.value.title}/${props.subtitle}.vue`
               ) {
                 const Example = arr[1].default;
+               
                 return <Example />;
               }
               return "";

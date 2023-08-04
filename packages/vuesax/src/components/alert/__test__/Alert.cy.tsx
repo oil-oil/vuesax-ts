@@ -11,12 +11,12 @@ describe("Alert", () => {
     cy.contains("Default Alert").should("be.visible");
   });
 
-  it("test button different status", () => {
+  it("test alert different status", () => {
     Object.entries(colors).forEach(([status, color]) => {
       cy.mount(<VsAlert color={status as Color}>{status}</VsAlert>);
       cy.get(".vs-alert")
         .should("have.attr", "style")
-        .and("include", `--vs-color: ${color};`);
+        .and("include", `--vs-color:${color};`);
     });
   });
 

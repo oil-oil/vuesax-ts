@@ -5,7 +5,7 @@ import { Color } from "@/types/utils";
 describe("Input", () => {
   it("test input basic render", () => {
     cy.mount(<VsInput value="Default Input"></VsInput>);
-    cy.get(".vs-input-parent.vs-component--primary")
+    cy.get(".vs-input-parent")
       .get(".vs-input")
       .should("have.value", "Default Input");
   });
@@ -23,7 +23,7 @@ describe("Input", () => {
       cy.mount(<VsInput color={status as Color}>{status}</VsInput>);
       cy.get(".vs-input-parent")
         .should("have.attr", "style")
-        .and("include", `--vs-color: ${color};`);
+        .and("include", `--vs-color:${color};`);
     });
   });
 

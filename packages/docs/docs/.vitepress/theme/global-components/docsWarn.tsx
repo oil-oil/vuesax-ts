@@ -8,7 +8,6 @@ const docsWarn = defineComponent({
       <VsAlert
         style={{ margin: "1rem 0", zIndex: 0 }}
         v-slots={{ title: () => "Documentation Vuesax 4.0+" }}
-        warn
       >
         <p>
           These documents refer to the latest version of{" "}

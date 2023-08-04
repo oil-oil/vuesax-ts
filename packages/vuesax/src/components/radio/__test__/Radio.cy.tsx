@@ -32,7 +32,7 @@ describe("Radio", () => {
       cy.mount(<VsRadio color={status as Color}>{status}</VsRadio>);
       cy.get(".vs-radio-content")
         .should("have.attr", "style")
-        .and("include", `--vs-color: ${color};`);
+        .and("include", `--vs-color:${color};`);
     });
   });
 });

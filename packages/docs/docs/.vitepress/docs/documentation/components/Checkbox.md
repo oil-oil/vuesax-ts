@@ -46,7 +46,7 @@ Add a label to the checkbox with the default slot of the component
 
 <card subtitle="Loading">
 
-## Loading <Badge text="New"/>
+## Loading
 
 Add a loading status to the component with the property `loading`
 
@@ -54,7 +54,7 @@ Add a loading status to the component with the property `loading`
 
 <card subtitle="LineThrough">
 
-## LineThrough <Badge text="New"/>
+## LineThrough
 
 Add a line in the middle of the label when the checkbox is checked with the property `line-through`
 
@@ -62,7 +62,7 @@ Add a line in the middle of the label when the checkbox is checked with the prop
 
 <card subtitle="Indeterminate">
 
-## Indeterminate <Badge text="New"/>
+## Indeterminate
 
 There are some cases where you have several checkboxes and you need one that manages all the others for this you can do it with the indeterminate property that adds a different style to the checkbox
 

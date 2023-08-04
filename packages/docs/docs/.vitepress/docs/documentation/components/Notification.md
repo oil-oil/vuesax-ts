@@ -64,7 +64,7 @@ Add the icon provided as the value of the `icon` slot to the notification
 
 <card subtitle="Progress"> 
 
-## Progress <Badge text="New"/>
+## Progress
 
 Add a progress bar to the notification, if the value of the `progressAuto` property is `auto` be determined by the `duration` property to reach 100%.
 
@@ -72,7 +72,7 @@ Add a progress bar to the notification, if the value of the `progressAuto` prope
 
 <card subtitle="Duration">
 
-## Duration <Badge text="New"/>
+## Duration
 
 Change the duration of the notification with the `duration` property, the value is numerical and determine the seconds before the bone component is hidden that **10s** equals **10000** as the value
 
@@ -82,7 +82,7 @@ if you need the notification to never be hidden, the duration value would be `no
 
 <card subtitle="Square">
 
-## Square <Badge text="New"/>
+## Square
 
 Change the style of the notification with the `square` property so as not to have `border-radius` making it a rectangle
 
@@ -90,7 +90,7 @@ Change the style of the notification with the `square` property so as not to hav
 
 <card subtitle="Border">
 
-## Border <Badge text="New"/>
+## Border
 
 Change the notification style with the `border` property by adding a border of the color provided as the value
 
@@ -98,7 +98,7 @@ Change the notification style with the `border` property by adding a border of t
 
 <card subtitle="Flat">
 
-## Flat <Badge text="New"/>
+## Flat
 
 Change the style of the notification with the `flat` property, having this property changes to lighter colors and the text of the color of the `color` property, this property is a boolean so you can only use the value `true`
 
@@ -106,7 +106,7 @@ Change the style of the notification with the `flat` property, having this prope
 
 <card subtitle="Loading">
 
-## Loading <Badge text="New"/>
+## Loading
 
 Add a loading animation to the notification, having this property will only show the animation and the content will be hidden
 
@@ -114,7 +114,7 @@ Add a loading animation to the notification, having this property will only show
 
 <card subtitle="Width">
 
-## Width <Badge text="New"/>
+## Width
 
 Change the size of the notification to the total screen with the property `width` and giving it a value of `100%`
 
@@ -124,7 +124,7 @@ If you need the notification to have an automatic size to your content you can d
 
 <card subtitle="Sticky">
 
-## Sticky <Badge text="New"/>
+## Sticky
 
 You can add a style to the paste component to the nearest corner with the `sticky` property, this property is a `boolean` po which can only have the value `true`
 
@@ -132,7 +132,7 @@ You can add a style to the paste component to the nearest corner with the `stick
 
 <card subtitle="Example">
 
-## Example <Badge text="New"/>
+## Example
 
 You can do great things with this component and some others from vuesax, to add any element within the notification we have the property `content` this property can only receive an imported component and that is what it will generate within the notification
 

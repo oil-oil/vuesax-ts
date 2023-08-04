@@ -22,7 +22,7 @@ const colors = ref([
     { color: "warn", value: "3" },
     { color: "dark", value: "4" },
     { color: "primary", value: "5" },
-])
+] as const)
 </script>
 
 <style scoped>

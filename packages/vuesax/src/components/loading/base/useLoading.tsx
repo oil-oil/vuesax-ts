@@ -14,9 +14,9 @@ import Loading, { LoadingProps } from "./Loading";
 type LoadingHookProps = Omit<LoadingProps, "isVisible">;
 
 const useLoading = (props?: LoadingHookProps) => {
+  let LoadingDom: HTMLDivElement;
   const isVisible = ref(false);
 
-  let LoadingDom:HTMLDivElement;
   const app = computed(() =>
     createApp({
       render: () => h(Loading, { ...props, isVisible: isVisible.value }),
@@ -47,6 +47,7 @@ const useLoading = (props?: LoadingHookProps) => {
 
   onMounted(() => {
     mountLoading();
+    LoadingDom = document.createElement("div");
   });
 
   onUnmounted(() => {

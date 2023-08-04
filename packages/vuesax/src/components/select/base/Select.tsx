@@ -21,7 +21,7 @@ import { beforeEnter, enter, leave } from "./transition";
 import { Option, SelectProvider } from "../types";
 import IconArrow from "@/icons/Arrow";
 import IconClose from "@/icons/Close";
-import { Color, CompWithAttr } from "@/types/utils";
+import { Color, CompWithAttr, InnerColor } from "@/types/utils";
 import { getColor, insertBody, removeBody, setCords } from "@/utils";
 
 import "./style.scss";
@@ -64,7 +64,9 @@ const Select = defineComponent({
       default: false,
     },
     state: {
-      type: String,
+      type: String as PropType<
+        "success" | "warn" | "danger" | "primary" | "dark"
+      >,
       default: null,
     },
     block: {
