@@ -15,6 +15,6 @@
     "dev": "vitepress dev docs --port 3000",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "lint": "eslint  --fix --cache"
+    "lint": "vue-tsc && eslint --ext .tsx,.ts,.vue docs/.vitepress/theme docs/.vitepress/config.ts --fix --cache"
   }
 }

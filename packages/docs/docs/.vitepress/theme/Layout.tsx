@@ -1,10 +1,10 @@
 import { useData } from "vitepress";
 import { defineComponent, ref, provide } from "vue";
 
-import Config from "./components/Config/index.tsx";
-import VSContent from "./components/Content/index.tsx";
-import NavBar from "./components/Navbar/index.tsx";
-import SideBar from "./components/Sidebar/index";
+import Config from "./components/Config";
+import VSContent from "./components/Content";
+import NavBar from "./components/NavBar";
+import SideBar from "./components/SideBar";
 
 const Layout = defineComponent({
   name: "Layout",
@@ -16,8 +16,6 @@ const Layout = defineComponent({
     };
 
     provide("sidebarController", { isSidebarOpen, toggleSidebar });
-    const data = useData();
-    console.log(data);
     return () => (
       <div class="layout">
         {!page.value.isNotFound && <NavBar />}

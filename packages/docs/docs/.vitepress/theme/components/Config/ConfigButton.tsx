@@ -38,11 +38,9 @@ const ConfigBtn = defineComponent({
       if (isDark.value) {
         window.localStorage.setItem("vitepress-theme-appearance", "auto");
         document.documentElement.classList.remove("dark");
-        console.log("isDark.value: ", isDark.value);
       } else {
         window.localStorage.setItem("vitepress-theme-appearance", "dark");
         document.documentElement.classList.add("dark");
-        console.log("isDark.value: ", isDark.value);
       }
       e.stopPropagation();
     };

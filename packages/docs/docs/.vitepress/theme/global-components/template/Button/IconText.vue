@@ -15,7 +15,12 @@
     <VsButton color="#7d33ff" relief :active="active === 4" @click="active = 4">
       <i class="bx bxs-paper-plane" />Send
     </VsButton>
-    <VsButton color="rgb(59, 222, 200)" gradient :active="active === 5" @click="active = 5">
+    <VsButton
+      color="rgb(59, 222, 200)"
+      gradient
+      :active="active === 5"
+      @click="active = 5"
+    >
       <i class="bx bxs-purchase-tag" />Save
     </VsButton>
   </div>

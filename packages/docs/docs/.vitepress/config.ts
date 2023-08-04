@@ -8,7 +8,7 @@ import zhNavbar from "./locales/zh/navbar";
 import zhSidebar from "./locales/zh/sidebar";
 
 export default defineConfigWithTheme({
-  head:[['link',{rel:'icon',href:'/vuesax-only.png'}]],
+  head: [["link", { rel: "icon", href: "/vuesax-only.png" }]],
   title: "Vue.Ts Framework Components",
   titleTemplate: "Vue.Ts Framework Components - Vuesax",
   lang: "en",
@@ -68,11 +68,17 @@ export default defineConfigWithTheme({
               { text: "Switch", link: "/documentation/components/switch" },
               { text: "Select", link: "/documentation/components/select" },
               { text: "Avatar", link: "/documentation/components/avatar" },
-              { text: "Notification", link: "/documentation/components/notification" },
+              {
+                text: "Notification",
+                link: "/documentation/components/notification",
+              },
               { text: "Radio", link: "/documentation/components/radio" },
               { text: "Tooltip", link: "/documentation/components/tooltip" },
               { text: "Dialog", link: "/documentation/components/dialog" },
-              { text: "Pagination", link: "/documentation/components/pagination" },
+              {
+                text: "Pagination",
+                link: "/documentation/components/pagination",
+              },
               { text: "Table", link: "/documentation/components/table" },
               { text: "Navbar", link: "/documentation/components/navbar" },
               { text: "Sidebar", link: "/documentation/components/sidebar" },
@@ -114,7 +120,10 @@ export default defineConfigWithTheme({
           { text: "Switch", link: "/documentation/components/switch" },
           { text: "Select", link: "/documentation/components/select" },
           { text: "Avatar", link: "/documentation/components/avatar" },
-          { text: "Notification", link: "/documentation/components/notification" },
+          {
+            text: "Notification",
+            link: "/documentation/components/notification",
+          },
           { text: "Radio", link: "/documentation/components/radio" },
           { text: "Tooltip", link: "/documentation/components/tooltip" },
           { text: "Dialog", link: "/documentation/components/dialog" },

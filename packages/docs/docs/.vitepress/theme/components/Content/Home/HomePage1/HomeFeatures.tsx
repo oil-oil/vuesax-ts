@@ -48,12 +48,12 @@ const HomeFeatures = defineComponent({
     const switchPart = reactive({
       switchActive: false,
     });
-    onMounted(()=>{
-      document.body.classList.add("home")
-    })
-    onUnmounted(()=>{
-      document.body.classList.remove("home")
-    })
+    onMounted(() => {
+      document.body.classList.add("home");
+    });
+    onUnmounted(() => {
+      document.body.classList.remove("home");
+    });
     return () => (
       <>
         <div class="avatar-card">
@@ -61,7 +61,7 @@ const HomeFeatures = defineComponent({
             badge
             badgeColor="danger"
             size="80"
-            color="primary" 
+            color="primary"
             v-slots={{ badge: () => 28 }}
           >
             <img src="/foto1.png" alt="" />
@@ -70,7 +70,7 @@ const HomeFeatures = defineComponent({
             <h6>{theme.value.home.avatarPart.title}</h6>
             <p>{theme.value.home.avatarPart.text}</p>
             <div class="button-box">
-              <VsButton danger>
+              <VsButton color="danger">
                 {theme.value.home.avatarPart.button.red}
               </VsButton>
               <VsButton shadow>
@@ -84,7 +84,7 @@ const HomeFeatures = defineComponent({
             <VsInput
               class="check-input"
               label-placeholder={theme.value.home.checkPart.input}
-              color="primary" 
+              color="primary"
             ></VsInput>
             <VsButton border icon size="xs">
               <i class="bx bx-chevron-right"></i>
@@ -103,7 +103,7 @@ const HomeFeatures = defineComponent({
           <VsInput
             icon-after
             placeholder={theme.value.home.search}
-            state="primary"
+            status="primary"
             v-slots={{ icon: () => <i class="bx bx-search"></i> }}
           ></VsInput>
         </div>
@@ -121,10 +121,10 @@ const HomeFeatures = defineComponent({
           <VsButton color="danger" icon size="xs">
             <i class="bx bx-play"></i>
           </VsButton>
-          <VsButton warn icon size="xs">
+          <VsButton color="warn" icon size="xs">
             <i class="bx bx-git-pull-request"></i>
           </VsButton>
-          <VsButton dark icon size="xs">
+          <VsButton color="dark" icon size="xs">
             <i class="bx bxl-github"></i>
           </VsButton>
         </div>
@@ -166,7 +166,7 @@ const HomeFeatures = defineComponent({
         </div>
         <div class="switch-card">
           <VsSwitch
-            success
+            color="success"
             v-model={switchPart.switchActive}
             v-slots={{
               on: () => <i class="bx bx-x"></i>,
@@ -176,7 +176,7 @@ const HomeFeatures = defineComponent({
             isLoading
           </VsSwitch>
           <VsSwitch
-            warn
+            color="warn"
             loading={switchPart.switchActive}
             v-slots={{
               off: () => <i class="bx bxs-plane-alt"></i>,

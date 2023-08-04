@@ -87,7 +87,7 @@ const AlertApi = defineComponent({
           return "loading#background";
 
         case 7:
-          return "loading#background"
+          return "loading#background";
 
         default:
           return "";

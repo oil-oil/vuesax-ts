@@ -105,7 +105,13 @@ const AvatarApi = defineComponent({
       ],
     ]);
     const slots = ref([
-      ["badge", "slot", "", "Add to the badge everything that is inside the slot, commonly used for numbers and an icon.", ""],
+      [
+        "badge",
+        "slot",
+        "",
+        "Add to the badge everything that is inside the slot, commonly used for numbers and an icon.",
+        "",
+      ],
       ["icons", "slot", "", "Add a space to put icons next to the avatar.", ""],
     ]);
 
@@ -143,15 +149,15 @@ const AvatarApi = defineComponent({
 
         case 10:
           return "avatar#loading";
-        
+
         case 11:
-         return "avatar#group";
+          return "avatar#group";
 
         case 12:
-         return "avatar#group";
+          return "avatar#group";
 
         case 13:
-         return "avatar#default";
+          return "avatar#default";
 
         default:
           return "";
@@ -223,48 +229,48 @@ const AvatarApi = defineComponent({
           </div>
           <p class="sub-title">Slots</p>
           <div class="table">
-          <VsTable
-            striped
-            v-slots={{
-              thead: () => (
-                <VsTr>
-                  <VsTh>Property</VsTh>
-                  <VsTh>Type</VsTh>
-                  <VsTh>Values</VsTh>
-                  <VsTh>Description</VsTh>
-                  <VsTh>Default</VsTh>
-                  <VsTh>Example</VsTh>
-                  <VsTh>More</VsTh>
-                </VsTr>
-              ),
-              tbody: () =>
-                slots.value.map((line, lineIndex) => (
+            <VsTable
+              striped
+              v-slots={{
+                thead: () => (
                   <VsTr>
-                    {line.map((item) => (
-                      <VsTh>{item}</VsTh>
-                    ))}
-                    <VsTh>
-                      <a href={slotsUrl(lineIndex)}>
-                        Usage<i class="bx bx-code-block"></i>
-                      </a>
-                    </VsTh>
-                    <VsTh>
-                      <a
-                        href={`https://github.com/oil-oil/vuesax-ts/issues/new?title=[Avatar]%20prop%20(${line[0]})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
-                      >
-                        <i class="bx bx-bug"></i>
-                      </a>
-                      <a
-                        href="https://github.com/oil-oil/vuesax-ts"
-                        target="_blank"
-                      >
-                        <i class="bx bx-terminal"></i>
-                      </a>
-                    </VsTh>
+                    <VsTh>Property</VsTh>
+                    <VsTh>Type</VsTh>
+                    <VsTh>Values</VsTh>
+                    <VsTh>Description</VsTh>
+                    <VsTh>Default</VsTh>
+                    <VsTh>Example</VsTh>
+                    <VsTh>More</VsTh>
                   </VsTr>
-                )),
-            }}
-          ></VsTable>
+                ),
+                tbody: () =>
+                  slots.value.map((line, lineIndex) => (
+                    <VsTr>
+                      {line.map((item) => (
+                        <VsTh>{item}</VsTh>
+                      ))}
+                      <VsTh>
+                        <a href={slotsUrl(lineIndex)}>
+                          Usage<i class="bx bx-code-block"></i>
+                        </a>
+                      </VsTh>
+                      <VsTh>
+                        <a
+                          href={`https://github.com/oil-oil/vuesax-ts/issues/new?title=[Avatar]%20prop%20(${line[0]})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
+                        >
+                          <i class="bx bx-bug"></i>
+                        </a>
+                        <a
+                          href="https://github.com/oil-oil/vuesax-ts"
+                          target="_blank"
+                        >
+                          <i class="bx bx-terminal"></i>
+                        </a>
+                      </VsTh>
+                    </VsTr>
+                  )),
+              }}
+            ></VsTable>
           </div>
         </div>
       </div>
