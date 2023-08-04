@@ -68,7 +68,7 @@ The value of the select must be an array
 
 ## Message
 
-在选择器下方向用户显示一条信息
+在选择器下方，向用户显示一条信息
 
 </card>
 

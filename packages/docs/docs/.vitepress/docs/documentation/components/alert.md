@@ -13,7 +13,7 @@ Alert component is a component used to display important information. They are t
 
 <card subtitle="Solid">
 
-## Solid <Badge text="New"/>
+## Solid
 
 You can set the alert to a solid color background by adding the `solid` property, the property is a` boolean` 
 
@@ -21,7 +21,7 @@ You can set the alert to a solid color background by adding the `solid` property
 
 <card subtitle="Border">
 
-## Border <Badge text="New"/>
+## Border
 
 You can style the alert with a shadow by adding the `border` property, the property is a` boolean` value.
 
@@ -29,7 +29,7 @@ You can style the alert with a shadow by adding the `border` property, the prope
 
 <card subtitle="Shadow">
 
-## Shadow <Badge text="New"/>
+## Shadow
 
 You can change the style of the component by adding the `shadow` property, the property is a` boolean` value.
 
@@ -37,7 +37,7 @@ You can change the style of the component by adding the `shadow` property, the p
 
 <card subtitle="Gradient">
 
-## Gradient <Badge text="New"/>
+## Gradient
 
 You can change the style of the component by adding the `gradient` property, the property is a `boolean` value.
 
@@ -45,7 +45,7 @@ You can change the style of the component by adding the `gradient` property, the
 
 <card subtitle="Relief">
 
-## Relief <Badge text="New"/>
+## Relief
 
 You can change the style of the component by adding the `relief` property, the property is a` boolean` value.
 
@@ -102,7 +102,7 @@ You can add a descriptive title to the alert with the `slot="title"`
 
 <card subtitle="HiddenContent">
 
-## Hidden Content <Badge text="New"/>
+## Hidden Content
 
 You can hide the content of an alert and just leave the title to display the content dynamically
 
@@ -110,7 +110,7 @@ You can hide the content of an alert and just leave the title to display the con
 
 <card subtitle="Pagination">
 
-## Pagination <Badge text="New"/>
+## Pagination
 
 There are times when we need to show a lot of content to the user but we don't want to extend the text and make the alert very large and tall
 
@@ -118,7 +118,7 @@ There are times when we need to show a lot of content to the user but we don't w
 
 <card subtitle="Footer">
 
-## footer <Badge text="New"/>
+## footer
 
 Use the `footer` slot to add a footer to the alert where for example you can add interactions with the user such as a button or a checkbox.
 
@@ -126,7 +126,7 @@ Use the `footer` slot to add a footer to the alert where for example you can add
 
 <card subtitle="ProgressBar">
 
-## Progress bar <Badge text="New"/>
+## Progress bar
 
 You can add a progress bar to the alert with the `progress` property and a number of (`0 - 100`)
 
@@ -134,7 +134,7 @@ You can add a progress bar to the alert with the `progress` property and a numbe
 
 <card subtitle="Closable">
 
-## Closable <Badge text="New"/>
+## Closable
 
 You can add a close alert icon with the `closable` property, the property is a` boolean` 
 
@@ -142,7 +142,7 @@ You can add a close alert icon with the `closable` property, the property is a` 
 
 <card subtitle="TimeClose">
 
-## Time Close <Badge text="New"/>
+## Time Close
 
 If you need an alert to have time to hide, you can do so by joining some properties and few lines of code
 

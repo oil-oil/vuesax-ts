@@ -23,7 +23,7 @@ describe("Button", () => {
       cy.mount(<VsButton color={status as Color}>{status}</VsButton>);
       cy.get(".vs-button")
         .should("have.attr", "style")
-        .and("include", `--vs-color: ${color};`);
+        .and("include", `--vs-color:${color};`);
     });
   });
 

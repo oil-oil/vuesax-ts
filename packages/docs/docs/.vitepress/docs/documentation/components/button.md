@@ -146,7 +146,7 @@ values:
 
 <Card subtitle="Loading">
 
-## Loading <Badge text="New"/>
+## Loading
 
 Now you can add a loading status with the `loading` property, the property is a `boolean` 
 
@@ -154,7 +154,7 @@ Now you can add a loading status with the `loading` property, the property is a 
 
 <Card subtitle="Upload">
 
-## Upload <Badge text="New"/>
+## Upload
 
 Now you can add a status of sending or uploading data to the server with the `upload` property, the property is a `boolean` 
 
@@ -162,7 +162,7 @@ Now you can add a status of sending or uploading data to the server with the `up
 
 <Card subtitle="Block">
 
-## Block <Badge text="New"/>
+## Block
 
 You can make the button have the full width allowed with the `block` property, the property is a `boolean` 
 
@@ -170,7 +170,7 @@ You can make the button have the full width allowed with the `block` property, t
 
 <Card subtitle="Animate">
 
-## Animate <Badge text="New"/>
+## Animate
 
 You can create an animation to the component by adding the ``#"animate" `and the content will be the one that appears when the component is animated
 
@@ -180,7 +180,7 @@ You can also change the type of animation with the `animation-type` property and
 
 <Card subtitle="Social">
 
-## Social <Badge text="New"/>
+## Social
 
 Using the colors of social networks is very common in a project either a login button or a share button so Vuesax makes it easy for you to search for each color and just by putting the name of the network you already change the whole style of the component
 
@@ -190,7 +190,7 @@ Supported colors: (`facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `s
 
 <Card subtitle="Floating">
 
-## Floating <Badge text="New"/>
+## Floating
 
 You can make a float style button easily with the `Floating` property, the property is a `boolean` 
 
@@ -200,7 +200,7 @@ these buttons usually do an important action in specific and go with a fixed pos
 
 <Card subtitle="Group">
 
-## Group <Badge text="New"/>
+## Group
 
 If you need to make a group of buttons you can use the **sub-component** `<Vsbutton-group> </Vsbutton-group>` and inside the default slot put the buttons you want to group
 
@@ -208,7 +208,7 @@ If you need to make a group of buttons you can use the **sub-component** `<Vsbut
 
 <Card subtitle="Toggle">
 
-## Toggle <Badge text="New"/>
+## Toggle
 
 This is an example of what you can achieve with simple logic and few lines of code.
 
@@ -216,7 +216,7 @@ This is an example of what you can achieve with simple logic and few lines of co
 
 <Card subtitle="ToHref">
 
-## To - href <Badge text="New"/>
+## To - href
 
 If you need to use a button such as a vue-router link or an external link you can do it with the properties (`to`: vue-router link) or (`href`: html external link)
 

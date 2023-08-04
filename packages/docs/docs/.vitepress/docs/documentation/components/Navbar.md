@@ -9,7 +9,7 @@
   <docs-warn />
   
   Quickly generate a menu with the ` ` component, as such the component is divided into 3 slots (**left**, **center**  
-  (default), **right**) with which you can determine the location of the elements, as sub components we have ` ` and` `
+  (default), **right**) with which you can determine the location of the elements, as sub components we have ` ` and ` `
 
   
   :::tip  

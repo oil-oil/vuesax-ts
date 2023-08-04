@@ -169,7 +169,7 @@ Button 是一个项目的基础组成部分，在 vuesax 中只需要一行代�
 
 <Card subtitle="Animate">
 
-## Animate <Badge text="New"/>
+## Animate
 
 You can create an animation to the component by adding the ``#"animate" `and the content will be the one that appears when the component is animated
 
@@ -179,7 +179,7 @@ You can create an animation to the component by adding the ``#"animate" `and the
 
 <Card subtitle="Social">
 
-## Social <Badge text="New"/>
+## Social
 
 在项目中使用社交工具的颜色非常常见，无论是登录按钮还是分享按钮，因此 Vuesax 可让您轻松搜索每种颜色，只需输入名称即可改变组件的整体风格。
 
@@ -189,7 +189,7 @@ You can create an animation to the component by adding the ``#"animate" `and the
 
 <Card subtitle="Floating">
 
-## Floating <Badge text="New"/>
+## Floating
 
 
 我们可以使用 `floating` 属性轻松制作浮动样式按钮，该属性是 `boolean` 类型。
@@ -200,7 +200,7 @@ You can create an animation to the component by adding the ``#"animate" `and the
 
 <Card subtitle="Group">
 
-## Group <Badge text="New"/>
+## Group
 
 如果我们需要开发一组按钮，可以使用 `<VsbuttonGroup> </VsbuttonGroup>` 并在默认插槽中放入我们要组合的按钮
 
@@ -208,7 +208,7 @@ You can create an animation to the component by adding the ``#"animate" `and the
 
 <Card subtitle="Toggle">
 
-## Toggle <Badge text="New"/>
+## Toggle
 
 这是一个例子，用于展示只需简单的逻辑和几行代码就能实现哪些功能
 
@@ -216,7 +216,7 @@ You can create an animation to the component by adding the ``#"animate" `and the
 
 <Card subtitle="ToHref">
 
-## To - href <Badge text="New"/>
+## To - href
 
 如果需要使用 vue-router 或外部链接等按钮，可以使用属性 (`to`: vue-router 路由) 或 (`href`: html 外部链接) 来实现
 

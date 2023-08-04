@@ -13,7 +13,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 <card subtitle="Solid">
 
-## Solid <Badge text="New"/>
+## Solid
 
 我们可以通过添加 solid 属性来将 Alert 设置为纯色背景，该属性是 `boolean` 类型。
 
@@ -21,7 +21,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 <card subtitle="Border">
 
-## Border <Badge text="New"/>
+## Border
 
 我们可以通过添加 `border` 属性来将 Alert 设置为带有边框的样式，该属性是 `boolean` 类型。
 
@@ -29,7 +29,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 <card subtitle="Shadow">
 
-## Shadow <Badge text="New"/>
+## Shadow
 
 我们可以通过添加 `shadow` 来将 Alert 设置为带有阴影的样式
 ，该属性是 `boolean` 类型
@@ -38,7 +38,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 <card subtitle="Gradient">
 
-## Gradient <Badge text="New"/>
+## Gradient
 
 我们可以通过添加 `gradient` 属性来将 Alert 设置为渐变色背景，该属性是 `boolean` 类型
 
@@ -46,7 +46,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 <card subtitle="Relief">
 
-## Relief <Badge text="New"/>
+## Relief
 
 我们可以通过添加 `relief` 属性来将 Alert 设置为悬浮风格，该属性是 `boolean` 类型。
 
@@ -104,7 +104,7 @@ These documents and examples use the <a href="https://boxicons.com/" target="_bl
 
 <card subtitle="HiddenContent">
 
-## Hidden Content <Badge text="New"/>
+## Hidden Content
 
 我们可以隐藏 Alert 的内容，只保留标题以动态显示内容
 
@@ -112,7 +112,7 @@ These documents and examples use the <a href="https://boxicons.com/" target="_bl
 
 <card subtitle="Pagination">
 
-## Pagination <Badge text="New"/>
+## Pagination
 
 有时我们需要向用户展示很多内容，但我们不想展示所有文本，使得 Alert 变得非常高
 
@@ -120,7 +120,7 @@ These documents and examples use the <a href="https://boxicons.com/" target="_bl
 
 <card subtitle="Footer">
 
-## footer <Badge text="New"/>
+## footer
 
 Use the `footer` slot to add a footer to the alert where for example you can add interactions with the user such as a button or a checkbox.
 
@@ -130,7 +130,7 @@ Use the `footer` slot to add a footer to the alert where for example you can add
 
 <card subtitle="ProgressBar">
 
-## Progress bar <Badge text="New"/>
+## Progress bar
 
 我们可以使用 `progress` 属性和数字（`0 - 100`）向警报添加进度条
 
@@ -138,7 +138,7 @@ Use the `footer` slot to add a footer to the alert where for example you can add
 
 <card subtitle="Closable">
 
-## Closable <Badge text="New"/>
+## Closable
 
 我们可以使用 `closeable` 属性增加关闭 Alert 的图标，该属性是一个 `boolean` 值。
 
@@ -146,7 +146,7 @@ Use the `footer` slot to add a footer to the alert where for example you can add
 
 <card subtitle="TimeClose">
 
-## Time Close <Badge text="New"/>
+## Time Close
 
 如果我们需要 Alert 在一段时间后隐藏，可以通过加入一些属性和几行代码来实现
 

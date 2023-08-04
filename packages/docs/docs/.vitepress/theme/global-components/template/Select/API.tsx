@@ -8,7 +8,7 @@ const AlertApi = defineComponent({
       [
         "color",
         "string",
-        "Main colors of vuesaxRGBHEX",
+        "Main colors of vuesax RGB HEX",
         "Change the color of the component.",
         "primary",
       ],
@@ -23,14 +23,14 @@ const AlertApi = defineComponent({
         "placeholder",
         "string",
         "String",
-        "Add a placeholder to the component..",
+        "Add a placeholder to the component.",
         "",
       ],
       [
         "label",
         "string",
         "String",
-        "Add a label to the composite select.	",
+        "Add a label to the composite select.",
         "null",
       ],
       [

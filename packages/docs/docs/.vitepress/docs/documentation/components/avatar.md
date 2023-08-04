@@ -6,7 +6,7 @@
 
 <docs-warn />
 
-Add an avatar easily and with functionality with the component `<vs-avatar>`
+An avatar component is a tool used to display user or entity images in a webpage or mobile application. They are typically used in places such as a profile page or comments section, and provide a simple and easy way to showcase a user's avatar.
 
 </card>
 
@@ -52,7 +52,7 @@ The maximum length of characters is **5**. When that limit is exceeded, changes 
 
 <card subtitle="Circle">
 
-## Circle <Badge text="New"/>
+## Circle
 
 Change the border-radius of the entire component to `50%` with the `circle` property making it fully circular
 
@@ -60,7 +60,7 @@ Change the border-radius of the entire component to `50%` with the `circle` prop
 
 <card subtitle="Square">
 
-## Square <Badge text="New"/>
+## Square
 
 Change the border-radius of the entire component to `0%` with the `square` property making it completely square
 
@@ -68,7 +68,7 @@ Change the border-radius of the entire component to `0%` with the `square` prope
 
 <card subtitle="History">
 
-## History <Badge text="New"/>
+## History
 
 It generates a border around the avatar, this is usually used to represent that the user is doing an action or in many cases has a `History`
 
@@ -88,7 +88,7 @@ You can put an icon inside an avatar when for example an image is not yet added 
 
 <card subtitle="Loading">
 
-## Loading <Badge text="New"/>
+## Loading
 
 Add a loading animation to the component, this property is a `boolean`
 
@@ -96,7 +96,7 @@ Add a loading animation to the component, this property is a `boolean`
 
 <card subtitle="Icons">
 
-## Icons <Badge text="New"/>
+## Icons
 
 Add a space next to the avatar with the slot `icons` where you can put icons for some dynamic action of that user in specific
 
@@ -104,7 +104,7 @@ Add a space next to the avatar with the slot `icons` where you can put icons for
 
 <card subtitle="Group"> 
 
-## Group <Badge text="New"/>
+## Group
 
 You can group several avatar with the parent component `vs-avatar-group`, this component has two interesting properties:
 
