@@ -5,20 +5,8 @@ const NotificationApi = defineComponent({
   name: "NotificationApi",
   setup() {
     const props = ref([
-      [
-        "title",
-        "string",
-        "string",
-        "Add a title to the notification.",
-        "",
-      ],
-      [
-        "text",
-        "string",
-        "string",
-        "Add a text to the notification.",
-        "",
-      ],
+      ["title", "string", "string", "Add a title to the notification.", ""],
+      ["text", "string", "string", "Add a text to the notification.", ""],
       [
         "position",
         "string",
@@ -146,28 +134,28 @@ const NotificationApi = defineComponent({
           return "notification#flat";
 
         case 8:
-          return "notification#stick"
+          return "notification#stick";
 
         case 9:
-          return "notification#square"
+          return "notification#square";
 
         case 10:
-          return "notification#width"
+          return "notification#width";
 
         case 11:
-          return "notification#loading"
+          return "notification#loading";
 
         case 12:
-          return "notification#progress"
+          return "notification#progress";
 
         case 13:
-          return "notification#not-padding"
+          return "notification#not-padding";
 
         case 14:
-          return "notification#icons"
+          return "notification#icons";
 
         case 15:
-          return "notification#example"
+          return "notification#example";
 
         default:
           return "";

@@ -11,7 +11,12 @@
           "default"
         }}</span>
       </div>
-      <div v-for="(type, typeIndex) in types" :key="typeIndex" class="box-loading" @click="handleClick(type)">
+      <div
+        v-for="(type, typeIndex) in types"
+        :key="typeIndex"
+        class="box-loading"
+        @click="handleClick(type)"
+      >
         <VsLoading :type="type" style="position: relative" :color="color" />
         <span class="title" :style="{ color: `${color}` }">{{ type }}</span>
       </div>
@@ -125,4 +130,5 @@ const handleClick = (type?: VsLoadingProps["type"]) => {
     font-size: 0.9rem;
     color: rgb(var(--vs-primary));
   }
-}</style>
+}
+</style>
