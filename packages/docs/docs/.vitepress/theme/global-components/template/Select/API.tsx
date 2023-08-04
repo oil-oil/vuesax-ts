@@ -78,7 +78,13 @@ const AlertApi = defineComponent({
     ]);
     const slots = ref([
       ["message-{color}", "Slot", "", "Add a message below the select.", ""],
-      ["title", "Slot", "", "The vs-option-group component adds a title to the option group.", ""],
+      [
+        "title",
+        "Slot",
+        "",
+        "The vs-option-group component adds a title to the option group.",
+        "",
+      ],
     ]);
 
     const usageUrl = (lineIndex: number) => {

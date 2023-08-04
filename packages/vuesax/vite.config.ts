@@ -13,7 +13,7 @@ export default defineConfig({
     },
   },
   build: {
-    minify: false,
+    cssMinify: "lightningcss",
     lib: {
       entry: "src/index.ts",
     },

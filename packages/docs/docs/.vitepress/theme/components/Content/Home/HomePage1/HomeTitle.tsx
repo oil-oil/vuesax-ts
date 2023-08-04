@@ -69,7 +69,7 @@ const HomeContent = defineComponent({
           <VsButton
             class="icon-button"
             icon
-            dark
+            color="dark"
             href="https://github.com/lusaxweb/vuesax"
             blank
           >

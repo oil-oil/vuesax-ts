@@ -25,22 +25,19 @@ const Card = defineComponent({
       Object.entries(
         (import.meta as any).glob("./template/**/*.vue", { eager: true })
       );
-    
+
     return () => (
       <div class="card">
         <div class="text">{slots.default?.()}</div>
         <div class={["example", { mobile: theme.value.mobileActive }]}>
           <div class="center">
-            
             {exampleComponentsArr.map((arr) => {
-             
-             console.log(arr[0],page.value.title,props.subtitle)
               if (
                 arr[0] ===
                 `./template/${page.value.title}/${props.subtitle}.vue`
               ) {
                 const Example = arr[1].default;
-               
+
                 return <Example />;
               }
               return "";
