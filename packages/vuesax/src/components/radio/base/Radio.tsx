@@ -11,6 +11,7 @@ const Radio = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
+      default:"primary",
     },
     modelValue: {
       type: String,
