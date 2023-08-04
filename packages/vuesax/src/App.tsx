@@ -1,9 +1,15 @@
 import { defineComponent } from "vue";
 
-import { VsButton } from "./components";
+const MyComponent = defineComponent({
+  props: {
+    isVisible: Boolean,
+  },
 
-export default defineComponent({
-  setup() {
-    return () => <VsButton color="success">success</VsButton>;
+  setup(props) {
+    return () => (
+      <>
+        <button hidden={!props.isVisible}></button>
+      </>
+    );
   },
 });

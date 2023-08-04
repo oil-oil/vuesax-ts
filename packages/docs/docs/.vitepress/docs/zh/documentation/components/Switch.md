@@ -476,7 +476,7 @@ Add icons to the component in the default slot or the `on` or `off` status slots
 
 <card>
 
-## Array Value <Badge text="New"/>
+## Array Value
 
 You can use the checkbox to add or remove a value from an array, that value is the `val` property
 
@@ -535,9 +535,9 @@ You can use the checkbox to add or remove a value from an array, that value is t
 
 <card>
 
-## Loading <Badge text="New"/>
+## Loading
 
-Add a loading animation to the component with the `loading` property, the property is a` boolean` so you can add it without any value.
+Add a loading animation to the component with the `loading` property, the property is a` boolean` 
 
 <div slot="example">
   <Switch-loading />
@@ -577,9 +577,9 @@ Add a loading animation to the component with the `loading` property, the proper
 
 <card>
 
-## Indeterminate <Badge text="New"/>
+## Indeterminate
 
-Add an undetermined state to the compound with the `indeterminate` property, the property is a` boolean` so you can add it without any value.
+Add an undetermined state to the compound with the `indeterminate` property, the property is a` boolean` 
 
 <div slot="example">
   <Switch-indeterminate />
@@ -619,9 +619,9 @@ Add an undetermined state to the compound with the `indeterminate` property, the
 
 <card>
 
-## Square <Badge text="New"/>
+## Square
 
-Change the circular style to square with the `square` property, the property is a` boolean` so you can add it without any value.
+Change the circular style to square with the `square` property, the property is a` boolean` 
 
 <div slot="example">
   <Switch-square />

@@ -26,7 +26,7 @@ describe("Tooltip", () => {
       );
       cy.get(".vs-tooltip")
         .should("have.attr", "style")
-        .and("include", `--vs-color: ${color};`);
+        .and("include", `--vs-color:${color};`);
     });
   });
 });

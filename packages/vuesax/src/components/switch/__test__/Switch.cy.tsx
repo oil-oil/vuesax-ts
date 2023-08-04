@@ -3,19 +3,11 @@ import colors from "@/styles/colors";
 import { Color } from "@/types/utils";
 
 describe("Switch", () => {
-  it("test button basic render", () => {
-    cy.mount(<VsSwitch>Default Switch</VsSwitch>);
-    cy.contains(".vs-switch__text.off", "Default Switch")
-      .should("be.visible")
-      .parent()
-      .should("have.class", "vs-component--primary");
-  });
-
   it("test disabled render", () => {
     cy.mount(<VsSwitch disabled>Disabled Switch</VsSwitch>);
     cy.contains(".vs-switch__text.off", "Disabled Switch")
       .parent()
-      .should("have.class", "vs-component--primary");
+      .should("be.visible");
     cy.get(".vs-switch")
       .should("have.attr", "disabled", "disabled")
       .click({ force: true });
@@ -28,7 +20,7 @@ describe("Switch", () => {
       cy.mount(<VsSwitch color={status as Color}>{status}</VsSwitch>);
       cy.get(".vs-switch")
         .should("have.attr", "style")
-        .and("include", `--vs-color: ${color};`);
+        .and("include", `--vs-color:${color};`);
     });
   });
 

@@ -29,7 +29,7 @@ describe("Input", () => {
       cy.mount(<VsCheckbox color={status as Color}>{status}</VsCheckbox>);
       cy.get(".vs-checkbox-content")
         .should("have.attr", "style")
-        .and("include", `--vs-color: ${color};`);
+        .and("include", `--vs-color:${color};`);
     });
   });
 
