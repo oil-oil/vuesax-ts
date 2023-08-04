@@ -1,49 +1,49 @@
-import { useData, useRouter } from "vitepress";
-import { defineComponent, inject, Ref } from "vue";
-import { VsSwitch } from "vuesax-ts";
+import { useData, useRouter } from 'vitepress'
+import { defineComponent, inject, Ref } from 'vue'
+import { VsSwitch } from 'vuesax-ts'
 
 const ConfigBtn = defineComponent({
-  name: "ConfigBtn",
+  name: 'ConfigBtn',
   setup() {
-    const { site, isDark } = useData();
-    const router = useRouter();
+    const { site, isDark } = useData()
+    const router = useRouter()
 
     const getLocalesRoute = (langLink: string) => {
-      if (site.value.localeIndex === "root") {
-        return langLink + router.route.path;
+      if (site.value.localeIndex === 'root') {
+        return langLink + router.route.path
       }
-      if (langLink === "") {
-        return router.route.path.split(site.value.localeIndex!)[1];
+      if (langLink === '') {
+        return router.route.path.split(site.value.localeIndex!)[1]
       }
-      return langLink + router.route.path.split(langLink)[1];
-    };
+      return langLink + router.route.path.split(langLink)[1]
+    }
 
     const sidebarController = inject<{
-      toggleSidebar: () => void;
-      isSidebarOpen: Ref<boolean>;
-    }>("sidebarController");
+      toggleSidebar: () => void
+      isSidebarOpen: Ref<boolean>
+    }>('sidebarController')
 
     const initTheme = () => {
       if (
-        window.localStorage.getItem("vitepress-theme-appearance") === "dark"
+        window.localStorage.getItem('vitepress-theme-appearance') === 'dark'
       ) {
-        isDark.value = true;
+        isDark.value = true
       } else {
-        isDark.value = false;
+        isDark.value = false
       }
-    };
-    initTheme();
+    }
+    initTheme()
 
     const changeTheme = (e: MouseEvent) => {
       if (isDark.value) {
-        window.localStorage.setItem("vitepress-theme-appearance", "auto");
-        document.documentElement.classList.remove("dark");
+        window.localStorage.setItem('vitepress-theme-appearance', 'auto')
+        document.documentElement.classList.remove('dark')
       } else {
-        window.localStorage.setItem("vitepress-theme-appearance", "dark");
-        document.documentElement.classList.add("dark");
+        window.localStorage.setItem('vitepress-theme-appearance', 'dark')
+        document.documentElement.classList.add('dark')
       }
-      e.stopPropagation();
-    };
+      e.stopPropagation()
+    }
     return () => (
       <>
         <button class="config-btn">
@@ -144,7 +144,7 @@ const ConfigBtn = defineComponent({
           <div
             class="lang"
             style={{
-              top: `${(Object.entries(site.value.locales).length - 2) * -40}px`,
+              top: `${(Object.entries(site.value.locales).length - 2) * -40}px`
             }}
           >
             {Object.entries(site.value.locales).map(
@@ -153,14 +153,14 @@ const ConfigBtn = defineComponent({
                   <div key={item[0]} class="lang-name">
                     <a href={getLocalesRoute(item[1].link!)}>{item[1].label}</a>
                   </div>
-                ),
+                )
             )}
           </div>
         </button>
 
         <button
           class="switch-theme"
-          title={`Theme ${isDark.value ? "Light" : "Deep Dark"}`}
+          title={`Theme ${isDark.value ? 'Light' : 'Deep Dark'}`}
         >
           <VsSwitch
             v-model={isDark.value}
@@ -168,12 +168,12 @@ const ConfigBtn = defineComponent({
             onClick={changeTheme}
             v-slots={{
               off: () => <i class="bx bxs-moon"></i>,
-              on: () => <i class="bx bxs-sun"></i>,
+              on: () => <i class="bx bxs-sun"></i>
             }}
           ></VsSwitch>
         </button>
       </>
-    );
-  },
-});
-export default ConfigBtn;
+    )
+  }
+})
+export default ConfigBtn
