@@ -3,6 +3,16 @@ import { useData } from "vitepress";
 import { defineComponent, Transition, ref, onMounted } from "vue";
 import "./Codex.scss";
 
+const highlighter = await getHighlighter({
+          theme: "material-theme-palenight",
+          langs: ["vue"],
+          paths: {
+            themes: "/shiki",
+            languages: "/shiki/language",
+            wasm: "/shiki",
+          },
+        });
+
 const Codex = defineComponent({
   name: "Codex",
   props: {
@@ -29,6 +39,16 @@ const Codex = defineComponent({
     const template = ref<string>();
     const title = ref<string>();
     let file: any;
+
+      const renderTemplate = async () => { 
+        template.value = highlighter.codeToHtml(
+          file[`./template/${page.value.title}/${props.subtitle}.vue`],
+          {
+            lang: "vue",
+          }
+        );
+      };
+
     onMounted(() => {
       title.value = document
         .getElementsByTagName("h1")
@@ -42,24 +62,6 @@ const Codex = defineComponent({
           eager: true,
         }
       );
-
-      const renderTemplate = async () => {
-        const highlighter = await getHighlighter({
-          theme: "material-theme-palenight",
-          langs: ["vue"],
-          paths: {
-            themes: "/shiki",
-            languages: "/shiki/language",
-            wasm: "/shiki",
-          },
-        });
-        template.value = highlighter.codeToHtml(
-          file[`./template/${page.value.title}/${props.subtitle}.vue`],
-          {
-            lang: "vue",
-          }
-        );
-      };
 
       renderTemplate();
     });

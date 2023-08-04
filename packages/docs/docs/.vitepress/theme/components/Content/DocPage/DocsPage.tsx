@@ -9,7 +9,7 @@ import "./style.scss";
 const DocsPage = defineComponent({
   name: "DocsPage",
   setup() {
-    const { page, isDark } = useData();
+    const { page, isDark,frontmatter } = useData();
     const pageHeaderContentTitleRef = ref();
     const pageHeaderTrigger = ref(false);
     const pageHeaderDelta = ref();
@@ -170,15 +170,15 @@ const DocsPage = defineComponent({
         <footer class="page-footer">
           <div class="update-time">
             <span class="title">Last Update:</span>
-            <span class="time">1/13/2023</span>
+            <span class="time">{frontmatter.value["last Update"]}</span>
           </div>
           <div class="next-control">
-            <div class="prev">
-              <i class="bx bx-chevron-left"></i>Button
-            </div>
-            <div class="next">
-              Loading<i class="bx bx-chevron-right"></i>
-            </div>
+            <a href={`${frontmatter.value["prev"]}`} class="prev">
+              <i class="bx bx-chevron-left"></i>{frontmatter.value["prev"]}
+            </a>
+            <a href={`${frontmatter.value["next"]}`} class="next">
+              {frontmatter.value["next"]}<i class="bx bx-chevron-right"></i>
+            </a>
           </div>
           <div class="subscribe">
             <h4 class="title">
@@ -187,7 +187,7 @@ const DocsPage = defineComponent({
             </h4>
             <VsInput
               class="vs-input"
-              state={isDark.value ? "dark" : "primary"}
+              status={isDark.value ? "dark" : "primary"}
               type="email"
               labelPlaceholder="Email"
             ></VsInput>

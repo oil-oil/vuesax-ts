@@ -24,6 +24,7 @@ const useLoading = (props?: LoadingHookProps) => {
   );
 
   const mountLoading = () => {
+    LoadingDom = document.createElement("div");
     app.value.mount(LoadingDom);
     document.body.appendChild(LoadingDom);
   };
@@ -65,3 +66,4 @@ const useLoading = (props?: LoadingHookProps) => {
 };
 
 export default useLoading;
+export type { LoadingHookProps };

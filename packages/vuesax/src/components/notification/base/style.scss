@@ -1,7 +1,11 @@
-@import '@/styles/mixins';
+@import "@/styles/mixins";
 
 .notification-enter-active {
-  transition: all .3s ease .05s, transform .3s ease, margin .25s ease, clip-path 8s ease .8s;
+  transition:
+    all 0.3s ease 0.05s,
+    transform 0.3s ease,
+    margin 0.25s ease,
+    clip-path 8s ease 0.8s;
 }
 
 .notification-leave-to {
@@ -74,11 +78,15 @@
 
     .vs-notification {
       clip-path: circle(120% at 50% 0%);
-      transition: all .25s ease, transform .3s ease, max-height .25s ease, clip-path .5s ease .1s;
+      transition:
+        all 0.25s ease,
+        transform 0.3s ease,
+        max-height 0.25s ease,
+        clip-path 0.5s ease 0.1s;
 
       &.vs-notification--border {
         border: 3px solid transparent;
-        border-top: 3px solid -color('border');
+        border-top: 3px solid -color("border");
         --vs-text: var(--vs-dark);
         background: rgb(var(--vs-background));
       }
@@ -112,11 +120,15 @@
 
     .vs-notification {
       clip-path: circle(120% at 50% 100%);
-      transition: all .25s ease, transform .3s ease, max-height .25s ease, clip-path .5s ease .1s;
+      transition:
+        all 0.25s ease,
+        transform 0.3s ease,
+        max-height 0.25s ease,
+        clip-path 0.5s ease 0.1s;
 
       &.vs-notification--border {
         border: 3px solid transparent;
-        border-bottom: 3px solid -color('border');
+        border-bottom: 3px solid -color("border");
         --vs-text: var(--vs-dark);
         background: rgb(var(--vs-background));
       }
@@ -153,7 +165,7 @@
 
       &.vs-notification--border {
         border: 3px solid transparent;
-        border-left: 3px solid -color('border');
+        border-left: 3px solid -color("border");
         --vs-text: var(--vs-dark);
         background: rgb(var(--vs-background));
       }
@@ -184,7 +196,7 @@
 
       &.vs-notification--border {
         border: 3px solid transparent;
-        border-left: 3px solid -color('border');
+        border-left: 3px solid -color("border");
         --vs-text: var(--vs-dark);
         background: rgb(var(--vs-background));
       }
@@ -205,7 +217,7 @@
 .vs-notification {
   --vs-color: var(--vs-background);
   --vs-border: var(--vs-color);
-  --vs-opacity: .6;
+  --vs-opacity: 0.6;
   max-height: 112px;
   padding: 20px;
   position: relative;
@@ -213,13 +225,17 @@
   width: 100%;
   height: auto;
   border-radius: 20px;
-  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, -var('shadow-opacity'));
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, -var("shadow-opacity"));
   overflow: hidden;
   clip-path: circle(145% at 100% 50%);
-  background: -color('color');
-  color: -color('text');
+  background: -color("color");
+  color: -color("text");
   margin: 3px 10px;
-  transition: all .25s ease, transform .3s ease .1s, max-height .25s ease, clip-path .5s ease .1s;
+  transition:
+    all 0.25s ease,
+    transform 0.3s ease 0.1s,
+    max-height 0.25s ease,
+    clip-path 0.5s ease 0.1s;
 
   h1,
   h2,
@@ -232,7 +248,7 @@
   }
 
   &:hover:not(&--flat) {
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var('shadow-opacity'));
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var("shadow-opacity"));
     transform: translate(0, 3px);
   }
 
@@ -276,18 +292,18 @@
   }
 
   &--flat {
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var('shadow-opacity'));
-    background: -color('background');
-    color: -color('color') !important;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var("shadow-opacity"));
+    background: -color("background");
+    color: -color("color") !important;
 
     &:hover {
       &::after {
-        background: -color('color', .15);
+        background: -color("color", 0.15);
       }
     }
 
     .vs-notification__progress {
-      background: -color('color');
+      background: -color("color");
     }
 
     .vs-notification__close {
@@ -295,19 +311,19 @@
     }
 
     .vs-notification__content {
-      color: -color('color') !important;
+      color: -color("color") !important;
     }
 
     &.vs-notification--border {
       border: 0px solid transparent !important;
-      border-right: 3px solid -color('border') !important;
+      border-right: 3px solid -color("border") !important;
       --vs-text: var(--vs-dark);
       background: rgb(var(--vs-background));
     }
 
     &:after {
-      content: '';
-      background: -color('color', .1);
+      content: "";
+      background: -color("color", 0.1);
       width: 100%;
       height: 100%;
       border-radius: inherit;
@@ -315,7 +331,7 @@
       top: 0px;
       left: 0px;
       z-index: -1;
-      transition: all .25s ease;
+      transition: all 0.25s ease;
     }
   }
 
@@ -353,20 +369,19 @@
 
   &.vs-notification--border {
     border: 3px solid transparent;
-    border-right: 3px solid -color('border');
+    border-right: 3px solid -color("border");
     --vs-text: var(--vs-dark);
     background: rgb(var(--vs-background));
-
   }
 
   &__progress {
     width: 0%;
     height: 3px;
-    background: -color('text');
+    background: -color("text");
     position: absolute;
     bottom: 0px;
     left: 0px;
-    transition: all .25s ease;
+    transition: all 0.25s ease;
   }
 
   &__loading {
@@ -380,14 +395,14 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      border: 2px solid -color('text');
+      border: 2px solid -color("text");
       border-radius: inherit;
       border-top: 2px solid transparent;
       border-left: 2px solid transparent;
       border-right: 2px solid transparent;
-      animation: loadingNoti .8s ease infinite;
+      animation: loadingNoti 0.8s ease infinite;
       top: 0px;
-      content: '';
+      content: "";
     }
 
     &:before {
@@ -396,14 +411,14 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      border: 2px dashed -color('text');
+      border: 2px dashed -color("text");
       border-radius: inherit;
       border-top: 2px solid transparent;
       border-left: 2px solid transparent;
       border-right: 2px solid transparent;
-      animation: loadingNoti .8s linear infinite;
-      opacity: .2;
-      content: '';
+      animation: loadingNoti 0.8s linear infinite;
+      opacity: 0.2;
+      content: "";
     }
   }
 
@@ -414,7 +429,7 @@
     background: transparent;
     top: 2px;
     right: 2px;
-    transform: scale(.75);
+    transform: scale(0.75);
     padding: 0px;
   }
 
@@ -440,7 +455,7 @@
     position: relative;
     width: auto;
     height: auto;
-    transition: all .25s ease .2s;
+    transition: all 0.25s ease 0.2s;
     opacity: 1;
 
     &__text {
@@ -449,7 +464,7 @@
       p {
         margin: 0px;
         padding: 0px;
-        font-size: .75rem;
+        font-size: 0.75rem;
         line-height: 1rem;
       }
     }
@@ -464,7 +479,7 @@
         width: 100%;
         margin: 0px;
         padding: 0px;
-        font-size: .9rem;
+        font-size: 0.9rem;
       }
     }
   }

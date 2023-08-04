@@ -11,12 +11,7 @@
           "default"
         }}</span>
       </div>
-      <div
-        v-for="(type, typeIndex) in types"
-        :key="typeIndex"
-        class="box-loading"
-        @click="handleClick(type)"
-      >
+      <div v-for="(type, typeIndex) in types" :key="typeIndex" class="box-loading" @click="handleClick(type)">
         <VsLoading :type="type" style="position: relative" :color="color" />
         <span class="title" :style="{ color: `${color}` }">{{ type }}</span>
       </div>
@@ -27,9 +22,9 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import { useLoading } from "vuesax-ts";
-import type { VsLoadingProps } from "vuesax-ts";
+import type { VsLoadingProps, Color } from "vuesax-ts";
 
-const color = ref("#D5397B");
+const color = ref<Color>("#D5397B");
 const props = reactive<VsLoadingProps>({});
 
 const { open, close } = useLoading(props);
@@ -65,6 +60,7 @@ const handleClick = (type?: VsLoadingProps["type"]) => {
   justify-content: space-around;
   padding: 20px;
   flex-wrap: wrap;
+
   .select-color {
     border-radius: 10px;
     border: 4px solid var(--vs-theme-layout);
@@ -73,10 +69,12 @@ const handleClick = (type?: VsLoadingProps["type"]) => {
     align-items: center;
     justify-content: center;
     transition: all 0.25s ease;
+
     &:hover {
       transform: translate(0, -4px);
       box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.1);
     }
+
     input {
       opacity: 0;
       width: 30px;
@@ -84,17 +82,20 @@ const handleClick = (type?: VsLoadingProps["type"]) => {
       border: 0px;
       cursor: pointer;
     }
+
     i {
       position: absolute;
       color: var(--vs-theme-layout);
       pointer-events: none;
     }
   }
+
   .content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
+
   .box-loading {
     position: relative;
     display: flex;
@@ -106,20 +107,22 @@ const handleClick = (type?: VsLoadingProps["type"]) => {
     cursor: pointer;
     transition: all 0.25s ease;
     padding: 20px;
+
     &:hover {
       box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.17);
       transition: all 0.25s ease;
       transform: translateY(-10px);
     }
+
     div {
       width: 80px;
       height: 80px;
     }
   }
+
   .title {
     font-weight: bold;
     font-size: 0.9rem;
     color: rgb(var(--vs-primary));
   }
-}
-</style>
+}</style>

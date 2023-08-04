@@ -166,6 +166,7 @@ const ConfigBtn = defineComponent({
         >
           <VsSwitch
             v-model={isDark.value}
+            color="primary"
             onClick={changeTheme}
             v-slots={{
               off: () => <i class="bx bxs-moon"></i>,

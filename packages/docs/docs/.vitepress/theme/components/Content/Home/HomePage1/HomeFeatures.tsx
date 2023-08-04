@@ -109,8 +109,7 @@ const HomeFeatures = defineComponent({
         </div>
         <div class="select-card">
           <VsSelect
-            Placeholder={theme.value.home.select}
-            Multiple
+            placeholder={theme.value.home.select}
             v-model={selectValue.value}
           >
             {["😉", "😺", "😽", "😎", "😂"].map((emoji, index) => (
@@ -131,7 +130,7 @@ const HomeFeatures = defineComponent({
         </div>
         <div class="home-card">
           <VsCard
-            type={1}
+            type={"1"}
             v-slots={{
               title: () => <h3>{theme.value.home.card.title}</h3>,
               img: () => <img src="/foto2.png"></img>,
@@ -177,7 +176,6 @@ const HomeFeatures = defineComponent({
             isLoading
           </VsSwitch>
           <VsSwitch
-            circle
             warn
             loading={switchPart.switchActive}
             v-slots={{
