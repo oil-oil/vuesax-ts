@@ -27,7 +27,6 @@ const SideBar = defineComponent({
     });
     const sideBarContent = () => (
       <VsSidebar
-        // background={isDark.value ? "#161618" : "#fff"}
         open={sidebarController?.isSidebarOpen.value}
         textWhite={isDark.value}
         v-model={sideBarValue.value}

@@ -16,7 +16,7 @@ type LoadingHookProps = Omit<LoadingProps, "isVisible">;
 const useLoading = (props?: LoadingHookProps) => {
   const isVisible = ref(false);
 
-  const LoadingDom = document.createElement("div");
+  let LoadingDom:HTMLDivElement;
   const app = computed(() =>
     createApp({
       render: () => h(Loading, { ...props, isVisible: isVisible.value }),
@@ -24,6 +24,7 @@ const useLoading = (props?: LoadingHookProps) => {
   );
 
   const mountLoading = () => {
+    LoadingDom = document.createElement("div");
     app.value.mount(LoadingDom);
     document.body.appendChild(LoadingDom);
   };
@@ -64,3 +65,4 @@ const useLoading = (props?: LoadingHookProps) => {
 };
 
 export default useLoading;
+export type { LoadingHookProps };

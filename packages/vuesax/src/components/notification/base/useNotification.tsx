@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid/non-secure";
-import { createApp, ref, TransitionGroup, VNode } from "vue";
+import { createApp, onMounted, ref, TransitionGroup, VNode } from "vue";
 
 import Notification, { NotificationProps } from "./Notification";
 
@@ -18,7 +18,12 @@ type NotificationHookProps = Omit<NotificationProps, "isVisible"> & {
 };
 
 const useNotification = () => {
-  const root = document.createElement("div");
+  let root:HTMLDivElement;
+  onMounted(()=>{
+    root = document.createElement("div");
+    document.body.appendChild(root);
+    app.mount(root);
+  })
 
   const notificationPosition = {
     "top-left": ref<[string, JSX.Element][]>([]),
@@ -47,8 +52,6 @@ const useNotification = () => {
       </>
     ),
   });
-  document.body.appendChild(root);
-  app.mount(root);
 
   const close = (key?: string, position?: Position) => {
     if (key && position) {

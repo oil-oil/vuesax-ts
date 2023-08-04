@@ -21,6 +21,7 @@ export { default as VsToolTip } from "./tooltip/base";
 export { default as VsLoading } from "./loading/base";
 export type { VsLoadingProps } from "./loading/base";
 export { default as useLoading } from "./loading/base/useLoading";
+export type { LoadingHookProps } from "./loading/base/useLoading"
 
 export { default as VsInput } from "./input/base";
 export { default as VsCheckbox } from "./checkbox/base";
@@ -43,3 +44,5 @@ export { default as VsNotification } from "./notification/base";
 export type { VsNotificationProps } from "./notification/base";
 export { default as useNotification } from "./notification/base/useNotification";
 export type { NotificationHookProps,Position } from "./notification/base/useNotification";
+
+export type { Color } from "../types/utils"
