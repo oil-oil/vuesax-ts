@@ -1,14 +1,14 @@
-import { defineComponent } from "vue";
-import "./style.scss";
+import { defineComponent } from 'vue'
+import './style.scss'
 
 const ButtonGroup = defineComponent({
-  name: "VsButtonGroup",
-  slots: ["default"],
+  name: 'VsButtonGroup',
+  slots: ['default'],
   setup(_, { slots }) {
-    return () => <div class="vs-button-group">{slots.default?.()}</div>;
-  },
-});
+    return () => <div class="vs-button-group">{slots.default?.()}</div>
+  }
+})
 
-export default ButtonGroup;
+export default ButtonGroup
 
-export type ButtonGroupProps = InstanceType<typeof ButtonGroup>["$props"];
+export type ButtonGroupProps = InstanceType<typeof ButtonGroup>['$props']

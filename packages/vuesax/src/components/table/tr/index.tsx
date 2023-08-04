@@ -1,10 +1,10 @@
-import { App, Plugin } from "vue";
+import { App, Plugin } from 'vue'
 
-import Tr from "./TableTr.tsx";
+import Tr from './TableTr.tsx'
 
 Tr.install = (app: App) => {
-  app.component(Tr.name, Tr);
-  return app;
-};
+  app.component(Tr.name, Tr)
+  return app
+}
 
-export default Tr as typeof Tr & Plugin;
+export default Tr as typeof Tr & Plugin

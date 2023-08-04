@@ -1,10 +1,10 @@
-import VsButton from "../../button/base";
-import VsCard from "../base/Card";
-import VsCardGroup from "../group/CardGroup";
+import VsButton from '../../button/base'
+import VsCard from '../base/Card'
+import VsCardGroup from '../group/CardGroup'
 
-describe("Card", () => {
-  const i = ["1", "2", "3", "4", "5", "6"];
-  it("test CardGroup render", () => {
+describe('Card', () => {
+  const i = ['1', '2', '3', '4', '5', '6']
+  it('test CardGroup render', () => {
     cy.mount(
       <VsCardGroup>
         {i.map((item) => (
@@ -26,16 +26,16 @@ describe("Card", () => {
                     <span class="span">54</span>
                   </VsButton>
                 </>
-              ),
+              )
             }}
           ></VsCard>
         ))}
-      </VsCardGroup>,
-    );
-    cy.get(".vs-card__group-cards").should("be.visible");
-    cy.get(".vs-card__group .vs-card__group-next").should("be.visible").click();
-    cy.get(".vs-card__group-cards")
-      .should("have.prop", "scrollLeft")
-      .and("eq", 384);
-  });
-});
+      </VsCardGroup>
+    )
+    cy.get('.vs-card__group-cards').should('be.visible')
+    cy.get('.vs-card__group .vs-card__group-next').should('be.visible').click()
+    cy.get('.vs-card__group-cards')
+      .should('have.prop', 'scrollLeft')
+      .and('eq', 384)
+  })
+})

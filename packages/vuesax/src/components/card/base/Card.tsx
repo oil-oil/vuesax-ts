@@ -1,22 +1,22 @@
-import { defineComponent, HTMLAttributes, PropType } from "vue";
+import { defineComponent, HTMLAttributes, PropType } from 'vue'
 
-import "./style.scss";
-import { Color, CompWithAttr } from "@/types/utils";
+import './style.scss'
+import { Color, CompWithAttr } from '@/types/utils'
 
 const Card = defineComponent({
-  name: "VsCard",
+  name: 'VsCard',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     type: {
       type: [String, Boolean],
-      default: "1",
-    },
+      default: '1'
+    }
   },
-  slots: ["title", "text", "buttons", "interactions"],
+  slots: ['title', 'text', 'buttons', 'interactions'],
   setup(props, { slots, attrs }) {
-    const cardAttrs = attrs as HTMLAttributes;
+    const cardAttrs = attrs as HTMLAttributes
 
     const card = (
       <div class="vs-card" {...cardAttrs}>
@@ -38,13 +38,13 @@ const Card = defineComponent({
           <div class="vs-card__buttons">{slots.buttons?.()}</div>
         )}
       </div>
-    );
+    )
 
     return () => (
-      <div class={["vs-card-content", `type-${props.type}`]}>{card}</div>
-    );
-  },
-});
-export default Card as CompWithAttr<typeof Card, HTMLAttributes>;
+      <div class={['vs-card-content', `type-${props.type}`]}>{card}</div>
+    )
+  }
+})
+export default Card as CompWithAttr<typeof Card, HTMLAttributes>
 
-export type CardProps = InstanceType<typeof Card>["$props"];
+export type CardProps = InstanceType<typeof Card>['$props']

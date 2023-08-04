@@ -3,67 +3,67 @@ import {
   defineComponent,
   inject,
   PropType,
-  Ref,
-} from "vue";
-import { useRouter } from "vue-router";
+  Ref
+} from 'vue'
+import { useRouter } from 'vue-router'
 
-import VsIconsArrow from "@/icons/Arrow";
-import { Color, CompWithAttr } from "@/types/utils";
+import VsIconsArrow from '@/icons/Arrow'
+import { Color, CompWithAttr } from '@/types/utils'
 
-import "./style.scss";
+import './style.scss'
 
 const SidebarItem = defineComponent({
-  name: "SideBarItem",
+  name: 'SideBarItem',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     to: {
-      type: String,
+      type: String
     },
     href: {
-      type: String,
+      type: String
     },
     target: {
       type: String,
-      default: "_blank",
+      default: '_blank'
     },
     value: {
-      type: String,
+      type: String
     },
     id: {
-      type: String,
+      type: String
     },
     arrow: {
-      type: Boolean,
-    },
+      type: Boolean
+    }
   },
-  slots: ["default", "icon", "arrow"],
-  emits: ["click"],
+  slots: ['default', 'icon', 'arrow'],
+  emits: ['click'],
   setup(props, { slots, attrs, emit }) {
-    const router = useRouter();
+    const router = useRouter()
     const { active, updateActive } = inject<{
-      active: Ref<string> | null;
-      updateActive: (id: string) => void;
-    }>("activeValue", { active: null, updateActive: () => {} });
+      active: Ref<string> | null
+      updateActive: (id: string) => void
+    }>('activeValue', { active: null, updateActive: () => {} })
 
     const onClick = () => {
       if (props.id) {
-        updateActive?.(props.id);
+        updateActive?.(props.id)
       }
       if (props.to) {
-        router.push(props.to);
+        router.push(props.to)
       } else if (props.href) {
-        window.open(props.href, props.target);
+        window.open(props.href, props.target)
       }
-      emit("click");
-    };
+      emit('click')
+    }
 
     return () => (
       <button
         class={[
-          "vs-sidebar__item",
-          { active: active?.value === props.id, hasIcon: !!slots.icon },
+          'vs-sidebar__item',
+          { active: active?.value === props.id, hasIcon: !!slots.icon }
         ]}
         onClick={onClick}
         {...attrs}
@@ -77,13 +77,13 @@ const SidebarItem = defineComponent({
           </div>
         )}
       </button>
-    );
-  },
-});
+    )
+  }
+})
 
 export default SidebarItem as CompWithAttr<
   typeof SidebarItem,
   ButtonHTMLAttributes
->;
+>
 
-export type SidebarItemProps = InstanceType<typeof SidebarItem>["$props"];
+export type SidebarItemProps = InstanceType<typeof SidebarItem>['$props']

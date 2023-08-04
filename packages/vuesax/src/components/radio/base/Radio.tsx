@@ -1,47 +1,47 @@
-import { nanoid } from "nanoid";
-import { InputHTMLAttributes, PropType, computed, defineComponent } from "vue";
+import { nanoid } from 'nanoid'
+import { InputHTMLAttributes, PropType, computed, defineComponent } from 'vue'
 
-import { Color, CompWithAttr } from "@/types/utils";
-import { getColor } from "@/utils";
+import { Color, CompWithAttr } from '@/types/utils'
+import { getColor } from '@/utils'
 
-import "./style.scss";
+import './style.scss'
 
 const Radio = defineComponent({
-  name: "VsRadio",
+  name: 'VsRadio',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     modelValue: {
-      type: String,
+      type: String
     },
     value: {
-      type: String,
+      type: String
     },
     name: {
       type: String,
-      default: null,
+      default: null
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     labelBefore: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  slots: ["default", "icon"],
-  emits: ["update:modelValue"],
+  slots: ['default', 'icon'],
+  emits: ['update:modelValue'],
   setup(props, { attrs, slots, emit }) {
-    const inputAttrs = attrs as InputHTMLAttributes;
-    const uniqueId = inputAttrs?.id || nanoid();
+    const inputAttrs = attrs as InputHTMLAttributes
+    const uniqueId = inputAttrs?.id || nanoid()
 
-    const isChecked = computed(() => props.modelValue === props.value);
+    const isChecked = computed(() => props.modelValue === props.value)
 
     const radioInput = () => (
       <input
@@ -51,50 +51,50 @@ const Radio = defineComponent({
         name={props.name || props.modelValue}
         checked={isChecked.value}
         onInput={() => {
-          emit("update:modelValue", props.value);
+          emit('update:modelValue', props.value)
         }}
       />
-    );
+    )
 
     const radioEffect = () => (
       <span class="vs-radio__effect">
         <span class="vs-radio__effect__icon">{slots.icon?.()}</span>
         <span class="vs-radio__effect__loading"></span>
       </span>
-    );
+    )
 
     const label = () => (
       <label class="vs-radio__label" for={uniqueId}>
         {slots.default?.()}
       </label>
-    );
+    )
 
     const radio = () => (
       <div class="vs-radio">
         {radioInput()}
         {radioEffect()}
       </div>
-    );
+    )
 
     return () => (
       <div
         class={[
-          "vs-radio-content",
+          'vs-radio-content',
           {
             disabled: props.disabled,
             loading: props.loading,
-            active: isChecked.value,
-          },
+            active: isChecked.value
+          }
         ]}
-        style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
+        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
       >
         {props.labelBefore && label()}
         {radio()}
         {!props.labelBefore && label()}
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Radio as CompWithAttr<typeof Radio, InputHTMLAttributes>;
-export type RadioProps = InstanceType<typeof Radio>["$props"];
+export default Radio as CompWithAttr<typeof Radio, InputHTMLAttributes>
+export type RadioProps = InstanceType<typeof Radio>['$props']

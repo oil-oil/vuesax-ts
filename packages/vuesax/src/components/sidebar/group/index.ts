@@ -1,11 +1,11 @@
-import { App, Plugin } from "vue";
+import { App, Plugin } from 'vue'
 
-import SidebarGroup from "./SidebarGroup.tsx";
-import "./style.scss";
+import SidebarGroup from './SidebarGroup.tsx'
+import './style.scss'
 
 SidebarGroup.install = (app: App) => {
-  app.component(SidebarGroup.name, SidebarGroup);
-  return app;
-};
+  app.component(SidebarGroup.name, SidebarGroup)
+  return app
+}
 
-export default SidebarGroup as typeof SidebarGroup & Plugin;
+export default SidebarGroup as typeof SidebarGroup & Plugin

@@ -1,10 +1,10 @@
-import { App, Plugin } from "vue";
+import { App, Plugin } from 'vue'
 
-import Card from "./Card";
+import Card from './Card'
 
 Card.install = (app: App) => {
-  app.component(Card.name, Card);
-  return app;
-};
+  app.component(Card.name, Card)
+  return app
+}
 
-export default Card as typeof Card & Plugin;
+export default Card as typeof Card & Plugin

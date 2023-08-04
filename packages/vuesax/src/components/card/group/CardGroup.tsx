@@ -1,13 +1,13 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue'
 
-import IconsArrow from "../../../icons/Arrow";
-import "./style.scss";
+import IconsArrow from '../../../icons/Arrow'
+import './style.scss'
 
 const CardGroup = defineComponent({
-  name: "VsCardGroup",
-  slots: ["default"],
+  name: 'VsCardGroup',
+  slots: ['default'],
   setup(_, { slots }) {
-    const cardsRef = ref<HTMLElement>();
+    const cardsRef = ref<HTMLElement>()
 
     return () => (
       <div class="vs-card__group">
@@ -16,8 +16,8 @@ const CardGroup = defineComponent({
           onClick={() => {
             cardsRef.value?.scrollTo(
               cardsRef.value.scrollLeft - cardsRef.value.clientWidth,
-              0,
-            );
+              0
+            )
           }}
         >
           <IconsArrow></IconsArrow>
@@ -31,16 +31,16 @@ const CardGroup = defineComponent({
           onClick={() => {
             cardsRef.value?.scrollTo(
               cardsRef.value.scrollLeft + cardsRef.value.clientWidth,
-              0,
-            );
+              0
+            )
           }}
         >
           <IconsArrow></IconsArrow>
         </button>
       </div>
-    );
-  },
-});
-export default CardGroup;
+    )
+  }
+})
+export default CardGroup
 
-export type CardGroupProps = InstanceType<typeof CardGroup>["$props"];
+export type CardGroupProps = InstanceType<typeof CardGroup>['$props']

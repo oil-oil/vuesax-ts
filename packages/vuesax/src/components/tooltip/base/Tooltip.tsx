@@ -6,197 +6,197 @@ import {
   ref,
   watch,
   Transition,
-  PropType,
-} from "vue";
+  PropType
+} from 'vue'
 
-import { Color } from "@/types/utils";
-import { getColor, insertBody, setCordsPosition } from "@/utils";
+import { Color } from '@/types/utils'
+import { getColor, insertBody, setCordsPosition } from '@/utils'
 
 const Tooltip = defineComponent({
-  name: "VsToolTip",
+  name: 'VsToolTip',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     modelValue: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     bottom: {
       type: Boolean,
-      default: false,
+      default: false
     },
     left: {
       type: Boolean,
-      default: false,
+      default: false
     },
     right: {
       type: Boolean,
-      default: false,
+      default: false
     },
     notHover: {
       type: Boolean,
-      default: false,
+      default: false
     },
     shadow: {
       type: Boolean,
-      default: false,
+      default: false
     },
     interactivity: {
       type: Boolean,
-      default: false,
+      default: false
     },
     notArrow: {
       type: Boolean,
-      default: false,
+      default: false
     },
     square: {
       type: Boolean,
-      default: false,
+      default: false
     },
     circle: {
       type: Boolean,
-      default: false,
+      default: false
     },
     border: {
       type: Boolean,
-      default: false,
+      default: false
     },
     borderThick: {
       type: Boolean,
-      default: false,
+      default: false
     },
     delay: {
       type: Number,
-      default: null,
-    },
+      default: null
+    }
   },
-  slots: ["default", "tooltip"],
+  slots: ['default', 'tooltip'],
   setup(props, { slots, emit }) {
-    const activeTooltip = ref(false);
-    const isHoverTooltip = ref(false);
-    const contentRef = ref<HTMLElement>();
-    const tooltipRef = ref<HTMLElement>();
+    const activeTooltip = ref(false)
+    const isHoverTooltip = ref(false)
+    const contentRef = ref<HTMLElement>()
+    const tooltipRef = ref<HTMLElement>()
 
     const insertTooltip = () => {
       //   const TooltipRef = tooltipRef.value;
-      const TooltipRef = document.querySelector(".vs-tooltip") as HTMLElement;
+      const TooltipRef = document.querySelector('.vs-tooltip') as HTMLElement
       if (TooltipRef && contentRef.value) {
-        insertBody(TooltipRef);
+        insertBody(TooltipRef)
 
-        let position = "top";
+        let position = 'top'
         if (props.bottom) {
-          position = "bottom";
+          position = 'bottom'
         } else if (props.left) {
-          position = "left";
+          position = 'left'
         } else if (props.right) {
-          position = "right";
+          position = 'right'
         }
-        setCordsPosition(TooltipRef, contentRef.value, position);
+        setCordsPosition(TooltipRef, contentRef.value, position)
       }
-    };
+    }
 
     const handlerMouseEnter = () => {
       if (props.delay) {
         setTimeout(() => {
-          activeTooltip.value = true;
+          activeTooltip.value = true
           nextTick(() => {
-            insertTooltip();
-          });
-        }, Number(props.delay));
+            insertTooltip()
+          })
+        }, Number(props.delay))
       } else {
-        activeTooltip.value = true;
+        activeTooltip.value = true
         nextTick(() => {
-          insertTooltip();
-        });
+          insertTooltip()
+        })
       }
-    };
+    }
 
     const removeTooltip = () => {
-      activeTooltip.value = false;
-      emit("update:modelValue", false);
-    };
+      activeTooltip.value = false
+      emit('update:modelValue', false)
+    }
 
     const handleResize = () => {
-      let position = "top";
+      let position = 'top'
       if (props.bottom) {
-        position = "bottom";
+        position = 'bottom'
       } else if (props.left) {
-        position = "left";
+        position = 'left'
       } else if (props.right) {
-        position = "right";
+        position = 'right'
       }
-      const TooltipRef = tooltipRef.value as HTMLElement;
-      const ContentRef = contentRef.value as HTMLElement;
+      const TooltipRef = tooltipRef.value as HTMLElement
+      const ContentRef = contentRef.value as HTMLElement
       if (!TooltipRef) {
-        return;
+        return
       }
       nextTick(() => {
-        setCordsPosition(TooltipRef, ContentRef, position);
-      });
+        setCordsPosition(TooltipRef, ContentRef, position)
+      })
 
       for (let index = 0; index < 300; index += 1) {
         setTimeout(() => {
-          setCordsPosition(TooltipRef, ContentRef, position);
-        });
+          setCordsPosition(TooltipRef, ContentRef, position)
+        })
       }
-    };
+    }
 
     const handleMouseDownNotHover = (evt: any) => {
       if (
-        !evt.target?.closest(".vs-tooltip") &&
-        !evt.target?.closest(".vs-tooltip-content")
+        !evt.target?.closest('.vs-tooltip') &&
+        !evt.target?.closest('.vs-tooltip-content')
       ) {
-        removeTooltip();
+        removeTooltip()
       }
-    };
+    }
     watch(
       () => props.modelValue,
       (val: boolean) => {
-        activeTooltip.value = val;
+        activeTooltip.value = val
         if (val) {
           nextTick(() => {
-            insertTooltip();
-          });
+            insertTooltip()
+          })
         }
-      },
-    );
+      }
+    )
 
     onMounted(() => {
-      window.addEventListener("popstate", () => {
-        const tooltips = document.querySelectorAll(".vs-tooltip");
+      window.addEventListener('popstate', () => {
+        const tooltips = document.querySelectorAll('.vs-tooltip')
         tooltips.forEach((tooltip) => {
-          tooltip.remove();
-        });
-      });
+          tooltip.remove()
+        })
+      })
 
-      window.addEventListener("resize", handleResize);
+      window.addEventListener('resize', handleResize)
       if (props.notHover) {
-        window.addEventListener("mousedown", handleMouseDownNotHover);
+        window.addEventListener('mousedown', handleMouseDownNotHover)
       }
 
-      window.addEventListener("touchstart", handleMouseDownNotHover);
-    });
+      window.addEventListener('touchstart', handleMouseDownNotHover)
+    })
     onUnmounted(() => {
-      activeTooltip.value = false;
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousedown", handleMouseDownNotHover);
-      const tooltips = document.querySelectorAll(".vs-tooltip");
+      activeTooltip.value = false
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('mousedown', handleMouseDownNotHover)
+      const tooltips = document.querySelectorAll('.vs-tooltip')
       tooltips.forEach((tooltip) => {
-        tooltip.remove();
-      });
-    });
+        tooltip.remove()
+      })
+    })
 
     const tooltip = (
       <div
         ref={tooltipRef}
-        style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
+        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
         class={[
-          "vs-tooltip",
+          'vs-tooltip',
           {
             top: !props.bottom && !props.left && !props.right,
             bottom: props.bottom,
@@ -208,14 +208,14 @@ const Tooltip = defineComponent({
             circle: props.circle,
             border: props.border,
             borderThick: props.borderThick,
-            loading: props.loading,
-          },
+            loading: props.loading
+          }
         ]}
       >
         {slots.tooltip?.()}
         {props.loading && <div class="vs-tooltip__loading"></div>}
       </div>
-    );
+    )
 
     return () => (
       <div
@@ -223,7 +223,7 @@ const Tooltip = defineComponent({
         ref={contentRef}
         onMouseenter={() => {
           if (!props.notHover) {
-            handlerMouseEnter();
+            handlerMouseEnter()
           }
         }}
         onMouseleave={() => {
@@ -231,11 +231,11 @@ const Tooltip = defineComponent({
             if (props.interactivity) {
               setTimeout(() => {
                 if (!isHoverTooltip.value) {
-                  removeTooltip();
+                  removeTooltip()
                 }
-              }, 250);
+              }, 250)
             } else {
-              removeTooltip();
+              removeTooltip()
             }
           }
         }}
@@ -245,10 +245,10 @@ const Tooltip = defineComponent({
         </Transition>
         {slots.default?.()}
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Tooltip;
+export default Tooltip
 
-export type ToolTipProps = InstanceType<typeof Tooltip>["$props"];
+export type ToolTipProps = InstanceType<typeof Tooltip>['$props']

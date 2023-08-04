@@ -5,162 +5,162 @@ import {
   onMounted,
   onUnmounted,
   provide,
-  ref,
-} from "vue";
+  ref
+} from 'vue'
 
-import useThrottle from "@/hooks/useThrottle";
-import { Color } from "@/types/utils";
-import { getColor } from "@/utils";
+import useThrottle from '@/hooks/useThrottle'
+import { Color } from '@/types/utils'
+import { getColor } from '@/utils'
 
-import "./style.scss";
+import './style.scss'
 
 const Navbar = defineComponent({
-  name: "VsNavbar",
+  name: 'VsNavbar',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     modelValue: {
       type: String,
-      default: "",
+      default: ''
     },
     fixed: {
       type: Boolean,
-      default: false,
+      default: false
     },
     shadowScroll: {
       type: Boolean,
-      default: false,
+      default: false
     },
     shadow: {
       type: Boolean,
-      default: false,
+      default: false
     },
     hideScroll: {
       type: Boolean,
-      default: false,
+      default: false
     },
     textWhite: {
       type: Boolean,
-      default: false,
+      default: false
     },
     square: {
       type: Boolean,
-      default: false,
+      default: false
     },
     paddingScroll: {
       type: Boolean,
-      default: false,
+      default: false
     },
     notLine: {
       type: Boolean,
-      default: false,
+      default: false
     },
     leftCollapsed: {
       type: Boolean,
-      default: false,
+      default: false
     },
     centerCollapsed: {
       type: Boolean,
-      default: false,
+      default: false
     },
     rightCollapsed: {
       type: Boolean,
-      default: false,
+      default: false
     },
     targetScroll: {
-      type: String,
-    },
+      type: String
+    }
   },
-  slots: ["default", "left", "right"],
+  slots: ['default', 'left', 'right'],
   setup(props, { slots, emit }) {
-    const leftLine = ref(0);
-    const widthLine = ref(0);
-    const scrollTop = ref(0);
-    const collapsedWidth = ref(0);
-    const hidden = ref(false);
-    const shadowActive = ref(false);
-    const paddingScrollActive = ref(false);
-    const lineNotTransition = ref(false);
-    const collapsedForced = ref(false);
+    const leftLine = ref(0)
+    const widthLine = ref(0)
+    const scrollTop = ref(0)
+    const collapsedWidth = ref(0)
+    const hidden = ref(false)
+    const shadowActive = ref(false)
+    const paddingScrollActive = ref(false)
+    const lineNotTransition = ref(false)
+    const collapsedForced = ref(false)
 
-    const elRef = ref<HTMLElement>();
-    const leftRef = ref<HTMLElement>();
-    const centerRef = ref<HTMLElement>();
-    const rightRef = ref<HTMLElement>();
+    const elRef = ref<HTMLElement>()
+    const leftRef = ref<HTMLElement>()
+    const centerRef = ref<HTMLElement>()
+    const rightRef = ref<HTMLElement>()
 
     const setModel = (id: string) => {
-      emit("update:modelValue", id);
-    };
+      emit('update:modelValue', id)
+    }
 
     const setLeftLine = (left: number, transition = true) => {
       if (!transition) {
-        lineNotTransition.value = true;
+        lineNotTransition.value = true
       } else {
-        lineNotTransition.value = false;
+        lineNotTransition.value = false
       }
       nextTick(() => {
-        leftLine.value = left;
-      });
-    };
+        leftLine.value = left
+      })
+    }
 
     const setWidthLine = (width: number) => {
       nextTick(() => {
-        widthLine.value = width;
-      });
-    };
+        widthLine.value = width
+      })
+    }
 
-    provide("provider", {
+    provide('provider', {
       setLeftLine,
       setWidthLine,
-      setModel,
-    });
+      setModel
+    })
 
     const onScroll = useThrottle(() => {
       const scrollT = props.targetScroll
         ? document.querySelector(props.targetScroll)?.scrollTop
-        : window.scrollY;
+        : window.scrollY
       if (props.hideScroll) {
         if (scrollT && Math.sign(scrollT - scrollTop.value) === 1) {
-          hidden.value = true;
+          hidden.value = true
         } else {
-          hidden.value = false;
+          hidden.value = false
         }
       }
 
       if (props.shadowScroll) {
         if (scrollT && scrollT > 0) {
-          shadowActive.value = true;
+          shadowActive.value = true
         } else {
-          shadowActive.value = false;
+          shadowActive.value = false
         }
       }
 
       if (props.paddingScroll) {
         if (scrollT && scrollT > 0) {
-          paddingScrollActive.value = false;
+          paddingScrollActive.value = false
         } else {
-          paddingScrollActive.value = true;
+          paddingScrollActive.value = true
         }
       }
 
-      if (scrollT) scrollTop.value = scrollT;
-    }, 200);
+      if (scrollT) scrollTop.value = scrollT
+    }, 200)
 
     const handleScroll = () => {
       if (props.hideScroll || props.shadowScroll || props.paddingScroll) {
-        window.addEventListener("scroll", onScroll);
+        window.addEventListener('scroll', onScroll)
       }
-    };
+    }
 
     const handleResize = () => {
       const active = elRef.value?.querySelector(
-        ".vs-navbar__item.active",
-      ) as HTMLElement;
+        '.vs-navbar__item.active'
+      ) as HTMLElement
       if (active) {
-        setLeftLine(active.offsetLeft, false);
+        setLeftLine(active.offsetLeft, false)
       } else {
-        widthLine.value = 0;
+        widthLine.value = 0
       }
 
       if (
@@ -169,23 +169,23 @@ const Navbar = defineComponent({
         props.rightCollapsed
       ) {
         if (elRef.value && elRef.value.offsetWidth < collapsedWidth.value) {
-          collapsedForced.value = true;
+          collapsedForced.value = true
         }
       }
 
       if (collapsedForced.value) {
-        emit("collapsed", true);
+        emit('collapsed', true)
       } else {
-        emit("collapsed", false);
+        emit('collapsed', false)
       }
 
       if (elRef.value && elRef.value.offsetWidth < collapsedWidth.value) {
-        emit("collapsed", true);
+        emit('collapsed', true)
       } else {
-        emit("collapsed", false);
-        collapsedForced.value = false;
+        emit('collapsed', false)
+        collapsedForced.value = false
       }
-    };
+    }
 
     onMounted(() => {
       setTimeout(() => {
@@ -194,29 +194,29 @@ const Navbar = defineComponent({
             leftRef.value.offsetWidth +
             centerRef.value.offsetWidth +
             rightRef.value.offsetWidth +
-            150;
+            150
           if (elRef.value && elRef.value.offsetWidth < collapsedWidth.value) {
-            collapsedForced.value = true;
-            emit("collapsed", true);
-            widthLine.value = 0;
-            handleResize();
+            collapsedForced.value = true
+            emit('collapsed', true)
+            widthLine.value = 0
+            handleResize()
           }
         }
-      }, 150);
+      }, 150)
 
-      handleScroll();
-      window.addEventListener("resize", handleResize);
-    });
+      handleScroll()
+      window.addEventListener('resize', handleResize)
+    })
 
     onUnmounted(() => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", onScroll);
-    });
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('scroll', onScroll)
+    })
 
     return () => (
       <div
         class={[
-          "vs-navbar-content",
+          'vs-navbar-content',
           {
             fixed: props.fixed,
             shadow: props.shadow,
@@ -225,10 +225,10 @@ const Navbar = defineComponent({
             textWhite: props.textWhite,
             paddingScroll: paddingScrollActive.value,
             vsNavbarSquare: props.square,
-            "vs-component--is-color": props.color,
-          },
+            'vs-component--is-color': props.color
+          }
         ]}
-        style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
+        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
         ref={elRef}
       >
         <div class="vs-navbar">
@@ -251,20 +251,20 @@ const Navbar = defineComponent({
         {!props.notLine && (
           <div
             class={[
-              "vs-navbar__line",
-              { notTransition: lineNotTransition.value },
+              'vs-navbar__line',
+              { notTransition: lineNotTransition.value }
             ]}
             style={{
               left: `${leftLine.value}px`,
-              width: `${widthLine.value}px`,
+              width: `${widthLine.value}px`
             }}
           ></div>
         )}
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Navbar;
+export default Navbar
 
-export type NavbarProps = InstanceType<typeof Navbar>["$props"];
+export type NavbarProps = InstanceType<typeof Navbar>['$props']

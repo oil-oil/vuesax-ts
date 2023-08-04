@@ -1,10 +1,10 @@
-import { App, Plugin } from "vue";
+import { App, Plugin } from 'vue'
 
-import ButtonGroup from "./ButtonGroup.tsx";
+import ButtonGroup from './ButtonGroup.tsx'
 
 ButtonGroup.install = (app: App) => {
-  app.component(ButtonGroup.name, ButtonGroup);
-  return app;
-};
+  app.component(ButtonGroup.name, ButtonGroup)
+  return app
+}
 
-export default ButtonGroup as typeof ButtonGroup & Plugin;
+export default ButtonGroup as typeof ButtonGroup & Plugin
