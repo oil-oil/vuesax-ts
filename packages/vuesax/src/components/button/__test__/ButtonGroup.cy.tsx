@@ -7,7 +7,7 @@ describe("Button", () => {
         <VsButton flat>Button1</VsButton>
         <VsButton relief>Button2</VsButton>
         <VsButton>Button3</VsButton>
-      </VsButtonGroup>
+      </VsButtonGroup>,
     );
 
     cy.contains("Button1")

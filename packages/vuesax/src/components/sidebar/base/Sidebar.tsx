@@ -89,7 +89,7 @@ const Sidebar = defineComponent({
         } else {
           window.removeEventListener("click", clickCloseSidebar);
         }
-      }
+      },
     );
     const sideBarClass = computed(() => [
       "vs-sidebar-content",
@@ -122,7 +122,7 @@ const Sidebar = defineComponent({
       () => {
         reduceInternal.value = props.reduce;
         handleReduce();
-      }
+      },
     );
 
     watch(
@@ -132,9 +132,9 @@ const Sidebar = defineComponent({
           "background",
           props.background,
           rootRef.value as HTMLElement,
-          true
+          true,
         );
-      }
+      },
     );
 
     const active = toRef(props, "modelValue");
@@ -171,7 +171,7 @@ const Sidebar = defineComponent({
           "background",
           props.background,
           rootRef.value as HTMLElement,
-          true
+          true,
         );
       }
 

@@ -232,7 +232,7 @@ const Input = defineComponent({
 
         {/* message */}
         {(["success", "warn", "danger", "primary"] as const).map((message) =>
-          getMessage(message)
+          getMessage(message),
         )}
       </div>
     );

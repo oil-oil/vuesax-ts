@@ -63,7 +63,7 @@ const useModal = (props: ModalHookProps) => {
           {content}
         </Modal>
       ),
-    })
+    }),
   );
 
   const mountModal = () => {

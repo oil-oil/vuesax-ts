@@ -11,7 +11,7 @@ const index = defineComponent({
   setup() {
     const { page, frontmatter } = useData();
     const sidebarController = inject<{ isSidebarOpen: Ref<boolean> }>(
-      "sidebarController"
+      "sidebarController",
     );
     const Content = () => {
       if (page.value.isNotFound) {

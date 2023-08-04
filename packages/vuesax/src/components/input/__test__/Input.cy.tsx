@@ -50,7 +50,7 @@ describe("Input", () => {
       cy.mount(
         <VsInput type={prop} label={prop}>
           {prop}
-        </VsInput>
+        </VsInput>,
       );
       cy.get(`[type='${prop}']`).should("be.visible");
     });
@@ -70,7 +70,7 @@ describe("Input", () => {
       cy.mount(
         <VsInput type={prop} label={prop}>
           {prop}
-        </VsInput>
+        </VsInput>,
       );
       cy.get(`[type='${prop}']`).should("be.visible");
     });
@@ -83,7 +83,7 @@ describe("Input", () => {
       cy.mount(
         <VsInput status={prop} label={prop}>
           {prop}
-        </VsInput>
+        </VsInput>,
       );
 
       cy.get(`.vs-input-parent--status-${prop}`).should("be.visible");
@@ -92,7 +92,7 @@ describe("Input", () => {
 
   it("test input with icon", () => {
     cy.mount(
-      <VsInput v-slots={{ icon: <i class="bx bxl-bitcoin"></i> }}></VsInput>
+      <VsInput v-slots={{ icon: <i class="bx bxl-bitcoin"></i> }}></VsInput>,
     );
     cy.get(".bx.bxl-bitcoin").should("be.visible");
     cy.get(".vs-input__icon").should("have.css", "left", "0px");
@@ -100,7 +100,7 @@ describe("Input", () => {
       <VsInput
         v-slots={{ icon: <i class="bx bxl-bitcoin"></i> }}
         iconAfter
-      ></VsInput>
+      ></VsInput>,
     );
     cy.get(".bx.bxl-bitcoin").should("be.visible");
     cy.get(".vs-input__icon").should("have.css", "right", "0px");

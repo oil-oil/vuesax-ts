@@ -14,7 +14,7 @@ describe("Radio", () => {
     cy.mount(
       <VsRadio modelValue="0" onUpdate:modelValue={clickSpy} value="2">
         Option 2
-      </VsRadio>
+      </VsRadio>,
     );
 
     cy.get(".vs-radio input").should("not.be.checked");

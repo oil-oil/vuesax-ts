@@ -76,7 +76,7 @@ describe("Button", () => {
     cy.mount(
       <VsButton onClick={onClickSpy} loading>
         Loading Button
-      </VsButton>
+      </VsButton>,
     );
 
     cy.contains("Loading Button")

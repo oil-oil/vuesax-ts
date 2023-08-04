@@ -180,7 +180,7 @@ const Button = defineComponent({
             : null,
           props.flat &&
             !props.active &&
-            document.activeElement !== buttonRef.value
+            document.activeElement !== buttonRef.value,
         );
       } else {
         ripple(evt, null, false);

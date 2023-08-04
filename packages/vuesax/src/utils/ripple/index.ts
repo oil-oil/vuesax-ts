@@ -55,7 +55,7 @@ const ripple = (evt: MouseEvent, color: any = "", solid = false) => {
           el.removeChild(effectContent);
         }, time * 300);
       },
-      noTime ? 0 : time * 400
+      noTime ? 0 : time * 400,
     );
 
     evt.target?.removeEventListener("mouseup", removeEffect);
@@ -117,7 +117,7 @@ const rippleReverse = (evt: MouseEvent) => {
           el?.removeChild(effectContent);
         }, time * 300);
       },
-      noTime ? 0 : time * 400
+      noTime ? 0 : time * 400,
     );
 
     evt.target?.removeEventListener("mouseup", removeEffect);
@@ -185,7 +185,7 @@ const rippleCut = (evt: MouseEvent) => {
           el.removeChild(effectContent);
         }, time * 300);
       },
-      noTime ? 0 : time * 400
+      noTime ? 0 : time * 400,
     );
 
     evt.target?.removeEventListener("mouseup", removeEffect);

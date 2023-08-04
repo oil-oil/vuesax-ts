@@ -38,11 +38,9 @@ const ConfigBtn = defineComponent({
       if (isDark.value) {
         window.localStorage.setItem("vitepress-theme-appearance", "auto");
         document.documentElement.classList.remove("dark");
-        console.log("isDark.value: ", isDark.value);
       } else {
         window.localStorage.setItem("vitepress-theme-appearance", "dark");
         document.documentElement.classList.add("dark");
-        console.log("isDark.value: ", isDark.value);
       }
       e.stopPropagation();
     };
@@ -155,7 +153,7 @@ const ConfigBtn = defineComponent({
                   <div key={item[0]} class="lang-name">
                     <a href={getLocalesRoute(item[1].link!)}>{item[1].label}</a>
                   </div>
-                )
+                ),
             )}
           </div>
         </button>

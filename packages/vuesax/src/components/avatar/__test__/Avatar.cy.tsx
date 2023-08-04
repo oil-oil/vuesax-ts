@@ -21,7 +21,7 @@ describe("Avatar", () => {
         }}
       >
         <img src={avatar2} alt="" />
-      </VsAvatar>
+      </VsAvatar>,
     );
     cy.get(".vs-avatar__badge,writing").should("be.visible");
     cy.get(".vs-avatar__icons").should("be.visible");

@@ -5,7 +5,7 @@ import { Color } from "@/types/utils";
 describe("Alert", () => {
   it("test alert basic render", () => {
     cy.mount(
-      <VsAlert v-slots={{ title: () => "Alert Title" }}>Default Alert</VsAlert>
+      <VsAlert v-slots={{ title: () => "Alert Title" }}>Default Alert</VsAlert>,
     );
     cy.contains(".vs-alert__title", "Alert Title").should("be.visible");
     cy.contains("Default Alert").should("be.visible");
@@ -45,7 +45,7 @@ describe("Alert", () => {
         onUpdate:hiddenContent={onTitleClick}
       >
         Alert Content
-      </VsAlert>
+      </VsAlert>,
     );
 
     cy.get<VueWrapper>("@vue").then((wrapper) => {
@@ -67,7 +67,7 @@ describe("Alert", () => {
         }}
       >
         Default Alert
-      </VsAlert>
+      </VsAlert>,
     );
     cy.contains(".vs-alert__title", "Alert Title").should("be.visible");
     cy.contains("Default Alert").should("be.visible");
@@ -83,7 +83,7 @@ describe("Alert", () => {
         progress={70}
       >
         Default Alert
-      </VsAlert>
+      </VsAlert>,
     );
     cy.contains(".vs-alert__title", "Alert Title").should("be.visible");
     cy.contains("Default Alert").should("be.visible");
@@ -102,7 +102,7 @@ describe("Alert", () => {
         isShow={false}
       >
         Default Alert
-      </VsAlert>
+      </VsAlert>,
     );
     cy.get(".vs-alert").should("not.exist");
   });

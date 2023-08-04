@@ -34,7 +34,7 @@ const RightSidebar = defineComponent({
         nextTick(() => {
           elements.value = Array.from(document.getElementsByTagName("h2"));
         });
-      }
+      },
     );
 
     const scrollEvent = throttle(() => {

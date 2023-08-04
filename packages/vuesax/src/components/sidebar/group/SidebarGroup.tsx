@@ -26,7 +26,7 @@ const SidebarGroup = defineComponent({
       () => props.open,
       (val: boolean) => {
         openState.value = !!val;
-      }
+      },
     );
     watch(
       () => openState,
@@ -44,7 +44,7 @@ const SidebarGroup = defineComponent({
           }
         });
       },
-      { immediate: true }
+      { immediate: true },
     );
 
     const onBeforeEnter = (Element: Element) => {

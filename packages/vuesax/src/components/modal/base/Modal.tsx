@@ -84,7 +84,7 @@ const Modal = defineComponent({
           document.body.style.overflow = "";
           window.removeEventListener("keydown", onEsc);
         }
-      }
+      },
     );
 
     onMounted(() => {

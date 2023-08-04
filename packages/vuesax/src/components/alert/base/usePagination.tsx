@@ -11,15 +11,15 @@ const usePagination = ({
 }) => {
   const getTotalPages = computed(
     () =>
-      Object.keys(slots).filter((item) => item.indexOf("page") !== -1).length
+      Object.keys(slots).filter((item) => item.indexOf("page") !== -1).length,
   );
 
   const getPagesValue = computed(() => {
     const keys = Object.keys(slots).filter(
-      (item) => item.indexOf("page") !== -1
+      (item) => item.indexOf("page") !== -1,
     );
     const values = keys.map(
-      (item) => page.value === Number(item.split("-")[1]) && slots[item]?.()
+      (item) => page.value === Number(item.split("-")[1]) && slots[item]?.(),
     );
     return values;
   });

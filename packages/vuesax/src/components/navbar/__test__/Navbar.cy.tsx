@@ -44,10 +44,10 @@ describe("Navbar", () => {
         <VsNavbarItem active={active.basic === "license"} id="license">
           License
         </VsNavbarItem>
-      </VsNavbar>
+      </VsNavbar>,
     );
     cy.get(
-      ".vs-navbar__right,.vs-navbar__center,.vs-navbar__left,.vs-navbar__line"
+      ".vs-navbar__right,.vs-navbar__center,.vs-navbar__left,.vs-navbar__line",
     ).should("be.visible");
     // cy.contains("License").realHover().should("have.css", "opacity", "1");
   });
@@ -89,7 +89,7 @@ describe("Navbar", () => {
         <VsNavbarItem active={active.basic === "license"} id="license">
           License
         </VsNavbarItem>
-      </VsNavbar>
+      </VsNavbar>,
     );
 
     cy.contains("Documents").click();

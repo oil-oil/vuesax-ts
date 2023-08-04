@@ -8,7 +8,7 @@ describe("Notification", () => {
       <VsNotification
         title="Documentation Vuesax 4.0+"
         text="These documents refer to the latest version of vuesax (4.0+), to see the documents of the previous versions you can do it here 👉 Vuesax 3.x"
-      ></VsNotification>
+      ></VsNotification>,
     );
     cy.get(".vs-notification ").should("be.visible");
   });
@@ -22,7 +22,7 @@ describe("Notification", () => {
           title="Documentation Vuesax 4.0+"
           text="These documents refer to the latest version of vuesax (4.0+), to see the documents of the previous versions you can do it here 👉 Vuesax 3.x"
           {...{ [type]: true }}
-        />
+        />,
       );
       cy.get(`.vs-notification--${type}`).should("be.visible");
     });
@@ -40,7 +40,7 @@ describe("Notification", () => {
         progressAuto
         title="Documentation Vuesax 4.0+"
         text="These documents refer to the latest version of vuesax (4.0+), to see the documents of the previous versions you can do it here 👉 Vuesax 3.x"
-      />
+      />,
     );
     cy.get(".vs-notification__progress").should("be.visible");
   });

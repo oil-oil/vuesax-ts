@@ -47,7 +47,7 @@ const TableTr = defineComponent({
         if (isExpand.value) {
           isExpand.value = false;
         }
-      }
+      },
     );
 
     const onClick = (e: MouseEvent) => {

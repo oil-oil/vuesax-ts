@@ -69,7 +69,7 @@ describe("SideBar", () => {
             </VsSidebarItem>
           ))}
         </VsSidebarGroup>
-      </VsSidebar>
+      </VsSidebar>,
     );
     cy.get(".vs-sidebar__logo").should("be.visible");
     cy.get(".vs-sidebar").should("be.visible");
@@ -132,7 +132,7 @@ describe("SideBar", () => {
             </VsSidebarItem>
           ))}
         </VsSidebarGroup>
-      </VsSidebar>
+      </VsSidebar>,
     );
     cy.get(".vs-sidebar__logo").should("be.visible");
     cy.contains("Music").click();
@@ -199,7 +199,7 @@ describe("SideBar", () => {
             </VsSidebarItem>
           ))}
         </VsSidebarGroup>
-      </VsSidebar>
+      </VsSidebar>,
     );
     cy.get(".vs-sidebar__group__content").should("not.exist");
     cy.get(".vs-sidebar__group").click().should("have.class", "open");

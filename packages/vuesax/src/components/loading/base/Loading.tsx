@@ -82,7 +82,7 @@ const Loading = defineComponent({
       () => props.color,
       () => {
         initStyle();
-      }
+      },
     );
 
     watch(
@@ -93,7 +93,7 @@ const Loading = defineComponent({
             initStyle();
           });
         }
-      }
+      },
     );
 
     onMounted(() => {

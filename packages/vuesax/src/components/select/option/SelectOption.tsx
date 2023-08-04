@@ -40,13 +40,13 @@ const SelectOption = defineComponent({
     const isActive = computed(() =>
       typeof provider?.value?.value === "number"
         ? provider?.value?.value === props.value
-        : (provider?.value.value || []).indexOf(props.value) !== -1
+        : (provider?.value.value || []).indexOf(props.value) !== -1,
     );
 
     const isHover = computed(
       () =>
         provider?.uids?.value.findIndex((item) => item === uniqueId) ===
-        provider?.hoverOption?.value
+        provider?.hoverOption?.value,
     );
 
     watch(
@@ -61,7 +61,7 @@ const SelectOption = defineComponent({
         } else {
           hiddenOption.value = false;
         }
-      }
+      },
     );
 
     onMounted(() => {

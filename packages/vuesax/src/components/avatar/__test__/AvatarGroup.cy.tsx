@@ -36,7 +36,7 @@ describe("Avatar", () => {
         <VsAvatar>
           <img src={avatar8} alt="" />
         </VsAvatar>
-      </VsAvatarGroup>
+      </VsAvatarGroup>,
     );
     cy.get(".vs-avatar__group").should("be.visible");
     cy.get(".vs-avatar-content--hidden").should("not.be.visible");

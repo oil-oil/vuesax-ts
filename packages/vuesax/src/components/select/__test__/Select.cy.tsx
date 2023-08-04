@@ -10,7 +10,7 @@ describe("Select", () => {
         {options.map((item) => (
           <VsOption>{item}</VsOption>
         ))}
-      </VsSelect>
+      </VsSelect>,
     );
     cy.get(".vs-select-content").click();
     options.forEach((item) => {
@@ -25,7 +25,7 @@ describe("Select", () => {
           {options.map((item) => (
             <VsOption>{item}</VsOption>
           ))}
-        </VsSelect>
+        </VsSelect>,
       );
       cy.get(".vs-select-content").click();
       options.forEach((item) => {
@@ -44,7 +44,7 @@ describe("Select", () => {
         {options.map((item) => (
           <VsOption value={item}>{item}</VsOption>
         ))}
-      </VsSelect>
+      </VsSelect>,
     );
 
     cy.get(".vs-select-content").click();

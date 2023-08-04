@@ -163,7 +163,7 @@ const Tooltip = defineComponent({
             insertTooltip();
           });
         }
-      }
+      },
     );
 
     onMounted(() => {

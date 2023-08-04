@@ -155,7 +155,7 @@ const Navbar = defineComponent({
 
     const handleResize = () => {
       const active = elRef.value?.querySelector(
-        ".vs-navbar__item.active"
+        ".vs-navbar__item.active",
       ) as HTMLElement;
       if (active) {
         setLeftLine(active.offsetLeft, false);

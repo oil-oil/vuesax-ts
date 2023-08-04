@@ -16,7 +16,7 @@ const CardGroup = defineComponent({
           onClick={() => {
             cardsRef.value?.scrollTo(
               cardsRef.value.scrollLeft - cardsRef.value.clientWidth,
-              0
+              0,
             );
           }}
         >
@@ -31,7 +31,7 @@ const CardGroup = defineComponent({
           onClick={() => {
             cardsRef.value?.scrollTo(
               cardsRef.value.scrollLeft + cardsRef.value.clientWidth,
-              0
+              0,
             );
           }}
         >

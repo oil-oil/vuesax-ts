@@ -42,7 +42,7 @@ describe("Switch", () => {
     cy.mount(
       <VsSwitch modelValue={false} onUpdate:modelValue={onClick}>
         switch
-      </VsSwitch>
+      </VsSwitch>,
     );
     cy.contains(".vs-switch__text.off", "switch").should("be.visible");
     cy.get<VueWrapper>("@vue").then((wrapper) => {
@@ -60,7 +60,7 @@ describe("Switch", () => {
     cy.mount(
       <VsSwitch onUpdate:modelValue={onClickSpy} loading>
         Loading Switch
-      </VsSwitch>
+      </VsSwitch>,
     );
 
     cy.get(".vs-switch").click({ force: true });
@@ -76,7 +76,7 @@ describe("Switch", () => {
         }}
       >
         Loading Switch
-      </VsSwitch>
+      </VsSwitch>,
     );
 
     cy.get(".bxs-volume-mute").should("be.visible");

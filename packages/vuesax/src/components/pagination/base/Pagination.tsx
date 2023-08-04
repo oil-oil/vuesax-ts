@@ -86,7 +86,7 @@ const Pagination = defineComponent({
       nextTick(() => {
         if (buttonRefs.value) {
           const activeIndex = buttonRefs.value.findIndex(
-            (item) => Number(item.dataset?.index) === props.modelValue
+            (item) => Number(item.dataset?.index) === props.modelValue,
           );
 
           const paginationLeftOffset = paginationRef.value
@@ -106,7 +106,7 @@ const Pagination = defineComponent({
       () => props.length,
       () => {
         resetActivePosition();
-      }
+      },
     );
 
     watch(
@@ -134,7 +134,7 @@ const Pagination = defineComponent({
             resetActivePosition();
           }
         }
-      }
+      },
     );
 
     onMounted(() => {
@@ -143,12 +143,12 @@ const Pagination = defineComponent({
     });
 
     const computedProgress = computed(
-      () => (props.modelValue * 100) / props.length
+      () => (props.modelValue * 100) / props.length,
     );
 
     const renderDotted = (
       index: number,
-      text: "..." | "...>" | "<..." = "..."
+      text: "..." | "...>" | "<..." = "...",
     ) => (
       <div
         key={text}

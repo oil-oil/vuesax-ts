@@ -3,7 +3,8 @@ prev: Avatar
 next: Radio
 last Update: 2023/13/1
 ---
-# Notification
+
+# Notification 通知
 
 <card>
 

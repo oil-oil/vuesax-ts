@@ -57,11 +57,11 @@ const useNotification = () => {
   const close = (key?: string, position?: Position) => {
     if (key && position) {
       Object.entries(notificationPosition[position].value).forEach(
-        ([_, elements], index) => {
+        ([, elements], index) => {
           if (elements[0] === key) {
             notificationPosition[position].value.splice(index, 1);
           }
-        }
+        },
       );
     } else if (!key && position) {
       Object.entries(notificationPosition[position].value).forEach(
@@ -69,7 +69,7 @@ const useNotification = () => {
           if (positionArr.length > 0) {
             notificationPosition[positionArr[0] as Position].value.shift();
           }
-        }
+        },
       );
     } else if (key && !position) {
       Object.entries(notificationPosition).forEach((positionArr) => {
@@ -77,7 +77,7 @@ const useNotification = () => {
           if (elementInfo[0] === key) {
             notificationPosition[positionArr[0] as Position].value.splice(
               index,
-              1
+              1,
             );
           }
         });

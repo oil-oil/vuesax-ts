@@ -57,7 +57,7 @@ const NavbarItem = defineComponent({
             handleLine();
           }
         }
-      }
+      },
     );
 
     const handleClick = () => {

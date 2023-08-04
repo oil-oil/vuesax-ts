@@ -116,7 +116,7 @@ const Alert = defineComponent({
           resetContentHeight();
           resetRootHeight();
         });
-      }
+      },
     );
 
     watch(
@@ -136,7 +136,7 @@ const Alert = defineComponent({
           root.style.height = `${root.scrollHeight - content.scrollHeight}px`;
           root.style.width = "100%";
         }
-      }
+      },
     );
 
     const handleClickClose = () => {

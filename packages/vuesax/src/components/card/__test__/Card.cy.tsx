@@ -24,20 +24,20 @@ describe("Card", () => {
             </>
           ),
         }}
-      ></VsCard>
+      ></VsCard>,
     );
     cy.get(".vs-card-content").should("have.class", "type-1");
     cy.get(".vs-card__img img").should("be.visible");
     cy.get(".vs-card__interactions button").should("be.visible");
     cy.contains("pot with a plant").should("be.visible");
     cy.contains(
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     ).should("be.visible");
     cy.get(".vs-card").realHover();
     cy.get(".vs-card__img img").should(
       "have.css",
       "transform",
-      "matrix(1.15, 0, 0, 1.15, 0, 0)"
+      "matrix(1.15, 0, 0, 1.15, 0, 0)",
     );
   });
 
@@ -63,7 +63,7 @@ describe("Card", () => {
             </>
           ),
         }}
-      ></VsCard>
+      ></VsCard>,
     );
     cy.get(".vs-card-content").should("have.class", "type-2");
     cy.get(".vs-card__img img").should("be.visible");
@@ -71,17 +71,17 @@ describe("Card", () => {
     cy.get(".vs-card").realHover();
     cy.contains("pot with a plant").should("be.visible");
     cy.contains(
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     ).should("be.visible");
     cy.get(".vs-card__img img").should(
       "have.css",
       "transform",
-      "matrix(1.15, 0, 0, 1.15, 0, 0)"
+      "matrix(1.15, 0, 0, 1.15, 0, 0)",
     );
     cy.get(".vs-card").should(
       "have.css",
       "transform",
-      "matrix(0.95, 0, 0, 0.95, 0, 0)"
+      "matrix(0.95, 0, 0, 0.95, 0, 0)",
     );
   });
 
@@ -107,20 +107,20 @@ describe("Card", () => {
             </>
           ),
         }}
-      ></VsCard>
+      ></VsCard>,
     );
     cy.get(".vs-card-content").should("have.class", "type-3");
     cy.get(".vs-card__img img").should("be.visible");
     cy.get(".vs-card__interactions button").should("be.visible");
     cy.contains("pot with a plant").should("be.visible");
     cy.contains(
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     ).should("be.visible");
     cy.get(".vs-card").realHover();
     cy.get(".vs-card").should(
       "have.css",
       "transform",
-      "matrix(1.04, 0, 0, 1.04, 0, 0)"
+      "matrix(1.04, 0, 0, 1.04, 0, 0)",
     );
   });
 
@@ -146,25 +146,25 @@ describe("Card", () => {
             </>
           ),
         }}
-      ></VsCard>
+      ></VsCard>,
     );
     cy.get(".vs-card-content").should("have.class", "type-4");
     cy.get(".vs-card__img img").should("be.visible");
     cy.get(".vs-card__interactions button").should("be.visible");
     cy.contains("pot with a plant").should("be.visible");
     cy.contains(
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     ).should("be.visible");
     cy.get(".vs-card").realHover();
     cy.get(".vs-card").should(
       "have.css",
       "transform",
-      "matrix(1, 0, 0, 1, 0, -5)"
+      "matrix(1, 0, 0, 1, 0, -5)",
     );
     cy.get(".vs-card__img img").should(
       "have.css",
       "transform",
-      "matrix(1, 0, 0, 1, 0, 0)"
+      "matrix(1, 0, 0, 1, 0, 0)",
     );
   });
 
@@ -190,7 +190,7 @@ describe("Card", () => {
             </>
           ),
         }}
-      ></VsCard>
+      ></VsCard>,
     );
     cy.get(".vs-card-content").should("have.class", "type-5");
     cy.get(".vs-card__img img").should("be.visible");
@@ -198,12 +198,12 @@ describe("Card", () => {
     cy.get(".vs-card").realHover();
     cy.contains("pot with a plant").should("be.visible");
     cy.contains(
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     ).should("be.visible");
     cy.get(".vs-card__img img").should(
       "have.css",
       "transform",
-      "matrix(1.1, 0, 0, 1.1, 0, 0)"
+      "matrix(1.1, 0, 0, 1.1, 0, 0)",
     );
     cy.get(".vs-card__interactions").should("have.css", "bottom", "50px");
     cy.get(".vs-card__text")

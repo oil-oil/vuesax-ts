@@ -123,7 +123,7 @@ const Select = defineComponent({
         const filterOptions = childOptions.value.filter((option) =>
           typeof props.modelValue === "number"
             ? props.modelValue === option.value
-            : props.modelValue?.indexOf(option.value) !== -1
+            : props.modelValue?.indexOf(option.value) !== -1,
         );
 
         const label: { label: string; value: string }[] = [];
@@ -137,7 +137,7 @@ const Select = defineComponent({
         label.sort(
           (a, b) =>
             props.modelValue!.indexOf(a.value) -
-            props.modelValue!.indexOf(b.value)
+            props.modelValue!.indexOf(b.value),
         );
         valueLabel.value = label;
       }
@@ -215,7 +215,7 @@ const Select = defineComponent({
     const chips = computed(() => {
       const chip = (
         item: { value: string | null; label: string },
-        isCollapse: boolean
+        isCollapse: boolean,
       ): VNode => (
         <span
           class={["vs-select__chips__chip", { isCollapse }]}
@@ -307,7 +307,7 @@ const Select = defineComponent({
           if (!childOptions.value[hoverOption.value].disabled) {
             onClickOption(
               childOptions.value[hoverOption.value].value,
-              childOptions.value[hoverOption.value].label
+              childOptions.value[hoverOption.value].label,
             );
             if (!props.multiple) {
               handleBlur();
@@ -326,8 +326,8 @@ const Select = defineComponent({
     const isNoData = computed(
       () =>
         childOptions.value.filter(
-          (option) => !option.hiddenOptionGroup || !option.hiddenOption
-        ).length === 0
+          (option) => !option.hiddenOptionGroup || !option.hiddenOption,
+        ).length === 0,
     );
 
     const handleResize = () => {
@@ -393,7 +393,7 @@ const Select = defineComponent({
         }
 
         resetPlaceholderTransition();
-      }
+      },
     );
 
     watch(isOptionsShow, () => {
@@ -697,7 +697,7 @@ const Select = defineComponent({
 
         {/* message */}
         {["success", "danger", "warn", "primary"].map((type) =>
-          getMessage(type)
+          getMessage(type),
         )}
       </div>
     );

@@ -35,7 +35,7 @@ describe("Pagination", () => {
         length={6}
         disabledItems={[1, 2]}
         onUpdate:modelValue={onUpdate}
-      />
+      />,
     );
     Array.from({ length: 6 }).forEach((_, index) => {
       cy.contains(".vs-pagination__button", index + 1).should("be.visible");
@@ -53,7 +53,7 @@ describe("Pagination", () => {
         length={6}
         loadingItems={[1, 2]}
         onUpdate:modelValue={onUpdate}
-      />
+      />,
     );
     Array.from({ length: 6 }).forEach((_, index) => {
       cy.contains(".vs-pagination__button", index + 1).should("be.visible");
@@ -77,7 +77,7 @@ describe("Pagination", () => {
         length={length}
         onUpdate:modelValue={onUpdate}
         modelValue={20}
-      />
+      />,
     );
     Array.from({ length: length - 1 }).forEach((_, index) => {
       cy.get("button.prev").click();
@@ -99,7 +99,7 @@ describe("Pagination", () => {
         length={length}
         onUpdate:modelValue={onUpdate}
         modelValue={20}
-      />
+      />,
     );
     Array.from({ length: length - 1 }).forEach((_, index) => {
       cy.get("button.prev").click();

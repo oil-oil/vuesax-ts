@@ -4,14 +4,14 @@ import { defineComponent, Transition, ref, onMounted } from "vue";
 import "./Codex.scss";
 
 const highlighter = await getHighlighter({
-          theme: "material-theme-palenight",
-          langs: ["vue"],
-          paths: {
-            themes: "/shiki",
-            languages: "/shiki/language",
-            wasm: "/shiki",
-          },
-        });
+  theme: "material-theme-palenight",
+  langs: ["vue"],
+  paths: {
+    themes: "/shiki",
+    languages: "/shiki/language",
+    wasm: "/shiki",
+  },
+});
 
 const Codex = defineComponent({
   name: "Codex",
@@ -40,14 +40,14 @@ const Codex = defineComponent({
     const title = ref<string>();
     let file: any;
 
-      const renderTemplate = async () => { 
-        template.value = highlighter.codeToHtml(
-          file[`./template/${page.value.title}/${props.subtitle}.vue`],
-          {
-            lang: "vue",
-          }
-        );
-      };
+    const renderTemplate = async () => {
+      template.value = highlighter.codeToHtml(
+        file[`./template/${page.value.title}/${props.subtitle}.vue`],
+        {
+          lang: "vue",
+        },
+      );
+    };
 
     onMounted(() => {
       title.value = document
@@ -60,7 +60,7 @@ const Codex = defineComponent({
         {
           as: "raw",
           eager: true,
-        }
+        },
       );
 
       renderTemplate();
@@ -99,7 +99,7 @@ const Codex = defineComponent({
 
     const copy = () => {
       navigator.clipboard.writeText(
-        file[`./template/${page.value.title}/${props.subtitle}.vue`]
+        file[`./template/${page.value.title}/${props.subtitle}.vue`],
       );
       check.value = true;
       setTimeout(() => {

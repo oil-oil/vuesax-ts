@@ -96,7 +96,7 @@ describe("Table", () => {
             )),
           footer: () => <span>footer</span>,
         }}
-      ></VsTable>
+      ></VsTable>,
     );
 
     cy.contains(".vs-table__header", "Table header").should("be.visible");
@@ -135,7 +135,7 @@ describe("Table", () => {
             )),
           footer: () => <span>footer</span>,
         }}
-      ></VsTable>
+      ></VsTable>,
     );
 
     cy.contains(".vs-table__td", "1")
@@ -176,13 +176,13 @@ describe("Table", () => {
             )),
           footer: () => <span>footer</span>,
         }}
-      ></VsTable>
+      ></VsTable>,
     );
 
     cy.get(".vs-table__tr:nth-child(2n)").should(
       "have.css",
       "background-color",
-      "rgb(249, 252, 253)"
+      "rgb(249, 252, 253)",
     );
   });
 });

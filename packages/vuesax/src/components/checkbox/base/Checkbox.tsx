@@ -68,7 +68,7 @@ const Checkbox = defineComponent({
               onChange={(e) => {
                 emit(
                   "update:modelValue",
-                  (e.target as HTMLInputElement).checked
+                  (e.target as HTMLInputElement).checked,
                 );
                 innerCheck.value = (e.target as HTMLInputElement).checked;
               }}

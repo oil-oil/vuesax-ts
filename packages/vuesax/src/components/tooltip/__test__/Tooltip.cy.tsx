@@ -7,7 +7,7 @@ describe("Tooltip", () => {
     cy.mount(
       <VsToolTip v-slots={{ tooltip: () => <>This is a beautiful Button</> }}>
         <VsButton flat>Do hover here</VsButton>
-      </VsToolTip>
+      </VsToolTip>,
     );
     cy.contains("Do hover here").realHover();
     cy.get(".vs-tooltip").should("be.visible");
@@ -22,7 +22,7 @@ describe("Tooltip", () => {
         >
           {" "}
           <VsButton flat>Do hover here</VsButton>
-        </VsToolTip>
+        </VsToolTip>,
       );
       cy.get(".vs-tooltip")
         .should("have.attr", "style")

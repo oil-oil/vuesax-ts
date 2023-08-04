@@ -12,7 +12,7 @@ const SideBar = defineComponent({
       sidebar: { text: string; items: { text: string; link: string }[] }[];
     }>();
     const sidebarController = inject<{ isSidebarOpen: Ref<boolean> }>(
-      "sidebarController"
+      "sidebarController",
     );
     const sideBarValue = computed(() => {
       const { sidebar } = theme.value;

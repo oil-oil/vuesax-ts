@@ -33,7 +33,7 @@ const name = ref();
 const password = ref();
 const value = ref();
 const validEmail = computed(() =>
-  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value.value)
+  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value.value),
 );
 </script>
 

@@ -16,13 +16,13 @@ const setColor = (
   colorName: string,
   color: string,
   el: HTMLElement,
-  addClass?: boolean
+  addClass?: boolean,
 ) => {
   function hexToRgb(hex: string) {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(
       shorthandRegex,
-      (_: any, r: string, g: string, b: string) => r + r + g + g + b + b
+      (_: any, r: string, g: string, b: string) => r + r + g + g + b + b,
     );
 
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -38,7 +38,7 @@ const setColor = (
   const isRGB = /^(rgb|rgba)/.test(color);
   const isRGBNumbers =
     /^(0|255|25[0-4]|2[0-4]\d|1\d\d|0?\d?\d),(0|255|25[0-4]|2[0-4]\d|1\d\d|0?\d?\d),(0|255|25[0-4]|2[0-4]\d|1\d\d|0?\d?\d)$/.test(
-      color
+      color,
     );
   const isHEX = /^(#)/.test(color);
   let newColor;
@@ -94,7 +94,7 @@ const getColor = (color: string) => {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(
       shorthandRegex,
-      (_: any, r: string, g: string, b: string) => r + r + g + g + b + b
+      (_: any, r: string, g: string, b: string) => r + r + g + g + b + b,
     );
 
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -111,7 +111,7 @@ const getColor = (color: string) => {
   const isRGB = /^(rgb|rgba)/.test(color);
   const isRGBNumbers =
     /^(0|255|25[0-4]|2[0-4]\d|1\d\d|0?\d?\d),(0|255|25[0-4]|2[0-4]\d|1\d\d|0?\d?\d),(0|255|25[0-4]|2[0-4]\d|1\d\d|0?\d?\d)$/.test(
-      color
+      color,
     );
   const isHEX = /^(#)/.test(color);
   let newColor;
@@ -174,7 +174,7 @@ const setCords = (element: HTMLElement, parent: HTMLElement) => {
 const setCordsPosition = (
   element: HTMLElement,
   parent: HTMLElement,
-  position: string
+  position: string,
 ) => {
   const cords = parent.getBoundingClientRect();
   const { x } = cords;

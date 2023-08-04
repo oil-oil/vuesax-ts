@@ -97,7 +97,7 @@ const Notification = defineComponent({
           setColor("color", props.color, elRef.value);
           setColor("border", props.color, elRef.value);
         }
-      }
+      },
     );
 
     onMounted(() => {

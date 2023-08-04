@@ -8,7 +8,7 @@ describe("Modal", () => {
         v-slots={{ header: () => "header", footer: () => "footer" }}
       >
         content
-      </VsModal>
+      </VsModal>,
     );
     cy.contains(".vs-modal__header", "header").should("be.visible");
     cy.contains(".vs-modal__content", "content").should("be.visible");
@@ -19,7 +19,7 @@ describe("Modal", () => {
     cy.mount(
       <VsModal square modelValue={true}>
         content
-      </VsModal>
+      </VsModal>,
     );
     cy.get(".vs-modal.vs-modal--square")
       .should("be.visible")
@@ -32,7 +32,7 @@ describe("Modal", () => {
     cy.mount(
       <VsModal modelValue={false} onUpdate:modelValue={onCloseClick}>
         content
-      </VsModal>
+      </VsModal>,
     );
 
     cy.get(".vs-modal-content").should("not.exist");

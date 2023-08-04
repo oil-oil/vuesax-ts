@@ -108,7 +108,7 @@ const Avatar = defineComponent({
       () => {
         textLength.value = contentLetters.value?.length;
       },
-      { immediate: true }
+      { immediate: true },
     );
 
     onMounted(() => {
@@ -141,7 +141,7 @@ const Avatar = defineComponent({
           setColor("badge", props.badgeColor, badgeRef.value);
           badgeRef.value.classList.add("vs-change-color-badge");
         }
-      }
+      },
     );
 
     const writing = () => (

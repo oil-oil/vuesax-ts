@@ -30,7 +30,7 @@ describe("Card", () => {
             }}
           ></VsCard>
         ))}
-      </VsCardGroup>
+      </VsCardGroup>,
     );
     cy.get(".vs-card__group-cards").should("be.visible");
     cy.get(".vs-card__group .vs-card__group-next").should("be.visible").click();

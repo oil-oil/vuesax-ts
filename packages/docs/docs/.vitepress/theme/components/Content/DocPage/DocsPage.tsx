@@ -2,19 +2,19 @@ import { Content, useData } from "vitepress";
 import { defineComponent, ref, onUnmounted, computed, inject, Ref } from "vue";
 import { VsButton, VsInput } from "vuesax-ts";
 
-import RightSidebar from "../../Sidebar/RightSidebar";
+import RightSidebar from "../../SideBar/RightSidebar";
 
 import "./style.scss";
 
 const DocsPage = defineComponent({
   name: "DocsPage",
   setup() {
-    const { page, isDark,frontmatter } = useData();
+    const { page, isDark, frontmatter } = useData();
     const pageHeaderContentTitleRef = ref();
     const pageHeaderTrigger = ref(false);
     const pageHeaderDelta = ref();
     const sidebarController = inject<{ isSidebarOpen: Ref<boolean> }>(
-      "sidebarController"
+      "sidebarController",
     );
     const scrollEvent = () => {
       pageHeaderDelta.value = (window.scrollY * 0.55).toFixed(0);
@@ -173,11 +173,13 @@ const DocsPage = defineComponent({
             <span class="time">{frontmatter.value["last Update"]}</span>
           </div>
           <div class="next-control">
-            <a href={`${frontmatter.value["prev"]}`} class="prev">
-              <i class="bx bx-chevron-left"></i>{frontmatter.value["prev"]}
+            <a href={`${frontmatter.value.prev}`} class="prev">
+              <i class="bx bx-chevron-left"></i>
+              {frontmatter.value.prev}
             </a>
-            <a href={`${frontmatter.value["next"]}`} class="next">
-              {frontmatter.value["next"]}<i class="bx bx-chevron-right"></i>
+            <a href={`${frontmatter.value.next}`} class="next">
+              {frontmatter.value.next}
+              <i class="bx bx-chevron-right"></i>
             </a>
           </div>
           <div class="subscribe">

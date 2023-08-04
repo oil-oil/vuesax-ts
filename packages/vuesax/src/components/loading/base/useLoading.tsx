@@ -20,7 +20,7 @@ const useLoading = (props?: LoadingHookProps) => {
   const app = computed(() =>
     createApp({
       render: () => h(Loading, { ...props, isVisible: isVisible.value }),
-    })
+    }),
   );
 
   const mountLoading = () => {
@@ -38,7 +38,7 @@ const useLoading = (props?: LoadingHookProps) => {
     if (isVisible.value) {
       nextTick(() => {
         const vsLoading = LoadingDom.querySelector(
-          ".vs-loading"
+          ".vs-loading",
         ) as HTMLElement;
         vsLoading.style.position = "fixed";
       });

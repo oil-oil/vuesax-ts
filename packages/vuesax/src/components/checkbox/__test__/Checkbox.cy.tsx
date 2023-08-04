@@ -8,7 +8,7 @@ describe("Input", () => {
     cy.mount(
       <VsCheckbox id="default" modelValue={false} onUpdate:modelValue={onClick}>
         Default Checkbox
-      </VsCheckbox>
+      </VsCheckbox>,
     );
     cy.contains(".vs-checkbox-label", "Default Checkbox").should("be.visible");
     cy.get("#default")
@@ -37,7 +37,7 @@ describe("Input", () => {
     cy.mount(
       <VsCheckbox id="default" labelBefore lineThrough>
         lineThrough Checkbox
-      </VsCheckbox>
+      </VsCheckbox>,
     );
 
     cy.get("#default").click();
@@ -58,7 +58,7 @@ describe("Input", () => {
         }}
       >
         lineThrough Checkbox
-      </VsCheckbox>
+      </VsCheckbox>,
     );
 
     cy.get("#default").click();
