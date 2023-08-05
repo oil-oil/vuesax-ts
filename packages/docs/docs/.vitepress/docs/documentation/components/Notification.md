@@ -12,10 +12,10 @@ last Update: 2023/13/1
 
 <docs-warn />
 
-It generates a notification with the vuesax function (`useNotification`), to use the instance of the notification it is necessary to save it in a variable, for example if you need to close the notification manually or do other functionalities with the instance
+It generates a notification with the vuesax hook (`useNotification`)
 
 :::tip
-  The necessary properties are the `title` and the` text` or failing the `content` property
+  The necessary properties are the `title` and the`text` or failing the `content` property
 :::
 
 </card>
@@ -24,7 +24,7 @@ It generates a notification with the vuesax function (`useNotification`), to use
 
 ## Position
 
-Change the notification position with the position property
+Change the notification position with the `position` property
 
 supported values
 
@@ -41,7 +41,7 @@ supported values
 
 ## Color
 
-Use the color property to change the base color of the component and some of the child components, to better understand the handling of colors and themes you can see it.
+Use the `color` property to change the base color of the component and some of the child components, to better understand the handling of colors and themes you can see it.
 
 Allowed values ​​are:
 
@@ -63,7 +63,7 @@ Add the icon provided as the value of the `icon` slot to the notification
 
 </card>
 
-<card subtitle="Progress"> 
+<card subtitle="Progress">
 
 ## Progress
 

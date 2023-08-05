@@ -3,7 +3,7 @@ prev: Avatar
 next: Radio
 last Update: 2023/13/1
 ---
-# Notification
+# Notification 警告
 
 <card>
 
@@ -11,10 +11,10 @@ last Update: 2023/13/1
 
 <docs-warn />
 
-It generates a notification with the vuesax function (`useNotification`), to use the instance of the notification it is necessary to save it in a variable, for example if you need to close the notification manually or do other functionalities with the instance
+使用 vuesax hook（`useNotification`）生成通知
 
 :::tip
-  The necessary properties are the `title` and the` text` or failing the `content` property
+  `title` 和 `text` 属性是必填的
 :::
 
 </card>
@@ -23,7 +23,7 @@ It generates a notification with the vuesax function (`useNotification`), to use
 
 ## Position
 
-Change the notification position with the position property
+使用 `position` 属性更改通知的弹出位置
 
 supported values
 
@@ -40,7 +40,7 @@ supported values
 
 ## Color
 
-Use the color property to change the base color of the component and some of the child components, to better understand the handling of colors and themes you can see it.
+使用 `color` 属性可更改组件和部分子组件的基本颜色，如果想更好地理解颜色和主题的处理方法，请参阅它。
 
 Allowed values ​​are:
 
@@ -58,15 +58,15 @@ Allowed values ​​are:
 
 ## Icons
 
-Add the icon provided as the value of the `icon` slot to the notification
+将图标作为通过 `icon` 插槽添加到通知中
 
 </card>
 
-<card subtitle="Progress"> 
+<card subtitle="Progress">
 
 ## Progress
 
-Add a progress bar to the notification, if the value of the `progressAuto` property is `auto` be determined by the `duration` property to reach 100%.
+如果 `progressAuto` 属性的值为 `true`，则在通知中添加进度条，并由 `duration` 属性决定是否达到 100%。
 
 </card>
 
@@ -74,9 +74,9 @@ Add a progress bar to the notification, if the value of the `progressAuto` prope
 
 ## Duration
 
-Change the duration of the notification with the `duration` property, the value is numerical and determine the seconds before the bone component is hidden that **10s** equals **10000** as the value
+使用 `duration` 属性更改通知的持续时间，该值为 `number` 类型，用于确定隐藏组件前的秒数，**10s** 等于 **10000** 的值。
 
-if you need the notification to never be hidden, the duration value would be `none`
+如果我们需要通知永不隐藏，持续时间值应为 `undefined`。
 
 </card>
 
@@ -84,7 +84,7 @@ if you need the notification to never be hidden, the duration value would be `no
 
 ## Square
 
-Change the style of the notification with the `square` property so as not to have `border-radius` making it a rectangle
+我们可以使用 `square` 属性移除所有圆角，该属性是 `boolean` 类型
 
 </card>
 
@@ -92,7 +92,7 @@ Change the style of the notification with the `square` property so as not to hav
 
 ## Border
 
-Change the notification style with the `border` property by adding a border of the color provided as the value
+我们可以通过添加 `border`  属性来将 Notification 设置为带有边框的样式，该属性是 `boolean` 类型
 
 </card>
 
@@ -100,7 +100,7 @@ Change the notification style with the `border` property by adding a border of t
 
 ## Flat
 
-Change the style of the notification with the `flat` property, having this property changes to lighter colors and the text of the color of the `color` property, this property is a boolean so you can only use the value `true`
+我们可以通过添加 `flat`  属性来将 Notification 设置为扁平的样式，该属性是 `boolean` 类型
 
 </card>
 
@@ -108,7 +108,7 @@ Change the style of the notification with the `flat` property, having this prope
 
 ## Loading
 
-Add a loading animation to the notification, having this property will only show the animation and the content will be hidden
+使用 `loading` 属性为通知添加加载动画，拥有此属性将只显示动画而隐藏内容
 
 </card>
 
@@ -116,9 +116,9 @@ Add a loading animation to the notification, having this property will only show
 
 ## Width
 
-Change the size of the notification to the total screen with the property `width` and giving it a value of `100%`
+使用属性 `width` 将通知的大小更改为整个屏幕的大小，并将其值设为 `100%`。
 
-If you need the notification to have an automatic size to your content you can do it with the value `auto`
+如果需要根据内容自动调整通知的大小，可以使用 `auto` 值来实现。
 
 </card>
 
@@ -126,7 +126,7 @@ If you need the notification to have an automatic size to your content you can d
 
 ## Sticky
 
-You can add a style to the paste component to the nearest corner with the `sticky` property, this property is a `boolean` po which can only have the value `true`
+您可以使用 `sticky` 属性为粘贴组件的最近角添加样式，该属性是一个 `boolean` po，其值只能是 `true` 。
 
 </card>
 
@@ -134,7 +134,7 @@ You can add a style to the paste component to the nearest corner with the `stick
 
 ## Example
 
-You can do great things with this component and some others from vuesax, to add any element within the notification we have the property `content` this property can only receive an imported component and that is what it will generate within the notification
+如果想在通知中添加任意元素，我们可以使用 `content` 属性，该属性只能接收一个导入的组件，它将在通知中生成该组件。
 
 </card>
 
