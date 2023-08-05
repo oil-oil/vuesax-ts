@@ -1,10 +1,10 @@
-import { App, Plugin } from "vue";
+import { App, Plugin } from 'vue'
 
-import Select from "./Select";
+import Select from './Select'
 
 Select.install = (app: App) => {
-  app.component(Select.name, Select);
-  return app;
-};
+  app.component(Select.name, Select)
+  return app
+}
 
-export default Select as typeof Select & Plugin;
+export default Select as typeof Select & Plugin

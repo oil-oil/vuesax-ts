@@ -1,27 +1,27 @@
-import { defineComponent, inject, provide, ref } from "vue";
+import { defineComponent, inject, provide, ref } from 'vue'
 
-import { NavbarProvider } from "../types";
+import { NavbarProvider } from '../types'
 
-import "./style.scss";
+import './style.scss'
 
 const NavbarGroup = defineComponent({
-  name: "VsNavbarGroup",
-  slots: ["default", "items"],
+  name: 'VsNavbarGroup',
+  slots: ['default', 'items'],
   setup(_, { slots }) {
-    const elRef = ref<HTMLElement>();
-    const itemRef = ref<HTMLElement>();
-    const provider = inject<NavbarProvider>("provider");
+    const elRef = ref<HTMLElement>()
+    const itemRef = ref<HTMLElement>()
+    const provider = inject<NavbarProvider>('provider')
 
     const setLeftLineGroup = () => {
       if (elRef.value && itemRef.value) {
-        const left = elRef.value.offsetLeft;
-        provider?.setLeftLine(left);
-        const width = itemRef.value.scrollWidth;
-        provider?.setWidthLine(width);
+        const left = elRef.value.offsetLeft
+        provider?.setLeftLine(left)
+        const width = itemRef.value.scrollWidth
+        provider?.setWidthLine(width)
       }
-    };
+    }
 
-    provide("setLeftLineGroup", setLeftLineGroup);
+    provide('setLeftLineGroup', setLeftLineGroup)
 
     return () => (
       <div class="vs-navbar__group" ref={elRef}>
@@ -31,9 +31,9 @@ const NavbarGroup = defineComponent({
         </button>
         <div class="vs-navbar__group__items">{slots.items?.()}</div>
       </div>
-    );
-  },
-});
-export default NavbarGroup;
+    )
+  }
+})
+export default NavbarGroup
 
-export type NavbarGroupProps = InstanceType<typeof NavbarGroup>["$props"];
+export type NavbarGroupProps = InstanceType<typeof NavbarGroup>['$props']

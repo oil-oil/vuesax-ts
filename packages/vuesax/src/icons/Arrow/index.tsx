@@ -1,14 +1,14 @@
-import { HTMLAttributes, defineComponent } from "vue";
+import { HTMLAttributes, defineComponent } from 'vue'
 
-import "./style.scss";
-import { CompWithAttr } from "@/types/utils";
+import './style.scss'
+import { CompWithAttr } from '@/types/utils'
 
 const IconArrow = defineComponent({
   props: {
     less: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   setup(props, { attrs }) {
     return () => (
@@ -16,14 +16,14 @@ const IconArrow = defineComponent({
         {...attrs}
         ref="icon"
         class={[
-          "vs-icon-arrow",
+          'vs-icon-arrow',
           {
-            less: props.less,
-          },
+            less: props.less
+          }
         ]}
       ></i>
-    );
-  },
-});
+    )
+  }
+})
 
-export default IconArrow as CompWithAttr<typeof IconArrow, HTMLAttributes>;
+export default IconArrow as CompWithAttr<typeof IconArrow, HTMLAttributes>

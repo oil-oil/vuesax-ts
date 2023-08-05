@@ -6,64 +6,62 @@ import {
   computed,
   h,
   watch,
-  nextTick,
-} from "vue";
+  nextTick
+} from 'vue'
 
-import Loading, { LoadingProps } from "./Loading";
+import Loading, { LoadingProps } from './Loading'
 
-type LoadingHookProps = Omit<LoadingProps, "isVisible">;
+type LoadingHookProps = Omit<LoadingProps, 'isVisible'>
 
 const useLoading = (props?: LoadingHookProps) => {
-  let LoadingDom: HTMLDivElement;
-  const isVisible = ref(false);
+  let LoadingDom: HTMLDivElement
+  const isVisible = ref(false)
 
   const app = computed(() =>
     createApp({
-      render: () => h(Loading, { ...props, isVisible: isVisible.value }),
+      render: () => h(Loading, { ...props, isVisible: isVisible.value })
     })
-  );
+  )
 
   const mountLoading = () => {
-    LoadingDom = document.createElement("div");
-    app.value.mount(LoadingDom);
-    document.body.appendChild(LoadingDom);
-  };
+    LoadingDom = document.createElement('div')
+    app.value.mount(LoadingDom)
+    document.body.appendChild(LoadingDom)
+  }
 
   const unMountLoading = () => {
-    app.value.unmount();
-    document.body.removeChild(LoadingDom);
-  };
+    app.value.unmount()
+    document.body.removeChild(LoadingDom)
+  }
 
   watch(isVisible, () => {
     if (isVisible.value) {
       nextTick(() => {
-        const vsLoading = LoadingDom.querySelector(
-          ".vs-loading"
-        ) as HTMLElement;
-        vsLoading.style.position = "fixed";
-      });
+        const vsLoading = LoadingDom.querySelector('.vs-loading') as HTMLElement
+        vsLoading.style.position = 'fixed'
+      })
     }
-  });
+  })
 
   onMounted(() => {
-    mountLoading();
-    LoadingDom = document.createElement("div");
-  });
+    mountLoading()
+    LoadingDom = document.createElement('div')
+  })
 
   onUnmounted(() => {
-    unMountLoading();
-  });
+    unMountLoading()
+  })
 
   const open = () => {
-    isVisible.value = true;
-  };
+    isVisible.value = true
+  }
 
   const close = () => {
-    isVisible.value = false;
-  };
+    isVisible.value = false
+  }
 
-  return { open, close };
-};
+  return { open, close }
+}
 
-export default useLoading;
-export type { LoadingHookProps };
+export default useLoading
+export type { LoadingHookProps }

@@ -14,7 +14,7 @@ const DocsPage = defineComponent({
     const pageHeaderTrigger = ref(false);
     const pageHeaderDelta = ref();
     const sidebarController = inject<{ isSidebarOpen: Ref<boolean> }>(
-      "sidebarController"
+      "sidebarController",
     );
     const scrollEvent = () => {
       pageHeaderDelta.value = (window.scrollY * 0.55).toFixed(0);

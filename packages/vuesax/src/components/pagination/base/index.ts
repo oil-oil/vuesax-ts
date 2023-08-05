@@ -1,10 +1,10 @@
-import { App, Plugin } from "vue";
+import { App, Plugin } from 'vue'
 
-import Pagination from "./Pagination.tsx";
+import Pagination from './Pagination.tsx'
 
 Pagination.install = (app: App) => {
-  app.component(Pagination.name, Pagination);
-  return app;
-};
+  app.component(Pagination.name, Pagination)
+  return app
+}
 
-export default Pagination as typeof Pagination & Plugin;
+export default Pagination as typeof Pagination & Plugin

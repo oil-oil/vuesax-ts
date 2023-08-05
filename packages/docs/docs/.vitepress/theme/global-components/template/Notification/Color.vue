@@ -5,7 +5,11 @@
       v-for="(notification, index) in notifications"
       :key="index"
       :color="notification.color"
-      @click="() => { handleClick(notification.position as Position, notification.color) }"
+      @click="
+        () => {
+          handleClick(notification.position as Position, notification.color);
+        }
+      "
       icon
       ><i :class="notification.iconClass"></i
     ></VsButton>

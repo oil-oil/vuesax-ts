@@ -9,7 +9,7 @@
           handleClick(
             notification.position,
             notification.color,
-            notification.iconSlot
+            notification.iconSlot,
           );
         }
       "

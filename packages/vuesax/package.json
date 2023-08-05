@@ -42,7 +42,6 @@
     "cypress": "^12.17.2",
     "cypress-real-events": "^1.8.1",
     "eslint-config-custom": "workspace:*",
-    "eslint-plugin-prettier": "^4.2.1",
     "lightningcss": "^1.21.5",
     "sass": "^1.62.1",
     "tsconfig": "workspace:*",

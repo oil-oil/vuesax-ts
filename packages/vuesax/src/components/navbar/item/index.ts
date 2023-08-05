@@ -1,10 +1,10 @@
-import { App, Plugin } from "vue";
+import { App, Plugin } from 'vue'
 
-import NavbarItem from "./Navbaritem";
+import NavbarItem from './Navbaritem'
 
 NavbarItem.install = (app: App) => {
-  app.component(NavbarItem.name, NavbarItem);
-  return app;
-};
+  app.component(NavbarItem.name, NavbarItem)
+  return app
+}
 
-export default NavbarItem as typeof NavbarItem & Plugin;
+export default NavbarItem as typeof NavbarItem & Plugin

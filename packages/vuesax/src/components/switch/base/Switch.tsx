@@ -1,59 +1,59 @@
 /* eslint-disable no-param-reassign */
-import { InputHTMLAttributes, PropType, defineComponent } from "vue";
+import { InputHTMLAttributes, PropType, defineComponent } from 'vue'
 
-import "./style.scss";
+import './style.scss'
 
-import { Color, CompWithAttr } from "@/types/utils";
-import { getColor } from "@/utils";
+import { Color, CompWithAttr } from '@/types/utils'
+import { getColor } from '@/utils'
 
 const Switch = defineComponent({
-  name: "VsSwitch",
+  name: 'VsSwitch',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     modelValue: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     square: {
       type: Boolean,
-      default: false,
+      default: false
     },
     indeterminate: {
       type: Boolean,
-      default: false,
+      default: false
     },
     icon: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  slots: ["circle", "on", "off"],
-  emits: ["update:modelValue"],
+  slots: ['circle', 'on', 'off'],
+  emits: ['update:modelValue'],
   setup(props, { attrs, slots, emit }) {
     return () => (
       <div
         class={[
-          "vs-switch",
+          'vs-switch',
           {
-            "vs-switch--loading": props.loading,
-            "vs-switch--square": props.square,
-            "vs-switch--indeterminate": props.indeterminate,
-            "vs-switch--icon": props.icon,
-          },
+            'vs-switch--loading': props.loading,
+            'vs-switch--square': props.square,
+            'vs-switch--indeterminate': props.indeterminate,
+            'vs-switch--icon': props.icon
+          }
         ]}
-        style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
+        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
       >
         <input
           type="checkbox"
           checked={props.modelValue}
           onChange={(e) => {
-            emit("update:modelValue", (e.target as HTMLInputElement).checked);
+            emit('update:modelValue', (e.target as HTMLInputElement).checked)
           }}
           class="vs-switch__input"
           {...attrs}
@@ -68,10 +68,10 @@ const Switch = defineComponent({
 
         <div class="vs-switch__background"></div>
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Switch as CompWithAttr<typeof Switch, InputHTMLAttributes>;
+export default Switch as CompWithAttr<typeof Switch, InputHTMLAttributes>
 
-export type SwitchProps = InstanceType<typeof Switch>["$props"];
+export type SwitchProps = InstanceType<typeof Switch>['$props']

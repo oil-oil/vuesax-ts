@@ -1,63 +1,63 @@
 /* eslint-disable no-param-reassign */
-import { nanoid } from "nanoid";
-import { InputHTMLAttributes, PropType, defineComponent, ref } from "vue";
+import { nanoid } from 'nanoid'
+import { InputHTMLAttributes, PropType, defineComponent, ref } from 'vue'
 
-import "./style.scss";
-import VsIconsCheck from "@/icons/Check";
-import { Color, CompWithAttr } from "@/types/utils";
-import { getColor } from "@/utils";
+import './style.scss'
+import VsIconsCheck from '@/icons/Check'
+import { Color, CompWithAttr } from '@/types/utils'
+import { getColor } from '@/utils'
 
 const Checkbox = defineComponent({
-  name: "VsCheckbox",
+  name: 'VsCheckbox',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     modelValue: {
       type: Boolean,
-      default: false,
+      default: false
     },
     indeterminate: {
       type: Boolean,
-      default: false,
+      default: false
     },
     lineThrough: {
       type: Boolean,
-      default: false,
+      default: false
     },
     checked: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     labelBefore: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  slots: ["icon"],
-  emits: ["update:modelValue"],
+  slots: ['icon'],
+  emits: ['update:modelValue'],
   setup(props, { attrs, slots, emit }) {
-    const checkboxAttrs = attrs as InputHTMLAttributes;
-    const uniqueId = checkboxAttrs?.id || nanoid();
+    const checkboxAttrs = attrs as InputHTMLAttributes
+    const uniqueId = checkboxAttrs?.id || nanoid()
 
-    const innerCheck = ref(props.checked);
+    const innerCheck = ref(props.checked)
 
     return () => (
       <>
         <div
-          style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
+          style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
           class={[
-            "vs-checkbox-content",
+            'vs-checkbox-content',
             {
-              "vs-checkbox--checked": props.modelValue || innerCheck.value,
-              "vs-checkbox--disabled": checkboxAttrs.disabled,
-              "vs-checkbox--loading": props.loading,
-              "vs-checkbox--label-before": props.labelBefore,
-            },
+              'vs-checkbox--checked': props.modelValue || innerCheck.value,
+              'vs-checkbox--disabled': checkboxAttrs.disabled,
+              'vs-checkbox--loading': props.loading,
+              'vs-checkbox--label-before': props.labelBefore
+            }
           ]}
         >
           <div class="vs-checkbox-con">
@@ -67,10 +67,10 @@ const Checkbox = defineComponent({
               checked={props.checked || props.modelValue}
               onChange={(e) => {
                 emit(
-                  "update:modelValue",
+                  'update:modelValue',
                   (e.target as HTMLInputElement).checked
-                );
-                innerCheck.value = (e.target as HTMLInputElement).checked;
+                )
+                innerCheck.value = (e.target as HTMLInputElement).checked
               }}
               {...checkboxAttrs}
               id={uniqueId}
@@ -87,10 +87,10 @@ const Checkbox = defineComponent({
           {slots.default && (
             <label
               class={[
-                "vs-checkbox-label",
+                'vs-checkbox-label',
                 {
-                  lineThrough: props.lineThrough,
-                },
+                  lineThrough: props.lineThrough
+                }
               ]}
               for={uniqueId}
             >
@@ -99,10 +99,10 @@ const Checkbox = defineComponent({
           )}
         </div>
       </>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Checkbox as CompWithAttr<typeof Checkbox, InputHTMLAttributes>;
+export default Checkbox as CompWithAttr<typeof Checkbox, InputHTMLAttributes>
 
-export type CheckboxProps = InstanceType<typeof Checkbox>["$props"];
+export type CheckboxProps = InstanceType<typeof Checkbox>['$props']

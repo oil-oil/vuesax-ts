@@ -24,10 +24,7 @@ module.exports = {
   plugins: ["vue", "@typescript-eslint", "import", "prettier"],
   rules: {
     "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto"
-      }
+      "error"
     ],
     "import/order": [
       "error",

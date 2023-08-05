@@ -3,151 +3,151 @@ import {
   PropType,
   computed,
   defineComponent,
-  ref,
-} from "vue";
-import { useRouter } from "vue-router";
+  ref
+} from 'vue'
+import { useRouter } from 'vue-router'
 
-import { Color, CompWithAttr, Size } from "@/types/utils";
-import { getColor } from "@/utils";
-import ripple, { rippleCut, rippleReverse } from "@/utils/ripple/index";
+import { Color, CompWithAttr, Size } from '@/types/utils'
+import { getColor } from '@/utils'
+import ripple, { rippleCut, rippleReverse } from '@/utils/ripple/index'
 
-import "./style.scss";
+import './style.scss'
 
 const Button = defineComponent({
-  name: "VsButton",
+  name: 'VsButton',
   props: {
     color: {
       type: String as PropType<Color>,
-      default: "primary",
+      default: 'primary'
     },
     active: {
       type: Boolean,
-      default: false,
+      default: false
     },
     ripple: {
       type: String,
-      default: "",
+      default: ''
     },
     activeDisabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     flat: {
       type: Boolean,
-      default: false,
+      default: false
     },
     border: {
       type: Boolean,
-      default: false,
+      default: false
     },
     gradient: {
       type: Boolean,
-      default: false,
+      default: false
     },
     relief: {
       type: Boolean,
-      default: false,
+      default: false
     },
     transparent: {
       type: Boolean,
-      default: false,
+      default: false
     },
     shadow: {
       type: Boolean,
-      default: false,
+      default: false
     },
     floating: {
       type: Boolean,
-      default: false,
+      default: false
     },
     icon: {
       type: Boolean,
-      default: false,
+      default: false
     },
     circle: {
       type: Boolean,
-      default: false,
+      default: false
     },
     square: {
       type: Boolean,
-      default: false,
+      default: false
     },
     size: {
       type: String as PropType<Size>,
-      default: "md",
+      default: 'md'
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     upload: {
       type: Boolean,
-      default: false,
+      default: false
     },
     block: {
       type: Boolean,
-      default: false,
+      default: false
     },
     animationType: {
       type: String,
-      default: "",
+      default: ''
     },
     animateInactive: {
       type: Boolean,
-      default: false,
+      default: false
     },
     to: {
       type: String,
-      default: null,
+      default: null
     },
     href: {
       type: String,
-      default: null,
+      default: null
     },
     blank: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  slots: ["default", "animate"],
-  emits: ["click"],
+  slots: ['default', 'animate'],
+  emits: ['click'],
   setup(props, { slots, attrs, emit }) {
-    const buttonRef = ref<Element>();
-    const router = useRouter();
+    const buttonRef = ref<Element>()
+    const router = useRouter()
 
     const animateSlot = (
       <div
         class={[
-          "vs-button__animate",
+          'vs-button__animate',
           {
             [`vs-button__animate--${props?.animationType}`]:
-              props?.animationType,
-          },
+              props?.animationType
+          }
         ]}
       >
         {slots.animate?.()}
       </div>
-    );
+    )
 
-    const loadingElement = <div class="vs-button__loading"></div>;
+    const loadingElement = <div class="vs-button__loading"></div>
 
     const buttonClass = computed(() => [
-      "vs-button",
+      'vs-button',
       `vs-button--size-${props.size}`,
       {
-        "vs-button--fff": props.color === "#fff",
-        "vs-button--active": props.active,
-        "vs-button--active-disabled": props.activeDisabled,
-        "vs-button--icon": props.icon,
-        "vs-button--circle": props.circle,
-        "vs-button--square": props.square,
-        "vs-button--loading": props.loading,
-        "vs-button--upload": props.upload,
-        "vs-button--block": props.block,
-        "vs-button--animate": slots.animate,
+        'vs-button--fff': props.color === '#fff',
+        'vs-button--active': props.active,
+        'vs-button--active-disabled': props.activeDisabled,
+        'vs-button--icon': props.icon,
+        'vs-button--circle': props.circle,
+        'vs-button--square': props.square,
+        'vs-button--loading': props.loading,
+        'vs-button--upload': props.upload,
+        'vs-button--block': props.block,
+        'vs-button--animate': slots.animate,
         [`vs-button--animate-${props.animationType}`]: props.animationType,
-        "vs-button--animate-inactive": props.animateInactive,
-        "vs-button--default":
+        'vs-button--animate-inactive': props.animateInactive,
+        'vs-button--default':
           !props.flat &&
           !props.border &&
           !props.gradient &&
@@ -155,51 +155,51 @@ const Button = defineComponent({
           !props.transparent &&
           !props.shadow &&
           !props.floating,
-        "vs-button--flat": props.flat,
-        "vs-button--border": props.border,
-        "vs-button--gradient": props.gradient,
-        "vs-button--relief": props.relief,
-        "vs-button--transparent": props.transparent,
-        "vs-button--shadow": props.shadow,
-        "vs-button--floating": props.floating,
-      },
-    ]);
+        'vs-button--flat': props.flat,
+        'vs-button--border': props.border,
+        'vs-button--gradient': props.gradient,
+        'vs-button--relief': props.relief,
+        'vs-button--transparent': props.transparent,
+        'vs-button--shadow': props.shadow,
+        'vs-button--floating': props.floating
+      }
+    ])
 
     const handleMouseDown = (evt: MouseEvent) => {
-      if (props.ripple === "reverse") {
-        rippleReverse(evt);
-      } else if (props.ripple === "cut") {
-        rippleCut(evt);
+      if (props.ripple === 'reverse') {
+        rippleReverse(evt)
+      } else if (props.ripple === 'cut') {
+        rippleCut(evt)
       } else if (props.flat) {
         ripple(
           evt,
-          (props.color || "primary") &&
+          (props.color || 'primary') &&
             !props.active &&
             document.activeElement !== buttonRef.value
-            ? "inherit"
+            ? 'inherit'
             : null,
           props.flat &&
             !props.active &&
             document.activeElement !== buttonRef.value
-        );
+        )
       } else {
-        ripple(evt, null, false);
+        ripple(evt, null, false)
       }
-    };
+    }
 
     const onClick = (evt: MouseEvent) => {
       if (props.to) {
-        router.push(props.to);
+        router.push(props.to)
       } else if (props.href) {
-        window.open(props.href, (props.blank && "_blank") || "_self");
+        window.open(props.href, (props.blank && '_blank') || '_self')
       }
-      emit("click", evt);
-    };
+      emit('click', evt)
+    }
 
     return () => (
       <button
         class={buttonClass.value}
-        style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
+        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
         onMousedown={(e) => handleMouseDown(e)}
         onClick={onClick}
         ref="buttonRef"
@@ -209,10 +209,10 @@ const Button = defineComponent({
         {slots.animate && animateSlot}
         {props.loading && loadingElement}
       </button>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Button as CompWithAttr<typeof Button, ButtonHTMLAttributes>;
+export default Button as CompWithAttr<typeof Button, ButtonHTMLAttributes>
 
-export type ButtonProps = InstanceType<typeof Button>["$props"];
+export type ButtonProps = InstanceType<typeof Button>['$props']

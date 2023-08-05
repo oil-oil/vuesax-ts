@@ -1,8 +1,8 @@
-import avatar2 from "./avatar-2.png";
-import { VsAvatar } from "@/components";
+import avatar2 from './avatar-2.png'
+import { VsAvatar } from '@/components'
 
-describe("Avatar", () => {
-  it("test Avatar all props render", () => {
+describe('Avatar', () => {
+  it('test Avatar all props render', () => {
     cy.mount(
       <VsAvatar
         badge
@@ -17,19 +17,19 @@ describe("Avatar", () => {
               <i class="bx bxl-github"></i>
               <i class="bx bxl-twitter"></i>
             </>
-          ),
+          )
         }}
       >
         <img src={avatar2} alt="" />
       </VsAvatar>
-    );
-    cy.get(".vs-avatar__badge,writing").should("be.visible");
-    cy.get(".vs-avatar__icons").should("be.visible");
-    cy.get(".vs-avatar-content")
-      .should("have.class", "history--gradient")
-      .realHover();
-    cy.get(".vs-avatar img")
-      .should("be.visible")
-      .and("have.css", "transform", "matrix(1.1, 0, 0, 1.1, 0, 0)");
-  });
-});
+    )
+    cy.get('.vs-avatar__badge,writing').should('be.visible')
+    cy.get('.vs-avatar__icons').should('be.visible')
+    cy.get('.vs-avatar-content')
+      .should('have.class', 'history--gradient')
+      .realHover()
+    cy.get('.vs-avatar img')
+      .should('be.visible')
+      .and('have.css', 'transform', 'matrix(1.1, 0, 0, 1.1, 0, 0)')
+  })
+})

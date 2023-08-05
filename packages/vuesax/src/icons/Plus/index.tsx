@@ -1,25 +1,25 @@
-import { defineComponent } from "vue";
-import "./style.scss";
+import { defineComponent } from 'vue'
+import './style.scss'
 
 const IconPlus = defineComponent({
   props: {
     less: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   setup(props) {
     return () => (
       <i
         class={[
-          "vs-icon-plus",
+          'vs-icon-plus',
           {
-            less: props.less,
-          },
+            less: props.less
+          }
         ]}
       ></i>
-    );
-  },
-});
+    )
+  }
+})
 
-export default IconPlus;
+export default IconPlus

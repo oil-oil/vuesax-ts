@@ -1,24 +1,24 @@
-import { defineComponent } from "vue";
-import "./style.scss";
+import { defineComponent } from 'vue'
+import './style.scss'
 
 const IconCheck = defineComponent({
   props: {
     indeterminate: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
 
   setup(props) {
     return () => (
-      <i class={["vs-icon-check", { indeterminate: props.indeterminate }]}>
+      <i class={['vs-icon-check', { indeterminate: props.indeterminate }]}>
         <span>
           <div class="line1"></div>
           <div class="line2"></div>
         </span>
       </i>
-    );
-  },
-});
+    )
+  }
+})
 
-export default IconCheck;
+export default IconCheck

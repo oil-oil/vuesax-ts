@@ -4,155 +4,155 @@ import {
   PropType,
   Transition,
   computed,
-  defineComponent,
-} from "vue";
+  defineComponent
+} from 'vue'
 
-import "./style.scss";
+import './style.scss'
 
-import { Color, CompWithAttr } from "@/types/utils";
-import { getColor } from "@/utils";
+import { Color, CompWithAttr } from '@/types/utils'
+import { getColor } from '@/utils'
 
-type Status = "primary" | "warn" | "danger" | "success" | "dark";
+type Status = 'primary' | 'warn' | 'danger' | 'success' | 'dark'
 const Input = defineComponent({
-  name: "VsInput",
+  name: 'VsInput',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     modelValue: {
       type: [String, Number],
-      default: "",
+      default: ''
     },
     labelPlaceholder: {
-      default: "",
+      default: ''
     },
     label: {
-      default: "",
+      default: ''
     },
     block: {
       type: Boolean,
-      default: false,
+      default: false
     },
     iconAfter: {
       type: Boolean,
-      default: false,
+      default: false
     },
     visiblePassword: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     progress: {
-      type: Number,
+      type: Number
     },
     border: {
       type: Boolean,
-      default: false,
+      default: false
     },
     shadow: {
       type: Boolean,
-      default: false,
+      default: false
     },
     transparent: {
       type: Boolean,
-      default: false,
+      default: false
     },
     textWhite: {
       type: Boolean,
-      default: false,
+      default: false
     },
     square: {
       type: Boolean,
-      default: false,
+      default: false
     },
     isIconClick: {
       type: Boolean,
-      default: false,
+      default: false
     },
     status: {
-      type: String as PropType<Status>,
-    },
+      type: String as PropType<Status>
+    }
   },
   setup(props, { attrs, slots, emit }) {
-    const id = computed(() => `vs-input--${attrs.id || "id"}`);
+    const id = computed(() => `vs-input--${attrs.id || 'id'}`)
 
     const beforeEnter = (element: Element) => {
-      const el = element as HTMLElement;
-      el.style.height = "0px";
-    };
+      const el = element as HTMLElement
+      el.style.height = '0px'
+    }
 
     const enter = (element: Element, done: () => void) => {
-      const el = element as HTMLElement;
-      const h = el.scrollHeight;
-      el.style.height = `${h - 1}px`;
-      done();
-    };
+      const el = element as HTMLElement
+      const h = el.scrollHeight
+      el.style.height = `${h - 1}px`
+      done()
+    }
 
     const leave = (element: Element) => {
-      const el = element as HTMLElement;
-      el.style.minHeight = "0px";
-      el.style.height = "0px";
-    };
+      const el = element as HTMLElement
+      el.style.minHeight = '0px'
+      el.style.height = '0px'
+    }
 
     const getMessage = (type: Status) => (
       <Transition onBeforeEnter={beforeEnter} onEnter={enter} onLeave={leave}>
         {!!slots[`message-${type}`] && (
-          <div class={["vs-input__message", `vs-input__message--${type}`]}>
+          <div class={['vs-input__message', `vs-input__message--${type}`]}>
             {slots[`message-${type}`]?.()}
           </div>
         )}
       </Transition>
-    );
+    )
 
-    const loading = <div class="vs-input__loading" />;
+    const loading = <div class="vs-input__loading" />
     return () => (
       <div
         class={[
-          "vs-input-parent",
+          'vs-input-parent',
           {
             [`vs-input-parent--status-${props.status}`]: !!props.status,
-            "vs-input-parent--border": !!props.border,
-            "vs-input-parent--shadow": !!props.shadow,
-            "vs-input-content--has-label":
+            'vs-input-parent--border': !!props.border,
+            'vs-input-parent--shadow': !!props.shadow,
+            'vs-input-content--has-label':
               props.label || props.labelPlaceholder,
             block: props.block,
             transparent: props.transparent,
             textWhite: props.textWhite,
             square: props.square,
             // colors
-            "vs-component--is-color": !!props.color,
-          },
+            'vs-component--is-color': !!props.color
+          }
         ]}
-        style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
+        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
       >
         {/* input content */}
         <div
           class={[
-            "vs-input-content",
-            { "vs-input-content--has-color": props.color },
+            'vs-input-content',
+            { 'vs-input-content--has-color': props.color },
             {
-              "vs-input-content--has-label":
-                props.label || props.labelPlaceholder,
-            },
+              'vs-input-content--has-label':
+                props.label || props.labelPlaceholder
+            }
           ]}
         >
           <input
             value={props.modelValue}
             class={[
-              "vs-input",
-              { "vs-input--has-icon": slots.icon },
-              { "vs-input--has-icon--after": props.iconAfter },
+              'vs-input',
+              { 'vs-input--has-icon': slots.icon },
+              { 'vs-input--has-icon--after': props.iconAfter }
             ]}
             onInput={(e) => {
-              emit("update:modelValue", (e.target as HTMLInputElement)?.value);
+              emit('update:modelValue', (e.target as HTMLInputElement)?.value)
             }}
             {...attrs}
             placeholder=""
             id={id.value}
-            type={props.visiblePassword ? "text" : (attrs.type as string)}
+            type={props.visiblePassword ? 'text' : (attrs.type as string)}
           />
 
           {/* placeholder */}
@@ -160,8 +160,8 @@ const Input = defineComponent({
             <label
               for={id.value}
               class={[
-                "vs-input__label",
-                { "vs-input__label--hidden": props.modelValue !== "" },
+                'vs-input__label',
+                { 'vs-input__label--hidden': props.modelValue !== '' }
               ]}
             >
               {attrs.placeholder}
@@ -172,15 +172,15 @@ const Input = defineComponent({
           <label
             for={id.value}
             class={[
-              "vs-input__label",
-              { "vs-input__label--placeholder": props.labelPlaceholder },
+              'vs-input__label',
+              { 'vs-input__label--placeholder': props.labelPlaceholder },
               {
-                "vs-input__label--hidden":
-                  props.modelValue !== "" ||
-                  attrs.type === "date" ||
-                  attrs.type === "time",
+                'vs-input__label--hidden':
+                  props.modelValue !== '' ||
+                  attrs.type === 'date' ||
+                  attrs.type === 'time'
               },
-              { "vs-input__label--label": props.label },
+              { 'vs-input__label--label': props.label }
             ]}
           >
             {props.label || attrs.placeholder || props.labelPlaceholder}
@@ -190,9 +190,9 @@ const Input = defineComponent({
           {slots.icon && (
             <span
               class={[
-                "vs-input__icon",
-                { "vs-input__icon--after": props.iconAfter },
-                { "vs-input__icon--click": props.isIconClick },
+                'vs-input__icon',
+                { 'vs-input__icon--after': props.iconAfter },
+                { 'vs-input__icon--click': props.isIconClick }
               ]}
             >
               {slots.icon()}
@@ -209,36 +209,36 @@ const Input = defineComponent({
         </div>
 
         {/* progress */}
-        {typeof props.progress !== "undefined" && (
+        {typeof props.progress !== 'undefined' && (
           <div
             class={[
-              "vs-input__progress",
-              { "vs-input__progress--danger": props.progress < 33 },
+              'vs-input__progress',
+              { 'vs-input__progress--danger': props.progress < 33 },
               {
-                "vs-input__progress--warn":
-                  props.progress < 66 && props.progress > 33,
+                'vs-input__progress--warn':
+                  props.progress < 66 && props.progress > 33
               },
-              { "vs-input__progress--success": props.progress > 66 },
+              { 'vs-input__progress--success': props.progress > 66 }
             ]}
           >
             <div
               class="vs-input__progress__bar"
               style={{
-                width: `${props.progress}%`,
+                width: `${props.progress}%`
               }}
             />
           </div>
         )}
 
         {/* message */}
-        {(["success", "warn", "danger", "primary"] as const).map((message) =>
+        {(['success', 'warn', 'danger', 'primary'] as const).map((message) =>
           getMessage(message)
         )}
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Input as CompWithAttr<typeof Input, InputHTMLAttributes>;
+export default Input as CompWithAttr<typeof Input, InputHTMLAttributes>
 
-export type InputProps = InstanceType<typeof Input>["$props"];
+export type InputProps = InstanceType<typeof Input>['$props']

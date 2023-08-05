@@ -7,92 +7,92 @@ import {
   toRef,
   computed,
   HTMLAttributes,
-  PropType,
-} from "vue";
+  PropType
+} from 'vue'
 
-import { Color, CompWithAttr } from "@/types/utils";
-import { getColor, setColor } from "@/utils";
+import { Color, CompWithAttr } from '@/types/utils'
+import { getColor, setColor } from '@/utils'
 
 const Sidebar = defineComponent({
-  name: "VsSideBar",
+  name: 'VsSideBar',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     modelValue: {
-      type: String,
+      type: String
     },
     reduce: {
       type: Boolean,
-      default: false,
+      default: false
     },
     hoverExpand: {
       type: Boolean,
-      default: false,
+      default: false
     },
     open: {
       type: Boolean,
-      default: false,
+      default: false
     },
     notLineActive: {
       type: Boolean,
-      default: false,
+      default: false
     },
     square: {
       type: Boolean,
-      default: false,
+      default: false
     },
     textWhite: {
       type: Boolean,
-      default: false,
+      default: false
     },
     notShadow: {
       type: Boolean,
-      default: false,
+      default: false
     },
     relative: {
       type: Boolean,
-      default: false,
+      default: false
     },
     absolute: {
       type: Boolean,
-      default: false,
+      default: false
     },
     right: {
       type: Boolean,
-      default: false,
+      default: false
     },
     background: {
       type: String,
-      default: "background",
-    },
+      default: 'background'
+    }
   },
-  slots: ["default", "header", "footer", "logo"],
-  emits: ["update:modelValue", "update:open"],
+  slots: ['default', 'header', 'footer', 'logo'],
+  emits: ['update:modelValue', 'update:open'],
   setup(props, { slots, emit, attrs }) {
-    const rootRef = ref<HTMLElement | null>(null);
-    const staticWidth = 260;
-    const reduceInternal = ref(false);
+    const rootRef = ref<HTMLElement | null>(null)
+    const staticWidth = 260
+    const reduceInternal = ref(false)
 
     const clickCloseSidebar = (evt: MouseEvent) => {
-      if (!(evt.target as HTMLElement).closest(".vs-sidebar-content")) {
-        emit("update:open", false);
+      if (!(evt.target as HTMLElement).closest('.vs-sidebar-content')) {
+        emit('update:open', false)
       }
-    };
+    }
     watch(
       () => props.open,
       (val: boolean) => {
         if (val) {
           setTimeout(() => {
-            window.addEventListener("click", clickCloseSidebar);
-          }, 200);
+            window.addEventListener('click', clickCloseSidebar)
+          }, 200)
         } else {
-          window.removeEventListener("click", clickCloseSidebar);
+          window.removeEventListener('click', clickCloseSidebar)
         }
       }
-    );
+    )
     const sideBarClass = computed(() => [
-      "vs-sidebar-content",
+      'vs-sidebar-content',
       { reduce: reduceInternal.value },
       { open: props.open },
       { notLineActive: props.notLineActive },
@@ -101,8 +101,8 @@ const Sidebar = defineComponent({
       { textWhite: props.textWhite },
       { relative: props.relative },
       { absolute: props.absolute },
-      { right: props.right },
-    ]);
+      { right: props.right }
+    ])
 
     /**
      *  Control whether the menu is expanded according to ref(reduceInternal)
@@ -110,80 +110,80 @@ const Sidebar = defineComponent({
     const handleReduce = () => {
       if (rootRef.value) {
         if (reduceInternal.value) {
-          rootRef.value.style.width = "50px";
+          rootRef.value.style.width = '50px'
         } else {
-          rootRef.value.style.width = `${staticWidth}px`;
+          rootRef.value.style.width = `${staticWidth}px`
         }
       }
-    };
+    }
 
     watch(
       () => props.reduce,
       () => {
-        reduceInternal.value = props.reduce;
-        handleReduce();
+        reduceInternal.value = props.reduce
+        handleReduce()
       }
-    );
+    )
 
     watch(
       () => props.background,
       () => {
         setColor(
-          "background",
+          'background',
           props.background,
           rootRef.value as HTMLElement,
           true
-        );
+        )
       }
-    );
+    )
 
-    const active = toRef(props, "modelValue");
-    provide("activeValue", {
+    const active = toRef(props, 'modelValue')
+    provide('activeValue', {
       active,
       updateActive: (id: string) => {
-        emit("update:modelValue", id);
-      },
-    });
+        emit('update:modelValue', id)
+      }
+    })
 
     const mouseEnterEvent = () => {
       if (props.hoverExpand) {
-        reduceInternal.value = false;
-        handleReduce();
+        reduceInternal.value = false
+        handleReduce()
       }
-    };
+    }
     const mouseLeaveEvent = () => {
       if (props.hoverExpand) {
-        reduceInternal.value = true;
-        handleReduce();
+        reduceInternal.value = true
+        handleReduce()
       }
-    };
+    }
     onMounted(() => {
-      if (typeof props.reduce === "boolean") {
-        reduceInternal.value = props.reduce;
+      if (typeof props.reduce === 'boolean') {
+        reduceInternal.value = props.reduce
       }
       if (props.hoverExpand) {
-        reduceInternal.value = true;
+        reduceInternal.value = true
       }
-      handleReduce();
+      handleReduce()
 
-      if (props.background !== "background") {
+      if (props.background !== 'background') {
         setColor(
-          "background",
+          'background',
           props.background,
           rootRef.value as HTMLElement,
           true
-        );
+        )
       }
 
       if (props.textWhite) {
-        setColor("text", "#fff", rootRef.value as HTMLElement, true);
+        setColor('text', '#fff', rootRef.value as HTMLElement, true)
       }
-    });
+    })
     return () => (
       <div
         ref={rootRef}
         class={sideBarClass.value}
-        style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
+        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
         onMouseenter={mouseEnterEvent}
         onMouseleave={mouseLeaveEvent}
         {...attrs}
@@ -197,10 +197,10 @@ const Sidebar = defineComponent({
           <div class="vs-sidebar__footer">{slots.footer?.()}</div>
         )}
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Sidebar as CompWithAttr<typeof Sidebar, HTMLAttributes>;
+export default Sidebar as CompWithAttr<typeof Sidebar, HTMLAttributes>
 
-export type SidebarProps = InstanceType<typeof Sidebar>["$props"];
+export type SidebarProps = InstanceType<typeof Sidebar>['$props']

@@ -1,10 +1,10 @@
-import { App, Plugin } from "vue";
+import { App, Plugin } from 'vue'
 
-import AvatarGroup from "./AvatarGroup";
+import AvatarGroup from './AvatarGroup'
 
 AvatarGroup.install = (app: App) => {
-  app.component(AvatarGroup.name, AvatarGroup);
-  return app;
-};
+  app.component(AvatarGroup.name, AvatarGroup)
+  return app
+}
 
-export default AvatarGroup as typeof AvatarGroup & Plugin;
+export default AvatarGroup as typeof AvatarGroup & Plugin

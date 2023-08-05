@@ -5,95 +5,95 @@ import {
   onMounted,
   onUnmounted,
   ref,
-  watch,
-} from "vue";
+  watch
+} from 'vue'
 
-import IconClose from "@/icons/Close";
+import IconClose from '@/icons/Close'
 
-import "./style.scss";
+import './style.scss'
 
 const Modal = defineComponent({
-  name: "VsModal",
+  name: 'VsModal',
   props: {
     modelValue: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     fullScreen: {
       type: Boolean,
-      default: false,
+      default: false
     },
     showClose: {
       type: Boolean,
-      default: true,
+      default: true
     },
     preventClose: {
       type: Boolean,
-      default: false,
+      default: false
     },
     lockScroll: {
       type: Boolean,
-      default: false,
+      default: false
     },
     blur: {
       type: Boolean,
-      default: false,
+      default: false
     },
     square: {
       type: Boolean,
-      default: false,
+      default: false
     },
     fitContent: {
       type: Boolean,
-      default: false,
+      default: false
     },
     scroll: {
       type: Boolean,
-      default: false,
+      default: false
     },
     centerHeader: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  emits: ["update:modelValue", "close"],
-  slots: ["header", "footer"],
+  emits: ['update:modelValue', 'close'],
+  slots: ['header', 'footer'],
   setup(props, { emit, attrs, slots }) {
-    const modalAttrs = attrs as HTMLAttributes;
-    const rebound = ref(false);
-    const modalContentRef = ref<HTMLElement>();
+    const modalAttrs = attrs as HTMLAttributes
+    const rebound = ref(false)
+    const modalContentRef = ref<HTMLElement>()
 
     const onEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && !props.preventClose) {
-        emit("update:modelValue", false);
+      if (e.key === 'Escape' && !props.preventClose) {
+        emit('update:modelValue', false)
       }
-    };
+    }
 
     watch(
       () => props.modelValue,
       () => {
         if (props.modelValue) {
           if (props.lockScroll) {
-            document.body.style.overflow = "hidden";
+            document.body.style.overflow = 'hidden'
           }
         } else if (props.lockScroll) {
-          document.body.style.overflow = "";
-          window.removeEventListener("keydown", onEsc);
+          document.body.style.overflow = ''
+          window.removeEventListener('keydown', onEsc)
         }
       }
-    );
+    )
 
     onMounted(() => {
-      window.addEventListener("keydown", onEsc);
-    });
+      window.addEventListener('keydown', onEsc)
+    })
 
     onUnmounted(() => {
-      window.removeEventListener("keydown", onEsc);
-    });
+      window.removeEventListener('keydown', onEsc)
+    })
 
     return () => (
       <Transition name="vs-modal">
@@ -101,36 +101,36 @@ const Modal = defineComponent({
           <div
             ref={modalContentRef}
             class={[
-              "vs-modal-content",
-              { blur: props.blur, fullScreen: props.fullScreen },
+              'vs-modal-content',
+              { blur: props.blur, fullScreen: props.fullScreen }
             ]}
             onClick={(e) => {
-              const modalTarget = e.target as HTMLElement;
-              if (!modalTarget.closest(".vs-modal") && !props.preventClose) {
-                emit("update:modelValue", !props.modelValue);
-                emit("close");
+              const modalTarget = e.target as HTMLElement
+              if (!modalTarget.closest('.vs-modal') && !props.preventClose) {
+                emit('update:modelValue', !props.modelValue)
+                emit('close')
               }
 
-              if (props.preventClose && !modalTarget.closest(".vs-modal")) {
-                rebound.value = true;
+              if (props.preventClose && !modalTarget.closest('.vs-modal')) {
+                rebound.value = true
                 setTimeout(() => {
-                  rebound.value = false;
-                }, 300);
+                  rebound.value = false
+                }, 300)
               }
             }}
           >
             <div
               class={[
-                "vs-modal",
+                'vs-modal',
                 {
-                  "vs-modal--fullScreen": props.fullScreen,
-                  "vs-modal--rebound": rebound.value,
-                  "vs-modal--square": props.square,
-                  "vs-modal--fitContent": props.fitContent,
-                  "vs-modal--scroll": props.scroll,
-                  "vs-modal--loading": props.loading,
-                  "vs-modal--centerHeader": props.centerHeader,
-                },
+                  'vs-modal--fullScreen': props.fullScreen,
+                  'vs-modal--rebound': rebound.value,
+                  'vs-modal--square': props.square,
+                  'vs-modal--fitContent': props.fitContent,
+                  'vs-modal--scroll': props.scroll,
+                  'vs-modal--loading': props.loading,
+                  'vs-modal--centerHeader': props.centerHeader
+                }
               ]}
               {...modalAttrs}
             >
@@ -146,8 +146,8 @@ const Modal = defineComponent({
                 <button
                   class="vs-modal__close"
                   onClick={() => {
-                    emit("update:modelValue", !props.modelValue);
-                    emit("close");
+                    emit('update:modelValue', !props.modelValue)
+                    emit('close')
                   }}
                 >
                   <IconClose hover="x" />
@@ -162,10 +162,10 @@ const Modal = defineComponent({
               {/* content */}
               <div
                 class={[
-                  "vs-modal__content",
+                  'vs-modal__content',
                   {
-                    notFooter: !slots.footer,
-                  },
+                    notFooter: !slots.footer
+                  }
                 ]}
               >
                 {slots.default?.()}
@@ -179,9 +179,9 @@ const Modal = defineComponent({
           </div>
         )}
       </Transition>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Modal;
-export type ModalProps = InstanceType<typeof Modal>["$props"];
+export default Modal
+export type ModalProps = InstanceType<typeof Modal>['$props']

@@ -1,70 +1,70 @@
-import { getHighlighter } from "shiki";
-import { useData } from "vitepress";
-import { defineComponent, Transition, ref, onMounted } from "vue";
-import "./Codex.scss";
+import { getHighlighter } from 'shiki'
+import { useData } from 'vitepress'
+import { defineComponent, Transition, ref, onMounted } from 'vue'
+import './Codex.scss'
 
 const highlighter = await getHighlighter({
-  theme: "material-theme-palenight",
-  langs: ["vue"],
+  theme: 'material-theme-palenight',
+  langs: ['vue'],
   paths: {
-    themes: "/shiki",
-    languages: "/shiki/language",
-    wasm: "/shiki",
-  },
-});
+    themes: '/shiki',
+    languages: '/shiki/language',
+    wasm: '/shiki'
+  }
+})
 
 const Codex = defineComponent({
-  name: "Codex",
+  name: 'Codex',
   props: {
     codesandbox: {
-      type: String,
+      type: String
     },
     codepen: {
-      type: String,
+      type: String
     },
     subtitle: {
       type: String,
-      default: "Default",
-    },
+      default: 'Default'
+    }
   },
-  slots: ["default", "template", "script", "style"],
+  slots: ['default', 'template', 'script', 'style'],
   setup(props) {
-    const { page } = useData();
-    const active = ref(false);
-    const check = ref(false);
+    const { page } = useData()
+    const active = ref(false)
+    const check = ref(false)
 
-    const codexRef = ref<HTMLElement>();
-    const ulRef = ref<HTMLElement>();
+    const codexRef = ref<HTMLElement>()
+    const ulRef = ref<HTMLElement>()
 
-    const template = ref<string>();
-    const title = ref<string>();
-    let file: any;
+    const template = ref<string>()
+    const title = ref<string>()
+    let file: any
 
     const renderTemplate = async () => {
       template.value = highlighter.codeToHtml(
         file[`./template/${page.value.title}/${props.subtitle}.vue`],
         {
-          lang: "vue",
+          lang: 'vue'
         }
-      );
-    };
+      )
+    }
 
     onMounted(() => {
       title.value = document
-        .getElementsByTagName("h1")
+        .getElementsByTagName('h1')
         .item(0)
-        ?.innerText.trim();
+        ?.innerText.trim()
 
       file = (import.meta as any).glob(
-        "../global-components/template/**/*.vue",
+        '../global-components/template/**/*.vue',
         {
-          as: "raw",
-          eager: true,
+          as: 'raw',
+          eager: true
         }
-      );
+      )
 
-      renderTemplate();
-    });
+      renderTemplate()
+    })
 
     // watch:{
     //   '$vsTheme.openCode': function (val) {
@@ -86,69 +86,69 @@ const Codex = defineComponent({
     //   this.$vsTheme.openCode = (localStorage.openCode == 'true')
     // },
     const toggleCode = () => {
-      active.value = !active.value;
-    };
+      active.value = !active.value
+    }
     // const openCodepen = (url:string)=>{
     //   window.open(url)
     // }
     const openCodesandbox = (url: string) => {
       // document.body.style.overflow = 'hidden'
       //     codesandbox.value.url = codesandbox.value
-      window.open(url);
-    };
+      window.open(url)
+    }
 
     const copy = () => {
       navigator.clipboard.writeText(
         file[`./template/${page.value.title}/${props.subtitle}.vue`]
-      );
-      check.value = true;
+      )
+      check.value = true
       setTimeout(() => {
-        check.value = false;
-      }, 3000);
-    };
+        check.value = false
+      }, 3000)
+    }
 
     // }
     // animation
     const beforeEnter = (element: Element) => {
-      const el = element as HTMLElement;
-      el.style.height = "0";
-    };
+      const el = element as HTMLElement
+      el.style.height = '0'
+    }
     const enter = (element: Element, done: () => void) => {
-      const el = element as HTMLElement;
-      const h = el.scrollHeight;
-      el.style.height = `${h - 1}px`;
-      codexRef.value!.style.height = `${h + 5}px`;
-      done();
-    };
+      const el = element as HTMLElement
+      const h = el.scrollHeight
+      el.style.height = `${h - 1}px`
+      codexRef.value!.style.height = `${h + 5}px`
+      done()
+    }
     const leave = (element: Element) => {
-      const el = element as HTMLElement;
-      el.style.height = "0px";
-    };
+      const el = element as HTMLElement
+      el.style.height = '0px'
+    }
     const beforeEntercodes = (element: Element) => {
-      const el = element as HTMLElement;
-      el.style.height = "0";
-      el.style.opacity = "0";
-      el.style.position = "absolute";
-    };
+      const el = element as HTMLElement
+      el.style.height = '0'
+      el.style.opacity = '0'
+      el.style.position = 'absolute'
+    }
     const entercodes = (element: Element, done: () => void) => {
-      const el = element as HTMLElement;
-      const h = el.scrollHeight;
-      el.style.position = "relative";
-      el.style.height = `${h - 1}px`;
-      codexRef.value!.style.height = `${h + 40}px`;
-      el.style.opacity = "1";
-      done();
-    };
+      const el = element as HTMLElement
+      const h = el.scrollHeight
+      el.style.position = 'relative'
+      el.style.height = `${h - 1}px`
+      codexRef.value!.style.height = `${h + 40}px`
+      el.style.opacity = '1'
+      done()
+    }
     const leavecodes = (element: Element) => {
-      const el = element as HTMLElement;
-      el.style.height = "0px";
-      el.style.opacity = "0";
-      el.style.position = "absolute";
-    };
+      const el = element as HTMLElement
+      el.style.height = '0px'
+      el.style.opacity = '0'
+      el.style.position = 'absolute'
+    }
 
     return () => (
       <div class="code">
-        <div class={["noti-code", { copied: check.value }]}>
+        <div class={['noti-code', { copied: check.value }]}>
           <i class="bx bx-check"></i> Code copied
         </div>
         <header class="header-codex">
@@ -163,7 +163,7 @@ const Codex = defineComponent({
               <li
                 title="Codesandbox"
                 onClick={() => {
-                  openCodesandbox(props.codesandbox!);
+                  openCodesandbox(props.codesandbox!)
                 }}
               >
                 <svg
@@ -189,7 +189,7 @@ const Codex = defineComponent({
               title="Copy code"
               class={{ copied: check.value }}
               onClick={() => {
-                copy();
+                copy()
               }}
             >
               {(!check.value && <i class="bx bx-copy"></i>) || (
@@ -205,8 +205,8 @@ const Codex = defineComponent({
         </li> */}
 
             <li
-              title={active.value ? "hide code" : "View code"}
-              class={["not-a con-link", { active: active.value }]}
+              title={active.value ? 'hide code' : 'View code'}
+              class={['not-a con-link', { active: active.value }]}
               onClick={toggleCode}
             >
               {(!active.value && <i class="bx bx-code-alt"></i>) || (
@@ -229,7 +229,7 @@ const Codex = defineComponent({
                     <div class="language-html" v-html={template.value}></div>
                     <footer
                       onClick={toggleCode}
-                      title={active.value ? "Hide code" : "View code"}
+                      title={active.value ? 'Hide code' : 'View code'}
                       class="footer-code"
                     >
                       <i class="bx bx-hide"></i>
@@ -241,7 +241,7 @@ const Codex = defineComponent({
           )}
         </Transition>
       </div>
-    );
-  },
-});
-export default Codex;
+    )
+  }
+})
+export default Codex
