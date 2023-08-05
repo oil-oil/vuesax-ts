@@ -6,7 +6,7 @@
 
 <docs-warn />
 
-Add an elements input facilitate with the component `<vs-input>`
+使用 `<VsInput>` 组件可以非常方便的添加一个输入框元素
 
 </card>
 
@@ -14,7 +14,7 @@ Add an elements input facilitate with the component `<vs-input>`
 
 ## Label
 
-Add a label to the input with the property `label`
+使用 `label` 属性为输入框添加 label
 
 </card>
 
@@ -22,7 +22,7 @@ Add a label to the input with the property `label`
 
 ## Label Placeholder
 
-You can have a placeholder with a great animation when being or in focus or with a value becoming a label above the input with the property `label-placeholder`
+我们可以使用 "label-placeholder "属性，在占位符处于焦点时或在焦点上时添加精美的动画，或者将占位符的值变成输入上方的标签
 
 </card>
 
@@ -30,7 +30,7 @@ You can have a placeholder with a great animation when being or in focus or with
 
 ## Color
 
-Change the color of the component and add a border below with the `color` property, the allowed values ​​are the main colors of vuesax and the colors (**RGB** y **HEX**)
+使用 `color` 属性更改组件的颜色并在 Input 下方添加边框，允许输入是 vuesax 的主题色和自定义颜色（**RGB**，**HEX**)
 
 </card>
 
@@ -38,7 +38,7 @@ Change the color of the component and add a border below with the `color` proper
 
 ## icon
 
-Add an icon to the input easily with the slot icon if you want the icon to be before the input you can do it with the property `icon-before`
+如果需要在输入前面添加图标，可以使用属性 `iconbefore` 来实现。
 
   <div>
     <div class="warning custom-block">
@@ -65,15 +65,15 @@ Add an icon to the input easily with the slot icon if you want the icon to be be
 
 ## Message
 
-You can add a message below the input with the `slot="message- {vuesax color}"` to report that a field is missing or the value is wrong
+我们可以使用 `slot="message-{vuesax color}"` 在输入框下面添加一条信息，以提示字段缺失或数值错误。
 
 </card>
 
-<card subtitle="State">
+<card subtitle="Status">
 
-## State
+## Status
 
-Change the color of the input for some state, the allowed states are (primary, success, danger, warn, dark)
+更改某个状态下的输入颜色，允许的状态有(primary, success, danger, warn, dark)。
 
 </card>
 
@@ -81,16 +81,16 @@ Change the color of the input for some state, the allowed states are (primary, s
 
 ## Progress
 
-Add a validation progress bar, the most common is its use to validate passwords and correct data within the input, its value is (0 - 100).
+添加验证进度条，常用的场景是用于验证密码和输入中的正确数据，其值为（0 - 100）。
 
 :::tip
-  The example validates that the password has at least
+该示例验证密码至少需要满足：
 
-  - A special character
-  - More than 6 digits
-  - One lower case letter
-  - An uppercase letter
-  - A number
+- 一个特殊字符
+  - 超过 6 位数
+  - 一个小写字母
+  - 一个大写字母
+  - 一个数字
 :::
 
 </card>
@@ -99,7 +99,7 @@ Add a validation progress bar, the most common is its use to validate passwords 
 
 ## Loading
 
-Add a loading animation to the input with the `loading` property, the property is a `Boolean`, 
+为带有 `loading` 属性的输入添加加载动画，该属性是 `boolean` 类型。
 
 </card>
 
@@ -107,7 +107,7 @@ Add a loading animation to the input with the `loading` property, the property i
 
 ## Input types
 
-Change the type of input with the `type` property as a native html input, the default value is `text`
+使用 `type` 属性更改输入框的类型，将其作为原生 html 输入框属性，默认值为`text`。
 
 </card>
 
@@ -115,7 +115,7 @@ Change the type of input with the `type` property as a native html input, the de
 
 ## Border
 
-Change everything is style of the component with the `border` property, the property is a `Boolean`, 
+使用 `border` 属性可以为输入框添加边框，该值为 `boolean` 类型
 
 </card>
 
@@ -123,7 +123,7 @@ Change everything is style of the component with the `border` property, the prop
 
 ## Shadow
 
-Change everything is style of the component with the `shadow` property, the property is a `Boolean`, 
+使用 `shadow` 属性可以为输入框添加阴影，该值为 `boolean` 类型
 
 </card>
 

@@ -6,7 +6,7 @@
 
 <docs-warn />
 
-Add an elements input facilitate with the component `<vs-input>`
+Add an elements input facilitate with the component `<VsInput>`
 
 </card>
 
@@ -30,7 +30,7 @@ You can have a placeholder with a great animation when being or in focus or with
 
 ## Color
 
-Change the color of the component and add a border below with the `color` property, the allowed values ​​are the main colors of vuesax and the colors (**RGB** y **HEX**)
+Change the color of the component and add a border below with the `color` property, the allowed values ​​are the main colors of vuesax and the custom colors (**RGB**, **HEX**)
 
 </card>
 
@@ -65,13 +65,13 @@ Add an icon to the input easily with the slot icon if you want the icon to be be
 
 ## Message
 
-You can add a message below the input with the `slot="message- {vuesax color}"` to report that a field is missing or the value is wrong
+You can add a message below the input with the `slot="message-{vuesax color}"` to report that a field is missing or the value is wrong
 
 </card>
 
-<card subtitle="State">
+<card subtitle="Status">
 
-## State
+## Status
 
 Change the color of the input for some state, the allowed states are (primary, success, danger, warn, dark)
 
@@ -86,7 +86,7 @@ Add a validation progress bar, the most common is its use to validate passwords 
 :::tip
   The example validates that the password has at least
 
-  - A special character
+- A special character
   - More than 6 digits
   - One lower case letter
   - An uppercase letter
@@ -99,7 +99,7 @@ Add a validation progress bar, the most common is its use to validate passwords 
 
 ## Loading
 
-Add a loading animation to the input with the `loading` property, the property is a `Boolean`, 
+Add a loading animation to the input with the `loading` property, the property is a `Boolean`
 
 </card>
 
@@ -115,7 +115,7 @@ Change the type of input with the `type` property as a native html input, the de
 
 ## Border
 
-Change everything is style of the component with the `border` property, the property is a `Boolean`, 
+Use the `border` property to add a border to the input, the property is a `Boolean`
 
 </card>
 
@@ -123,7 +123,7 @@ Change everything is style of the component with the `border` property, the prop
 
 ## Shadow
 
-Change everything is style of the component with the `shadow` property, the property is a `Boolean`, 
+Use the `shadow` property to add a shadow to the input, the property is a `Boolean`
 
 </card>
 

@@ -12,10 +12,10 @@ last Update: 2023/13/1
 
 <docs-warn />
 
-It generates a notification with the vuesax function (`useNotification`), to use the instance of the notification it is necessary to save it in a variable, for example if you need to close the notification manually or do other functionalities with the instance
+It generates a notification with the vuesax hook (`useNotification`)
 
 :::tip
-  The necessary properties are the `title` and the` text` or failing the `content` property
+  The necessary properties are the `title` and the`text` or failing the `content` property
 :::
 
 </card>
@@ -63,7 +63,7 @@ Add the icon provided as the value of the `icon` slot to the notification
 
 </card>
 
-<card subtitle="Progress"> 
+<card subtitle="Progress">
 
 ## Progress
 
