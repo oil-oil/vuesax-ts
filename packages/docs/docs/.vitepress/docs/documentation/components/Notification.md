@@ -24,7 +24,7 @@ It generates a notification with the vuesax hook (`useNotification`)
 
 ## Position
 
-Change the notification position with the position property
+Change the notification position with the `position` property
 
 supported values
 
@@ -41,7 +41,7 @@ supported values
 
 ## Color
 
-Use the color property to change the base color of the component and some of the child components, to better understand the handling of colors and themes you can see it.
+Use the `color` property to change the base color of the component and some of the child components, to better understand the handling of colors and themes you can see it.
 
 Allowed values ​​are:
 
