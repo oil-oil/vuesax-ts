@@ -29,7 +29,7 @@ export default defineConfigWithTheme({
       label: '简体中文',
       lang: 'zh',
       link: '/zh',
-      title: '中文vuesax',
+      title: 'Vue.Ts Framework Components - Vuesax',
       titleTemplate: ':title - Vuesax-ts',
       themeConfig: {
         nav: zhNavbar,
