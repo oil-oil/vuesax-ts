@@ -30,7 +30,7 @@ By default the component is used with a boolean value that when being checked re
 
 ## Icon
 
-Change the icon inside the checkbox component with the`slot="icon"`
+Change the icon inside the checkbox component with the `slot="icon"`
 
 <utils-icon />
 

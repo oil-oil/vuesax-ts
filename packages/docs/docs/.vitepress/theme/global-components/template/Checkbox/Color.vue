@@ -11,14 +11,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsCheckbox } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsCheckbox } from 'vuesax-ts'
 
-const primary = ref(true);
-const success = ref(true);
-const danger = ref(true);
-const warn = ref(true);
-const dark = ref(true);
-const hex = ref(true);
-const rgb = ref(true);
+const primary = ref(true)
+const success = ref(true)
+const danger = ref(true)
+const warn = ref(true)
+const dark = ref(true)
+const hex = ref(true)
+const rgb = ref(true)
 </script>

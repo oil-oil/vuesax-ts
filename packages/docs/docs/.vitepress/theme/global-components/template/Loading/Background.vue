@@ -11,26 +11,26 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
-import { useLoading } from "vuesax-ts";
-import type { LoadingHookProps, Color } from "vuesax-ts";
+import { reactive, ref } from 'vue'
+import { useLoading } from 'vuesax-ts'
+import type { LoadingHookProps, Color } from 'vuesax-ts'
 
-const color = ref<Color>("#7A76CB");
-const active = ref(false);
-const props = reactive<LoadingHookProps>({});
+const color = ref<Color>('#7A76CB')
+const active = ref(false)
+const props = reactive<LoadingHookProps>({})
 
-const { open, close } = useLoading(props);
+const { open, close } = useLoading(props)
 
 const handleClick = () => {
-  props.background = color.value;
-  props.color = "#fff";
-  open();
-  active.value = true;
+  props.background = color.value
+  props.color = '#fff'
+  open()
+  active.value = true
   setTimeout(() => {
-    close();
-    active.value = false;
-  }, 3500);
-};
+    close()
+    active.value = false
+  }, 3500)
+}
 </script>
 
 <style scoped lang="scss">

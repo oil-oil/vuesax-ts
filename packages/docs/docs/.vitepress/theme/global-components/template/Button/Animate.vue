@@ -45,10 +45,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsButton } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsButton } from 'vuesax-ts'
 
-const active = ref(0);
+const active = ref(0)
 </script>
 
 <style scoped></style>

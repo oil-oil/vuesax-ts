@@ -27,46 +27,46 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { VsInput } from "vuesax-ts";
+import { computed, ref } from 'vue'
+import { VsInput } from 'vuesax-ts'
 
-const value = ref("");
-const hasVisiblePassword = ref(false);
+const value = ref('')
+const hasVisiblePassword = ref(false)
 const getProgress = computed(() => {
-  let progress = 0;
+  let progress = 0
 
   // at least one number
 
   if (/\d/.test(value.value)) {
-    progress += 20;
+    progress += 20
   }
 
   // at least one capital letter
 
   if (/(.*[A-Z].*)/.test(value.value)) {
-    progress += 20;
+    progress += 20
   }
 
   // at menons a lowercase
 
   if (/(.*[a-z].*)/.test(value.value)) {
-    progress += 20;
+    progress += 20
   }
 
   // more than 5 digits
 
   if (value.value.length >= 6) {
-    progress += 20;
+    progress += 20
   }
 
   // at least one special character
 
   if (/[^A-Za-z0-9]/.test(value.value)) {
-    progress += 20;
+    progress += 20
   }
 
-  return progress;
-});
+  return progress
+})
 </script>
 
 <style scoped></style>

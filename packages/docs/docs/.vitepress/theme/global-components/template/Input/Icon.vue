@@ -19,11 +19,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsInput } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsInput } from 'vuesax-ts'
 
-const name = ref();
-const password = ref();
+const name = ref()
+const password = ref()
 </script>
 
 <style scoped>

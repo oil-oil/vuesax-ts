@@ -1,110 +1,110 @@
-import { defineComponent, ref } from "vue";
-import { VsTable, VsTh, VsTr } from "vuesax-ts";
+import { defineComponent, ref } from 'vue'
+import { VsTable, VsTh, VsTr } from 'vuesax-ts'
 
 const AlertApi = defineComponent({
-  name: "AlertApi",
+  name: 'AlertApi',
   setup() {
     const props = ref([
       [
-        "color",
-        "string",
-        "primary success danger warn dark RGB HEX",
-        "Change the color of the component and some of its sub components.",
-        "primary",
+        'color',
+        'string',
+        'primary success danger warn dark RGB HEX',
+        'Change the color of the component and some of its sub components.',
+        'primary'
       ],
       [
-        "type",
-        "boolean",
-        "solid border shadow gradient relief ",
-        "Change the style of all the alert.",
-        "default",
+        'type',
+        'boolean',
+        'solid border shadow gradient relief ',
+        'Change the style of all the alert.',
+        'default'
       ],
       [
-        "hidden-content",
-        "boolean",
-        "boolean",
-        "With this property you can hide the content of the alert.",
-        "false",
+        'hidden-content',
+        'boolean',
+        'boolean',
+        'With this property you can hide the content of the alert.',
+        'false'
       ],
       [
-        "page",
-        "Number",
-        "Number",
+        'page',
+        'Number',
+        'Number',
         "Determine the page that is active (this property is linked to the slots='page-{n}').",
-        "false",
+        'false'
       ],
       [
-        "progress",
-        "Number",
-        "0-100",
-        "Add a progress bar to the alert and the value is the percentage of width.",
-        "0",
+        'progress',
+        'Number',
+        '0-100',
+        'Add a progress bar to the alert and the value is the percentage of width.',
+        '0'
       ],
       [
-        "closable",
-        "boolean",
-        "boolean",
-        "Add a button to close the alert (it is necessary to use v-model).",
-        "false",
-      ],
-    ]);
+        'closable',
+        'boolean',
+        'boolean',
+        'Add a button to close the alert (it is necessary to use v-model).',
+        'false'
+      ]
+    ])
     const slots = ref([
-      ["icon", "slot", "", "Add an icon to the alert.", ""],
-      ["title", "slot", "", "Add a title to the alert.", ""],
+      ['icon', 'slot', '', 'Add an icon to the alert.', ''],
+      ['title', 'slot', '', 'Add a title to the alert.', ''],
       [
-        "page-{n}",
-        "slot",
-        "(page-1 - page-{n})",
+        'page-{n}',
+        'slot',
+        '(page-1 - page-{n})',
         "Add the pages to the alert component if it is page one would be (slot='page-1').",
-        "",
+        ''
       ],
-      ["footer", "slot", "", "Add a footer to the alert component.", ""],
-    ]);
+      ['footer', 'slot', '', 'Add a footer to the alert component.', '']
+    ])
 
     const usageUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return "button#color";
+          return 'button#color'
 
         case 1:
-          return "button#border";
+          return 'button#border'
 
         case 2:
-          return `alert#`;
+          return `alert#`
 
         case 3:
-          return `alert#hidden-content`;
+          return `alert#hidden-content`
 
         case 4:
-          return `alert#pagination`;
+          return `alert#pagination`
 
         case 5:
-          return `alert#progress-bar`;
+          return `alert#progress-bar`
 
         case 6:
-          return `alert#closable`;
+          return `alert#closable`
         default:
-          return "";
+          return ''
       }
-    };
+    }
     const slotsUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return `alert#icon`;
+          return `alert#icon`
 
         case 1:
-          return `alert#title`;
+          return `alert#title`
 
         case 2:
-          return `alert#pagination`;
+          return `alert#pagination`
 
         case 3:
-          return `alert#footer`;
+          return `alert#footer`
 
         default:
-          return "";
+          return ''
       }
-    };
+    }
 
     return () => (
       <div class="api">
@@ -153,7 +153,7 @@ const AlertApi = defineComponent({
                         </a>
                       </VsTh>
                     </VsTr>
-                  )),
+                  ))
               }}
             ></VsTable>
           </div>
@@ -198,14 +198,14 @@ const AlertApi = defineComponent({
                         </a>
                       </VsTh>
                     </VsTr>
-                  )),
+                  ))
               }}
             ></VsTable>
           </div>
         </div>
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default AlertApi;
+export default AlertApi

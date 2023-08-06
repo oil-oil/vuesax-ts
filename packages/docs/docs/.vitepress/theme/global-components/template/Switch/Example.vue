@@ -41,14 +41,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsSwitch } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsSwitch } from 'vuesax-ts'
 
-const active = ref(true);
-const active2 = ref(false);
-const active3 = ref(false);
-const active4 = ref(true);
-const active5 = ref(true);
+const active = ref(true)
+const active2 = ref(false)
+const active3 = ref(false)
+const active4 = ref(true)
+const active5 = ref(true)
 </script>
 <style scoped lang="scss">
 .content {

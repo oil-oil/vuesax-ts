@@ -39,10 +39,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsInput } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsInput } from 'vuesax-ts'
 
-const value = ref();
+const value = ref()
 </script>
 
 <style scoped lang="scss">

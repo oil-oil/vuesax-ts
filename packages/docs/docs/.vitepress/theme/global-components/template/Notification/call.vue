@@ -10,13 +10,13 @@
 </template>
 
 <script setup lang="ts">
-import { VsButton } from "vuesax-ts";
+import { VsButton } from 'vuesax-ts'
 </script>
 
 <style scoped lang="scss">
 .noti-call-example {
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 120%;
     margin: -25px;

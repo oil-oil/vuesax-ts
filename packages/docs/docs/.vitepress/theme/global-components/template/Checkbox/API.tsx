@@ -1,104 +1,104 @@
-import { defineComponent, ref } from "vue";
-import { VsTable, VsTh, VsTr } from "vuesax-ts";
+import { defineComponent, ref } from 'vue'
+import { VsTable, VsTh, VsTr } from 'vuesax-ts'
 
 const CheckboxApi = defineComponent({
-  name: "CheckboxApi",
+  name: 'CheckboxApi',
   setup() {
     const props = ref([
       [
-        "v-model",
-        "boolean",
-        "false true",
-        "determine the value of the checkbox and data anchor.",
-        "false",
+        'v-model',
+        'boolean',
+        'false true',
+        'determine the value of the checkbox and data anchor.',
+        'false'
       ],
       [
-        "color",
-        "string",
-        "primary success danger warn dark RGB HEX",
-        "Change the color of the component and some of its sub components.",
-        "primary",
+        'color',
+        'string',
+        'primary success danger warn dark RGB HEX',
+        'Change the color of the component and some of its sub components.',
+        'primary'
       ],
       [
-        "loading",
-        "boolean",
-        "true false",
-        "Add a loading animation and disable the input.",
-        "false",
+        'loading',
+        'boolean',
+        'true false',
+        'Add a loading animation and disable the input.',
+        'false'
       ],
       [
-        "lineThrough",
-        "boolean",
-        "true false",
-        "Add a line in the center of the label when checked.",
-        "false",
+        'lineThrough',
+        'boolean',
+        'true false',
+        'Add a line in the center of the label when checked.',
+        'false'
       ],
       [
-        "indeterminate",
-        "boolean",
-        "true false",
-        "Add a line in the center of the label when checked.",
-        "false",
+        'indeterminate',
+        'boolean',
+        'true false',
+        'Add a line in the center of the label when checked.',
+        'false'
       ],
       [
-        "labelBefore",
-        "boolean",
-        "true false",
-        "Change the position of the label.",
-        "false",
+        'labelBefore',
+        'boolean',
+        'true false',
+        'Change the position of the label.',
+        'false'
       ],
       [
-        "checked",
-        "boolean",
-        "true false",
-        "Determine if the component is initially in check (this changes the property computed in v-model to true).",
-        "false",
-      ],
-    ]);
+        'checked',
+        'boolean',
+        'true false',
+        'Determine if the component is initially in check (this changes the property computed in v-model to true).',
+        'false'
+      ]
+    ])
 
     const slots = ref([
-      ["icon", "slot", "", "Change the component icon.", ""],
-      ["default", "slot", "", "Add a label to the component.", ""],
-    ]);
+      ['icon', 'slot', '', 'Change the component icon.', ''],
+      ['default', 'slot', '', 'Add a label to the component.', '']
+    ])
 
     const usageUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return "checkbox#default";
+          return 'checkbox#default'
 
         case 1:
-          return "checkbox#color";
+          return 'checkbox#color'
 
         case 2:
-          return "checkbox#loading";
+          return 'checkbox#loading'
 
         case 3:
-          return "checkbox#linethrough";
+          return 'checkbox#linethrough'
 
         case 4:
-          return "checkbox#indeterminate";
+          return 'checkbox#indeterminate'
 
         case 5:
-          return "checkbox#label";
+          return 'checkbox#label'
 
         case 6:
-          return "checkbox#default";
+          return 'checkbox#default'
         default:
-          return "";
+          return ''
       }
-    };
+    }
     const slotsUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return "checkbox#icon";
+          return 'checkbox#icon'
 
         case 1:
-          return "checkbox#default";
+          return 'checkbox#default'
 
         default:
-          return "";
+          return ''
       }
-    };
+    }
     return () => (
       <div class="api">
         <h2 class="title" id="api">
@@ -146,7 +146,7 @@ const CheckboxApi = defineComponent({
                         </a>
                       </VsTh>
                     </VsTr>
-                  )),
+                  ))
               }}
             ></VsTable>
           </div>
@@ -191,13 +191,13 @@ const CheckboxApi = defineComponent({
                         </a>
                       </VsTh>
                     </VsTr>
-                  )),
+                  ))
               }}
             ></VsTable>
           </div>
         </div>
       </div>
-    );
-  },
-});
-export default CheckboxApi;
+    )
+  }
+})
+export default CheckboxApi

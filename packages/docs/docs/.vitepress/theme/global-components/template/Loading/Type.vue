@@ -2,7 +2,7 @@
   <div class="center">
     <div class="box-loading" @click="handleClick()">
       <VsLoading style="position: relative" />
-      <span class="title">{{ "default" }}</span>
+      <span class="title">{{ 'default' }}</span>
     </div>
     <div
       v-for="(type, typeIndex) in types"
@@ -17,32 +17,32 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
-import type { VsLoadingProps } from "vuesax-ts";
-import { VsLoading, useLoading } from "vuesax-ts";
+import { reactive } from 'vue'
+import type { VsLoadingProps } from 'vuesax-ts'
+import { VsLoading, useLoading } from 'vuesax-ts'
 
-const selectType = reactive<VsLoadingProps>({});
-const { open, close } = useLoading(selectType);
+const selectType = reactive<VsLoadingProps>({})
+const { open, close } = useLoading(selectType)
 const types = [
-  "border",
-  "waves",
-  "corners",
-  "points",
-  "square",
-  "gradient",
-  "rectangle",
-  "circles",
-  "square-rotate",
-  "scale",
-] as const;
+  'border',
+  'waves',
+  'corners',
+  'points',
+  'square',
+  'gradient',
+  'rectangle',
+  'circles',
+  'square-rotate',
+  'scale'
+] as const
 
-const handleClick = (type?: VsLoadingProps["type"]) => {
-  selectType.type = type;
-  open();
+const handleClick = (type?: VsLoadingProps['type']) => {
+  selectType.type = type
+  open()
   setTimeout(() => {
-    close();
-  }, 3500);
-};
+    close()
+  }, 3500)
+}
 </script>
 
 <style scoped lang="scss">

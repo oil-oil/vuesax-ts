@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsSwitch } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsSwitch } from 'vuesax-ts'
 
-const active2 = ref(false);
-const loading = ref(true);
+const active2 = ref(false)
+const loading = ref(true)
 </script>

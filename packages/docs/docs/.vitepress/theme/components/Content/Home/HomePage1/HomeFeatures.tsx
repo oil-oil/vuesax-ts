@@ -1,5 +1,5 @@
-import { useData } from "vitepress";
-import { defineComponent, onMounted, onUnmounted, reactive, ref } from "vue";
+import { useData } from 'vitepress'
+import { defineComponent, onMounted, onUnmounted, reactive, ref } from 'vue'
 import {
   VsAvatar,
   VsAvatarGroup,
@@ -10,50 +10,50 @@ import {
   VsOption,
   VsCard,
   VsSwitch,
-  VsLoading,
-} from "vuesax-ts";
-import "./HomeFeatures.scss";
+  VsLoading
+} from 'vuesax-ts'
+import './HomeFeatures.scss'
 
 const HomeFeatures = defineComponent({
-  name: "HomeFeatures",
+  name: 'HomeFeatures',
   setup() {
     const { theme } = useData<{
       home: {
         avatarPart: {
-          title: string;
-          text: string;
+          title: string
+          text: string
           button: {
-            red: string;
-            white: string;
-          };
-        };
+            red: string
+            white: string
+          }
+        }
         checkPart: {
-          input: string;
-          checkList: string[];
-          button: string;
-        };
-        search: string;
-        select: string;
+          input: string
+          checkList: string[]
+          button: string
+        }
+        search: string
+        select: string
         card: {
-          title: string;
-          text: string;
-        };
+          title: string
+          text: string
+        }
         custom: {
-          title: string;
-          button: string;
-        };
-      };
-    }>();
-    const selectValue = ref([]);
+          title: string
+          button: string
+        }
+      }
+    }>()
+    const selectValue = ref([])
     const switchPart = reactive({
-      switchActive: false,
-    });
+      switchActive: false
+    })
     onMounted(() => {
-      document.body.classList.add("home");
-    });
+      document.body.classList.add('home')
+    })
     onUnmounted(() => {
-      document.body.classList.remove("home");
-    });
+      document.body.classList.remove('home')
+    })
     return () => (
       <>
         <div class="avatar-card">
@@ -95,7 +95,7 @@ const HomeFeatures = defineComponent({
               <VsCheckbox lineThrough>{name}</VsCheckbox>
             ))}
           </div>
-          <VsButton style={{ width: "100%" }}>
+          <VsButton style={{ width: '100%' }}>
             {theme.value.home.checkPart.button}
           </VsButton>
         </div>
@@ -112,7 +112,7 @@ const HomeFeatures = defineComponent({
             placeholder={theme.value.home.select}
             v-model={selectValue.value}
           >
-            {["😉", "😺", "😽", "😎", "😂"].map((emoji, index) => (
+            {['😉', '😺', '😽', '😎', '😂'].map((emoji, index) => (
               <VsOption label={emoji} value={index}></VsOption>
             ))}
           </VsSelect>
@@ -130,7 +130,7 @@ const HomeFeatures = defineComponent({
         </div>
         <div class="home-card">
           <VsCard
-            type={"1"}
+            type={'1'}
             v-slots={{
               title: () => <h3>{theme.value.home.card.title}</h3>,
               img: () => <img src="/foto2.png"></img>,
@@ -160,7 +160,7 @@ const HomeFeatures = defineComponent({
                     <span>54</span>
                   </VsButton>
                 </>
-              ),
+              )
             }}
           ></VsCard>
         </div>
@@ -170,7 +170,7 @@ const HomeFeatures = defineComponent({
             v-model={switchPart.switchActive}
             v-slots={{
               on: () => <i class="bx bx-x"></i>,
-              off: () => <i class="bx bx-check"></i>,
+              off: () => <i class="bx bx-check"></i>
             }}
           >
             isLoading
@@ -180,7 +180,7 @@ const HomeFeatures = defineComponent({
             loading={switchPart.switchActive}
             v-slots={{
               off: () => <i class="bx bxs-plane-alt"></i>,
-              on: () => <>Active</>,
+              on: () => <>Active</>
             }}
           ></VsSwitch>
         </div>
@@ -198,7 +198,7 @@ const HomeFeatures = defineComponent({
           <VsButton size="md">{theme.value.home.custom.button}</VsButton>
         </div>
       </>
-    );
-  },
-});
-export default HomeFeatures;
+    )
+  }
+})
+export default HomeFeatures

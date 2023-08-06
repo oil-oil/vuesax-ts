@@ -1,32 +1,32 @@
-import { useData, useRouter, useRoute } from "vitepress";
-import { defineComponent } from "vue";
-import { VsNavbar, VsNavbarItem, VsNavbarGroup } from "vuesax-ts";
-import "./style.scss";
+import { useData, useRouter, useRoute } from 'vitepress'
+import { defineComponent } from 'vue'
+import { VsNavbar, VsNavbarItem, VsNavbarGroup } from 'vuesax-ts'
+import './style.scss'
 
 const Navbar = defineComponent({
-  name: "Navbar",
+  name: 'Navbar',
   setup() {
     const { theme, isDark } = useData<{
       nav: {
-        text: string;
-        link: string;
-        items?: { link: string; text: string }[];
-        parts?: { title: string; part: { link: string; text: string }[] }[];
-      }[];
-      logo: string;
-      siteTitle: string;
-    }>();
-    const router = useRouter();
-    const route = useRoute();
+        text: string
+        link: string
+        items?: { link: string; text: string }[]
+        parts?: { title: string; part: { link: string; text: string }[] }[]
+      }[]
+      logo: string
+      siteTitle: string
+    }>()
+    const router = useRouter()
+    const route = useRoute()
     const pushTo = (link: string, evt: MouseEvent) => {
-      router.go(link);
-      evt.stopPropagation();
-      evt.preventDefault();
-    };
+      router.go(link)
+      evt.stopPropagation()
+      evt.preventDefault()
+    }
     return () => (
       <VsNavbar
         textWhite={isDark.value}
-        color={isDark.value ? "dark" : undefined}
+        color={isDark.value ? 'dark' : undefined}
         fixed
         square
         v-slots={{
@@ -35,15 +35,15 @@ const Navbar = defineComponent({
               href="/"
               class="home-link"
               style={{
-                position: "absolute",
-                left: "0",
-                fontWeight: "bolder",
-                paddingLeft: "30px",
+                position: 'absolute',
+                left: '0',
+                fontWeight: 'bolder',
+                paddingLeft: '30px'
               }}
             >
               <svg
                 class="logo-nav"
-                style={{ fill: "var(--vs-theme-color)", height: "28px" }}
+                style={{ fill: 'var(--vs-theme-color)', height: '28px' }}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 401.69 98.4"
               >
@@ -68,7 +68,7 @@ const Navbar = defineComponent({
                 <template>{theme.value.siteTitle}</template>
               )}
             </a>
-          ),
+          )
         }}
       >
         {theme.value.nav.map((value) => (
@@ -88,7 +88,7 @@ const Navbar = defineComponent({
                         </VsNavbarItem>
                       ))}
                     </>
-                  ),
+                  )
                 }}
               >
                 {value.text}
@@ -102,7 +102,7 @@ const Navbar = defineComponent({
                       {value.parts?.map((part) => (
                         <>
                           <h5
-                            style={{ width: "100%", margin: "8px 0 8px 8px" }}
+                            style={{ width: '100%', margin: '8px 0 8px 8px' }}
                           >
                             {part.title}
                           </h5>
@@ -120,7 +120,7 @@ const Navbar = defineComponent({
                         </>
                       ))}
                     </>
-                  ),
+                  )
                 }}
               >
                 {value.text}
@@ -138,7 +138,7 @@ const Navbar = defineComponent({
           </>
         ))}
       </VsNavbar>
-    );
-  },
-});
-export default Navbar;
+    )
+  }
+})
+export default Navbar

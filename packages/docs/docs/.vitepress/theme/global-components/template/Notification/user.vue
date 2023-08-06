@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { VsAvatar, VsAvatarGroup, VsButton } from "vuesax-ts";
+import { VsAvatar, VsAvatarGroup, VsButton } from 'vuesax-ts'
 </script>
 
 <style scoped lang="scss">

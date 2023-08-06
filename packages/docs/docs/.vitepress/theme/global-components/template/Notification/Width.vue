@@ -5,7 +5,7 @@
       shadow
       @click="
         () => {
-          handleClick('bottom-center', undefined, '100%');
+          handleClick('bottom-center', undefined, '100%')
         }
       "
       icon
@@ -15,7 +15,7 @@
       flat
       @click="
         () => {
-          handleClick('bottom-right'), 'primary', 'auto';
+          handleClick('bottom-right'), 'primary', 'auto'
         }
       "
       icon
@@ -25,22 +25,22 @@
 </template>
 
 <script setup lang="ts">
-import { VsButton, useNotification, Position, Color } from "vuesax-ts";
+import { VsButton, useNotification, Position, Color } from 'vuesax-ts'
 
-const { open, close } = useNotification();
+const { open, close } = useNotification()
 
 const handleClick = (position?: Position, color?: Color, width?: string) => {
   const setOpen = open({
-    title: "Documentation Vuesax Ts",
-    text: "These documents refer to the latest version of vuesax (4.0+),to see the documents of the previous versions you can do it here 👉 Vuesax3.x",
+    title: 'Documentation Vuesax Ts',
+    text: 'These documents refer to the latest version of vuesax (4.0+),to see the documents of the previous versions you can do it here 👉 Vuesax3.x',
     position,
     color,
-    width,
-  });
+    width
+  })
   setTimeout(() => {
-    close(setOpen);
-  }, 4000);
-};
+    close(setOpen)
+  }, 4000)
+}
 </script>
 
 <style scoped lang="scss">

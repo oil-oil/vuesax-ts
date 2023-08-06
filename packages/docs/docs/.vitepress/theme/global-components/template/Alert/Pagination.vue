@@ -18,10 +18,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsAlert } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsAlert } from 'vuesax-ts'
 
-const page = ref(1);
+const page = ref(1)
 </script>
 
 <style scoped></style>

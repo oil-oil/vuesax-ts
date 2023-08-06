@@ -2,7 +2,7 @@
 layout: home
 hero : 
   name: Vuesax
-  text: 一个提供给Vue.TS的组件框架
+  text: 一个支持给 Vue3.x + Typescript 的组件框架
   tagline: 我们热爱我们所做的，让我们帮助你做你喜欢的事。
   actions:
     - theme: gradient

@@ -1,11 +1,11 @@
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
-import HomeFeatures from "./HomeFeatures.tsx";
-import HomeTitle from "./HomeTitle.tsx";
-import "./style.scss";
+import HomeFeatures from './HomeFeatures.tsx'
+import HomeTitle from './HomeTitle.tsx'
+import './style.scss'
 
 const HomePage = defineComponent({
-  name: "HomePage",
+  name: 'HomePage',
   setup() {
     return () => (
       <div class="page">
@@ -16,7 +16,7 @@ const HomePage = defineComponent({
           <HomeFeatures></HomeFeatures>
         </div>
       </div>
-    );
-  },
-});
-export default HomePage;
+    )
+  }
+})
+export default HomePage

@@ -1,54 +1,54 @@
-import { Content, useData } from "vitepress";
-import { defineComponent, ref, onUnmounted, computed, inject, Ref } from "vue";
-import { VsButton, VsInput } from "vuesax-ts";
+import { Content, useData } from 'vitepress'
+import { defineComponent, ref, onUnmounted, computed, inject, Ref } from 'vue'
+import { VsButton, VsInput } from 'vuesax-ts'
 
-import RightSidebar from "../../SideBar/RightSidebar";
+import RightSidebar from '../../SideBar/RightSidebar'
 
-import "./style.scss";
+import './style.scss'
 
 const DocsPage = defineComponent({
-  name: "DocsPage",
+  name: 'DocsPage',
   setup() {
-    const { page, isDark, frontmatter } = useData();
-    const pageHeaderContentTitleRef = ref();
-    const pageHeaderTrigger = ref(false);
-    const pageHeaderDelta = ref();
+    const { page, isDark, frontmatter } = useData()
+    const pageHeaderContentTitleRef = ref()
+    const pageHeaderTrigger = ref(false)
+    const pageHeaderDelta = ref()
     const sidebarController = inject<{ isSidebarOpen: Ref<boolean> }>(
-      "sidebarController",
-    );
+      'sidebarController'
+    )
     const scrollEvent = () => {
-      pageHeaderDelta.value = (window.scrollY * 0.55).toFixed(0);
-      const pageHeaderFontDelta = window.scrollY * 0.11;
+      pageHeaderDelta.value = (window.scrollY * 0.55).toFixed(0)
+      const pageHeaderFontDelta = window.scrollY * 0.11
       if (pageHeaderDelta.value >= 85) {
-        pageHeaderTrigger.value = true;
-        pageHeaderContentTitleRef.value.style.fontSize = `20px`;
+        pageHeaderTrigger.value = true
+        pageHeaderContentTitleRef.value.style.fontSize = `20px`
       } else {
-        pageHeaderTrigger.value = false;
+        pageHeaderTrigger.value = false
         if (!(pageHeaderFontDelta >= 15)) {
-          pageHeaderContentTitleRef.value.style.fontSize = `calc(35px - ${pageHeaderFontDelta}px)`;
+          pageHeaderContentTitleRef.value.style.fontSize = `calc(35px - ${pageHeaderFontDelta}px)`
         }
       }
-    };
-    window.addEventListener("scroll", scrollEvent);
+    }
+    window.addEventListener('scroll', scrollEvent)
     onUnmounted(() => {
-      window.removeEventListener("scroll", scrollEvent);
-    });
+      window.removeEventListener('scroll', scrollEvent)
+    })
 
     const getLeft = computed(() => {
       if (sidebarController?.isSidebarOpen.value && pageHeaderTrigger.value) {
-        return "300px";
+        return '300px'
       }
-      return "40px";
-    });
+      return '40px'
+    })
     return () => (
       <main class="Page">
         <header class="page-header">
           <div
             class="page-header-back"
             style={{
-              position: pageHeaderTrigger.value ? "fixed" : "absolute",
-              top: pageHeaderTrigger.value ? "61px" : "",
-              left: getLeft.value,
+              position: pageHeaderTrigger.value ? 'fixed' : 'absolute',
+              top: pageHeaderTrigger.value ? '61px' : '',
+              left: getLeft.value
             }}
           >
             <a href="/">
@@ -58,18 +58,18 @@ const DocsPage = defineComponent({
           <div
             class="page-header-content"
             style={{
-              position: pageHeaderTrigger.value ? "fixed" : "absolute",
+              position: pageHeaderTrigger.value ? 'fixed' : 'absolute',
               transform: pageHeaderTrigger.value
-                ? "translateY(0px)"
-                : "translateY(50%)",
-              padding: pageHeaderTrigger.value ? "10px 100%" : "0px",
+                ? 'translateY(0px)'
+                : 'translateY(50%)',
+              padding: pageHeaderTrigger.value ? '10px 100%' : '0px',
               top: pageHeaderTrigger.value
-                ? "70px"
+                ? '70px'
                 : `calc(50% + ${pageHeaderDelta.value}px)`,
               backgroundColor: pageHeaderTrigger.value
-                ? "var(--vs-theme-bg)"
-                : "",
-              width: pageHeaderTrigger.value ? "820px" : "",
+                ? 'var(--vs-theme-bg)'
+                : '',
+              width: pageHeaderTrigger.value ? '820px' : ''
             }}
           >
             <div ref={pageHeaderContentTitleRef} class="h1">
@@ -154,7 +154,7 @@ const DocsPage = defineComponent({
             <div
               class={{
                 shadow: pageHeaderTrigger.value === false,
-                "shadow-active": pageHeaderTrigger.value === true,
+                'shadow-active': pageHeaderTrigger.value === true
               }}
             ></div>
           </div>
@@ -170,7 +170,7 @@ const DocsPage = defineComponent({
         <footer class="page-footer">
           <div class="update-time">
             <span class="title">Last Update:</span>
-            <span class="time">{frontmatter.value["last Update"]}</span>
+            <span class="time">{frontmatter.value['last Update']}</span>
           </div>
           <div class="next-control">
             <a href={`${frontmatter.value.prev}`} class="prev">
@@ -184,12 +184,12 @@ const DocsPage = defineComponent({
           </div>
           <div class="subscribe">
             <h4 class="title">
-              <b style={{ color: "rgb(var(--vs-primary))" }}>Subscribe</b> to
+              <b style={{ color: 'rgb(var(--vs-primary))' }}>Subscribe</b> to
               our Weekly Newsletter
             </h4>
             <VsInput
               class="vs-input"
-              status={isDark.value ? "dark" : "primary"}
+              status={isDark.value ? 'dark' : 'primary'}
               type="email"
               labelPlaceholder="Email"
             ></VsInput>
@@ -197,15 +197,15 @@ const DocsPage = defineComponent({
           </div>
         </footer>
         <div
-          class={["up", { active: pageHeaderTrigger.value }]}
+          class={['up', { active: pageHeaderTrigger.value }]}
           onClick={() => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
         >
           <i class="bx bx-chevron-up"></i>
         </div>
       </main>
-    );
-  },
-});
-export default DocsPage;
+    )
+  }
+})
+export default DocsPage

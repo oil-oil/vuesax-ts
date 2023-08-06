@@ -1,5 +1,5 @@
 
-# Alert 警告
+#警告警告
 
 <card>
 
@@ -15,7 +15,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 ## Solid
 
-我们可以通过添加 solid 属性来将 Alert 设置为纯色背景，该属性是 `boolean` 类型。
+我们可以通过添加 solid 属性来将警告设置为纯色背景，该属性是 `boolean` 类型。
 
 </card>
 
@@ -23,7 +23,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 ## Border
 
-我们可以通过添加 `border` 属性来将 Alert 设置为带有边框的样式，该属性是 `boolean` 类型。
+我们可以通过添加 `border` 属性来将警告设置为带有边框的样式，该属性是 `boolean` 类型。
 
 </card>
 
@@ -31,7 +31,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 ## Shadow
 
-我们可以通过添加 `shadow` 来将 Alert 设置为带有阴影的样式
+我们可以通过添加 `shadow` 来将警告设置为带有阴影的样式
 ，该属性是 `boolean` 类型
 
 </card>
@@ -40,7 +40,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 ## Gradient
 
-我们可以通过添加 `gradient` 属性来将 Alert 设置为渐变色背景，该属性是 `boolean` 类型
+我们可以通过添加 `gradient` 属性来将警告设置为渐变色背景，该属性是 `boolean` 类型
 
 </card>
 
@@ -48,7 +48,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 ## Relief
 
-我们可以通过添加 `relief` 属性来将 Alert 设置为悬浮风格，该属性是 `boolean` 类型。
+我们可以通过添加 `relief` 属性来将警告设置为悬浮风格，该属性是 `boolean` 类型。
 
 </card>
 
@@ -56,7 +56,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 ## 动画
 
-当为用户展示或隐藏 Alert 时增加一个简单好看的动画
+当为用户展示或隐藏警告时增加一个简单好看的动画
 
 
 </card>
@@ -65,7 +65,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 ## Color
 
-通过 `color` 属性修改 Alert 组件的颜色
+通过 `color` 属性修改警告组件的颜色
 
 在此示例中，我们可以单击按钮并动态调整颜色值以将其显示在 **VsAlert** 组件中：
 
@@ -98,7 +98,7 @@ These documents and examples use the <a href="https://boxicons.com/" target="_bl
 
 ## Title
 
-我们可以使用 `slot="title"` 向 Alert 添加描述性标题 
+我们可以使用 `slot="title"` 向警告添加描述性标题 
 
 </card>
 
@@ -106,7 +106,7 @@ These documents and examples use the <a href="https://boxicons.com/" target="_bl
 
 ## Hidden Content
 
-我们可以隐藏 Alert 的内容，只保留标题以动态显示内容
+我们可以隐藏警告的内容，只保留标题以动态显示内容
 
 </card>
 
@@ -114,7 +114,7 @@ These documents and examples use the <a href="https://boxicons.com/" target="_bl
 
 ## Pagination
 
-有时我们需要向用户展示很多内容，但我们不想展示所有文本，使得 Alert 变得非常高
+有时我们需要向用户展示很多内容，但我们不想展示所有文本，使得警告变得非常高
 
 </card>
 
@@ -122,9 +122,7 @@ These documents and examples use the <a href="https://boxicons.com/" target="_bl
 
 ## footer
 
-Use the `footer` slot to add a footer to the alert where for example you can add interactions with the user such as a button or a checkbox.
-
-使用 `footer` 插槽向 Alert 添加页脚，可以在页脚中添加与用户的交互，例如按钮或复选框
+使用 `footer` 插槽向警告添加页脚，可以在页脚中添加与用户的交互，例如按钮或复选框
 
 </card>
 
@@ -140,7 +138,7 @@ Use the `footer` slot to add a footer to the alert where for example you can add
 
 ## Closable
 
-我们可以使用 `closeable` 属性增加关闭 Alert 的图标，该属性是一个 `boolean` 值。
+我们可以使用 `closeable` 属性增加关闭警告的图标，该属性是一个 `boolean` 值。
 
 </card>
 
@@ -148,7 +146,7 @@ Use the `footer` slot to add a footer to the alert where for example you can add
 
 ## Time Close
 
-如果我们需要 Alert 在一段时间后隐藏，可以通过加入一些属性和几行代码来实现
+如果我们需要警告在一段时间后隐藏，可以通过加入一些属性和几行代码来实现
 
 </card>
 

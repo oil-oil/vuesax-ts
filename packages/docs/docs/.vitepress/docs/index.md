@@ -2,7 +2,7 @@
 layout: home
 hero : 
   name: Vuesax
-  text: Framework Components for 
+  text: Framework Components for Vue3.x + Typescript
   tagline: We love what we do. Let us help you do what You love.
   actions:
     - theme: gradient

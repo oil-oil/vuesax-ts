@@ -26,11 +26,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsSelect, VsOption } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsSelect, VsOption } from 'vuesax-ts'
 
-const value = ref("1");
-const value2 = ref(["1", "2"]);
+const value = ref('1')
+const value2 = ref(['1', '2'])
 </script>
 
 <style scoped>

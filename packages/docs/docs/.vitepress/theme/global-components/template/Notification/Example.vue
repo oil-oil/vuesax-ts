@@ -4,7 +4,7 @@
       border
       @click="
         () => {
-          handleClick(user);
+          handleClick(user)
         }
       "
       >Example User</VsButton
@@ -13,7 +13,7 @@
       border
       @click="
         () => {
-          handleClick(cookie);
+          handleClick(cookie)
         }
       "
       >Example Cookie</VsButton
@@ -22,7 +22,7 @@
       border
       @click="
         () => {
-          handleClick(call);
+          handleClick(call)
         }
       "
       >Example Call</VsButton
@@ -31,18 +31,18 @@
 </template>
 
 <script setup lang="ts">
-import { Component, h } from "vue";
-import { VsButton, useNotification } from "vuesax-ts";
+import { Component, h } from 'vue'
+import { VsButton, useNotification } from 'vuesax-ts'
 
-import call from "./call.vue";
-import cookie from "./cookie.vue";
-import user from "./user.vue";
+import call from './call.vue'
+import cookie from './cookie.vue'
+import user from './user.vue'
 
-const { open } = useNotification();
+const { open } = useNotification()
 const handleClick = (example: Component) => {
   open({
-    width: "auto",
-    content: h(example),
-  });
-};
+    width: 'auto',
+    content: h(example)
+  })
+}
 </script>

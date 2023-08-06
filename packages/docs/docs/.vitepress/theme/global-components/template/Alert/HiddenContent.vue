@@ -13,10 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsAlert } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsAlert } from 'vuesax-ts'
 
-const active = ref(false);
+const active = ref(false)
 </script>
 
 <style scoped></style>

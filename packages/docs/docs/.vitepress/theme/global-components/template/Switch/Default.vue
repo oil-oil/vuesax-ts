@@ -7,10 +7,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsSwitch } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsSwitch } from 'vuesax-ts'
 
-const active = ref(false);
-const active2 = ref(true);
-const active3 = ref(false);
+const active = ref(false)
+const active2 = ref(true)
+const active3 = ref(false)
 </script>

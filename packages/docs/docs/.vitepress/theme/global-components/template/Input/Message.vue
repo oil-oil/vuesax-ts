@@ -25,16 +25,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { VsInput } from "vuesax-ts";
+import { computed, ref } from 'vue'
+import { VsInput } from 'vuesax-ts'
 
-const email = ref("vuesax@gmail.com");
-const name = ref();
-const password = ref();
-const value = ref();
+const email = ref('vuesax@gmail.com')
+const name = ref()
+const password = ref()
+const value = ref()
 const validEmail = computed(() =>
-  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value.value),
-);
+  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value.value)
+)
 </script>
 
 <style scoped lang="scss">
