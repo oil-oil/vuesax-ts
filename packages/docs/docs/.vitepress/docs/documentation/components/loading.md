@@ -1,3 +1,51 @@
+---
+prev: Alert
+next: Input
+last Update: 2/10/2020, 2:21:50 AM
+props : 
+    - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: Change the color of the loading animation.
+      default: primary
+      usageUrl: loading#color
+    - name: type
+      type: String
+      values: waves | corners | border | points | square | gradient | rectangle | circles | square-rotate | scale
+      description: Change the animation of the loading.
+      default:
+      usageUrl: loading#type
+    - name: text
+      type: String
+      values: String
+      description: Add a text below the loading animation.
+      default: 
+      usageUrl: loading#text
+    - name: percent
+      type: String
+      values: (0% - 100%)
+      description: Add a percentage text inside the loading.
+      default: 
+      usageUrl: loading#percent
+    - name: progress
+      type: Number
+      values: (0 - 100)
+      description: Add a progress bar to the loading and the progress would be the value.
+      default: 
+      usageUrl: loading#percent
+    - name: opacity
+      type: String
+      values: (0 - 1)
+      description: Change the opacity of the background.
+      default: 0.6
+      usageUrl: loading#background
+    - name: scale
+      type: String
+      values: (0 - 1)
+      description: Change the size of the loading animation.
+      default: 1
+      usageUrl: loading#type
+---
 # Loading
 
 <card>
@@ -82,7 +130,7 @@ If you want use the loading on a specific dom element. Put the loading in a pare
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Loading/API.tsx"
+import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>

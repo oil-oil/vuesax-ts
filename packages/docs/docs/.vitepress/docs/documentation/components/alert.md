@@ -1,3 +1,76 @@
+---
+prev: Button
+next: Alert
+last Update: 2/10/2020, 2:21:50 AM
+props : 
+    - name: active
+      type: Boolean
+      values: true | false
+      description: Determine if the component is visible.
+      default: primary
+      usageUrl: alert#animate
+    - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: Change the color of the component and some of its sub components.
+      default: primary
+      usageUrl: alert#color
+    - name: type
+      type: Prop
+      values: solid | border | shadow | gradient | relief 
+      description: Change the style of all the alert.
+      default: false
+      usageUrl: alert#solid
+    - name: hidden-content
+      type: Boolean
+      values: Boolean
+      description: With this property you can hide the content of the alert.
+      default: false
+      usageUrl: alert#false
+    - name: page
+      type: Number
+      values: Number
+      description: Determine the page that is active (this property is linked to the slots='page-{n}').
+      default: false
+      usageUrl: alert#pagination
+    - name: progress
+      type: Number
+      values: 0-100
+      description: Add a progress bar to the alert and the value is the percentage of width.
+      default: 0
+      usageUrl: alert#progress-bar
+    - name: closable
+      type: Boolean
+      values: true | false
+      description: Add a button to close the alert (it is necessary to use v-model).
+      default: false
+      usageUrl: alert#closable
+slots : 
+    - name: icon
+      type: slot
+      values:
+      description: Add an icon to the alert.
+      default: 
+      usageUrl: alert#icon
+    - name: title
+      type: slot
+      values:
+      description: Add a title to the alert.
+      default: 
+      usageUrl: alert#title
+    - name: page-{n}
+      type: slot
+      values: (page-1 - page-{n})
+      description: Add the pages to the alert component if it is page one would be (slot='page-1').
+      default: 
+      usageUrl: alert#title
+    - name: footer
+      type: slot
+      values:
+      description: Add a footer to the alert component.
+      default: 
+      usageUrl: alert#footer
+---
 
 # Alert
 
@@ -149,7 +222,7 @@ If you need an alert to have time to hide, you can do so by joining some propert
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Alert/API.tsx"
+import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>
