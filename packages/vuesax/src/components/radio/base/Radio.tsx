@@ -10,7 +10,8 @@ const Radio = defineComponent({
   name: 'VsRadio',
   props: {
     color: {
-      type: String as PropType<Color>
+      type: String as PropType<Color>,
+      default:"primary",
     },
     modelValue: {
       type: String
