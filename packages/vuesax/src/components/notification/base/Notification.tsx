@@ -6,167 +6,167 @@ import {
   Ref,
   ref,
   Transition,
-  watch,
-} from "vue";
+  watch
+} from 'vue'
 
-import VsIconsClose from "@/icons/Close";
-import { Color } from "@/types/utils";
-import { setColor,getColor } from "@/utils";
+import VsIconsClose from '@/icons/Close'
+import { Color } from '@/types/utils'
+import { setColor, getColor } from '@/utils'
 
-import "./style.scss";
+import './style.scss'
 
 const Notification = defineComponent({
-  name: "VsNotification",
+  name: 'VsNotification',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     isVisible: {
       type: Boolean,
-      default: true,
+      default: true
     },
     title: {
       type: String,
-      default: null,
+      default: null
     },
     text: {
       type: String,
-      default: null,
+      default: null
     },
     border: {
       type: Boolean,
-      default: false,
+      default: false
     },
     clickClose: {
       type: Boolean,
-      default: false,
+      default: false
     },
     isCursor: {
       type: Boolean,
-      default: false,
+      default: false
     },
     buttonClose: {
       type: Boolean,
-      default: true,
+      default: true
     },
     flat: {
       type: Boolean,
-      default: false,
+      default: false
     },
     sticky: {
       type: Boolean,
-      default: false,
+      default: false
     },
     square: {
       type: Boolean,
-      default: false,
+      default: false
     },
     width: {
       type: String,
-      default: null,
+      default: null
     },
     loading: {
-      type: Object as PropType<Ref<boolean>>,
+      type: Object as PropType<Ref<boolean>>
     },
     progressAuto: {
       type: Boolean,
-      default: false,
+      default: false
     },
     duration: {
       type: Number,
-      default: 4000,
+      default: 4000
     },
     noPadding: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  emits: ["onClick", "clickClose", "onDestroy"],
-  slots: ["default", "content","icon"],
+  emits: ['onClick', 'clickClose', 'onDestroy'],
+  slots: ['default', 'content', 'icon'],
   setup(props, { slots, emit }) {
-    const elRef = ref<HTMLElement>();
-    const innerIsVisible = ref(false);
-    const innerProgress = ref(0);
-    let intervalProgress: NodeJS.Timer;
+    const elRef = ref<HTMLElement>()
+    const innerIsVisible = ref(false)
+    const innerProgress = ref(0)
+    let intervalProgress: NodeJS.Timer
 
     watch(
       () => props.isVisible,
       () => {
-        innerIsVisible.value = props.isVisible;
+        innerIsVisible.value = props.isVisible
         if (elRef.value && props.color) {
-          setColor("color", props.color, elRef.value);
-          setColor("border", props.color, elRef.value);
+          setColor('color', props.color, elRef.value)
+          setColor('border', props.color, elRef.value)
         }
       }
-    );
+    )
 
     onMounted(() => {
-      innerIsVisible.value = props.isVisible;
+      innerIsVisible.value = props.isVisible
       if (elRef.value && props.color) {
-        setColor("color", props.color, elRef.value);
-        setColor("border", props.color, elRef.value);
+        setColor('color', props.color, elRef.value)
+        setColor('border', props.color, elRef.value)
       }
       if (props.progressAuto) {
         intervalProgress = setInterval(() => {
-          innerProgress.value += 1;
+          innerProgress.value += 1
           if (innerProgress.value >= 100) {
-            clearInterval(intervalProgress);
-            innerIsVisible.value = false;
-            emit("clickClose");
+            clearInterval(intervalProgress)
+            innerIsVisible.value = false
+            emit('clickClose')
           }
-        }, props.duration / 100);
+        }, props.duration / 100)
       }
-    });
+    })
 
     onUnmounted(() => {
-      clearInterval(intervalProgress);
-    });
+      clearInterval(intervalProgress)
+    })
 
     const handleClickClose = () => {
-      innerIsVisible.value = false;
-      emit("clickClose");
-    };
+      innerIsVisible.value = false
+      emit('clickClose')
+    }
 
     const beforeEnter = () => {
       if (elRef.value) {
-        elRef.value.style.maxHeight = `0px`;
-        elRef.value.style.padding = `0px 20px`;
+        elRef.value.style.maxHeight = `0px`
+        elRef.value.style.padding = `0px 20px`
       }
-    };
+    }
 
     const enter = (_: Element, done: () => void) => {
       if (elRef.value) {
-        const h = elRef.value.scrollHeight;
-        elRef.value.style.maxHeight = `${h + 40}px`;
+        const h = elRef.value.scrollHeight
+        elRef.value.style.maxHeight = `${h + 40}px`
         if (window.innerWidth < 600) {
-          elRef.value.style.padding = `15px`;
+          elRef.value.style.padding = `15px`
         } else {
-          elRef.value.style.padding = `20px`;
+          elRef.value.style.padding = `20px`
         }
-        done();
+        done()
       }
-    };
+    }
 
     const leave = (_: Element, done: () => void) => {
       if (elRef.value) {
         setTimeout(() => {
-          done();
-          emit("onDestroy");
-        }, 250);
+          done()
+          emit('onDestroy')
+        }, 250)
       }
-    };
+    }
 
     const title = () => (
       <header class="vs-notification__content__header">
         <h4>{props.title}</h4>
       </header>
-    );
+    )
 
     const text = () => (
       <div class="vs-notification__content__text">
         <p>{props.text}</p>
       </div>
-    );
+    )
 
     const content = () => (
       <div class="vs-notification__content">
@@ -174,26 +174,24 @@ const Notification = defineComponent({
         {props.text && text()}
         {slots.content?.()}
       </div>
-    );
+    )
 
-    const icon = () => (
-      <div class="vs-notification__icon">{slots.icon?.()}</div>
-    );
+    const icon = () => <div class="vs-notification__icon">{slots.icon?.()}</div>
 
     const closeBtn = () => (
       <button class="vs-notification__close" onClick={handleClickClose}>
         <VsIconsClose hover="less"></VsIconsClose>
       </button>
-    );
+    )
 
-    const loading = () => <div class="vs-notification__loading"></div>;
+    const loading = () => <div class="vs-notification__loading"></div>
 
     const progress = () => (
       <div
         class="vs-notification__progress"
         style={{ width: `${innerProgress.value}%` }}
       ></div>
-    );
+    )
 
     return () => (
       <Transition
@@ -205,27 +203,41 @@ const Notification = defineComponent({
         {innerIsVisible.value && (
           <div
             class={[
-              "vs-notification",
+              'vs-notification',
               {
-                "vs-notification--color": props.color,
-                "vs-notification--border": props.border,
-                "vs-notification--icon": slots.icon,
-                "vs-notification--onClick": props.isCursor,
-                "vs-notification--flat": props.flat,
-                "vs-notification--sticky": props.sticky,
-                "vs-notification--square": props.square,
-                "vs-notification--width-all": props.width === "100%",
-                "vs-notification--width-auto": props.width === "auto",
-                "vs-notification--loading": props.loading?.value,
-                "vs-notification--notPadding": props.noPadding,
-              },
+                'vs-notification--color': props.color,
+                'vs-notification--border': props.border,
+                'vs-notification--icon': slots.icon,
+                'vs-notification--onClick': props.isCursor,
+                'vs-notification--flat': props.flat,
+                'vs-notification--sticky': props.sticky,
+                'vs-notification--square': props.square,
+                'vs-notification--width-all': props.width === '100%',
+                'vs-notification--width-auto': props.width === 'auto',
+                'vs-notification--loading': props.loading?.value,
+                'vs-notification--notPadding': props.noPadding
+              }
             ]}
-            style={{ "--vs-color": props.color ? getColor(props.color) : "" ,width:props.width === "100%" || props.width === "100vw" || props.width === "auto"?"":props.width,maxWidth:props.width === "100%"|| props.width === "100vw" || props.width === "auto"?"":props.width}}
+            style={{
+              '--vs-color': props.color ? getColor(props.color) : '',
+              width:
+                props.width === '100%' ||
+                props.width === '100vw' ||
+                props.width === 'auto'
+                  ? ''
+                  : props.width,
+              maxWidth:
+                props.width === '100%' ||
+                props.width === '100vw' ||
+                props.width === 'auto'
+                  ? ''
+                  : props.width
+            }}
             onClick={() => {
-              emit("onClick");
+              emit('onClick')
               if (props.clickClose) {
-                innerIsVisible.value = false;
-                emit("clickClose");
+                innerIsVisible.value = false
+                emit('clickClose')
               }
             }}
             ref={elRef}
@@ -238,9 +250,9 @@ const Notification = defineComponent({
           </div>
         )}
       </Transition>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Notification;
-export type NotificationProps = InstanceType<typeof Notification>["$props"];
+export default Notification
+export type NotificationProps = InstanceType<typeof Notification>['$props']

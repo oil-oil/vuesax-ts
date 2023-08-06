@@ -16,17 +16,22 @@
     <VsButton color="#7d33ff" relief :active="active === 5" @click="active = 5">
       RGB
     </VsButton>
-    <VsButton color="rgb(59, 222, 200)" gradient :active="active === 6" @click="active = 6">
+    <VsButton
+      color="rgb(59, 222, 200)"
+      gradient
+      :active="active === 6"
+      @click="active = 6"
+    >
       HEX
     </VsButton>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsButton } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsButton } from 'vuesax-ts'
 
-const active = ref(0);
+const active = ref(0)
 </script>
 
 <style scoped></style>

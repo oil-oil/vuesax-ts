@@ -5,20 +5,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { useLoading } from "vuesax-ts";
+import { ref } from 'vue'
+import { useLoading } from 'vuesax-ts'
 
-const active = ref(false);
-const { open, close } = useLoading();
+const active = ref(false)
+const { open, close } = useLoading()
 
 const handleClick = () => {
-  open();
-  active.value = true;
+  open()
+  active.value = true
   setTimeout(() => {
-    close();
-    active.value = false;
-  }, 3500);
-};
+    close()
+    active.value = false
+  }, 3500)
+}
 </script>
 
 <style scoped></style>

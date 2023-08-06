@@ -1,5 +1,8 @@
 {
   "root": true,
+  "extends": [
+    "custom"
+  ],
   "parserOptions": {
     "tsconfigRootDir": "./",
     "project": [
@@ -9,9 +12,6 @@
       ".vue"
     ]
   },
-  "extends": [
-    "custom"
-  ],
   "rules": {
     "import/no-extraneous-dependencies": [
       "error",
@@ -20,9 +20,8 @@
         "optionalDependencies": false,
         "peerDependencies": false
       }
-    ]
-  },
-  "vue/no-v-model-argument": [
-    "error"
-  ]
+    ],
+    "vue/no-v-model-argument": "off",
+    "no-console": "error"
+  }
 }

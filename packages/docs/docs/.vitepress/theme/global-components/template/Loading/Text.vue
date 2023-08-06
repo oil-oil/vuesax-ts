@@ -7,24 +7,24 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
-import { useLoading } from "vuesax-ts";
-import type { VsLoadingProps } from "vuesax-ts";
+import { reactive, ref } from 'vue'
+import { useLoading } from 'vuesax-ts'
+import type { VsLoadingProps } from 'vuesax-ts'
 
-const active = ref(false);
-const props = reactive<VsLoadingProps>({});
+const active = ref(false)
+const props = reactive<VsLoadingProps>({})
 
-const { open, close } = useLoading(props);
+const { open, close } = useLoading(props)
 
 const handleClick = () => {
-  props.text = "Loading...";
-  open();
-  active.value = true;
+  props.text = 'Loading...'
+  open()
+  active.value = true
   setTimeout(() => {
-    close();
-    active.value = false;
-  }, 3500);
-};
+    close()
+    active.value = false
+  }, 3500)
+}
 </script>
 
 <style scoped lang="scss">

@@ -1,52 +1,52 @@
-import { useData, useRouter } from "vitepress";
-import { defineComponent } from "vue";
-import { VsButton } from "vuesax-ts";
+import { useData, useRouter } from 'vitepress'
+import { defineComponent } from 'vue'
+import { VsButton } from 'vuesax-ts'
 
 const HomeContent = defineComponent({
-  name: "HomeContent",
+  name: 'HomeContent',
   setup() {
-    const { site, frontmatter, isDark, lang } = useData();
-    const router = useRouter();
+    const { site, frontmatter, isDark, lang } = useData()
+    const router = useRouter()
     const to = () => {
-      router.go("/documentation/components/button");
-    };
+      router.go('/documentation/components/button')
+    }
     const homeContentLocales = () => {
-      if (lang.value === "zh") {
+      if (lang.value === 'zh') {
         return (
           <div class="title-content">
             <h1>
-              <b style={{ marginRight: "10px" }}>
+              <b style={{ marginRight: '10px' }}>
                 {frontmatter.value.hero.name}
               </b>
               一个提供给
               <a
                 target="_blank "
                 href="https://vuejs.org/"
-                style={{ marginLeft: "12px", textDecoration: "underline" }}
+                style={{ marginLeft: '12px', textDecoration: 'underline' }}
               >
                 VueTS
               </a>
               的组件框架
             </h1>
           </div>
-        );
+        )
       }
       return (
         <div class="title-content">
           <h1>
-            <b style={{ marginRight: "10px" }}>{frontmatter.value.hero.name}</b>
+            <b style={{ marginRight: '10px' }}>{frontmatter.value.hero.name}</b>
             Framework Components for
             <a
               target="_blank "
               href="https://vuejs.org/"
-              style={{ marginLeft: "12px", textDecoration: "underline" }}
+              style={{ marginLeft: '12px', textDecoration: 'underline' }}
             >
               VueTS
             </a>
           </h1>
         </div>
-      );
-    };
+      )
+    }
     return () => (
       <>
         {homeContentLocales()}
@@ -62,14 +62,14 @@ const HomeContent = defineComponent({
             border
             href="http://vuesax.com/"
             blank
-            color={isDark.value ? "#fff" : "#22252A"}
+            color={isDark.value ? '#fff' : '#22252A'}
           >
             <i class="bx bxl-discord"></i>Discord
           </VsButton>
           <VsButton
             class="icon-button"
             icon
-            dark
+            color="dark"
             href="https://github.com/lusaxweb/vuesax"
             blank
           >
@@ -77,8 +77,8 @@ const HomeContent = defineComponent({
           </VsButton>
         </div>
       </>
-    );
-  },
-});
+    )
+  }
+})
 
-export default HomeContent;
+export default HomeContent

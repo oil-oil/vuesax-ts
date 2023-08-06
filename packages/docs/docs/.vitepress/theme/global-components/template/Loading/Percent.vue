@@ -7,33 +7,33 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
-import { useLoading } from "vuesax-ts";
-import type { VsLoadingProps } from "vuesax-ts";
+import { reactive, ref } from 'vue'
+import { useLoading } from 'vuesax-ts'
+import type { VsLoadingProps } from 'vuesax-ts'
 
-const active = ref(false);
-const props = reactive<VsLoadingProps>({});
+const active = ref(false)
+const props = reactive<VsLoadingProps>({})
 
-const { open, close } = useLoading(props);
-const percent = ref(0);
+const { open, close } = useLoading(props)
+const percent = ref(0)
 
 const handleClick = () => {
-  props.percent = `${percent.value}%`;
-  open();
-  active.value = true;
+  props.percent = `${percent.value}%`
+  open()
+  active.value = true
   const interval = setInterval(() => {
     if (percent.value < 100) {
-      percent.value += 1;
-      props.percent = `${percent.value}%`;
+      percent.value += 1
+      props.percent = `${percent.value}%`
     }
-  }, 40);
+  }, 40)
   setTimeout(() => {
-    close();
-    active.value = false;
-    clearInterval(interval);
-    percent.value = 0;
-  }, 4800);
-};
+    close()
+    active.value = false
+    clearInterval(interval)
+    percent.value = 0
+  }, 4800)
+}
 </script>
 
 <style scoped lang="scss">

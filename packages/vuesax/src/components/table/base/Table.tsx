@@ -1,55 +1,55 @@
-import { computed, defineComponent, onMounted, provide, ref } from "vue";
+import { computed, defineComponent, onMounted, provide, ref } from 'vue'
 
-import "./style.scss";
-import { TableProvider } from "../types";
+import './style.scss'
+import { TableProvider } from '../types'
 
 const Table = defineComponent({
-  name: "VsTable",
+  name: 'VsTable',
   props: {
     modelValue: {
-      type: Object,
+      type: Object
     },
     striped: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loading: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  slots: ["footer", "header", "thead", "tbody", "notFound"],
+  slots: ['footer', 'header', 'thead', 'tbody', 'notFound'],
   setup(props, { slots, emit }) {
-    const colspan = ref(0);
-    const rootRef = ref<HTMLElement>();
-    const theadRef = ref<HTMLElement>();
+    const colspan = ref(0)
+    const rootRef = ref<HTMLElement>()
+    const theadRef = ref<HTMLElement>()
 
     onMounted(() => {
-      const tds = theadRef.value?.querySelectorAll("th");
-      colspan.value = tds?.length || 0;
-    });
+      const tds = theadRef.value?.querySelectorAll('th')
+      colspan.value = tds?.length || 0
+    })
 
-    const isMultipleSelected = computed(() => Array.isArray(props.modelValue));
+    const isMultipleSelected = computed(() => Array.isArray(props.modelValue))
 
     const selected = (value: unknown) => {
       if (isMultipleSelected.value) {
-        const newVal = props.modelValue;
+        const newVal = props.modelValue
         if (props.modelValue?.includes(value)) {
-          newVal?.splice(props.modelValue.indexOf(value), 1);
+          newVal?.splice(props.modelValue.indexOf(value), 1)
         } else {
-          newVal?.push(value);
+          newVal?.push(value)
         }
 
-        emit("update:modelValue", newVal);
+        emit('update:modelValue', newVal)
       } else {
-        emit("update:modelValue", value);
+        emit('update:modelValue', value)
       }
-    };
+    }
 
-    provide<TableProvider>("TableProvider", {
+    provide<TableProvider>('TableProvider', {
       rootRef,
-      selected,
-    });
+      selected
+    })
 
     return () => (
       <div class="vs-table-content" ref={rootRef}>
@@ -59,12 +59,12 @@ const Table = defineComponent({
 
         <div
           class={[
-            "vs-table",
+            'vs-table',
             {
               isSelectedValue: props.modelValue,
               striped: props.striped,
-              isMultipleSelected: isMultipleSelected.value,
-            },
+              isMultipleSelected: isMultipleSelected.value
+            }
           ]}
         >
           <table>
@@ -76,7 +76,7 @@ const Table = defineComponent({
             <tbody class="vs-table_not-found">
               <tr>
                 <td colspan={colspan.value}>
-                  {slots.notFound?.() || "No matching records found"}
+                  {slots.notFound?.() || 'No matching records found'}
                 </td>
               </tr>
             </tbody>
@@ -89,10 +89,10 @@ const Table = defineComponent({
           <footer class="vs-table__footer">{slots.footer?.()}</footer>
         )}
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Table;
+export default Table
 
-export type TableProps = InstanceType<typeof Table>["$props"];
+export type TableProps = InstanceType<typeof Table>['$props']

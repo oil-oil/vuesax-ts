@@ -1,17 +1,17 @@
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
-import HomePage1 from "./HomePage1";
-import "./style.scss";
+import HomePage1 from './HomePage1'
+import './style.scss'
 
 const Home = defineComponent({
-  name: "Home",
+  name: 'Home',
   setup() {
     return () => (
-      <div class="home" style={{ width: "100vw" }}>
+      <div class="home" style={{ width: '100vw' }}>
         <HomePage1 />
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Home;
+export default Home

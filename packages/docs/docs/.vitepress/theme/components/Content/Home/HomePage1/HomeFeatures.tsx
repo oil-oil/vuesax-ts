@@ -1,5 +1,5 @@
-import { useData } from "vitepress";
-import { defineComponent, onMounted, onUnmounted, reactive, ref } from "vue";
+import { useData } from 'vitepress'
+import { defineComponent, onMounted, onUnmounted, reactive, ref } from 'vue'
 import {
   VsAvatar,
   VsAvatarGroup,
@@ -10,49 +10,49 @@ import {
   VsOption,
   VsCard,
   VsSwitch,
-  VsLoading,
-} from "vuesax-ts";
-import "./HomeFeatures.scss";
+  VsLoading
+} from 'vuesax-ts'
+import './HomeFeatures.scss'
 
 const HomeFeatures = defineComponent({
-  name: "HomeFeatures",
+  name: 'HomeFeatures',
   setup() {
     const { theme } = useData<{
       home: {
         avatarPart: {
-          title: string;
-          text: string;
+          title: string
+          text: string
           button: {
-            red: string;
-            white: string;
-          };
-        };
+            red: string
+            white: string
+          }
+        }
         checkPart: {
-          input: string;
-          checkList: string[];
-          button: string;
-        };
-        search: string;
-        select: string;
+          input: string
+          checkList: string[]
+          button: string
+        }
+        search: string
+        select: string
         card: {
-          title: string;
-          text: string;
-        };
+          title: string
+          text: string
+        }
         custom: {
-          title: string;
-          button: string;
-        };
-      };
-    }>();
-    const selectValue = ref([]);
+          title: string
+          button: string
+        }
+      }
+    }>()
+    const selectValue = ref([])
     const switchPart = reactive({
-      switchActive: false,
-    });
-    onMounted(()=>{
-      document.body.classList.add("home")
+      switchActive: false
     })
-    onUnmounted(()=>{
-      document.body.classList.remove("home")
+    onMounted(() => {
+      document.body.classList.add('home')
+    })
+    onUnmounted(() => {
+      document.body.classList.remove('home')
     })
     return () => (
       <>
@@ -61,7 +61,7 @@ const HomeFeatures = defineComponent({
             badge
             badgeColor="danger"
             size="80"
-            color="primary" 
+            color="primary"
             v-slots={{ badge: () => 28 }}
           >
             <img src="/foto1.png" alt="" />
@@ -70,7 +70,7 @@ const HomeFeatures = defineComponent({
             <h6>{theme.value.home.avatarPart.title}</h6>
             <p>{theme.value.home.avatarPart.text}</p>
             <div class="button-box">
-              <VsButton danger>
+              <VsButton color="danger">
                 {theme.value.home.avatarPart.button.red}
               </VsButton>
               <VsButton shadow>
@@ -84,7 +84,7 @@ const HomeFeatures = defineComponent({
             <VsInput
               class="check-input"
               label-placeholder={theme.value.home.checkPart.input}
-              color="primary" 
+              color="primary"
             ></VsInput>
             <VsButton border icon size="xs">
               <i class="bx bx-chevron-right"></i>
@@ -95,7 +95,7 @@ const HomeFeatures = defineComponent({
               <VsCheckbox lineThrough>{name}</VsCheckbox>
             ))}
           </div>
-          <VsButton style={{ width: "100%" }}>
+          <VsButton style={{ width: '100%' }}>
             {theme.value.home.checkPart.button}
           </VsButton>
         </div>
@@ -103,7 +103,7 @@ const HomeFeatures = defineComponent({
           <VsInput
             icon-after
             placeholder={theme.value.home.search}
-            state="primary"
+            status="primary"
             v-slots={{ icon: () => <i class="bx bx-search"></i> }}
           ></VsInput>
         </div>
@@ -112,7 +112,7 @@ const HomeFeatures = defineComponent({
             placeholder={theme.value.home.select}
             v-model={selectValue.value}
           >
-            {["😉", "😺", "😽", "😎", "😂"].map((emoji, index) => (
+            {['😉', '😺', '😽', '😎', '😂'].map((emoji, index) => (
               <VsOption label={emoji} value={index}></VsOption>
             ))}
           </VsSelect>
@@ -121,16 +121,16 @@ const HomeFeatures = defineComponent({
           <VsButton color="danger" icon size="xs">
             <i class="bx bx-play"></i>
           </VsButton>
-          <VsButton warn icon size="xs">
+          <VsButton color="warn" icon size="xs">
             <i class="bx bx-git-pull-request"></i>
           </VsButton>
-          <VsButton dark icon size="xs">
+          <VsButton color="dark" icon size="xs">
             <i class="bx bxl-github"></i>
           </VsButton>
         </div>
         <div class="home-card">
           <VsCard
-            type={"1"}
+            type={'1'}
             v-slots={{
               title: () => <h3>{theme.value.home.card.title}</h3>,
               img: () => <img src="/foto2.png"></img>,
@@ -160,27 +160,27 @@ const HomeFeatures = defineComponent({
                     <span>54</span>
                   </VsButton>
                 </>
-              ),
+              )
             }}
           ></VsCard>
         </div>
         <div class="switch-card">
           <VsSwitch
-            success
+            color="success"
             v-model={switchPart.switchActive}
             v-slots={{
               on: () => <i class="bx bx-x"></i>,
-              off: () => <i class="bx bx-check"></i>,
+              off: () => <i class="bx bx-check"></i>
             }}
           >
             isLoading
           </VsSwitch>
           <VsSwitch
-            warn
+            color="warn"
             loading={switchPart.switchActive}
             v-slots={{
               off: () => <i class="bx bxs-plane-alt"></i>,
-              on: () => <>Active</>,
+              on: () => <>Active</>
             }}
           ></VsSwitch>
         </div>
@@ -198,7 +198,7 @@ const HomeFeatures = defineComponent({
           <VsButton size="md">{theme.value.home.custom.button}</VsButton>
         </div>
       </>
-    );
-  },
-});
-export default HomeFeatures;
+    )
+  }
+})
+export default HomeFeatures

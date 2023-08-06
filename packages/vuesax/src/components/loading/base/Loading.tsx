@@ -5,99 +5,100 @@ import {
   nextTick,
   onMounted,
   ref,
-  watch,
-} from "vue";
-import "./style.scss";
+  watch
+} from 'vue'
+import './style.scss'
 
-import { Color } from "@/types/utils";
-import { setColor, setVar } from "@/utils";
+import { Color } from '@/types/utils'
+import { setColor, setVar } from '@/utils'
 
 type LoadingType =
-  | "waves"
-  | "corners"
-  | "points"
-  | "square"
-  | "border"
-  | "gradient"
-  | "rectangle"
-  | "circles"
-  | "square-rotate"
-  | "scale";
+  | 'waves'
+  | 'corners'
+  | 'points'
+  | 'square'
+  | 'border'
+  | 'gradient'
+  | 'rectangle'
+  | 'circles'
+  | 'square-rotate'
+  | 'scale'
 
 const Loading = defineComponent({
-  name: "VsLoading",
+  name: 'VsLoading',
   props: {
     color: {
       type: String as PropType<Color>,
+      default: null
     },
     background: {
       type: String as PropType<Color>,
-      default: null,
+      default: null
     },
     text: {
       type: String,
-      default: null,
+      default: null
     },
     type: {
       type: String as PropType<LoadingType>,
-      default: null,
+      default: null
     },
     opacity: {
       type: String,
-      default: null,
+      default: null
     },
     percent: {
       type: String,
-      default: null,
+      default: null
     },
     progress: {
       type: Number,
-      default: null,
+      default: null
     },
     scale: {
       type: String,
-      default: null,
+      default: null
     },
     isVisible: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
-  emits: ["update:isVisible", "update:text"],
+  emits: ['update:isVisible', 'update:text'],
   setup(props) {
-    const rootRef = ref<HTMLElement>();
+    const rootRef = ref<HTMLElement>()
 
     const initStyle = () => {
       if (rootRef.value && props.color) {
-        setColor("color", props.color, rootRef.value, true);
-        setColor("background", props.background, rootRef.value, true);
+        setColor('color', props.color, rootRef.value, true)
+        setColor('background', props.background, rootRef.value, true)
         if (props.opacity) {
-          setVar("opacity", props.opacity, rootRef.value);
+          setVar('opacity', props.opacity, rootRef.value)
         }
       }
-    };
+    }
 
     watch(
       () => props.color,
       () => {
-        initStyle();
+        initStyle()
       }
-    );
+    )
 
     watch(
       () => props.isVisible,
       () => {
         if (props.isVisible) {
           nextTick(() => {
-            initStyle();
-          });
+            initStyle()
+          })
         }
       }
-    );
+    )
 
     onMounted(() => {
-      initStyle();
-    });
+      initStyle()
+    })
 
     return () => (
       <Transition name="loading">
@@ -105,9 +106,9 @@ const Loading = defineComponent({
           <div
             ref={rootRef}
             class={[
-              "vs-loading",
-              `vs-loading--${props.type || "default"}`,
-              { "vs-loading--background": !!props.background },
+              'vs-loading',
+              `vs-loading--${props.type || 'default'}`,
+              { 'vs-loading--background': !!props.background }
             ]}
           >
             <div
@@ -141,10 +142,10 @@ const Loading = defineComponent({
           </div>
         )}
       </Transition>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Loading;
+export default Loading
 
-export type LoadingProps = InstanceType<typeof Loading>["$props"];
+export type LoadingProps = InstanceType<typeof Loading>['$props']

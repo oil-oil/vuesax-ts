@@ -1,24 +1,24 @@
-import { VsOption, VsSelect } from "@/components";
-import colors from "@/styles/colors";
-import { Color } from "@/types/utils";
+import { VsOption, VsSelect } from '@/components'
+import colors from '@/styles/colors'
+import { Color } from '@/types/utils'
 
-const options = ["vue", "react", "angular"];
-describe("Select", () => {
-  it("test select basic render", () => {
+const options = ['vue', 'react', 'angular']
+describe('Select', () => {
+  it('test select basic render', () => {
     cy.mount(
       <VsSelect>
         {options.map((item) => (
           <VsOption>{item}</VsOption>
         ))}
       </VsSelect>
-    );
-    cy.get(".vs-select-content").click();
+    )
+    cy.get('.vs-select-content').click()
     options.forEach((item) => {
-      cy.contains(".vs-select__option", item).should("be.visible");
-    });
-  });
+      cy.contains('.vs-select__option', item).should('be.visible')
+    })
+  })
 
-  it("test select different color", () => {
+  it('test select different color', () => {
     Object.entries(colors).forEach(([status, color]) => {
       cy.mount(
         <VsSelect color={status as Color}>
@@ -26,31 +26,31 @@ describe("Select", () => {
             <VsOption>{item}</VsOption>
           ))}
         </VsSelect>
-      );
-      cy.get(".vs-select-content").click();
+      )
+      cy.get('.vs-select-content').click()
       options.forEach((item) => {
-        cy.contains(".vs-select__option", item).should("be.visible");
-      });
-      cy.get(".vs-select__options")
-        .should("have.attr", "style")
-        .and("include", `--vs-color: ${color}`);
-    });
-  });
+        cy.contains('.vs-select__option', item).should('be.visible')
+      })
+      cy.get('.vs-select__options')
+        .should('have.attr', 'style')
+        .and('include', `--vs-color:${color}`)
+    })
+  })
 
-  it("test select modelValue", () => {
-    const onUpdate = cy.spy().as("onUpdate");
+  it('test select modelValue', () => {
+    const onUpdate = cy.spy().as('onUpdate')
     cy.mount(
       <VsSelect modelValue="vue" onUpdate:modelValue={onUpdate}>
         {options.map((item) => (
           <VsOption value={item}>{item}</VsOption>
         ))}
       </VsSelect>
-    );
+    )
 
-    cy.get(".vs-select-content").click();
-    cy.contains(".activeOption", "vue").should("be.visible");
+    cy.get('.vs-select-content').click()
+    cy.contains('.activeOption', 'vue').should('be.visible')
 
-    cy.contains(".vs-select__option", "react").click();
-    cy.get("@onUpdate").should("be.calledWith", "react");
-  });
-});
+    cy.contains('.vs-select__option', 'react').click()
+    cy.get('@onUpdate').should('be.calledWith', 'react')
+  })
+})

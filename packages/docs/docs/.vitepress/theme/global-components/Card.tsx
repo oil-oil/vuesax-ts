@@ -1,44 +1,46 @@
-import { useData } from "vitepress";
-import { defineComponent, DefineComponent } from "vue";
+import { useData } from 'vitepress'
+import { defineComponent, DefineComponent } from 'vue'
 
-import Codex from "./Codex";
-import "./Card.scss";
+import Codex from './Codex'
+import './Card.scss'
 
 const Card = defineComponent({
-  name: "Card",
+  name: 'Card',
   props: {
     codesandbox: {
-      type: String,
+      type: String
     },
     codepen: {
-      type: String,
+      type: String
     },
     subtitle: {
       type: String,
-      default: "Default",
-    },
+      default: 'Default'
+    }
   },
-  slots: ["default"],
+  slots: ['default'],
   setup(props, { slots }) {
-    const { theme, page } = useData<{ mobileActive: boolean }>();
-    const ExampleComponentsArr: [string, { default: DefineComponent }][] =
+    const { theme, page } = useData<{ mobileActive: boolean }>()
+    const exampleComponentsArr: [string, { default: DefineComponent }][] =
       Object.entries(
-        (import.meta as any).glob("./template/**/*.vue", { eager: true })
-      );
+        (import.meta as any).glob('./template/**/*.vue', { eager: true })
+      )
+
     return () => (
       <div class="card">
         <div class="text">{slots.default?.()}</div>
-        <div class={["example", { mobile: theme.value.mobileActive }]}>
+        <div class={['example', { mobile: theme.value.mobileActive }]}>
           <div class="center">
-            {ExampleComponentsArr.map((arr) => {
+            {exampleComponentsArr.map((arr) => {
               if (
                 arr[0] ===
                 `./template/${page.value.title}/${props.subtitle}.vue`
               ) {
-                const Example = arr[1].default;
-                return <Example />;
+                const Example = arr[1].default
+
+                return <Example />
               }
-              return "";
+              return ''
             })}
           </div>
         </div>
@@ -50,7 +52,7 @@ const Card = defineComponent({
           ></Codex>
         </div>
       </div>
-    );
-  },
-});
-export default Card;
+    )
+  }
+})
+export default Card

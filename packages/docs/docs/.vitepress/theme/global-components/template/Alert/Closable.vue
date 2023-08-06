@@ -1,7 +1,7 @@
 <template>
   <div class="center">
     <VsButton @click="activeShow = !activeShow">{{
-      activeShow ? "Close Alert" : "Show Alert"
+      activeShow ? 'Close Alert' : 'Show Alert'
     }}</VsButton>
     <VsAlert closable v-model:isShow="activeShow">
       <template #title> Vuesax Framework </template>
@@ -16,10 +16,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsAlert } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsAlert } from 'vuesax-ts'
 
-const activeShow = ref(true);
+const activeShow = ref(true)
 </script>
 
 <style scoped></style>

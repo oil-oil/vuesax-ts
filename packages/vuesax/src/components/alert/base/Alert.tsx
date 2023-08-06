@@ -7,145 +7,145 @@ import {
   onMounted,
   ref,
   toRefs,
-  watch,
-} from "vue";
+  watch
+} from 'vue'
 
-import { beforeEnter, enter, leave } from "./transition.ts";
-import usePagination from "./usePagination.tsx";
-import IconClose from "@/icons/Close";
-import IconPlus from "@/icons/Plus";
-import "./style.scss";
-import { Color } from "@/types/utils.ts";
-import { getColor } from "@/utils/index.ts";
+import { beforeEnter, enter, leave } from './transition.ts'
+import usePagination from './usePagination.tsx'
+import IconClose from '@/icons/Close'
+import IconPlus from '@/icons/Plus'
+import './style.scss'
+import { Color } from '@/types/utils.ts'
+import { getColor } from '@/utils/index.ts'
 
 const Alert = defineComponent({
-  name: "VsAlert",
+  name: 'VsAlert',
   props: {
     color: {
-      type: String as PropType<Color>,
+      type: String as PropType<Color>
     },
     isShow: {
       type: Boolean,
-      default: true,
+      default: true
     },
     solid: {
       type: Boolean,
-      default: false,
+      default: false
     },
     border: {
       type: Boolean,
-      default: false,
+      default: false
     },
     shadow: {
       type: Boolean,
-      default: false,
+      default: false
     },
     gradient: {
       type: Boolean,
-      default: false,
+      default: false
     },
     flat: {
       type: Boolean,
-      default: false,
+      default: false
     },
     relief: {
       type: Boolean,
-      default: false,
+      default: false
     },
     hiddenContent: {
       type: Boolean,
-      default: null,
+      default: null
     },
     closable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     progress: {
       type: [Number, String],
-      default: 0,
+      default: 0
     },
     page: {
       type: Number,
-      default: 0,
-    },
+      default: 0
+    }
   },
-  slots: ["default", "icon", "title"],
-  emits: ["update:page", "update:hiddenContent", "update:isShow"],
+  slots: ['default', 'icon', 'title'],
+  emits: ['update:page', 'update:hiddenContent', 'update:isShow'],
   setup(props, { slots, emit }) {
-    const { page } = toRefs(props);
-    const rootRef = ref<HTMLElement | null>(null);
-    const contentRef = ref<HTMLElement | null>(null);
+    const { page } = toRefs(props)
+    const rootRef = ref<HTMLElement | null>(null)
+    const contentRef = ref<HTMLElement | null>(null)
 
     const { getPagesValue, pagination } = usePagination({
       page,
       changePage: (newPage: number) => {
-        emit("update:page", newPage);
+        emit('update:page', newPage)
       },
-      slots,
-    });
+      slots
+    })
 
     /**
      * Set the rootRef height to its actual height - 1px to avoid scrollbars
      */
     const resetRootHeight = () => {
-      const root = rootRef.value as HTMLElement;
+      const root = rootRef.value as HTMLElement
       if (root && root.style) {
-        root.style.height = `${root.scrollHeight - 1}px`;
+        root.style.height = `${root.scrollHeight - 1}px`
       }
-    };
+    }
 
     /**
      * Set the minimum height of contentRef to its actual height to ensure that the content is fully displayed
      */
     const resetContentHeight = () => {
-      const content = contentRef.value as HTMLElement;
+      const content = contentRef.value as HTMLElement
       if (content && content.style) {
-        content.style.minHeight = `${content.scrollHeight}px`;
+        content.style.minHeight = `${content.scrollHeight}px`
       }
-    };
+    }
 
     onMounted(() => {
-      resetRootHeight();
-      resetContentHeight();
-    });
+      resetRootHeight()
+      resetContentHeight()
+    })
 
     watch(
       () => props.page,
       () => {
         nextTick(() => {
-          resetContentHeight();
-          resetRootHeight();
-        });
+          resetContentHeight()
+          resetRootHeight()
+        })
       }
-    );
+    )
 
     watch(
       () => props.hiddenContent,
       () => {
         if (!props.isShow) {
-          return;
+          return
         }
-        const root = rootRef.value as HTMLElement;
-        const content = contentRef.value as HTMLElement;
+        const root = rootRef.value as HTMLElement
+        const content = contentRef.value as HTMLElement
         if (!props.hiddenContent) {
-          root.style.height = "auto";
+          root.style.height = 'auto'
           setTimeout(() => {
-            resetRootHeight();
-          }, 250);
+            resetRootHeight()
+          }, 250)
         } else {
-          root.style.height = `${root.scrollHeight - content.scrollHeight}px`;
-          root.style.width = "100%";
+          root.style.height = `${root.scrollHeight - content.scrollHeight}px`
+          root.style.width = '100%'
         }
       }
-    );
+    )
 
     const handleClickClose = () => {
-      emit("update:isShow", !props.isShow);
-    };
+      emit('update:isShow', !props.isShow)
+    }
 
     const handleClickHidden = () => {
-      emit("update:hiddenContent", !props.hiddenContent);
-    };
+      emit('update:hiddenContent', !props.hiddenContent)
+    }
 
     return () => (
       <Transition onBeforeEnter={beforeEnter} onEnter={enter} onLeave={leave}>
@@ -153,18 +153,18 @@ const Alert = defineComponent({
           <div
             ref={rootRef}
             class={[
-              "vs-alert",
+              'vs-alert',
               {
-                "vs-alert--solid": !!props.solid,
-                "vs-alert--border": !!props.border,
-                "vs-alert--shadow": !!props.shadow,
-                "vs-alert--gradient": !!props.gradient,
-                "vs-alert--flat": !!props.flat,
-                "vs-alert--relief": !!props.relief,
-                "vs-alert--pages": getPagesValue.value.length > 0,
-              },
+                'vs-alert--solid': !!props.solid,
+                'vs-alert--border': !!props.border,
+                'vs-alert--shadow': !!props.shadow,
+                'vs-alert--gradient': !!props.gradient,
+                'vs-alert--flat': !!props.flat,
+                'vs-alert--relief': !!props.relief,
+                'vs-alert--pages': getPagesValue.value.length > 0
+              }
             ]}
-            style={{ "--vs-color": props.color ? getColor(props.color) : "" }}
+            style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
           >
             {/* icon */}
             {slots.icon && <div class="vs-alert__icon">{slots.icon()}</div>}
@@ -174,16 +174,16 @@ const Alert = defineComponent({
               <div
                 onClick={handleClickHidden}
                 class={[
-                  "vs-alert__title",
+                  'vs-alert__title',
                   {
-                    "vs-alert__title--clickHidden":
-                      typeof props.hiddenContent === "boolean",
-                  },
+                    'vs-alert__title--clickHidden':
+                      typeof props.hiddenContent === 'boolean'
+                  }
                 ]}
               >
                 {slots.title()}
                 {!props.closable &&
-                  typeof props.hiddenContent === "boolean" && (
+                  typeof props.hiddenContent === 'boolean' && (
                     <IconPlus less={props.hiddenContent}></IconPlus>
                   )}
               </div>
@@ -228,9 +228,9 @@ const Alert = defineComponent({
           </div>
         )}
       </Transition>
-    );
-  },
-});
+    )
+  }
+})
 
-export default Alert;
-export type AlertProps = InstanceType<typeof Alert>["$props"];
+export default Alert
+export type AlertProps = InstanceType<typeof Alert>['$props']

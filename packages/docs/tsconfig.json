@@ -9,5 +9,5 @@
     "docs/.vitepress/**/*.d.ts",
     "docs/.vitepress/**/*.tsx",
     "docs/.vitepress/**/*.vue",
-  ], 
+  ],
 }

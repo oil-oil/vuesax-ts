@@ -1,20 +1,20 @@
-import { VsSidebar, VsSidebarGroup, VsSidebarItem } from "@/components";
+import { VsSidebar, VsSidebarGroup, VsSidebarItem } from '@/components'
 
 const sideBarArr = [
-  { text: "Home", icon: () => <i class="bx bx-home"></i> },
-  { text: "Music", icon: () => <i class="bx bxs-music"></i> },
-  { text: "Donate", icon: () => <i class="bx bxs-donate-heart"></i> },
-];
+  { text: 'Home', icon: () => <i class="bx bx-home"></i> },
+  { text: 'Music', icon: () => <i class="bx bxs-music"></i> },
+  { text: 'Donate', icon: () => <i class="bx bxs-donate-heart"></i> }
+]
 const sideBarGroupArr = {
-  header: { text: "Social media", icon: () => <i class="bx bx-group"></i> },
+  header: { text: 'Social media', icon: () => <i class="bx bx-group"></i> },
   content: [
-    { text: "Instagram", icon: () => <i class="bx bxl-instagram"></i> },
-    { text: "Twitter", icon: () => <i class="bx bxl-twitter"></i> },
-    { text: "Facebook", icon: () => <i class="bx bxl-facebook"></i> },
-  ],
-};
-describe("SideBar", () => {
-  it("test SideBar basic render", () => {
+    { text: 'Instagram', icon: () => <i class="bx bxl-instagram"></i> },
+    { text: 'Twitter', icon: () => <i class="bx bxl-twitter"></i> },
+    { text: 'Facebook', icon: () => <i class="bx bxl-facebook"></i> }
+  ]
+}
+describe('SideBar', () => {
+  it('test SideBar basic render', () => {
     cy.mount(
       <VsSidebar
         modelValue="Home"
@@ -24,7 +24,7 @@ describe("SideBar", () => {
           logo: () => (
             <svg
               class="logo-nav"
-              style={{ height: "28px", width: "100px" }}
+              style={{ height: '28px', width: '100px' }}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 401.69 98.4"
             >
@@ -42,7 +42,7 @@ describe("SideBar", () => {
                 </g>
               </g>
             </svg>
-          ),
+          )
         }}
       >
         {sideBarArr.map((item) => (
@@ -60,7 +60,7 @@ describe("SideBar", () => {
               >
                 {sideBarGroupArr.header.text}
               </VsSidebarItem>
-            ),
+            )
           }}
         >
           {sideBarGroupArr.content.map((item) => (
@@ -70,13 +70,13 @@ describe("SideBar", () => {
           ))}
         </VsSidebarGroup>
       </VsSidebar>
-    );
-    cy.get(".vs-sidebar__logo").should("be.visible");
-    cy.get(".vs-sidebar").should("be.visible");
-  });
+    )
+    cy.get('.vs-sidebar__logo').should('be.visible')
+    cy.get('.vs-sidebar').should('be.visible')
+  })
 
-  it("test SideBar v-model", () => {
-    const onClick = cy.spy().as("onClick");
+  it('test SideBar v-model', () => {
+    const onClick = cy.spy().as('onClick')
     cy.mount(
       <VsSidebar
         modelValue="Home"
@@ -87,7 +87,7 @@ describe("SideBar", () => {
           logo: () => (
             <svg
               class="logo-nav"
-              style={{ height: "28px", width: "100px" }}
+              style={{ height: '28px', width: '100px' }}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 401.69 98.4"
             >
@@ -105,7 +105,7 @@ describe("SideBar", () => {
                 </g>
               </g>
             </svg>
-          ),
+          )
         }}
       >
         {sideBarArr.map((item) => (
@@ -123,7 +123,7 @@ describe("SideBar", () => {
               >
                 {sideBarGroupArr.header.text}
               </VsSidebarItem>
-            ),
+            )
           }}
         >
           {sideBarGroupArr.content.map((item) => (
@@ -133,19 +133,19 @@ describe("SideBar", () => {
           ))}
         </VsSidebarGroup>
       </VsSidebar>
-    );
-    cy.get(".vs-sidebar__logo").should("be.visible");
-    cy.contains("Music").click();
-    cy.get("@onClick").should("be.calledWith", "Music");
+    )
+    cy.get('.vs-sidebar__logo').should('be.visible')
+    cy.contains('Music').click()
+    cy.get('@onClick').should('be.calledWith', 'Music')
 
-    cy.get<VueWrapper>("@vue").then((wrapper) => {
-      wrapper.setProps({ modelValue: "Instagram" });
-    });
+    cy.get<VueWrapper>('@vue').then((wrapper) => {
+      wrapper.setProps({ modelValue: 'Instagram' })
+    })
 
-    cy.contains("Instagram").should("have.class", "active");
-  });
+    cy.contains('Instagram').should('have.class', 'active')
+  })
 
-  it("test SideBarGroup fold", () => {
+  it('test SideBarGroup fold', () => {
     cy.mount(
       <VsSidebar
         modelValue="Home"
@@ -155,7 +155,7 @@ describe("SideBar", () => {
           logo: () => (
             <svg
               class="logo-nav"
-              style={{ height: "28px", width: "100px" }}
+              style={{ height: '28px', width: '100px' }}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 401.69 98.4"
             >
@@ -173,7 +173,7 @@ describe("SideBar", () => {
                 </g>
               </g>
             </svg>
-          ),
+          )
         }}
       >
         {sideBarArr.map((item) => (
@@ -190,7 +190,7 @@ describe("SideBar", () => {
               >
                 {sideBarGroupArr.header.text}
               </VsSidebarItem>
-            ),
+            )
           }}
         >
           {sideBarGroupArr.content.map((item) => (
@@ -200,9 +200,9 @@ describe("SideBar", () => {
           ))}
         </VsSidebarGroup>
       </VsSidebar>
-    );
-    cy.get(".vs-sidebar__group__content").should("not.exist");
-    cy.get(".vs-sidebar__group").click().should("have.class", "open");
-    cy.get(".vs-sidebar__group__content").should("be.visible");
-  });
-});
+    )
+    cy.get('.vs-sidebar__group__content').should('not.exist')
+    cy.get('.vs-sidebar__group').click().should('have.class', 'open')
+    cy.get('.vs-sidebar__group__content').should('be.visible')
+  })
+})

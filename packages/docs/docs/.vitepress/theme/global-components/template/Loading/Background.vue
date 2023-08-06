@@ -11,26 +11,26 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
-import { useLoading } from "vuesax-ts";
-import type { VsLoadingProps } from "vuesax-ts";
+import { reactive, ref } from 'vue'
+import { useLoading } from 'vuesax-ts'
+import type { LoadingHookProps, Color } from 'vuesax-ts'
 
-const color = ref("#7A76CB");
-const active = ref(false);
-const props = reactive<VsLoadingProps>({});
+const color = ref<Color>('#7A76CB')
+const active = ref(false)
+const props = reactive<LoadingHookProps>({})
 
-const { open, close } = useLoading(props);
+const { open, close } = useLoading(props)
 
 const handleClick = () => {
-  props.background = color.value;
-  props.color = "#fff";
-  open();
-  active.value = true;
+  props.background = color.value
+  props.color = '#fff'
+  open()
+  active.value = true
   setTimeout(() => {
-    close();
-    active.value = false;
-  }, 3500);
-};
+    close()
+    active.value = false
+  }, 3500)
+}
 </script>
 
 <style scoped lang="scss">
@@ -40,6 +40,7 @@ const handleClick = () => {
   justify-content: space-around;
   padding: 20px;
   flex-wrap: wrap;
+
   .select-color {
     border-radius: 10px;
     border: 4px solid var(--vs-theme-layout);
@@ -48,10 +49,12 @@ const handleClick = () => {
     align-items: center;
     justify-content: center;
     transition: all 0.25s ease;
+
     &:hover {
       transform: translate(0, -4px);
       box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.1);
     }
+
     input {
       opacity: 0;
       width: 30px;
@@ -59,6 +62,7 @@ const handleClick = () => {
       border: 0px;
       cursor: pointer;
     }
+
     i {
       position: absolute;
       color: var(--vs-theme-layout);
