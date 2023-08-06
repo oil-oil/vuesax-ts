@@ -11,14 +11,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsSwitch } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsSwitch } from 'vuesax-ts'
 
-const active = ref(true);
-const active2 = ref(true);
-const active3 = ref(true);
-const active4 = ref(true);
-const active5 = ref(true);
-const active6 = ref(true);
-const active7 = ref(true);
+const active = ref(true)
+const active2 = ref(true)
+const active3 = ref(true)
+const active4 = ref(true)
+const active5 = ref(true)
+const active6 = ref(true)
+const active7 = ref(true)
 </script>

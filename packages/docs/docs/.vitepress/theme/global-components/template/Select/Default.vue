@@ -12,10 +12,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsSelect, VsOption } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsSelect, VsOption } from 'vuesax-ts'
 
-const value = ref(0);
+const value = ref(0)
 </script>
 
 <style scoped></style>

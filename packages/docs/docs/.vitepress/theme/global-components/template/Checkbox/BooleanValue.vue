@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsCheckbox } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsCheckbox } from 'vuesax-ts'
 
-const option1 = ref(true);
-const option2 = ref(false);
+const option1 = ref(true)
+const option2 = ref(false)
 </script>

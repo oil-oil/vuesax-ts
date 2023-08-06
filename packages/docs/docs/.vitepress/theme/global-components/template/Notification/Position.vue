@@ -3,7 +3,7 @@
     <VsButton
       @click="
         () => {
-          handleClick();
+          handleClick()
         }
       "
       icon
@@ -13,7 +13,7 @@
     <VsButton
       @click="
         () => {
-          handleClick('top-right');
+          handleClick('top-right')
         }
       "
       icon
@@ -23,7 +23,7 @@
     <VsButton
       @click="
         () => {
-          handleClick('top-left');
+          handleClick('top-left')
         }
       "
       icon
@@ -33,7 +33,7 @@
     <VsButton
       @click="
         () => {
-          handleClick('bottom-left');
+          handleClick('bottom-left')
         }
       "
       icon
@@ -43,7 +43,7 @@
     <VsButton
       @click="
         () => {
-          handleClick('bottom-center');
+          handleClick('bottom-center')
         }
       "
       icon
@@ -53,7 +53,7 @@
     <VsButton
       @click="
         () => {
-          handleClick('top-center');
+          handleClick('top-center')
         }
       "
       icon
@@ -64,19 +64,19 @@
 </template>
 
 <script setup lang="ts">
-import { Position, VsButton, useNotification } from "vuesax-ts";
+import { Position, VsButton, useNotification } from 'vuesax-ts'
 
-const { open, close } = useNotification();
+const { open, close } = useNotification()
 const handleClick = (position?: Position) => {
   const setOpen = open({
-    title: "Documentation Vuesax Ts",
-    text: "These documents refer to the latest version of vuesax (4.0+),to see the documents of the previous versions you can do it here 👉 Vuesax3.x",
-    position,
-  });
+    title: 'Documentation Vuesax Ts',
+    text: 'These documents refer to the latest version of vuesax (4.0+),to see the documents of the previous versions you can do it here 👉 Vuesax3.x',
+    position
+  })
   setTimeout(() => {
-    close(setOpen);
-  }, 4000);
-};
+    close(setOpen)
+  }, 4000)
+}
 </script>
 
 <style scoped lang="scss">

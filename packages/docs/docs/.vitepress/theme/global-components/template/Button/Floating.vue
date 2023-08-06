@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { VsButton } from "vuesax-ts";
+import { VsButton } from 'vuesax-ts'
 </script>
 
 <style scoped></style>

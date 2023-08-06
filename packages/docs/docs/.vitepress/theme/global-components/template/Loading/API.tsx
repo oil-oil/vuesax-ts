@@ -1,98 +1,92 @@
-import { defineComponent, ref } from "vue";
-import { VsTable, VsTh, VsTr } from "vuesax-ts";
+import { defineComponent, ref } from 'vue'
+import { VsTable, VsTh, VsTr } from 'vuesax-ts'
 
 const AlertApi = defineComponent({
-  name: "AlertApi",
+  name: 'AlertApi',
   setup() {
     const props = ref([
       [
-        "type",
-        "string",
-        "waves corners border points square gradient rectangle circles square-rotate scale",
-        "Change the animation of the loading.",
-        "default",
+        'type',
+        'string',
+        'waves corners border points square gradient rectangle circles square-rotate scale',
+        'Change the animation of the loading.',
+        'default'
       ],
       [
-        "color",
-        "string",
-        "ALL colors of vuesax (RGB y HEX)",
-        "Change the color of the loading animation.",
-        "primary",
+        'color',
+        'string',
+        'ALL colors of vuesax (RGB y HEX)',
+        'Change the color of the loading animation.',
+        'primary'
       ],
       [
-        "background",
-        "string",
-        "All colors of vuesax (RGB y HEX)",
-        "Change the background color of the loading.",
-        "#fff",
+        'background',
+        'string',
+        'All colors of vuesax (RGB y HEX)',
+        'Change the background color of the loading.',
+        '#fff'
       ],
       [
-        "text",
-        "string",
-        "string",
-        "Add a text below the loading animation.",
-        "null",
+        'text',
+        'string',
+        'string',
+        'Add a text below the loading animation.',
+        'null'
       ],
       [
-        "percent",
-        "string",
-        "(0%-100%)",
-        "Add a text below the loading animation.",
-        "null",
+        'percent',
+        'string',
+        '(0%-100%)',
+        'Add a text below the loading animation.',
+        'null'
       ],
       [
-        "progress",
-        "Number",
-        "0-100",
-        "Add a progress bar to the loading and the progress would be the value.",
-        "null",
+        'progress',
+        'Number',
+        '0-100',
+        'Add a progress bar to the loading and the progress would be the value.',
+        'null'
       ],
       [
-        "opacity",
-        "string",
-        "(0-1)",
-        "Change the opacity of the background.",
-        "0.6",
+        'opacity',
+        'string',
+        '(0-1)',
+        'Change the opacity of the background.',
+        '0.6'
       ],
-      [
-        "scale",
-        "string",
-        "(0-1)",
-        "Change the size of the background.",
-        "null",
-      ],
-    ]);
+      ['scale', 'string', '(0-1)', 'Change the size of the background.', 'null']
+    ])
 
     const usageUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return "loading#type";
+          return 'loading#type'
 
         case 1:
-          return "loading#color";
+          return 'loading#color'
 
         case 2:
-          return "loading#background";
+          return 'loading#background'
 
         case 3:
-          return "loading#text";
+          return 'loading#text'
 
         case 4:
-          return "loading#percent";
+          return 'loading#percent'
 
         case 5:
-          return "loading#progress";
+          return 'loading#progress'
 
         case 6:
-          return "loading#background";
+          return 'loading#background'
 
         case 7:
-          return "loading#background";
+          return 'loading#background'
 
         default:
-          return "";
+          return ''
       }
-    };
+    }
 
     return () => (
       <div class="api">
@@ -141,14 +135,14 @@ const AlertApi = defineComponent({
                         </a>
                       </VsTh>
                     </VsTr>
-                  )),
+                  ))
               }}
             ></VsTable>
           </div>
         </div>
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default AlertApi;
+export default AlertApi

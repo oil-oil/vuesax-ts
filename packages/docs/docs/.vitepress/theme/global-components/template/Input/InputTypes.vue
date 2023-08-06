@@ -15,18 +15,18 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
-import { VsInput } from "vuesax-ts";
+import { reactive } from 'vue'
+import { VsInput } from 'vuesax-ts'
 
 const value = reactive({
-  text: "",
-  password: "",
-  search: "",
-  number: "",
-  url: "",
-  time: "",
-  date: "",
-});
+  text: '',
+  password: '',
+  search: '',
+  number: '',
+  url: '',
+  time: '',
+  date: ''
+})
 </script>
 
 <style scoped lang="scss">

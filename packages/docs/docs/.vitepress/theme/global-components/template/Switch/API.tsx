@@ -1,122 +1,122 @@
-import { defineComponent, ref } from "vue";
-import { VsTable, VsTh, VsTr } from "vuesax-ts";
+import { defineComponent, ref } from 'vue'
+import { VsTable, VsTh, VsTr } from 'vuesax-ts'
 
 const SwitchApi = defineComponent({
-  name: "SwitchApi",
+  name: 'SwitchApi',
   setup() {
     const props = ref([
       [
-        "v-model",
-        "boolean",
-        "true false",
-        "Determine the value of the component and if it is an array add or remove the value.",
-        "",
+        'v-model',
+        'boolean',
+        'true false',
+        'Determine the value of the component and if it is an array add or remove the value.',
+        ''
       ],
       [
-        "color",
-        "string",
-        "ALL colors of vuesax (RGB y HEX)",
-        "Change the color of the component when it is in active state.",
-        "primary",
+        'color',
+        'string',
+        'ALL colors of vuesax (RGB y HEX)',
+        'Change the color of the component when it is in active state.',
+        'primary'
       ],
       [
-        "loading",
-        "boolean",
-        "true false",
-        "Change the color of the component when it is in active state.",
-        "false",
+        'loading',
+        'boolean',
+        'true false',
+        'Change the color of the component when it is in active state.',
+        'false'
       ],
       [
-        "indeterminate",
-        "boolean",
-        "true false",
-        "Determine if the component is in an undetermined state (being in this state is disabled).",
-        "false",
+        'indeterminate',
+        'boolean',
+        'true false',
+        'Determine if the component is in an undetermined state (being in this state is disabled).',
+        'false'
       ],
       [
-        "square",
-        "boolean",
-        "true false",
-        "Change the style of the component from circular to square.",
-        "false",
+        'square',
+        'boolean',
+        'true false',
+        'Change the style of the component from circular to square.',
+        'false'
       ],
       [
-        "icon",
-        "boolean",
-        "true false",
+        'icon',
+        'boolean',
+        'true false',
         "Change the style of the circle by making it transparent (used when adding the slot = 'slot = circle').",
-        "false",
-      ],
-    ]);
+        'false'
+      ]
+    ])
     const slots = ref([
-      ["default", "slot", "", "Add text within the component.", ""],
+      ['default', 'slot', '', 'Add text within the component.', ''],
       [
-        "on",
-        "slot",
-        "",
-        "Add text within the component when it is in active state.",
-        "",
+        'on',
+        'slot',
+        '',
+        'Add text within the component when it is in active state.',
+        ''
       ],
       [
-        "off",
-        "slot",
-        "",
-        "Add text within the component when it is in idle state.",
-        "",
+        'off',
+        'slot',
+        '',
+        'Add text within the component when it is in idle state.',
+        ''
       ],
       [
-        "circle",
-        "slot",
-        "",
-        "Add an icon to the circle within the component.",
-        "",
-      ],
-    ]);
+        'circle',
+        'slot',
+        '',
+        'Add an icon to the circle within the component.',
+        ''
+      ]
+    ])
 
     const usageUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return `alert#closable`;
+          return `alert#closable`
 
         case 1:
-          return `alert#color`;
+          return `alert#color`
 
         case 2:
-          return `alert#solid`;
+          return `alert#solid`
 
         case 3:
-          return `alert#hidden-content`;
+          return `alert#hidden-content`
 
         case 4:
-          return `alert#pagination`;
+          return `alert#pagination`
 
         case 5:
-          return `alert#progress-bar`;
+          return `alert#progress-bar`
 
         case 6:
-          return `alert#closable`;
+          return `alert#closable`
         default:
-          return "";
+          return ''
       }
-    };
+    }
     const slotsUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return `alert#icon`;
+          return `alert#icon`
 
         case 1:
-          return `alert#title`;
+          return `alert#title`
 
         case 2:
-          return `alert#pagination`;
+          return `alert#pagination`
 
         case 3:
-          return `alert#footer`;
+          return `alert#footer`
 
         default:
-          return "";
+          return ''
       }
-    };
+    }
 
     return () => (
       <div class="api">
@@ -165,7 +165,7 @@ const SwitchApi = defineComponent({
                         </a>
                       </VsTh>
                     </VsTr>
-                  )),
+                  ))
               }}
             ></VsTable>
           </div>
@@ -210,14 +210,14 @@ const SwitchApi = defineComponent({
                         </a>
                       </VsTh>
                     </VsTr>
-                  )),
+                  ))
               }}
             ></VsTable>
           </div>
         </div>
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default SwitchApi;
+export default SwitchApi

@@ -1,166 +1,166 @@
-import { defineComponent, ref } from "vue";
-import { VsTable, VsTh, VsTr } from "vuesax-ts";
+import { defineComponent, ref } from 'vue'
+import { VsTable, VsTh, VsTr } from 'vuesax-ts'
 
 const NotificationApi = defineComponent({
-  name: "NotificationApi",
+  name: 'NotificationApi',
   setup() {
     const props = ref([
-      ["title", "string", "string", "Add a title to the notification.", ""],
-      ["text", "string", "string", "Add a text to the notification.", ""],
+      ['title', 'string', 'string', 'Add a title to the notification.', ''],
+      ['text', 'string', 'string', 'Add a text to the notification.', ''],
       [
-        "position",
-        "string",
-        "bottom-right top-right top-center top-left bottom-left bottom-center",
-        "Change the position of the component.",
-        "bottom-right",
+        'position',
+        'string',
+        'bottom-right top-right top-center top-left bottom-left bottom-center',
+        'Change the position of the component.',
+        'bottom-right'
       ],
       [
-        "color",
-        "string",
-        "ALL colors of vuesax (RGB y HEX)",
-        "Add a background color to the notification.",
-        "",
+        'color',
+        'string',
+        'ALL colors of vuesax (RGB y HEX)',
+        'Add a background color to the notification.',
+        ''
       ],
       [
-        "border",
-        "string",
-        "All colors of vuesax (RGB y HEX)",
-        "Add a color border to the notification.",
-        "",
+        'border',
+        'string',
+        'All colors of vuesax (RGB y HEX)',
+        'Add a color border to the notification.',
+        ''
       ],
       [
-        "duration",
-        "number",
-        "number",
-        "Determine the time until the notification is hidden.",
-        "4000",
+        'duration',
+        'number',
+        'number',
+        'Determine the time until the notification is hidden.',
+        '4000'
       ],
       [
-        "buttonClose",
-        "boolean",
-        "true false",
-        "Determine if the notification has the close button.",
-        "true",
+        'buttonClose',
+        'boolean',
+        'true false',
+        'Determine if the notification has the close button.',
+        'true'
       ],
       [
-        "flat",
-        "boolean",
-        "true false",
-        "Change the notification style to flat.",
-        "false",
+        'flat',
+        'boolean',
+        'true false',
+        'Change the notification style to flat.',
+        'false'
       ],
       [
-        "sticky",
-        "boolean",
-        "true false",
-        "Change the position of the notification attached to the nearest corner.",
-        "false",
+        'sticky',
+        'boolean',
+        'true false',
+        'Change the position of the notification attached to the nearest corner.',
+        'false'
       ],
       [
-        "square",
-        "boolean",
-        "true false",
-        "Determine if the notification is square and remove the border-radius.",
-        "false",
+        'square',
+        'boolean',
+        'true false',
+        'Determine if the notification is square and remove the border-radius.',
+        'false'
       ],
       [
-        "width",
-        "string",
-        "100% auto",
-        "Determine the width of the notification.",
-        "340px",
+        'width',
+        'string',
+        '100% auto',
+        'Determine the width of the notification.',
+        '340px'
       ],
       [
-        "loading",
-        "boolean",
-        "true false",
-        "Determine if the notification has a loading animation.",
-        "false",
+        'loading',
+        'boolean',
+        'true false',
+        'Determine if the notification has a loading animation.',
+        'false'
       ],
       [
-        "progressAuto",
-        "boolean",
-        "true false",
-        "Enable an auto-incrementing progress bar",
-        "false",
+        'progressAuto',
+        'boolean',
+        'true false',
+        'Enable an auto-incrementing progress bar',
+        'false'
       ],
       [
-        "notPadding",
-        "boolean",
-        "true false",
-        "Remove padding from notification.",
-        "false",
+        'notPadding',
+        'boolean',
+        'true false',
+        'Remove padding from notification.',
+        'false'
       ],
       [
-        "icon",
-        "VNode",
-        "VNode",
-        "Add an icon at the notification beginning",
-        "",
+        'icon',
+        'VNode',
+        'VNode',
+        'Add an icon at the notification beginning',
+        ''
       ],
       [
-        "content",
-        "VNode",
-        "VNode",
-        "Change the content of the notification to the one provided as a value",
-        "",
-      ],
-    ]);
+        'content',
+        'VNode',
+        'VNode',
+        'Change the content of the notification to the one provided as a value',
+        ''
+      ]
+    ])
 
     const usageUrl = (lineIndex: number) => {
       switch (lineIndex) {
         case 0:
-          return "notification#default";
+          return 'notification#default'
 
         case 1:
-          return "notification#default";
+          return 'notification#default'
 
         case 2:
-          return "notification#position";
+          return 'notification#position'
 
         case 3:
-          return "notification#color";
+          return 'notification#color'
 
         case 4:
-          return "notification#border";
+          return 'notification#border'
 
         case 5:
-          return "notification#duration";
+          return 'notification#duration'
 
         case 6:
-          return "notification#button-close";
+          return 'notification#button-close'
 
         case 7:
-          return "notification#flat";
+          return 'notification#flat'
 
         case 8:
-          return "notification#stick";
+          return 'notification#stick'
 
         case 9:
-          return "notification#square";
+          return 'notification#square'
 
         case 10:
-          return "notification#width";
+          return 'notification#width'
 
         case 11:
-          return "notification#loading";
+          return 'notification#loading'
 
         case 12:
-          return "notification#progress";
+          return 'notification#progress'
 
         case 13:
-          return "notification#not-padding";
+          return 'notification#not-padding'
 
         case 14:
-          return "notification#icons";
+          return 'notification#icons'
 
         case 15:
-          return "notification#example";
+          return 'notification#example'
 
         default:
-          return "";
+          return ''
       }
-    };
+    }
 
     return () => (
       <div class="api">
@@ -209,14 +209,14 @@ const NotificationApi = defineComponent({
                         </a>
                       </VsTh>
                     </VsTr>
-                  )),
+                  ))
               }}
             ></VsTable>
           </div>
         </div>
       </div>
-    );
-  },
-});
+    )
+  }
+})
 
-export default NotificationApi;
+export default NotificationApi

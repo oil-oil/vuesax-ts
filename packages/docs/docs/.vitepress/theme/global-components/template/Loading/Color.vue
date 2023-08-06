@@ -8,7 +8,7 @@
       <div class="box-loading" @click="handleClick()">
         <VsLoading style="position: relative" :color="color" />
         <span class="title" :style="{ color: `${color}` }">{{
-          "default"
+          'default'
         }}</span>
       </div>
       <div
@@ -25,36 +25,36 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
-import { useLoading } from "vuesax-ts";
-import type { VsLoadingProps, Color } from "vuesax-ts";
+import { reactive, ref } from 'vue'
+import { useLoading } from 'vuesax-ts'
+import type { VsLoadingProps, Color } from 'vuesax-ts'
 
-const color = ref<Color>("#D5397B");
-const props = reactive<VsLoadingProps>({});
+const color = ref<Color>('#D5397B')
+const props = reactive<VsLoadingProps>({})
 
-const { open, close } = useLoading(props);
+const { open, close } = useLoading(props)
 
 const types = [
-  "border",
-  "waves",
-  "corners",
-  "points",
-  "square",
-  "gradient",
-  "rectangle",
-  "circles",
-  "square-rotate",
-  "scale",
-] as const;
+  'border',
+  'waves',
+  'corners',
+  'points',
+  'square',
+  'gradient',
+  'rectangle',
+  'circles',
+  'square-rotate',
+  'scale'
+] as const
 
-const handleClick = (type?: VsLoadingProps["type"]) => {
-  props.type = type;
-  props.color = color.value;
-  open();
+const handleClick = (type?: VsLoadingProps['type']) => {
+  props.type = type
+  props.color = color.value
+  open()
   setTimeout(() => {
-    close();
-  }, 3500);
-};
+    close()
+  }, 3500)
+}
 </script>
 
 <style scoped lang="scss">

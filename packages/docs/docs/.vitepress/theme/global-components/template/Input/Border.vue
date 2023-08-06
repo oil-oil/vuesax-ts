@@ -27,14 +27,14 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
-import { VsInput } from "vuesax-ts";
+import { reactive } from 'vue'
+import { VsInput } from 'vuesax-ts'
 
 const value = reactive({
-  name: "",
-  password: "",
-  address: "",
-});
+  name: '',
+  password: '',
+  address: ''
+})
 </script>
 
 <style scoped>

@@ -39,16 +39,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsCheckbox } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsCheckbox } from 'vuesax-ts'
 
-const option1 = ref(false);
-const option2 = ref(false);
-const option3 = ref(false);
-const option4 = ref(false);
-const option5 = ref(false);
-const option6 = ref(false);
-const option7 = ref(false);
+const option1 = ref(false)
+const option2 = ref(false)
+const option3 = ref(false)
+const option4 = ref(false)
+const option5 = ref(false)
+const option6 = ref(false)
+const option7 = ref(false)
 </script>
 
 <style scoped>

@@ -14,24 +14,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsAlert } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsAlert } from 'vuesax-ts'
 
-const progress = ref(0);
-const active = ref(false);
+const progress = ref(0)
+const active = ref(false)
 
 const handleClick = () => {
-  active.value = true;
+  active.value = true
   const interval = setInterval(() => {
-    progress.value += 1;
-  }, 100);
+    progress.value += 1
+  }, 100)
 
   setTimeout(() => {
-    active.value = false;
-    progress.value = 0;
-    clearInterval(interval);
-  }, 10000);
-};
+    active.value = false
+    progress.value = 0
+    clearInterval(interval)
+  }, 10000)
+}
 </script>
 
 <style scoped></style>

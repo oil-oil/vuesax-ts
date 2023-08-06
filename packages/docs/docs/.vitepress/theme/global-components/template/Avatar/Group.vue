@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { VsAvatar, VsAvatarGroup } from "vuesax-ts";
+import { VsAvatar, VsAvatarGroup } from 'vuesax-ts'
 </script>
 
 <style scoped>

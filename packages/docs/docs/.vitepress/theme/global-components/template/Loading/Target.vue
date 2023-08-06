@@ -15,20 +15,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { VsLoading } from "vuesax-ts";
+import { ref } from 'vue'
+import { VsLoading } from 'vuesax-ts'
 
-const active = ref(false);
-const isVisible = ref(false);
+const active = ref(false)
+const isVisible = ref(false)
 
 const handleClick = () => {
-  isVisible.value = true;
-  active.value = true;
+  isVisible.value = true
+  active.value = true
   setTimeout(() => {
-    isVisible.value = false;
-    active.value = false;
-  }, 3500);
-};
+    isVisible.value = false
+    active.value = false
+  }, 3500)
+}
 </script>
 
 <style scoped lang="scss">

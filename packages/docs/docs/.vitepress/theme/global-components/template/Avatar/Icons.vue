@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { VsAvatar } from "vuesax-ts";
+import { VsAvatar } from 'vuesax-ts'
 </script>
 
 <style scoped>
