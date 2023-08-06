@@ -12,4 +12,14 @@ import { VsRadio } from 'vuesax-ts';
 const value = ref("")
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .vs-radio-content {
+        margin: 5px 0;
+    }
+}
+</style>

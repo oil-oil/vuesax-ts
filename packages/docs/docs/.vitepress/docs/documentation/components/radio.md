@@ -47,3 +47,9 @@ Add a loading animation to the component, when the radio has this property activ
 Add an icon inside the radio with the `icon` slot
 
 </card>
+
+<script setup>
+import Api from "../../../theme/global-components/template/Radio/API.tsx"
+</script>
+
+<Api></Api>
