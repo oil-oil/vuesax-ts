@@ -1,4 +1,4 @@
-# Avatar 头像
+#头像头像
 
 <card>
 
@@ -14,7 +14,7 @@
 
 ## Color
 
-使用 `color` 属性更改 Avatar 的颜色，允许传入 vuesax 的主题色和（`HEX`, `RGB`）
+使用 `color` 属性更改头像的颜色，允许传入 vuesax 的主题色或（`HEX`, `RGB`）
 
 </card>
 

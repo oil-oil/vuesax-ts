@@ -1,5 +1,5 @@
 
-# Button 按钮
+#按钮按钮
 
 <Card codesandbox="https://codesandbox.io/embed/reverent-shape-pmyk2?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue">
 
@@ -7,7 +7,7 @@
 
 <docs-warn />
 
-Button 是一个项目的基础组成部分，在 vuesax 中只需要一行代码就能添加一个很棒的按钮
+按钮是一个项目的基础组成部分，在 vuesax 中只需要一行代码就能添加一个很棒的按钮
 
 按钮拥有所有的状态，例如 active, focus, hover 等等，使其易用性更强，并提升使用效率。
 
@@ -17,7 +17,7 @@ Button 是一个项目的基础组成部分，在 vuesax 中只需要一行代�
 
 ## Flat
 
-我们可以通过添加 `flat`  属性来将 Button 设置为扁平样式，该属性是 `boolean` 类型
+我们可以通过添加 `flat`  属性来将按钮设置为扁平样式，该属性是 `boolean` 类型
 
 </Card>
 
@@ -25,7 +25,7 @@ Button 是一个项目的基础组成部分，在 vuesax 中只需要一行代�
 
 ## Border
 
-我们可以通过添加 `border`  属性来将 Button 设置为带有边框的样式，该属性是 `boolean` 类型
+我们可以通过添加 `border`  属性来将按钮设置为带有边框的样式，该属性是 `boolean` 类型
 
 </Card>
 
@@ -33,7 +33,7 @@ Button 是一个项目的基础组成部分，在 vuesax 中只需要一行代�
 
 ## Gradient
 
-我们可以通过添加 `gradient`  属性来将 Button 设置为渐变色背景，该属性是 `boolean` 类型
+我们可以通过添加 `gradient`  属性来将按钮设置为渐变色背景，该属性是 `boolean` 类型
 
 :::tip 渐变色由 `color` 属性自动生成，在本例中为 `primary` 颜色
 :::
@@ -44,7 +44,7 @@ Button 是一个项目的基础组成部分，在 vuesax 中只需要一行代�
 
 ## Relief
 
-我们可以通过添加 `relief`  属性来将 Button 设置为悬浮效果，该属性是 `boolean` 类型
+我们可以通过添加 `relief`  属性来将按钮设置为悬浮效果，该属性是 `boolean` 类型
 
 </Card>
 
@@ -52,7 +52,7 @@ Button 是一个项目的基础组成部分，在 vuesax 中只需要一行代�
 
 ## Transparent
 
-我们可以通过添加 `transparent`  属性来将 Button 设置为透明背景，该属性是 `boolean` 类型
+我们可以通过添加 `transparent`  属性来将按钮设置为透明背景，该属性是 `boolean` 类型
 
 </Card>
 
@@ -60,7 +60,7 @@ Button 是一个项目的基础组成部分，在 vuesax 中只需要一行代�
 
 ## Shadow
 
-我们可以通过添加 `shadow`  属性来将 Button 设置为带有阴影的效果，该属性是 `boolean` 类型 
+我们可以通过添加 `shadow`  属性来将按钮设置为带有阴影的效果，该属性是 `boolean` 类型 
 
 </Card>
 

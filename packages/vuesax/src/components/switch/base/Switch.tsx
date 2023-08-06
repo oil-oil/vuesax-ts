@@ -10,7 +10,8 @@ const Switch = defineComponent({
   name: 'VsSwitch',
   props: {
     color: {
-      type: String as PropType<Color>
+      type: String as PropType<Color>,
+      default: 'primary'
     },
     modelValue: {
       type: Boolean,
