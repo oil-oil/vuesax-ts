@@ -2,6 +2,44 @@
 prev: Avatar
 next: Radio
 last Update: 2023/13/1
+props : 
+    - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: Change the color of the radio.
+      default: primary
+      usageUrl: radio#color
+    - name: disabled
+      type: Boolean
+      values: true | false
+      description: Determine if the component is in the disabled state.
+      default: false
+      usageUrl: radio#default
+    - name: loading
+      type: Boolean
+      values: true | false
+      description: Determine if the component has a loading animation and is disabled.
+      default: false
+      usageUrl: radio#loading
+    - name: value
+      type: String
+      values: String
+      description: Determine the value of the radio input.
+      default: 
+      usageUrl: radio#default
+slots : 
+    - name: default
+      type: slot
+      values:
+      description: Add a label to the component.
+      default: 
+      usageUrl: radio#default
+    - name: icon
+      type: slot
+      values:
+      description: Add an icon inside the radio.
+      default: 
+      usageUrl: radio#default
 ---
 
 # Radio
@@ -49,7 +87,7 @@ Add an icon inside the radio with the `icon` slot
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Radio/API.tsx"
+import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>
