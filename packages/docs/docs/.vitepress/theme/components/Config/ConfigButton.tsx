@@ -1,5 +1,5 @@
 import { useData, useRouter } from 'vitepress'
-import { defineComponent, inject, Ref } from 'vue'
+import { defineComponent, inject, onMounted, Ref } from 'vue'
 import { VsSwitch } from 'vuesax-ts'
 
 const ConfigBtn = defineComponent({
@@ -32,7 +32,9 @@ const ConfigBtn = defineComponent({
         isDark.value = false
       }
     }
-    initTheme()
+    onMounted(() => {
+      initTheme()
+    })
 
     const changeTheme = (e: MouseEvent) => {
       if (isDark.value) {
