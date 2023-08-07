@@ -69,7 +69,7 @@
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Checkbox/API.tsx"
+import Api from "../../../../theme/global-components/template/API"
 </script>
 
 <Api></Api>

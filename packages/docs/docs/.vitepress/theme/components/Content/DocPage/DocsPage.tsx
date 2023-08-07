@@ -2,7 +2,7 @@ import { Content, useData } from 'vitepress'
 import { defineComponent, ref, onUnmounted, computed, inject, Ref } from 'vue'
 import { VsButton, VsInput } from 'vuesax-ts'
 
-import RightSidebar from '../../SideBar/RightSidebar'
+import RightSidebar from '../../Sidebar/RightSidebar'
 
 import './style.scss'
 

@@ -139,7 +139,7 @@ Allowed values ​​are:
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Notification/API.tsx"
+import Api from "../../../../theme/global-components/template/API"
 </script>
 
 <Api></Api>
