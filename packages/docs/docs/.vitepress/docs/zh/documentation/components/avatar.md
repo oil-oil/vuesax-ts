@@ -115,7 +115,7 @@
 </card>
 
 <script setup>
-import Api from "../../../../theme/global-components/template/Avatar/API.tsx"
+import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>

@@ -223,7 +223,7 @@ You can create an animation to the component by adding the ``#"animate" `and the
 </Card>
 
 <script setup>
-import Api from "../../../../theme/global-components/template/Button/API.tsx"
+import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>
