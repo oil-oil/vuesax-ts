@@ -10,7 +10,11 @@ import { VsButton, useNotification } from "./components";
 const { open } = useNotification()
 const handleClick = () => {
   open({
-    color: "success",
+    title:"wdwdwd",
+    text:"sdawdawdadadawdawd",
+    border:true,
+    flat:true,
+    color:"danger",
   })
 }
 </script>

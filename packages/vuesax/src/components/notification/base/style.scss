@@ -218,7 +218,7 @@
   --vs-color: var(--vs-background);
   --vs-border: var(--vs-color);
   --vs-opacity: 0.6;
-  max-height: 112px;
+  // max-height: 112px;
   padding: 20px;
   position: relative;
   max-width: 340px;
@@ -254,6 +254,10 @@
 
   &--notPadding {
     padding: 0px !important;
+  }
+
+  &.vs-notification--color:not(.vs-notification--border, .vs-notification--flat) {
+    --vs-text: var(--vs-background) !important;
   }
 
   &.vs-notification--icon {
@@ -339,15 +343,9 @@
     cursor: pointer;
   }
 
-  &.vs-notification--color:not(.vs-notification--flat) {
-    color: #fff;
-
+  &.vs-notification--color {
     .vs-notification__progress {
       background: #fff;
-    }
-
-    .vs-notification__close {
-      --vs-color: 255, 255, 255;
     }
 
     .vs-notification__loading {
@@ -370,7 +368,6 @@
   &.vs-notification--border {
     border: 3px solid transparent;
     border-right: 3px solid -color("border");
-    --vs-text: var(--vs-dark);
     background: rgb(var(--vs-background));
   }
 

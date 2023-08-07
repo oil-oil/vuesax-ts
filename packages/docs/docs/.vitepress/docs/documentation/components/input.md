@@ -1,3 +1,95 @@
+---
+prev: Loading
+next: Checkbox
+last Update: 2/10/2020, 2:21:50 AM
+props : 
+    - name: placeHolder
+      type: String
+      values: String
+      description: Add a placeholder to the input.
+      default: 
+      usageUrl: input#label-placeholder
+    - name: label
+      type: String
+      values: string
+      description: Add a label above the component.
+      default: 
+      usageUrl: input#label
+    - name: labelPlaceholder
+      type: String
+      values: string
+      description: Add a placeholder converts to focus on a label.
+      default: 
+      usageUrl: input#label-placeholder
+    - name: color
+      type: String
+      values: VuesaxColors | RGB | HEX
+      description: Change component color.
+      default: "null"
+      usageUrl: input#color
+    - name: status
+      type: String
+      values: VuesaxColors | RGB | HEX
+      description: Change the background color of the component by changing its status.
+      default: 
+      usageUrl: input#status
+    - name: progress
+      type: Number
+      values: 0 - 100
+      description: Add a progress bar starting in red and ending in green.
+      default: 0
+      usageUrl: input#progress
+    - name: loading
+      type: Boolean
+      values: true | false
+      description: Add a loading animation to the input.
+      default: "false"
+      usageUrl: input#loading
+    - name: type
+      type: String
+      values: Html Type
+      description: Change the type of input (html values).
+      default: text
+      usageUrl: input#input-type
+    - name: border
+      type: Boolean
+      values: true | false
+      description: Change the type of input (html values).
+      default: "false"
+      usageUrl: input#border
+    - name: shadow
+      type: Boolean
+      values: true | false
+      description: Change the style of the component.
+      default: "false"
+      usageUrl: input#shadow
+    - name: iconAfter
+      type: Boolean
+      values: true | false
+      description: Put the icon after the input.
+      default: "false"
+      usageUrl: input#icon
+    - name: visiblePassword
+      type: Boolean
+      values: true | false
+      description: If the input is of the password type, it is modified to show the password.
+      default: "false"
+      usageUrl: input#input-type
+slots : 
+    - name: icon
+      type: slot
+      values:
+      description: Add an icon to the alert.
+      default: 
+      usageUrl: input#icon
+    - name: message
+      type: slot
+      values:
+      description: Add an informative text below the input.
+      default: 
+      usageUrl: input#message
+---
+
 # Input
 
 <card>
@@ -128,7 +220,7 @@ Use the `shadow` property to add a shadow to the input, the property is a `Boole
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Input/API.tsx"
+import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>
