@@ -73,7 +73,7 @@ The value of the select must be an array
 </card>
 
 <script setup>
-import Api from "../../../../theme/global-components/template/API"
+import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>
