@@ -1,3 +1,65 @@
+---
+prev: Input
+next: Switch
+last Update: 2/10/2020, 2:21:50 AM
+props : 
+    - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: Change the color of the component and some of its sub components.
+      default: primary
+      usageUrl: checkbox#color
+    - name: v-model
+      type: Boolean
+      values: true | false
+      description: determine the value of the checkbox and data anchor.
+      default: "false"
+      usageUrl: checkbox#default
+    - name: loading
+      type: Boolean
+      values: true | false
+      description: Add a loading animation and disable the input.
+      default: "false"
+      usageUrl: checkbox#loading
+    - name: lineThrough
+      type: Boolean
+      values: true | false
+      description: Add a line in the center of the label when checked.
+      default: "false"
+      usageUrl: checkbox#linethrough
+    - name: indeterminate
+      type: Boolean
+      values: true | false
+      description: Add a line in the center of the label when checked.
+      default: "false"
+      usageUrl: checkbox#indeterminate
+    - name: labelBefore
+      type: Boolean
+      values: true | false
+      description: Change the position of the label.	
+      default: "false"
+      usageUrl: checkbox#label
+    - name: checked
+      type: Boolean
+      values: true | false
+      description: Determine if the component is initially in check (this changes the property computed in v-model to true).
+      default: "false"
+      usageUrl: checkbox#boolean-value
+slots : 
+    - name: icon
+      type: slot
+      values:
+      description: Change the component icon.
+      default: 
+      usageUrl: checkbox#icon
+    - name: default
+      type: slot
+      values:
+      description: Add a label to the component.
+      default: 
+      usageUrl: checkbox#default
+---
+
 # Checkbox
 
 <card>
@@ -69,7 +131,7 @@ There are some cases where you have several checkboxes and you need one that man
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Checkbox/API.tsx"
+import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>

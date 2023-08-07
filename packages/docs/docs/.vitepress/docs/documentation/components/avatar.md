@@ -1,3 +1,107 @@
+---
+prev: Select
+next: Notification
+last Update: 2/10/2020, 2:21:50 AM
+props : 
+    - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: Change the color of the component.
+      default: gray-2
+      usageUrl: avatar#color
+    - name: size
+      type: Number
+      values: Number
+      description: Change the size of the avatar component.
+      default: 44
+      usageUrl: avatar#size
+    - name: badge
+      type: Boolean
+      values: true | false
+      description: Determine if the badge is active.
+      default: false
+      usageUrl: avatar#badge
+    - name: badgeColor
+      type: String
+      values: VuesaxColor | RGB | HEX
+      description: Change the color of the badge inside the avatar.
+      default: primary
+      usageUrl: avatar#badge
+    - name: badgePosition
+      type: String
+      values: bottom-left | top-left | top-right
+      description: Change the position of the badge inside the avatar.
+      default: bottom-right
+      usageUrl: avatar#badge
+    - name: circle
+      type: Boolean
+      values: true | false
+      description: Change the style of the avatar by making it square.
+      default: false
+      usageUrl: avatar#circle
+    - name: square
+      type: Boolean
+      values: true | false
+      description: Change the style of the avatar by making it square.
+      default: false
+      usageUrl: avatar#square
+    - name: writing
+      type: Boolean
+      values: true | false
+      description: Add an animation to the writing badge.
+      default: false
+      usageUrl: avatar#badge
+    - name: history
+      type: Boolean
+      values: true | false
+      description: Add a border to the avatar.
+      default: false
+      usageUrl: avatar#history
+    - name: historyGradient
+      type: Boolean
+      values: true | false
+      description: Change the color of the border to a gradient.
+      default: false
+      usageUrl: avatar#history
+    - name: loading
+      type: Boolean
+      values: true | false
+      description: Add a loading animation to the avatar.
+      default: false
+      usageUrl: avatar#loading
+    - name: max(VsAvatarGroup)
+      type: Number
+      values: number
+      description: Add a loading animation to the avatar.
+      default: false
+      usageUrl: avatar#group
+    - name: float(VsAvatarGroup)
+      type: Boolean
+      values: true | false
+      description: change the way the avatar is composed by placing one next to the other.
+      default: false
+      usageUrl: avatar#group
+    - name: pointer
+      type: Boolean
+      values: true | false
+      description: change the way the avatar is composed by placing one next to the other.
+      default: false
+      usageUrl: avatar#default
+slots : 
+    - name: badge
+      type: slot
+      values:
+      description: Add to the badge everything that is inside the slot, commonly used for numbers and an icon.
+      default: 
+      usageUrl: avatar#badge
+    - name: icons
+      type: slot
+      values:
+      description: Add a space to put icons next to the avatar.
+      default: 
+      usageUrl: avatar#badge
+---
+
 # Avatar
 
 <card>
@@ -115,7 +219,7 @@ You can group several avatar with the parent component `vs-avatar-group`, this c
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Avatar/API.tsx"
+import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>
