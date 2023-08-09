@@ -211,6 +211,17 @@ const Tooltip = defineComponent({
             loading: props.loading
           }
         ]}
+        onMouseenter={()=>{
+          if(props.interactivity){
+            isHoverTooltip.value = true
+          }
+        }}
+        onMouseleave={()=>{
+          if(props.interactivity){
+            isHoverTooltip.value = false
+            removeTooltip()
+          }
+        }}
       >
         {slots.tooltip?.()}
         {props.loading && <div class="vs-tooltip__loading"></div>}
