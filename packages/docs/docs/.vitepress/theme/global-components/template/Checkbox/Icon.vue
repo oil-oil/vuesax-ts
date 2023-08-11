@@ -42,13 +42,13 @@
 import { ref } from 'vue'
 import { VsCheckbox } from 'vuesax-ts'
 
-const option1 = ref(false)
-const option2 = ref(false)
-const option3 = ref(false)
-const option4 = ref(false)
-const option5 = ref(false)
-const option6 = ref(false)
-const option7 = ref(false)
+const option1 = ref(true)
+const option2 = ref(true)
+const option3 = ref(true)
+const option4 = ref(true)
+const option5 = ref(true)
+const option6 = ref(true)
+const option7 = ref(true)
 </script>
 
 <style scoped>

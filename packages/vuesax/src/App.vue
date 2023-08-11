@@ -14,11 +14,24 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+<<<<<<< HEAD
 import { VsSelect, VsOptionGroup, VsOption } from './components'
 
 const emoji = ['😉', '😺', '😽', '😎', '😂']
 
 const selectValue = ref(0)
+=======
+const { open } = useNotification()
+const handleClick = () => {
+  open({
+    title:"wdwdwd",
+    text:"sdawdawdadadawdawd",
+    border:true,
+    flat:true,
+    color:"danger",
+  })
+}
+>>>>>>> main
 </script>
 
 <style scoped></style> -->

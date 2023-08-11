@@ -1,4 +1,94 @@
-
+---
+prev: Colors
+next: Alert
+last Update: 2/10/2020, 2:21:50 AM
+props : 
+    - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: Change the color of the component and some of its sub components.
+      default: primary
+      usageUrl: button#color
+    - name: style button
+      type: Prop
+      values: flat | border | gradient | transparent | dashed | shadow | relief | floating
+      description: Change the style of the component and its states.
+      default:
+      usageUrl: button#flat
+    - name: active
+      type: Boolean
+      values: true | false
+      description: Determine if the component is active and change its style to that state.
+      default: false
+      usageUrl: button#default
+    - name: upload
+      type: Boolean
+      values: true | false
+      description: Determine if the component has the upload status active by changing the style and adding the animation.
+      default: false
+      usageUrl: button#upload
+    - name: to
+      type: String
+      values: url vue-router
+      description: Add the functionality of vue-router to the button, clicking it will redirect to the last route.
+      default: false
+      usageUrl: button#to-href
+    - name: href
+      type: String
+      values: href - link
+      description: Add an href of an external link to add the functionality by clicking on the component.
+      default: false
+      usageUrl: button#to-href
+    - name: blank
+      type: Boolean
+      values: true | false
+      description: as in an html element `a` determines whether a new window is opened or the current one is replaced.
+      default: false
+      usageUrl: button#to-href
+    - name: icon
+      type: Boolean
+      values: true | false
+      description: Determine if the component contains only one icon, by adding this property the component has an equal width and height.
+      default: false
+      usageUrl: button#icon
+    - name: circle
+      type: Boolean
+      values: true | false
+      description: Change the border radius to give a circle style.
+      default: false
+      usageUrl: button#circle
+    - name: square
+      type: Boolean
+      values: true | false
+      description: Change the border radius to give a rectangle style.
+      default: false
+      usageUrl: button#square
+    - name: block
+      type: Boolean
+      values: true | false
+      description: Change the width of the component to the possible total determined by the parent element.
+      default: false
+      usageUrl: button#block
+    - name: animationType
+      type: Boolean
+      values: true | false
+      description: Change the type of animation, this property only works if you have the slot animate.
+      default: false
+      usageUrl: button#animate
+    - name: animateInactive
+      type: Boolean
+      values: true | false
+      description: Determine if the animation is active for the user when hovering.
+      default: false
+      usageUrl: button#animate
+slots : 
+    - name: animate
+      type: slot
+      values:
+      description: Slot To add the element that will be displayed in the animation.
+      default: 
+      usageUrl: button#animate
+---
 # Button
 
 <Card codesandbox="https://codesandbox.io/embed/reverent-shape-pmyk2?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue">
@@ -223,7 +313,7 @@ If you need to use a button such as a vue-router link or an external link you ca
 </Card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Button/API.tsx"
+import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>
