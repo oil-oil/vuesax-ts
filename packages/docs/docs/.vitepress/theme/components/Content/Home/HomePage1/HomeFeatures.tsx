@@ -10,7 +10,7 @@ import {
   VsOption,
   VsCard,
   VsSwitch,
-  VsLoading,
+  VsLoading
 } from 'vuesax-ts'
 import './HomeFeatures.scss'
 
@@ -119,9 +119,9 @@ const HomeFeatures = defineComponent({
             v-model={selectValue.value}
           >
             <div class="options">
-            {['😉', '😺', '😽', '😎', '😂'].map((emoji, index) => (
-              <VsOption label={emoji} value={index}></VsOption>
-            ))}
+              {['😉', '😺', '😽', '😎', '😂'].map((emoji, index) => (
+                <VsOption label={emoji} value={index}></VsOption>
+              ))}
             </div>
           </VsSelect>
         </div>
@@ -220,7 +220,7 @@ const HomeFeatures = defineComponent({
         </div>
 
         <div class="vue-card">
-          <VsAvatar size="70" color='rgba(65, 184, 131, 0.8)'>
+          <VsAvatar size="70" color="rgba(65, 184, 131, 0.8)">
             <img src="/vue-logo.png" alt="" />
           </VsAvatar>
           <h6>{theme.value.home.custom.title}</h6>
