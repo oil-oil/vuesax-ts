@@ -5,19 +5,23 @@
     border: 2px solid -color($color, 0.5);
     background: -color($color, 0.05);
     color: -color($color, 1);
+
     &:hover {
       border: 2px solid -color($color, 0);
       color: -color("text", 1);
     }
   }
+
   .vs-select__chips {
     background: -color($color, 0.05);
     color: -color($color, 1);
+
     &:hover {
       &:after {
         opacity: 0;
       }
     }
+
     &:after {
       width: calc(100% - 4px);
       height: calc(100% - 4px);
@@ -30,18 +34,22 @@
       transition: all 0.25s ease;
     }
   }
+
   .vs-select__label {
     color: -color($color, 1);
   }
+
   .vs-select__icon {
     color: -color($color, 1);
     background: -color($color, 0.1);
     box-shadow: -15px 10px 10px -10px -color($color, 0.1);
   }
+
   .vs-icon-arrow {
     &:after {
       background: -color($color, 1);
     }
+
     &:before {
       background: -color($color, 1);
     }
@@ -57,6 +65,7 @@
   transform: translate(0, -10px);
   transition: all 0.25s ease;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var(shadow-opacity));
+
   &:after {
     opacity: 0 !important;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var(shadow-opacity));
@@ -72,9 +81,11 @@
   transform: translate(0, -10px);
   transition: all 0.25s ease;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var(shadow-opacity));
+
   &.top {
     transform: translate(0, 10px) !important;
   }
+
   &:after {
     opacity: 0 !important;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var(shadow-opacity));
@@ -84,6 +95,7 @@
 .vs-select-content {
   width: 100%;
   max-width: 300px;
+
   &.block {
     &.block {
       max-width: 100%;
@@ -103,29 +115,38 @@
   &--state-success {
     @include state("success");
   }
+
   &--state-danger {
     @include state("danger");
   }
+
   &--state-warn {
     @include state("warn");
   }
+
   &--state-dark {
     @include state("dark");
   }
+
   &--state-primary {
     @include state("primary");
   }
+
   &.loading {
     pointer-events: none;
+
     *:not(.vs-select__loading):not(.vs-select__label) {
       opacity: 0.6;
     }
+
     .vs-select__label {
       pointer-events: none !important;
     }
   }
+
   &.top {
     &.show-options {
+
       .vs-select__input,
       .vs-select__chips {
         border-radius: 0px 0px 12px 12px !important;
@@ -133,13 +154,16 @@
       }
     }
   }
+
   &--disabled {
     opacity: 0.6;
     pointer-events: none;
+
     label {
       pointer-events: none;
     }
   }
+
   .vs-icon-arrow {
     z-index: 600;
     position: absolute;
@@ -149,11 +173,13 @@
     pointer-events: auto;
     cursor: pointer;
   }
+
   &.show-options {
     .vs-icon-arrow {
       transform: rotate(45deg);
       margin-top: -2px !important;
     }
+
     .vs-select__input {
       border-radius: 12px 12px 0px 0px;
       background: -color("background");
@@ -162,16 +188,19 @@
       border: 2px solid transparent;
       color: -color("text", 1);
     }
+
     .vs-select__chips {
       border-radius: 12px 12px 0px 0px;
       background: -color("background");
       box-shadow: 0px 5px 25px -4px rgba(0, 0, 0, -var(shadow-opacity));
       transform: translate(0, -4px);
       transition: all 0.25s ease, height 0s;
+
       &:after {
         opacity: 0;
       }
     }
+
     .vs-select__label--placeholder {
       opacity: 1;
       visibility: visible;
@@ -180,10 +209,12 @@
       font-size: 0.75rem;
       margin-top: 0px !important;
     }
+
     .vs-select__label {
       margin-top: -4px;
     }
   }
+
   &__input {
     opacity: 1;
     background: transparent;
@@ -197,21 +228,25 @@
     min-height: 38px;
     padding-right: 30px;
     width: 100%;
+
     &.multiple {
       color: transparent;
       background: transparent;
       pointer-events: none;
     }
+
     &.simple {
       user-select: none;
     }
+
     &:focus {
       border-radius: 12px 12px 0px 0px;
       background: -color("background");
       box-shadow: 0px 5px 25px -4px rgba(0, 0, 0, -var(shadow-opacity));
       transform: translate(0, -4px);
       transition: all 0.25s ease;
-      ~ .vs-select__label--placeholder {
+
+      ~.vs-select__label--placeholder {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
@@ -220,17 +255,21 @@
         margin-top: 0px !important;
       }
     }
+
     &:hover {
       background: -color("background");
       box-shadow: 0px 5px 25px -4px rgba(0, 0, 0, -var(shadow-opacity));
-      ~ .vs-select__label {
+
+      ~.vs-select__label {
         margin-top: -4px;
       }
-      ~ .vs-icon-arrow {
+
+      ~.vs-icon-arrow {
         margin-top: -6px;
       }
     }
   }
+
   &__chips {
     width: 100%;
     height: auto;
@@ -249,6 +288,7 @@
     padding: 5px;
     transition: all 0.25s ease, height 0s;
     padding-right: 26px;
+
     &:focus {
       border-radius: 12px 12px 0px 0px;
       background: -color("background");
@@ -256,15 +296,18 @@
       transform: translate(0, -4px);
       transition: all 0.25s ease;
     }
+
     &:hover {
       background: -color("background");
       box-shadow: 0px 5px 25px -4px rgba(0, 0, 0, -var(shadow-opacity));
       transition: all 0.25s ease;
-      ~ .vs-icon-arrow {
+
+      ~.vs-icon-arrow {
         margin-top: -6px;
         transition: all 0.25s ease;
       }
     }
+
     &__input {
       width: auto;
       flex: 1;
@@ -275,10 +318,12 @@
       background: transparent;
       margin: 2px 3px;
       min-width: 30px;
+
       &::placeholder {
         color: -color("text", 0.4);
       }
     }
+
     &__chip {
       flex: 0 1 auto;
       position: relative;
@@ -294,9 +339,11 @@
       border: 2px solid -color("gray-2");
       box-sizing: border-box;
       color: -color("text");
+
       &.isCollapse {
         padding-right: 6px !important;
       }
+
       &__close {
         position: absolute;
         top: -4px;
@@ -311,20 +358,25 @@
         font-size: 0.75rem;
         cursor: pointer;
         transition: all 0.25s ease;
+
         &:hover {
           background: -color("danger");
+
           .vs-icon-close {
             --vs-color: var(--vs-background);
+
             &:after {
               width: 12px;
               transform: rotate(180deg);
             }
+
             &:before {
               width: 12px;
               transform: rotate(180deg);
             }
           }
         }
+
         .vs-icon-close {
           --vs-color: var(--vs-text);
           transform: scale(0.5);
@@ -332,6 +384,7 @@
       }
     }
   }
+
   &__options {
     --vs-color: var(--vs-primary);
     position: absolute;
@@ -341,14 +394,17 @@
     border-radius: 0px 0px 12px 12px;
     overflow: hidden;
     box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, -var(shadow-opacity));
+
     &.top {
       border-radius: 12px 12px 0px 0px;
       box-shadow: 0px -10px 20px -5px rgba(0, 0, 0, -var(shadow-opacity));
+
       &:after {
         top: auto;
         bottom: -10px;
       }
     }
+
     &:after {
       content: "";
       position: absolute;
@@ -363,6 +419,7 @@
       transition: all 0.25s ease 0.05s;
       opacity: 1;
     }
+
     &__content {
       max-height: 200px;
       overflow: auto;
@@ -372,23 +429,27 @@
       transition: all 0.25s ease;
       position: relative;
       scroll-behavior: smooth;
-      &__not-data {
+
+      &__no-data {
         font-size: 0.8rem;
         text-align: center;
         padding: 6px 10px;
       }
+
       &::-webkit-scrollbar {
         width: 5px;
         height: 5px;
         display: block;
         background: transparent;
       }
+
       &::-webkit-scrollbar-thumb {
         background: -color("gray-3");
         border-radius: 5px;
       }
     }
   }
+
   &__label {
     position: absolute;
     left: 14px;
@@ -404,6 +465,7 @@
     opacity: 0.4;
     z-index: 500;
     top: 10px;
+
     &--label {
       opacity: 1;
       visibility: visible;
@@ -412,9 +474,11 @@
       font-size: 0.75rem;
       margin-top: 0px !important;
     }
+
     &--hidden {
       opacity: 0;
       visibility: hidden;
+
       &.vs-select__label--placeholder {
         opacity: 1;
         visibility: visible;
@@ -425,6 +489,7 @@
       }
     }
   }
+
   &__loading {
     position: absolute;
     width: 22px;
@@ -436,6 +501,7 @@
     background: inherit;
     cursor: default;
     z-index: 600;
+
     &:after {
       box-sizing: border-box;
       position: absolute;
@@ -450,6 +516,7 @@
       top: 0px;
       content: "";
     }
+
     &:before {
       box-sizing: border-box;
       top: 0px;
@@ -465,44 +532,55 @@
       opacity: 0.2;
       content: "";
     }
-    & ~ .vs-icon-arrow {
+
+    &~.vs-icon-arrow {
       opacity: 0 !important;
     }
   }
+
   &__message {
     font-size: 0.7rem;
     position: relative;
     padding: 0px 7px;
     transition: all 0.25s ease;
     overflow: hidden;
+
     &--success {
       color: -color("success", 1);
     }
+
     &--danger {
       color: -color("danger", 1);
     }
+
     &--warn {
       color: -color("warn", 1);
     }
+
     &--dark {
       color: -color("dark", 1);
     }
+
     &--primary {
       color: -color("primary", 1);
     }
   }
 }
+
 .vs-darken {
   .vs-select__options {
     &.isColorDark {
       --vs-color: 0, 0, 0 !important;
+
       .vs-select__option {
         --vs-color: inherit;
+
         &:hover {
           background: -color("color", 0.2);
           color: -color("text");
         }
       }
+
       .activeOption {
         color: -color("text");
         background: -color("color", 0.6);

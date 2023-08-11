@@ -9,30 +9,36 @@
     box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.08);
     transition: all 0.25s ease;
     animation: float 8s ease-in-out infinite alternate;
+
     .content {
         margin: 4px 0 0 10px;
         width: 210px;
+
         h6 {
             margin: 0 0 4px 0;
         }
+
         p {
             margin: 0 0 4px 0;
             font-size: 0.3rem;
             line-height: 20px;
             transform: scale(0.75) translate(-35px, -5px);
         }
+
         .button-box {
             position: absolute;
             display: flex;
             justify-content: space-around;
             width: 180px;
             bottom: -16px;
+
             button {
                 font-size: 12px;
                 width: 100%;
             }
         }
     }
+
     &:hover {
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
     }
@@ -50,29 +56,35 @@
     background-color: var(--vs-theme-home-component-bg);
     transition: all 0.25s ease;
     color: var(--vs-theme-color);
+
     .header {
         display: flex;
         justify-content: space-between;
         width: 100%;
+
         .check-input {
             input {
                 background-color: var(--vs-theme-bg2);
                 color: var(--vs-theme-color);
             }
         }
+
         button {
             transform: scale(0.9);
             width: 35px;
             margin: 0;
         }
     }
+
     .content {
         margin: 6px 0 0 0;
         padding: 10px 0px;
+
         .vs-checkbox-content {
             transform: scale(0.8) translateX(-25px);
         }
     }
+
     &:hover {
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
     }
@@ -92,12 +104,15 @@
     left: 120px;
     scale: 0.8;
     animation: float 8s ease-in-out 0.5s infinite alternate;
+
     input {
         background-color: var(--vs-theme-bg);
+
         &:hover {
             background-color: var(--vs-theme-home-component-bg);
         }
     }
+
     .vs-select {
         &.show-options {
             input {
@@ -107,7 +122,25 @@
     }
 }
 
-.bottom-card {
+.options {
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+
+    .vs-select__option {
+        width: min-content;
+        padding: 4px;
+        margin: 0;
+        scale: 0.8;
+
+        &:hover {
+            scale: 1.2;
+            padding: 4px;
+        }
+    }
+}
+
+.button-card {
     position: absolute;
     padding: 15px;
     border-radius: 25px;
@@ -123,9 +156,11 @@
     background-color: var(--vs-theme-home-component-bg);
     transition: all 0.25s ease;
     animation: float 8s ease-in-out 2.3s infinite alternate;
+
     button {
         border-radius: 13px;
     }
+
     &:hover {
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
     }
@@ -138,20 +173,26 @@
     left: 250px;
     transition: all 0.25s ease;
     animation: float 8s ease-in-out 1.3s infinite alternate;
+
     .vs-card {
         background-color: var(--vs-theme-home-component-bg);
+
         .vs-card__text {
             transition: all 0.25s ease;
             color: var(--vs-theme-color);
+
             .vs-card__title {
                 margin-top: 8px;
             }
+
             .content {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
                 .vs-avatar__group {
                     scale: 1.2;
+
                     .vs-avatar-content {
                         margin-left: -22px;
                     }
@@ -174,12 +215,13 @@
     box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.08);
     animation: float 8s ease-in-out 2.6s infinite alternate;
     transition: all 0.25s ease;
+
     &:hover {
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
     }
 }
 
-.loading-card1 {
+.loading-card {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -194,34 +236,12 @@
     padding: 8px 10px;
     border-radius: 28px;
     transition: all 0.25s ease;
-    &:hover {
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
-        transition: all 0.25s ease;
-    }
-    .vs-loading {
-        background-color: var(--vs-theme-home-component-bg);
-    }
-}
 
-.loading-card2 {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    top: 350px;
-    right: 50px;
-    width: 100px;
-    height: 100px;
-    box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.08);
-    animation: float 8s ease-in-out 2.6s infinite alternate;
-    padding: 8px 10px;
-    border-radius: 28px;
-    transition: all 0.25s ease;
     &:hover {
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
         transition: all 0.25s ease;
     }
+
     .vs-loading {
         background-color: var(--vs-theme-home-component-bg);
     }
@@ -229,8 +249,8 @@
 
 .custom-card {
     position: absolute;
-    top: 550px;
-    right: 150px;
+    top: 170px;
+    left: 570px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -240,14 +260,71 @@
     border-radius: 28px;
     background-color: var(--vs-theme-home-component-bg);
     transition: all 0.25s ease;
+
     h6 {
         transition: all 0.25s ease;
         color: var(--vs-theme-color);
         margin: 15px 0 10px 0;
     }
+
     button {
         width: 100%;
     }
+
+    &:hover {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
+    }
+}
+
+.select-card2 {
+    position: absolute;
+    top: 620px;
+    left: 390px;
+    scale: 0.8;
+    animation: float 8s ease-in-out 0.5s infinite alternate;
+
+    input {
+        background-color: var(--vs-theme-bg);
+
+        &:hover {
+            background-color: var(--vs-theme-home-component-bg);
+        }
+    }
+
+    .vs-select {
+        &.show-options {
+            input {
+                background-color: var(--vs-theme-home-component-bg);
+            }
+        }
+    }
+}
+
+.vue-card {
+    position: absolute;
+    top: 170px;
+    left: 700px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.08);
+    animation: float 8s ease-in-out 2.6s infinite alternate;
+    padding: 8px 10px;
+    border-radius: 28px;
+    background-color: var(--vs-theme-home-component-bg);
+    transition: all 0.25s ease;
+
+    h6 {
+        transition: all 0.25s ease;
+        color: var(--vs-theme-color);
+        margin: 15px 0 10px 0;
+    }
+
+    button {
+        width: 100%;
+    }
+
     &:hover {
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
     }
@@ -257,28 +334,8 @@
     50% {
         transform: translateY(-8px);
     }
+
     100% {
         transform: translateY(8px);
-    }
-}
-
-.home {
-    .vs-select__options {
-        background-color: var(--vs-theme-home-component-bg);
-        .vs-select__options__content {
-            display: flex;
-            justify-content: space-around;
-            overflow: hidden;
-            .vs-select__option {
-                width: max-content;
-                padding: 4px;
-                margin: 0;
-                scale: 0.8;
-                &:hover {
-                    scale: 1.2;
-                    padding: 4px;
-                }
-            }
-        }
     }
 }

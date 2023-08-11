@@ -1,9 +1,7 @@
 import { nanoid } from 'nanoid/non-secure'
 import {
-  Component,
   InputHTMLAttributes,
   PropType,
-  Slots,
   Transition,
   VNode,
   computed,
@@ -23,6 +21,7 @@ import IconArrow from '@/icons/Arrow'
 import IconClose from '@/icons/Close'
 import { Color, CompWithAttr } from '@/types/utils'
 import { getColor, insertBody, removeBody, setCords } from '@/utils'
+import { isNil } from '@/utils/shared'
 
 import './style.scss'
 
@@ -30,7 +29,8 @@ const Select = defineComponent({
   name: 'VsSelect',
   props: {
     color: {
-      type: String as PropType<Color>
+      type: String as PropType<Color>,
+      default: 'primary'
     },
     modelValue: {
       type: [Array, String] as PropType<string[] | string>
@@ -108,18 +108,20 @@ const Select = defineComponent({
     }
 
     const setHover = () => {
-      let index = -1
-      childOptions.value.forEach((item, i) => {
-        if (item.value === (props.modelValue as string)) {
-          index = i
-        }
-      })
+      nextTick(() => {
+        let index = -1
+        childOptions.value.forEach((item, i) => {
+          if (item.value === (props.modelValue as string)) {
+            index = i
+          }
+        })
 
-      hoverOption.value = index
+        hoverOption.value = index
+      })
     }
 
     const getValue = () => {
-      if (props.modelValue) {
+      if (!isNil(props.modelValue)) {
         const filterOptions = childOptions.value.filter((option) =>
           typeof props.modelValue === 'number'
             ? props.modelValue === option.value
@@ -187,13 +189,13 @@ const Select = defineComponent({
 
     const onClickOption = (value: string | null, label: string) => {
       let newValue
-      const oldValue = props.modelValue || []
+      const oldValue = isNil(props.modelValue) ? [] : props.modelValue
       if (props.multiple && value) {
         const index = props.modelValue?.indexOf(value)
         if (index === -1) {
-          newValue = [...oldValue, value]
+          newValue = [...oldValue!, value]
         } else {
-          newValue = [...oldValue].filter((_, i) => i !== index)
+          newValue = [...oldValue!].filter((_, i) => i !== index)
         }
       } else {
         newValue = value
@@ -396,88 +398,20 @@ const Select = defineComponent({
       }
     )
 
-    watch(isOptionsShow, () => {
-      if (isOptionsShow.value) {
-        nextTick(() => {
-          insertOptions()
-        })
-      }
-      childOptions.value = []
-      uids.value = []
-    })
-
     onMounted(() => {
       getValue()
-
+      nextTick(() => {
+        insertOptions()
+      })
       window.addEventListener('resize', handleResize)
       window.addEventListener('scroll', handleScroll)
-
-      if (props.multiple) {
-        slots.default?.().forEach((vnodeGroup) => {
-          // Determine if the outermost layer is a group component
-          if ((vnodeGroup.type as Component).name === 'VsSelectOptionGroup') {
-            ;(vnodeGroup.children as Slots)
-              .default?.()
-              .forEach((vnodeCorrect) => {
-                // Determine if it is an option component
-                if (
-                  // Convert modelValue to array and push inside
-                  (vnodeCorrect.type as Component).name === 'VsSelectOption' &&
-                  (Array.isArray(props.modelValue)
-                    ? props.modelValue
-                    : [props.modelValue]
-                  ).includes(vnodeCorrect.props?.value) &&
-                  Array.isArray(valueLabel.value)
-                ) {
-                  valueLabel.value.push({
-                    label: vnodeCorrect.props?.label,
-                    value: vnodeCorrect.props?.value
-                  })
-                }
-              })
-          }
-          // Determine if the outermost layer is an option component
-          else if (
-            (vnodeGroup.type as Component).name === 'VsSelectOption' &&
-            (Array.isArray(props.modelValue)
-              ? props.modelValue
-              : [props.modelValue]
-            ).includes(vnodeGroup.props?.value) &&
-            Array.isArray(valueLabel.value)
-          ) {
-            valueLabel.value.push({
-              label: vnodeGroup.props?.label,
-              value: vnodeGroup.props?.value
-            })
-          }
-        })
-      } else {
-        slots.default?.().forEach((vnodeGroup) => {
-          if ((vnodeGroup.type as Component).name === 'VsSelectOptionGroup') {
-            ;(vnodeGroup.children as Slots)
-              .default?.()
-              .forEach((vnodeCorrect) => {
-                if (
-                  (vnodeCorrect.type as Component).name === 'VsSelectOption' &&
-                  props.modelValue === vnodeCorrect.props?.value
-                ) {
-                  valueLabel.value = vnodeCorrect.props?.label
-                }
-              })
-          } else if (
-            (vnodeGroup.type as Component).name === 'VsSelectOption' &&
-            props.modelValue === vnodeGroup.props?.value
-          ) {
-            valueLabel.value = vnodeGroup.props?.label
-          }
-        })
-      }
     })
 
     onBeforeUnmount(() => {
       handleBlur()
       if (optionRef.value) {
         removeBody(optionRef.value, document.body)
+        optionRef.value = undefined
       }
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('scroll', handleScroll)
@@ -490,7 +424,6 @@ const Select = defineComponent({
       onClickOption,
       uids,
       hoverOption,
-      setHover,
       childOptions,
       targetSelect,
       targetClose,
@@ -565,7 +498,8 @@ const Select = defineComponent({
             onInput={(e) => {
               textFilter.value = (e.target as HTMLInputElement)?.value
             }}
-          ></input>
+          />
+
           {/* label */}
           {(props.label || props.labelPlaceholder) && !props.placeholder && (
             <label
@@ -574,10 +508,15 @@ const Select = defineComponent({
                 {
                   'vs-select__label--placeholder': props.labelPlaceholder,
                   'vs-select__label--label': props.label,
-                  'vs-select__label--hidden':
-                    (Array.isArray(props.modelValue)
-                      ? props.modelValue.length !== 0
-                      : props.modelValue) && !props.label
+                  'vs-select__label--hidden': (() => {
+                    if (Array.isArray(props.modelValue)) {
+                      return props.modelValue.length !== 0
+                    }
+                    if (typeof props.modelValue === 'number') {
+                      return true
+                    }
+                    return props.modelValue && !props.label
+                  })()
                 }
               ]}
               for={uniqueId}
@@ -592,9 +531,15 @@ const Select = defineComponent({
               class={[
                 'vs-select__label',
                 {
-                  'vs-select__label--hidden': Array.isArray(props.modelValue)
-                    ? props.modelValue.length !== 0
-                    : props.modelValue || textFilter.value
+                  'vs-select__label--hidden': (() => {
+                    if (Array.isArray(props.modelValue)) {
+                      return props.modelValue.length !== 0
+                    }
+                    if (typeof props.modelValue === 'number') {
+                      return true
+                    }
+                    return props.modelValue || textFilter.value
+                  })()
                 }
               ]}
               ref={placeholderRef}
@@ -646,38 +591,37 @@ const Select = defineComponent({
 
           {/* options */}
           <Transition name="vs-select">
-            {isOptionsShow.value && (
-              <div
-                class={[
-                  'vs-select__options',
-                  {
-                    isColorDark: props.color === 'dark',
-                    'vs-component--primary': !props.color
-                  }
-                ]}
-                style={{
-                  '--vs-color': props.color ? getColor(props.color) : ''
-                }}
-                ref={optionRef}
-                onMouseleave={() => {
-                  targetSelect.value = false
-                  isInputHover.value = false
-                }}
-                onMouseenter={() => {
-                  targetSelect.value = true
-                  isInputHover.value = true
-                }}
-              >
-                <div class="vs-select__options__content" ref={contentRef}>
-                  {isNoData.value && (
-                    <div class="vs-select__options__content__not-data">
-                      {slots.noData?.() || 'No data available'}
-                    </div>
-                  )}
-                  {slots.default?.()}
-                </div>
+            <div
+              v-show={isOptionsShow.value}
+              class={[
+                'vs-select__options',
+                {
+                  isColorDark: props.color === 'dark',
+                  'vs-component--primary': !props.color
+                }
+              ]}
+              style={{
+                '--vs-color': props.color ? getColor(props.color) : ''
+              }}
+              ref={optionRef}
+              onMouseleave={() => {
+                targetSelect.value = false
+                isInputHover.value = false
+              }}
+              onMouseenter={() => {
+                targetSelect.value = true
+                isInputHover.value = true
+              }}
+            >
+              <div class="vs-select__options__content" ref={contentRef}>
+                {isNoData.value && (
+                  <div class="vs-select__options__content__no-data">
+                    {slots.noData?.() || 'No data available'}
+                  </div>
+                )}
+                {slots.default?.()}
               </div>
-            )}
+            </div>
           </Transition>
 
           {/* loading */}

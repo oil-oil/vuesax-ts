@@ -1,18 +1,24 @@
-<template>
+<!-- <template>
   <div>
-    <VsButton @click="handleClick">Open</VsButton>
+    <VsSelect v-model="selectValue" placeholder="plh">
+      <VsOption
+        v-for="(item, index) in emoji"
+        :value="index"
+        :label="item"
+        :key="index"
+      ></VsOption>
+    </VsSelect>
   </div>
 </template>
 
-<script setup lang='ts'>
-import { VsButton, useNotification } from "./components";
+<script setup lang="ts">
+import { ref } from 'vue'
 
-const { open } = useNotification()
-const handleClick = () => {
-  open({
-    color: "success",
-  })
-}
+import { VsSelect, VsOptionGroup, VsOption } from './components'
+
+const emoji = ['😉', '😺', '😽', '😎', '😂']
+
+const selectValue = ref(0)
 </script>
 
-<style scoped></style>
+<style scoped></style> -->

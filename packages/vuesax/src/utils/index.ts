@@ -202,7 +202,6 @@ const setCordsPosition = (
   }
 
   if (rootTop - elTop < 30 || position === 'top') {
-    // console.log('hola mundo')
     style.top = `${y + scrollTop - element.clientHeight - 8}px`
     const left = x + (w - element.getBoundingClientRect().width) / 2
 

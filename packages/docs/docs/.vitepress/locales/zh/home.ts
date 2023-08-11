@@ -7,7 +7,7 @@ export default {
   checkPart: {
     input: "地区",
     checkList: ["中国", "日本", "意大利", "德国"],
-    button: "run",
+    button: "润",
   },
   search: "搜索",
   select: "Dropdown",
