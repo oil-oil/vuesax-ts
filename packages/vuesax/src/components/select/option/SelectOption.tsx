@@ -77,7 +77,6 @@ const SelectOption = defineComponent({
       provider?.uids?.value.push(uniqueId)
 
       activeOption.value = isActive.value
-      provider?.setHover?.()
     })
 
     return () => (

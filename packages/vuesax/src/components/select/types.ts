@@ -18,7 +18,6 @@ export type SelectProvider = {
   onClickOption: (value: string | null, label: string) => void
   uids: Ref<string[]>
   hoverOption: Ref<number>
-  setHover: () => void
   childOptions: Ref<Option[]>
   targetSelect: Ref<boolean>
   targetClose: Ref<boolean>

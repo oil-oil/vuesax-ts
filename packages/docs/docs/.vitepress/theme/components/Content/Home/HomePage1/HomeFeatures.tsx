@@ -44,7 +44,8 @@ const HomeFeatures = defineComponent({
         }
       }
     }>()
-    const selectValue = ref([])
+    const selectValue = ref()
+    const selectValue2 = ref()
     const switchPart = reactive({
       switchActive: false
     })
@@ -66,6 +67,7 @@ const HomeFeatures = defineComponent({
           >
             <img src="/foto1.png" alt="" />
           </VsAvatar>
+
           <div class="content">
             <h6>{theme.value.home.avatarPart.title}</h6>
             <p>{theme.value.home.avatarPart.text}</p>
@@ -79,6 +81,7 @@ const HomeFeatures = defineComponent({
             </div>
           </div>
         </div>
+
         <div class="check-card">
           <div class="header">
             <VsInput
@@ -90,6 +93,7 @@ const HomeFeatures = defineComponent({
               <i class="bx bx-chevron-right"></i>
             </VsButton>
           </div>
+
           <div class="content">
             {theme.value.home.checkPart.checkList.map((name) => (
               <VsCheckbox lineThrough>{name}</VsCheckbox>
@@ -99,6 +103,7 @@ const HomeFeatures = defineComponent({
             {theme.value.home.checkPart.button}
           </VsButton>
         </div>
+
         <div class="search-card">
           <VsInput
             icon-after
@@ -107,17 +112,21 @@ const HomeFeatures = defineComponent({
             v-slots={{ icon: () => <i class="bx bx-search"></i> }}
           ></VsInput>
         </div>
+
         <div class="select-card">
           <VsSelect
             placeholder={theme.value.home.select}
             v-model={selectValue.value}
           >
-            {['😉', '😺', '😽', '😎', '😂'].map((emoji, index) => (
-              <VsOption label={emoji} value={index}></VsOption>
-            ))}
+            <div class="options">
+              {['😉', '😺', '😽', '😎', '😂'].map((emoji, index) => (
+                <VsOption label={emoji} value={index}></VsOption>
+              ))}
+            </div>
           </VsSelect>
         </div>
-        <div class="bottom-card">
+
+        <div class="button-card">
           <VsButton color="danger" icon size="xs">
             <i class="bx bx-play"></i>
           </VsButton>
@@ -128,6 +137,7 @@ const HomeFeatures = defineComponent({
             <i class="bx bxl-github"></i>
           </VsButton>
         </div>
+
         <div class="home-card">
           <VsCard
             type={'1'}
@@ -164,6 +174,7 @@ const HomeFeatures = defineComponent({
             }}
           ></VsCard>
         </div>
+
         <div class="switch-card">
           <VsSwitch
             color="success"
@@ -184,18 +195,35 @@ const HomeFeatures = defineComponent({
             }}
           ></VsSwitch>
         </div>
-        <div class="loading-card1">
-          <VsLoading type="corners" opacity="1"></VsLoading>
+
+        <div class="loading-card">
+          <VsLoading type="waves" opacity="1"></VsLoading>
         </div>
-        <div class="loading-card2">
-          <VsLoading type="square" opacity="1"></VsLoading>
-        </div>
+
         <div class="custom-card">
           <VsAvatar size="90">
             <img src="/foto3.png" alt="" />
           </VsAvatar>
           <h6>{theme.value.home.custom.title}</h6>
           <VsButton size="md">{theme.value.home.custom.button}</VsButton>
+        </div>
+
+        <div class="select-card2">
+          <VsSelect
+            placeholder={theme.value.home.select}
+            v-model={selectValue2.value}
+          >
+            {['oil-oil', 'rCatman'].map((item, index) => (
+              <VsOption label={item} value={index}></VsOption>
+            ))}
+          </VsSelect>
+        </div>
+
+        <div class="vue-card">
+          <VsAvatar size="70" color="rgba(65, 184, 131, 0.8)">
+            <img src="/vue-logo.png" alt="" />
+          </VsAvatar>
+          <h6>{theme.value.home.custom.title}</h6>
         </div>
       </>
     )
