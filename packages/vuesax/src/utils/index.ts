@@ -28,10 +28,10 @@ const setColor = (
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
     return result
       ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-      }
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16)
+        }
       : null
   }
 
@@ -100,11 +100,11 @@ const getColor = (color: string) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
     return result
       ? {
-        r: parseInt(result[1], 16),
-        // tslint:disable-next-line:object-literal-sort-keys
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-      }
+          r: parseInt(result[1], 16),
+          // tslint:disable-next-line:object-literal-sort-keys
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16)
+        }
       : null
   }
 
@@ -234,12 +234,14 @@ const setCordsPosition = (
       element.classList.add('noArrow')
     }
   } else if (position === 'left') {
-    style.top = `${y + scrollTop + (h - element.getBoundingClientRect().height) / 2
-      }px`
+    style.top = `${
+      y + scrollTop + (h - element.getBoundingClientRect().height) / 2
+    }px`
     style.left = `${x - element.getBoundingClientRect().width - 8}px`
   } else if (position === 'right') {
-    style.top = `${y + scrollTop + (h - element.getBoundingClientRect().height) / 2
-      }px`
+    style.top = `${
+      y + scrollTop + (h - element.getBoundingClientRect().height) / 2
+    }px`
     style.left = `${x + w + 8}px`
   }
 }

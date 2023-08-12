@@ -211,13 +211,13 @@ const Tooltip = defineComponent({
             loading: props.loading
           }
         ]}
-        onMouseenter={()=>{
-          if(props.interactivity){
+        onMouseenter={() => {
+          if (props.interactivity) {
             isHoverTooltip.value = true
           }
         }}
-        onMouseleave={()=>{
-          if(props.interactivity){
+        onMouseleave={() => {
+          if (props.interactivity) {
             isHoverTooltip.value = false
             removeTooltip()
           }

@@ -216,7 +216,7 @@ const Avatar = defineComponent({
             'vs-avatar-content--latest': isLatest.value,
             'vs-avatar-content--hasIcons': slots.icons,
             'vs-avatar-content--size': props.size,
-            'vs-component--is-color': !!props.color,
+            'vs-component--is-color': !!props.color
           }
         ]}
         {...avatarAttrs}
