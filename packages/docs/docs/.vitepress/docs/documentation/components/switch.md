@@ -4,8 +4,6 @@
 
 ## Default
 
-<docs-warn />
-
 Generate a switch element easily with beautiful animations and functionality
 
 </card>

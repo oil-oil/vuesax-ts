@@ -52,8 +52,6 @@ props :
 
 ## Default
 
-<docs-warn />
-
 Generate a loading with the vuesax function `useLoading(Props)`
 
 </card>

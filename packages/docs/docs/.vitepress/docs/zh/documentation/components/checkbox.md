@@ -4,8 +4,6 @@
 
 ## Default
 
-<docs-warn />
-
 轻松添加一个带有精美动画的复选框输入框
 
 </card>

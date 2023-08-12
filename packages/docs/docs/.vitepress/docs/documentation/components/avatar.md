@@ -108,8 +108,6 @@ slots :
 
 ## Default
 
-<docs-warn />
-
 An avatar component is a tool used to display user or entity images in a webpage or mobile application. They are typically used in places such as a profile page or comments section, and provide a simple and easy way to showcase a user's avatar.
 
 </card>

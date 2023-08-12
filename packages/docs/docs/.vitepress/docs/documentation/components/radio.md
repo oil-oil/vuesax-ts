@@ -48,8 +48,6 @@ slots :
 
 ## Default
 
-<docs-warn />
-
 Add the radio type input with the component `<vs-radio />`
 
 </card>
