@@ -9,8 +9,6 @@ last Update: 2023/13/1
 
 ## Default
 
-<docs-warn />
-
 使用 vuesax hook（`useNotification`）生成通知
 
 :::tip

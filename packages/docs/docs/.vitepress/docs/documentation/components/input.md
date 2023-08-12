@@ -96,8 +96,6 @@ slots :
 
 ## Default
 
-<docs-warn />
-
 Add an elements input facilitate with the component `<VsInput>`
 
 </card>

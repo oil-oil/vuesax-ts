@@ -66,8 +66,6 @@ slots :
 
 ## Default
 
-<docs-warn />
-
 Add a checkbox type input easily and with a beautiful animation
 
 </card>

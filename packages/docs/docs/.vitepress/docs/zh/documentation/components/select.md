@@ -4,8 +4,6 @@
 
 ## Default
 
-<docs-warn />
-
 使用 `vs-select` 组件和 `vs-option` 子组件添加一个选择器
 
 </card>

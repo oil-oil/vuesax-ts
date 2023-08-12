@@ -78,8 +78,6 @@ slots :
 
 ## Default
 
-<docs-warn />
-
 Alert component is a component used to display important information. They are typically presented in the form of a pop-up or slide-out panel and can display alert, error, success, or information messages.
 
 </card>

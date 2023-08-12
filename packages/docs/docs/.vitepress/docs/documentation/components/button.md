@@ -95,8 +95,6 @@ slots :
 
 ## Default
 
-<docs-warn />
-
 The buttons are a fundamental part of any project, with vuesax you can add a great button with a single line of code
 
 the buttons have all the states as active, focus, hover, to make its implementation simpler and speed up the work

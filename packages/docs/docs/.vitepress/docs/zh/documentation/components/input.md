@@ -4,8 +4,6 @@
 
 ## Default
 
-<docs-warn />
-
 使用 `<VsInput>` 组件可以非常方便的添加一个输入框元素
 
 </card>

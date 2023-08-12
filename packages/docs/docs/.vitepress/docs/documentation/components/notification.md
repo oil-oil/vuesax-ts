@@ -107,8 +107,6 @@ props :
 
 ## Default
 
-<docs-warn />
-
 It generates a notification with the vuesax hook (`useNotification`)
 
 :::tip

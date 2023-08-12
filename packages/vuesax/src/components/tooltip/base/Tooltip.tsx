@@ -50,7 +50,7 @@ const Tooltip = defineComponent({
       type: Boolean,
       default: false
     },
-    notArrow: {
+    noArrow: {
       type: Boolean,
       default: false
     },
@@ -203,7 +203,7 @@ const Tooltip = defineComponent({
             left: props.left,
             right: props.right,
             shadow: props.shadow,
-            notArrow: props.notArrow,
+            noArrow: props.noArrow,
             square: props.square,
             circle: props.circle,
             border: props.border,
@@ -211,13 +211,13 @@ const Tooltip = defineComponent({
             loading: props.loading
           }
         ]}
-        onMouseenter={()=>{
-          if(props.interactivity){
+        onMouseenter={() => {
+          if (props.interactivity) {
             isHoverTooltip.value = true
           }
         }}
-        onMouseleave={()=>{
-          if(props.interactivity){
+        onMouseleave={() => {
+          if (props.interactivity) {
             isHoverTooltip.value = false
             removeTooltip()
           }

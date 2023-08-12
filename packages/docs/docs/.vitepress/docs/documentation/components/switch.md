@@ -4,8 +4,6 @@
 
 ## Default
 
-<docs-warn />
-
 Generate a switch element easily with beautiful animations and functionality
 
 </card>
@@ -71,7 +69,7 @@ A usual example when using the switch component
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Switch/API.tsx"
+import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api></Api>

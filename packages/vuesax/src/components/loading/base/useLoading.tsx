@@ -38,8 +38,8 @@ const useLoading = (props?: LoadingHookProps) => {
     if (isVisible.value) {
       nextTick(() => {
         const vsLoading = LoadingDom.querySelector('.vs-loading') as HTMLElement
-        if(vsLoading){
-           vsLoading.style.position = 'fixed'
+        if (vsLoading) {
+          vsLoading.style.position = 'fixed'
         }
       })
     }

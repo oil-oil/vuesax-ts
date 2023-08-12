@@ -4,8 +4,6 @@
 
 ## Default
 
-<docs-warn />
-
 Add a select element with the `vs-select` component and the `vs-option` sub component
 
 </card>

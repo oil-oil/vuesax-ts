@@ -4,8 +4,6 @@
 
 ## Default
 
-<docs-warn />
-
 轻松生成具有精美动画和功能的开关组件
 
 </card>

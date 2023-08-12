@@ -210,12 +210,12 @@ const setCordsPosition = (
         style.left = `${left}px`
       } else {
         style.left = '10px'
-        element.classList.add('notArrow')
+        element.classList.add('noArrow')
       }
     } else {
       style.left = 'auto'
       style.right = '10px'
-      element.classList.add('notArrow')
+      element.classList.add('noArrow')
     }
   } else if (position === 'bottom') {
     style.top = `${y + scrollTop + h + 8}px`
@@ -226,12 +226,12 @@ const setCordsPosition = (
         style.left = `${left}px`
       } else {
         style.left = '10px'
-        element.classList.add('notArrow')
+        element.classList.add('noArrow')
       }
     } else {
       style.left = 'auto'
       style.right = '10px'
-      element.classList.add('notArrow')
+      element.classList.add('noArrow')
     }
   } else if (position === 'left') {
     style.top = `${
