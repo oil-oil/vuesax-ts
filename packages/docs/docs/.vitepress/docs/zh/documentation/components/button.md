@@ -1,5 +1,5 @@
 
-#按钮按钮
+# Button 按钮
 
 <Card codesandbox="https://codesandbox.io/embed/reverent-shape-pmyk2?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue">
 
