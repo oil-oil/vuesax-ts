@@ -43,6 +43,7 @@ const Layout = defineComponent({
     onMounted(() => {
       initHighlighter()
     })
+
     return () => (
       <div class="layout">
         {!page.value.isNotFound && <NavBar />}
