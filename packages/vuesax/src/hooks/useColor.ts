@@ -22,12 +22,11 @@ const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
 
 const useColor = (color?: string) => {
   if (color) {
-    const { colors: customColors } = inject<VuesaxOptions>(vuesaxOptionsKey, {
+    const options = inject<VuesaxOptions>(vuesaxOptionsKey, {
       colors: undefined
     })
 
-    const colors = { ...innerColors, ...(customColors || {}) }
-    console.log('colors: ', colors)
+    const colors = { ...innerColors, ...(options?.colors || {}) }
 
     const isRGB = /^(rgb|rgba)/.test(color)
     const isRGBNumbers =

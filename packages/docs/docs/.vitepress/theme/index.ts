@@ -13,11 +13,7 @@ const theme: Theme = {
   Layout,
   enhanceApp({ app }) {
     // ...
-    app.use(Vuesax,{
-      colors:{
-        primary:"152, 3, 252"
-      }
-    })
+    app.use(Vuesax)
     app.component('Card', Card)
   }
 }
