@@ -1,7 +1,8 @@
 import { nanoid } from 'nanoid/non-secure'
-import { createApp, onMounted, ref, TransitionGroup, VNode } from 'vue'
+import { createApp, inject, onMounted, ref, TransitionGroup, VNode } from 'vue'
 
 import Notification, { NotificationProps } from './Notification'
+import { vuesaxOptionsKey } from '@/utils/defineVuesaxOptions'
 
 type Position =
   | 'bottom-right'
@@ -18,6 +19,7 @@ type NotificationHookProps = Omit<NotificationProps, 'isVisible'> & {
 }
 
 const useNotification = () => {
+  const vuesaxOptions = inject(vuesaxOptionsKey)
   let root: HTMLDivElement
 
   const notificationPosition = {
@@ -46,7 +48,7 @@ const useNotification = () => {
         ))}
       </>
     )
-  })
+  }).provide(vuesaxOptionsKey, vuesaxOptions)
 
   onMounted(() => {
     root = document.createElement('div')

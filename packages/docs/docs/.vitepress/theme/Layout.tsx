@@ -33,7 +33,6 @@ const Layout = defineComponent({
           }
         })
         close()
-        // console.log(isLoading.value, highlighter.value)
       }
     }
 

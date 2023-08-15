@@ -9,8 +9,8 @@ import {
 
 import './style.scss'
 
+import useColor from '@/hooks/useColor'
 import { Color, CompWithAttr } from '@/types/utils'
-import { getColor } from '@/utils'
 
 type Status = 'primary' | 'warn' | 'danger' | 'success' | 'dark'
 const Input = defineComponent({
@@ -77,6 +77,8 @@ const Input = defineComponent({
     }
   },
   setup(props, { attrs, slots, emit }) {
+    const color = useColor(props.color)
+
     const id = computed(() => `vs-input--${attrs.id || 'id'}`)
 
     const beforeEnter = (element: Element) => {
@@ -126,7 +128,7 @@ const Input = defineComponent({
             'vs-component--is-color': !!props.color
           }
         ]}
-        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
+        style={{ '--vs-color': color }}
       >
         {/* input content */}
         <div

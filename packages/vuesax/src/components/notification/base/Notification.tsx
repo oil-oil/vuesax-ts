@@ -9,9 +9,10 @@ import {
   watch
 } from 'vue'
 
+import useColor from '@/hooks/useColor'
 import VsIconsClose from '@/icons/Close'
 import { Color } from '@/types/utils'
-import { setColor, getColor } from '@/utils'
+import { setColor } from '@/utils'
 
 import './style.scss'
 
@@ -84,6 +85,8 @@ const Notification = defineComponent({
   emits: ['onClick', 'clickClose', 'onDestroy'],
   slots: ['default', 'content', 'icon'],
   setup(props, { slots, emit }) {
+    const color = useColor(props.color)
+
     const elRef = ref<HTMLElement>()
     const innerIsVisible = ref(false)
     const innerProgress = ref(0)
@@ -219,7 +222,7 @@ const Notification = defineComponent({
               }
             ]}
             style={{
-              '--vs-color': props.color ? getColor(props.color) : '',
+              '--vs-color': color,
               width:
                 props.width === '100%' ||
                 props.width === '100vw' ||

@@ -1,16 +1,8 @@
-import {
-  PropType,
-  Transition,
-  defineComponent,
-  nextTick,
-  onMounted,
-  ref,
-  watch
-} from 'vue'
+import { PropType, Transition, defineComponent, ref } from 'vue'
 import './style.scss'
 
+import useColor from '@/hooks/useColor'
 import { Color } from '@/types/utils'
-import { setColor, setVar } from '@/utils'
 
 type LoadingType =
   | 'waves'
@@ -29,7 +21,7 @@ const Loading = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: null
+      default: 'primary'
     },
     background: {
       type: String as PropType<Color>,
@@ -66,39 +58,8 @@ const Loading = defineComponent({
   },
   emits: ['update:isVisible', 'update:text'],
   setup(props) {
+    const color = useColor(props.color)
     const rootRef = ref<HTMLElement>()
-
-    const initStyle = () => {
-      if (rootRef.value && props.color) {
-        setColor('color', props.color, rootRef.value, true)
-        setColor('background', props.background, rootRef.value, true)
-        if (props.opacity) {
-          setVar('opacity', props.opacity, rootRef.value)
-        }
-      }
-    }
-
-    watch(
-      () => props.color,
-      () => {
-        initStyle()
-      }
-    )
-
-    watch(
-      () => props.isVisible,
-      () => {
-        if (props.isVisible) {
-          nextTick(() => {
-            initStyle()
-          })
-        }
-      }
-    )
-
-    onMounted(() => {
-      initStyle()
-    })
 
     return () => (
       <Transition name="loading">
@@ -115,7 +76,10 @@ const Loading = defineComponent({
               class="vs-loading__load"
               style={{ transform: `scale(${props.scale})` }}
             >
-              <div class="vs-loading__load__animation">
+              <div
+                class="vs-loading__load__animation"
+                style={{ '--vs-color': color }}
+              >
                 {props.percent && (
                   <div class="vs-loading__load__percent">{props.percent}</div>
                 )}

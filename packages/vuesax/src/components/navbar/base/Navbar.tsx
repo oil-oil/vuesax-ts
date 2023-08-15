@@ -8,11 +8,10 @@ import {
   ref
 } from 'vue'
 
+import useColor from '@/hooks/useColor'
 import useThrottle from '@/hooks/useThrottle'
-import { Color } from '@/types/utils'
-import { getColor } from '@/utils'
-
 import './style.scss'
+import { Color } from '@/types/utils'
 
 const Navbar = defineComponent({
   name: 'VsNavbar',
@@ -74,6 +73,7 @@ const Navbar = defineComponent({
   },
   slots: ['default', 'left', 'right'],
   setup(props, { slots, emit }) {
+    const color = useColor(props.color)
     const leftLine = ref(0)
     const widthLine = ref(0)
     const scrollTop = ref(0)
@@ -228,7 +228,7 @@ const Navbar = defineComponent({
             'vs-component--is-color': props.color
           }
         ]}
-        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
+        style={{ '--vs-color': color }}
         ref={elRef}
       >
         <div class="vs-navbar">

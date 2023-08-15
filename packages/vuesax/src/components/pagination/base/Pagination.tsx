@@ -10,9 +10,9 @@ import {
 
 import './style.scss'
 
+import useColor from '@/hooks/useColor'
 import IconArrow from '@/icons/Arrow'
 import { Color } from '@/types/utils'
-import { getColor } from '@/utils'
 
 const Pagination = defineComponent({
   name: 'VsPagination',
@@ -70,6 +70,7 @@ const Pagination = defineComponent({
   },
   emits: ['update:modelValue'],
   setup(props, { emit, slots }) {
+    const color = useColor(props.color)
     const innerValue = ref<number>(0)
     const paginationRef = ref<HTMLElement>()
     const buttonRefs = ref<HTMLElement[]>([])
@@ -289,7 +290,7 @@ const Pagination = defineComponent({
             disabled: props.disabled
           }
         ]}
-        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
+        style={{ '--vs-color': color }}
       >
         {!props.onlyArrow && (
           <div

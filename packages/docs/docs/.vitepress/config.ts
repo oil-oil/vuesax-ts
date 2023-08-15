@@ -55,7 +55,7 @@ export default defineConfigWithTheme({
         parts: [
           {
             title: 'Theme',
-            part: [{ text: 'color', link: '/documentation/theme/color' }]
+            part: [{ text: 'color', link: '/documentation/theme/colors' }]
           },
           {
             title: 'Components',
@@ -103,11 +103,11 @@ export default defineConfigWithTheme({
     sidebar: [
       {
         text: 'Guide',
-        items: [{ text: 'Introduction', link: '/guide/introduction' }]
+        items: [{ text: 'Introduction', link: '/documentation/guide/introduction' }]
       },
       {
         text: 'Theme',
-        items: [{ text: 'Colors', link: '/theme/colors' }]
+        items: [{ text: 'Colors', link: '/documentation/theme/colors' }]
       },
       {
         text: 'Components',

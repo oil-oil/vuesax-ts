@@ -12,17 +12,18 @@ import {
 
 import { beforeEnter, enter, leave } from './transition.ts'
 import usePagination from './usePagination.tsx'
+import useColor from '@/hooks/useColor.ts'
 import IconClose from '@/icons/Close'
 import IconPlus from '@/icons/Plus'
 import './style.scss'
 import { Color } from '@/types/utils.ts'
-import { getColor } from '@/utils/index.ts'
 
 const Alert = defineComponent({
   name: 'VsAlert',
   props: {
     color: {
-      type: String as PropType<Color>
+      type: String as PropType<Color>,
+      default: 'primary'
     },
     isShow: {
       type: Boolean,
@@ -72,6 +73,7 @@ const Alert = defineComponent({
   slots: ['default', 'icon', 'title'],
   emits: ['update:page', 'update:hiddenContent', 'update:isShow'],
   setup(props, { slots, emit }) {
+    const color = useColor(props.color)
     const { page } = toRefs(props)
     const rootRef = ref<HTMLElement | null>(null)
     const contentRef = ref<HTMLElement | null>(null)
@@ -164,7 +166,7 @@ const Alert = defineComponent({
                 'vs-alert--pages': getPagesValue.value.length > 0
               }
             ]}
-            style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
+            style={{ '--vs-color': color }}
           >
             {/* icon */}
             {slots.icon && <div class="vs-alert__icon">{slots.icon()}</div>}

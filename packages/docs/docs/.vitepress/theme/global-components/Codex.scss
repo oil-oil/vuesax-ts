@@ -213,7 +213,6 @@
 	fill: var(--vs-theme-color) !important;
 }
 
-//111
 .con-codes {
 	div[class*=language-] {
 		background-color: var(--vs-theme-code);
@@ -243,32 +242,4 @@
 		}
 	}
 }
-.con-codes {
-	div[class*=language-] {
-		background-color: var(--vs-theme-code);
-		position: relative;
-		pre {
-			position: relative;
-			margin: 0;
-			padding: 20px;
-			line-height: 1.6;
-			.highlighted {
-				position: relative;
-				display: inline-block;
-				width: 100%;
-				background-color: hsla(0, 0%, 100%, .05);
-				border-left: 6px solid hsla(0, 0%, 100%, .2);
-			}
-		}
-		button {
-			display: none;
-		}
-		& > span {
-			position: absolute;
-			top: .8em;
-			right: 1em;
-			font-size: .75rem;
-			color: hsla(0, 0%, 100%, .4);
-		}
-	}
-}
+

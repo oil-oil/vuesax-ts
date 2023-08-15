@@ -9,8 +9,9 @@ import {
   PropType
 } from 'vue'
 
+import useColor from '@/hooks/useColor'
 import { Color } from '@/types/utils'
-import { getColor, insertBody, setCordsPosition } from '@/utils'
+import { insertBody, setCordsPosition } from '@/utils'
 
 const Tooltip = defineComponent({
   name: 'VsToolTip',
@@ -77,6 +78,7 @@ const Tooltip = defineComponent({
   },
   slots: ['default', 'tooltip'],
   setup(props, { slots, emit }) {
+    const color = useColor(props.color)
     const activeTooltip = ref(false)
     const isHoverTooltip = ref(false)
     const contentRef = ref<HTMLElement>()
@@ -194,7 +196,7 @@ const Tooltip = defineComponent({
     const tooltip = (
       <div
         ref={tooltipRef}
-        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
+        style={{ '--vs-color': color }}
         class={[
           'vs-tooltip',
           {

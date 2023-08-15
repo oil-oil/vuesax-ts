@@ -5,22 +5,30 @@ import {
   onUnmounted,
   computed,
   h,
-  watch,
-  nextTick
+  inject
 } from 'vue'
 
 import Loading, { LoadingProps } from './Loading'
+import { vuesaxOptionsKey } from '@/utils/defineVuesaxOptions'
 
 type LoadingHookProps = Omit<LoadingProps, 'isVisible'>
 
 const useLoading = (props?: LoadingHookProps) => {
+  const vuesaxOptions = inject(vuesaxOptionsKey)
   let LoadingDom: HTMLDivElement
   const isVisible = ref(false)
 
   const app = computed(() =>
     createApp({
-      render: () => h(Loading, { ...props, isVisible: isVisible.value })
-    })
+      render: () =>
+        h(Loading, {
+          ...props,
+          isVisible: isVisible.value,
+          style: {
+            position: 'fixed'
+          }
+        })
+    }).provide(vuesaxOptionsKey, vuesaxOptions)
   )
 
   const mountLoading = () => {
@@ -33,17 +41,6 @@ const useLoading = (props?: LoadingHookProps) => {
     app.value.unmount()
     document.body.removeChild(LoadingDom)
   }
-
-  watch(isVisible, () => {
-    if (isVisible.value) {
-      nextTick(() => {
-        const vsLoading = LoadingDom.querySelector('.vs-loading') as HTMLElement
-        if (vsLoading) {
-          vsLoading.style.position = 'fixed'
-        }
-      })
-    }
-  })
 
   onMounted(() => {
     mountLoading()
