@@ -85,10 +85,8 @@ const Tooltip = defineComponent({
     const tooltipRef = ref<HTMLElement>()
 
     const insertTooltip = () => {
-      //   const TooltipRef = tooltipRef.value;
-      const TooltipRef = document.querySelector('.vs-tooltip') as HTMLElement
-      if (TooltipRef && contentRef.value) {
-        insertBody(TooltipRef)
+      if (tooltipRef.value && contentRef.value) {
+        insertBody(tooltipRef.value)
 
         let position = 'top'
         if (props.bottom) {
@@ -98,7 +96,7 @@ const Tooltip = defineComponent({
         } else if (props.right) {
           position = 'right'
         }
-        setCordsPosition(TooltipRef, contentRef.value, position)
+        setCordsPosition(tooltipRef.value, contentRef.value, position)
       }
     }
 
@@ -193,43 +191,6 @@ const Tooltip = defineComponent({
       })
     })
 
-    const tooltip = (
-      <div
-        ref={tooltipRef}
-        style={{ '--vs-color': color }}
-        class={[
-          'vs-tooltip',
-          {
-            top: !props.bottom && !props.left && !props.right,
-            bottom: props.bottom,
-            left: props.left,
-            right: props.right,
-            shadow: props.shadow,
-            noArrow: props.noArrow,
-            square: props.square,
-            circle: props.circle,
-            border: props.border,
-            borderThick: props.borderThick,
-            loading: props.loading
-          }
-        ]}
-        onMouseenter={() => {
-          if (props.interactivity) {
-            isHoverTooltip.value = true
-          }
-        }}
-        onMouseleave={() => {
-          if (props.interactivity) {
-            isHoverTooltip.value = false
-            removeTooltip()
-          }
-        }}
-      >
-        {slots.tooltip?.()}
-        {props.loading && <div class="vs-tooltip__loading"></div>}
-      </div>
-    )
-
     return () => (
       <div
         class="vs-tooltip-content"
@@ -254,7 +215,42 @@ const Tooltip = defineComponent({
         }}
       >
         <Transition name="vs-tooltip">
-          {activeTooltip.value && tooltip}
+          {activeTooltip.value && (
+            <div
+              ref={tooltipRef}
+              style={{ '--vs-color': color }}
+              class={[
+                'vs-tooltip',
+                {
+                  top: !props.bottom && !props.left && !props.right,
+                  bottom: props.bottom,
+                  left: props.left,
+                  right: props.right,
+                  shadow: props.shadow,
+                  noArrow: props.noArrow,
+                  square: props.square,
+                  circle: props.circle,
+                  border: props.border,
+                  borderThick: props.borderThick,
+                  loading: props.loading
+                }
+              ]}
+              onMouseenter={() => {
+                if (props.interactivity) {
+                  isHoverTooltip.value = true
+                }
+              }}
+              onMouseleave={() => {
+                if (props.interactivity) {
+                  isHoverTooltip.value = false
+                  removeTooltip()
+                }
+              }}
+            >
+              {slots.tooltip?.()}
+              {props.loading && <div class="vs-tooltip__loading"></div>}
+            </div>
+          )}
         </Transition>
         {slots.default?.()}
       </div>
