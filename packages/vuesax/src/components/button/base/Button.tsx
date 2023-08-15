@@ -7,8 +7,8 @@ import {
 } from 'vue'
 import { useRouter } from 'vue-router'
 
+import useColor from '@/hooks/useColor'
 import { Color, CompWithAttr, Size } from '@/types/utils'
-import { getColor } from '@/utils'
 import ripple, { rippleCut, rippleReverse } from '@/utils/ripple/index'
 
 import './style.scss'
@@ -112,6 +112,8 @@ const Button = defineComponent({
   slots: ['default', 'animate'],
   emits: ['click'],
   setup(props, { slots, attrs, emit }) {
+    const color = useColor(props.color)
+
     const buttonRef = ref<Element>()
     const router = useRouter()
 
@@ -199,7 +201,7 @@ const Button = defineComponent({
     return () => (
       <button
         class={buttonClass.value}
-        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
+        style={{ '--vs-color': color }}
         onMousedown={(e) => handleMouseDown(e)}
         onClick={onClick}
         ref="buttonRef"

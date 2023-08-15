@@ -10,8 +10,9 @@ import {
   PropType
 } from 'vue'
 
+import useColor from '@/hooks/useColor'
 import { Color, CompWithAttr } from '@/types/utils'
-import { getColor, setColor } from '@/utils'
+import { setColor } from '@/utils'
 
 const Sidebar = defineComponent({
   name: 'VsSideBar',
@@ -70,6 +71,7 @@ const Sidebar = defineComponent({
   slots: ['default', 'header', 'footer', 'logo'],
   emits: ['update:modelValue', 'update:open'],
   setup(props, { slots, emit, attrs }) {
+    const color = useColor(props.color)
     const rootRef = ref<HTMLElement | null>(null)
     const staticWidth = 260
     const reduceInternal = ref(false)
@@ -183,7 +185,7 @@ const Sidebar = defineComponent({
       <div
         ref={rootRef}
         class={sideBarClass.value}
-        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
+        style={{ '--vs-color': color }}
         onMouseenter={mouseEnterEvent}
         onMouseleave={mouseLeaveEvent}
         {...attrs}

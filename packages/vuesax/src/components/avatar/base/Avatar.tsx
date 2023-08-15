@@ -10,10 +10,10 @@ import {
   PropType
 } from 'vue'
 
+import useColor from '@/hooks/useColor'
 import { Color, CompWithAttr } from '@/types/utils'
-import { getColor, setColor } from '@/utils'
-
 import './style.scss'
+import { setColor } from '@/utils'
 
 type BadgeType = 'bottom-left' | 'top-right' | 'top-left'
 
@@ -73,6 +73,7 @@ const Avatar = defineComponent({
   },
   slots: ['default', 'icons', 'badge'],
   setup(props, { slots, attrs }) {
+    const color = useColor(props.color)
     const textLength = ref(0)
     const index = ref<number>(0)
     const badgeRef = ref<HTMLElement>()
@@ -203,7 +204,7 @@ const Avatar = defineComponent({
           width: `${props.size}px`,
           height: `${props.size}px`,
           cursor: props.pointer ? 'pointer' : 'default',
-          '--vs-color': props.color ? getColor(props.color) : ''
+          '--vs-color': color
         }}
         class={[
           'vs-avatar-content',

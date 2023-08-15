@@ -3,15 +3,16 @@ import { nanoid } from 'nanoid'
 import { InputHTMLAttributes, PropType, defineComponent, ref } from 'vue'
 
 import './style.scss'
+import useColor from '@/hooks/useColor'
 import VsIconsCheck from '@/icons/Check'
 import { Color, CompWithAttr } from '@/types/utils'
-import { getColor } from '@/utils'
 
 const Checkbox = defineComponent({
   name: 'VsCheckbox',
   props: {
     color: {
-      type: String as PropType<Color>
+      type: String as PropType<Color>,
+      default: 'primary'
     },
     modelValue: {
       type: Boolean,
@@ -41,6 +42,7 @@ const Checkbox = defineComponent({
   slots: ['icon'],
   emits: ['update:modelValue'],
   setup(props, { attrs, slots, emit }) {
+    const color = useColor(props.color)
     const checkboxAttrs = attrs as InputHTMLAttributes
     const uniqueId = checkboxAttrs?.id || nanoid()
 
@@ -49,7 +51,7 @@ const Checkbox = defineComponent({
     return () => (
       <>
         <div
-          style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
+          style={{ '--vs-color': color }}
           class={[
             'vs-checkbox-content',
             {

@@ -3,8 +3,8 @@ import { InputHTMLAttributes, PropType, defineComponent } from 'vue'
 
 import './style.scss'
 
+import useColor from '@/hooks/useColor'
 import { Color, CompWithAttr } from '@/types/utils'
-import { getColor } from '@/utils'
 
 const Switch = defineComponent({
   name: 'VsSwitch',
@@ -37,6 +37,8 @@ const Switch = defineComponent({
   slots: ['circle', 'on', 'off'],
   emits: ['update:modelValue'],
   setup(props, { attrs, slots, emit }) {
+    const color = useColor(props.color)
+
     return () => (
       <div
         class={[
@@ -48,7 +50,7 @@ const Switch = defineComponent({
             'vs-switch--icon': props.icon
           }
         ]}
-        style={{ '--vs-color': props.color ? getColor(props.color) : '' }}
+        style={{ '--vs-color': color }}
       >
         <input
           type="checkbox"

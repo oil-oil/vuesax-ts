@@ -1,9 +1,8 @@
 import { App as VueApp } from 'vue'
 
 import * as vsComponents from './components'
-import { defineVuesaxOptions, VuesaxOptions } from './utils/defineVuesaxOptions'
 import './styles/vuesax.scss'
-import 'boxicons/css/boxicons.min.css'
+import defineVuesaxOptions, { VuesaxOptions } from './utils/defineVuesaxOptions'
 
 const install = (app: VueApp, options?: VuesaxOptions) => {
   // Components
@@ -11,9 +10,10 @@ const install = (app: VueApp, options?: VuesaxOptions) => {
     app.use(vsComponent)
   })
 
-  if (options) {
-    defineVuesaxOptions(options)
-  }
+  defineVuesaxOptions(app, options)
 }
 export * from './components'
+
+export { default as color } from './styles/colors'
+
 export default install

@@ -17,10 +17,11 @@ import {
 
 import { beforeEnter, enter, leave } from './transition'
 import { Option, SelectProvider } from '../types'
+import useColor from '@/hooks/useColor'
 import IconArrow from '@/icons/Arrow'
 import IconClose from '@/icons/Close'
 import { Color, CompWithAttr } from '@/types/utils'
-import { getColor, insertBody, removeBody, setCords } from '@/utils'
+import { insertBody, removeBody, setCords } from '@/utils'
 import { isNil } from '@/utils/shared'
 
 import './style.scss'
@@ -77,6 +78,7 @@ const Select = defineComponent({
   emits: ['update:modelValue', 'blur', 'focus'],
   slots: ['default', 'noData'],
   setup(props, { slots, attrs, emit }) {
+    const color = useColor(props.color)
     const selectAttrs = attrs as InputHTMLAttributes
     const uniqueId = selectAttrs?.id || nanoid()
 
@@ -435,16 +437,11 @@ const Select = defineComponent({
         class={[
           'vs-select-content',
           {
-            block: props.block,
-            'vs-component--primary': props.color === 'primary',
-            'vs-component--danger': props.color === 'danger',
-            'vs-component--warn': props.color === 'warn',
-            'vs-component--success': props.color === 'success',
-            'vs-component--dark': props.color === 'dark'
+            block: props.block
           }
         ]}
         style={{
-          '--vs-color': props.color ? getColor(props.color) : '',
+          '--vs-color': color,
           marginTop: props.label ? '32px' : '0'
         }}
         ref={selectRef}
@@ -601,7 +598,7 @@ const Select = defineComponent({
                 }
               ]}
               style={{
-                '--vs-color': props.color ? getColor(props.color) : ''
+                '--vs-color': color
               }}
               ref={optionRef}
               onMouseleave={() => {
