@@ -18,8 +18,7 @@
 }
 
 .vs-input-parent {
-    --vs-color: var(--vs-primary);
-    display: inline-flex;
+    display: flex;
     align-self: center;
     justify-content: center;
     flex-direction: column;

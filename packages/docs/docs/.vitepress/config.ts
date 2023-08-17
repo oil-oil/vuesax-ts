@@ -55,7 +55,7 @@ export default defineConfigWithTheme({
         parts: [
           {
             title: 'Theme',
-            part: [{ text: 'color', link: '/documentation/theme/colors' }]
+            part: [{ text: 'Colors', link: '/documentation/theme/colors' }]
           },
           {
             title: 'Components',
@@ -74,7 +74,7 @@ export default defineConfigWithTheme({
               },
               { text: 'Radio', link: '/documentation/components/radio' },
               { text: 'Tooltip', link: '/documentation/components/tooltip' },
-              { text: 'Dialog', link: '/documentation/components/dialog' },
+              { text: 'Modal', link: '/documentation/components/modal' },
               {
                 text: 'Pagination',
                 link: '/documentation/components/pagination'
@@ -103,7 +103,9 @@ export default defineConfigWithTheme({
     sidebar: [
       {
         text: 'Guide',
-        items: [{ text: 'Introduction', link: '/documentation/guide/introduction' }]
+        items: [
+          { text: 'Introduction', link: '/documentation/guide/introduction' }
+        ]
       },
       {
         text: 'Theme',
@@ -126,7 +128,7 @@ export default defineConfigWithTheme({
           },
           { text: 'Radio', link: '/documentation/components/radio' },
           { text: 'Tooltip', link: '/documentation/components/tooltip' },
-          { text: 'Dialog', link: '/documentation/components/dialog' },
+          { text: 'Modal', link: '/documentation/components/modal' },
           { text: 'Pagination', link: '/documentation/components/pagination' },
           { text: 'Table', link: '/documentation/components/table' },
           { text: 'Navbar', link: '/documentation/components/navbar' },

@@ -1,6 +1,5 @@
 // https://vitepress.dev/guide/custom-theme
 import { Theme } from 'vitepress'
-import Vuesax from 'vuesax-ts'
 
 import 'vuesax-ts/dist/es/style.css'
 import 'boxicons/css/boxicons.min.css'
@@ -13,7 +12,7 @@ const theme: Theme = {
   Layout,
   enhanceApp({ app }) {
     // ...
-    app.use(Vuesax)
+    // app.use(Vuesax)
     app.component('Card', Card)
   }
 }

@@ -18,7 +18,7 @@
       &.vs-button--border:not(:last-of-type) {
         &:before {
           border-right: 0px;
-          width: calc(100%);
+          width: 100%;
         }
       }
     }

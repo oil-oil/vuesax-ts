@@ -1,6 +1,6 @@
 ---
 prev: Radio
-next: Dialog
+next: Tooltip
 last Update: 2023/13/1
 props : 
     - name: color

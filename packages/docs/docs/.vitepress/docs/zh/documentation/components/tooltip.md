@@ -1,6 +1,6 @@
 ---
 prev: Radio
-next: Dialog
+next: Modal
 last Update: 2023/13/1
 props : 
     - name: color

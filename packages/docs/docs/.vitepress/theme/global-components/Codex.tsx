@@ -56,34 +56,11 @@ const Codex = defineComponent({
       renderTemplate()
     })
 
-    // watch:{
-    //   '$vsTheme.openCode': function (val) {
-    //     this.active = val
-    //     localStorage.openCode = val
-    //   },
-    //   activeSlot() {
-    //     this.$nextTick(() => {
-    //       let ul = this.$refs.ul.scrollHeight
-    //       let h = this.$refs['slot'+this.activeSlot].scrollHeight
-    //       this.$refs.codexRef.style.height = (h + ul) - 1 + 'px'
-    //     })
-    //   }
-    // }
-    // created() {
-    //   Vue.observable(this.$site.themeConfig)
-    // },
-    // mounted() {
-    //   this.$vsTheme.openCode = (localStorage.openCode == 'true')
-    // },
     const toggleCode = () => {
       active.value = !active.value
     }
-    // const openCodepen = (url:string)=>{
-    //   window.open(url)
-    // }
+
     const openCodesandbox = (url: string) => {
-      // document.body.style.overflow = 'hidden'
-      //     codesandbox.value.url = codesandbox.value
       window.open(url)
     }
 

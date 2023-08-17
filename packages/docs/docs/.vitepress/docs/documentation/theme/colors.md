@@ -6,7 +6,6 @@
 
 Vuesax has the main colors that are maintained throughout the application to facilitate change and effective operation
 
-Los colores principales se pueden cambiar y personalizar al gusto de cada desarrollador para una aplicación mas personalizada
 
 Default colors:
 
@@ -21,9 +20,7 @@ Default colors:
 
 ## Customize Theme Colors
 
-You can change the colors as you want and at any time, vuesax uses native css variables which means you can access them and change them whenever you want
-
-equal vuesax gives you several ways to change the main colors either by css or 
+You can override the original theme color by passing in the `colors` field via options when executing `Vue.use`.
 
 ```javascript
  Vue.use(Vuesax, {
