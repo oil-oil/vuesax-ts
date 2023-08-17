@@ -18,7 +18,8 @@ const Sidebar = defineComponent({
   name: 'VsSideBar',
   props: {
     color: {
-      type: String as PropType<Color>
+      type: String as PropType<Color>,
+      default: "primary"
     },
     modelValue: {
       type: String
@@ -127,17 +128,7 @@ const Sidebar = defineComponent({
       }
     )
 
-    watch(
-      () => props.background,
-      () => {
-        setColor(
-          'background',
-          props.background,
-          rootRef.value as HTMLElement,
-          true
-        )
-      }
-    )
+
 
     const active = toRef(props, 'modelValue')
     provide('activeValue', {

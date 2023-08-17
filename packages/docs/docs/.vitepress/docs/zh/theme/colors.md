@@ -19,7 +19,7 @@ Vuesax 具有在整个应用程序中保持不变的主题颜色，主题色可�
 
 ## 自定义主题颜色
 
-vuesax 使用本地 css 变量，这意味着您可以随时访问并更改颜色。
+你可以通过在执行 `Vue.use` 时通过 `options` 传入 `colors` 字段以覆盖原有主题色:
 
 ```javascript
  Vue.use(Vuesax, {

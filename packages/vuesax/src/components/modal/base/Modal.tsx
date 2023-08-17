@@ -1,5 +1,7 @@
 import {
   HTMLAttributes,
+  PropType,
+  Teleport,
   Transition,
   defineComponent,
   onMounted,
@@ -11,6 +13,8 @@ import {
 import IconClose from '@/icons/Close'
 
 import './style.scss'
+import { Color } from '@/components'
+import useColor from '@/hooks/useColor'
 
 const Modal = defineComponent({
   name: 'VsModal',
@@ -18,6 +22,10 @@ const Modal = defineComponent({
     modelValue: {
       type: Boolean,
       default: false
+    },
+    color: {
+      type: String as PropType<Color>,
+      default: 'primary'
     },
     loading: {
       type: Boolean,
@@ -63,6 +71,7 @@ const Modal = defineComponent({
   emits: ['update:modelValue', 'close'],
   slots: ['header', 'footer'],
   setup(props, { emit, attrs, slots }) {
+    const color = useColor(props.color)
     const modalAttrs = attrs as HTMLAttributes
     const rebound = ref(false)
     const modalContentRef = ref<HTMLElement>()
@@ -96,89 +105,93 @@ const Modal = defineComponent({
     })
 
     return () => (
-      <Transition name="vs-modal">
-        {props.modelValue && (
-          <div
-            ref={modalContentRef}
-            class={[
-              'vs-modal-content',
-              { blur: props.blur, fullScreen: props.fullScreen }
-            ]}
-            onClick={(e) => {
-              const modalTarget = e.target as HTMLElement
-              if (!modalTarget.closest('.vs-modal') && !props.preventClose) {
-                emit('update:modelValue', !props.modelValue)
-                emit('close')
-              }
-
-              if (props.preventClose && !modalTarget.closest('.vs-modal')) {
-                rebound.value = true
-                setTimeout(() => {
-                  rebound.value = false
-                }, 300)
-              }
-            }}
-          >
+      <Teleport to="body">
+        <Transition name="vs-modal">
+          {props.modelValue && (
             <div
+              ref={modalContentRef}
               class={[
-                'vs-modal',
-                {
-                  'vs-modal--fullScreen': props.fullScreen,
-                  'vs-modal--rebound': rebound.value,
-                  'vs-modal--square': props.square,
-                  'vs-modal--fitContent': props.fitContent,
-                  'vs-modal--scroll': props.scroll,
-                  'vs-modal--loading': props.loading,
-                  'vs-modal--centerHeader': props.centerHeader
-                }
+                'vs-modal-content',
+                { blur: props.blur, fullScreen: props.fullScreen }
               ]}
-              {...modalAttrs}
+              onClick={(e) => {
+                const modalTarget = e.target as HTMLElement
+                if (!modalTarget.closest('.vs-modal') && !props.preventClose) {
+                  emit('update:modelValue', !props.modelValue)
+                  emit('close')
+                }
+
+                if (props.preventClose && !modalTarget.closest('.vs-modal')) {
+                  rebound.value = true
+                  setTimeout(() => {
+                    rebound.value = false
+                  }, 300)
+                }
+              }}
             >
-              {/* loading */}
-              {props.loading && (
-                <div class="vs-modal__loading">
-                  <div class="vs-modal__loading__load" />
-                </div>
-              )}
-
-              {/* close button */}
-              {props.showClose && (
-                <button
-                  class="vs-modal__close"
-                  onClick={() => {
-                    emit('update:modelValue', !props.modelValue)
-                    emit('close')
-                  }}
-                >
-                  <IconClose hover="x" />
-                </button>
-              )}
-
-              {/* header */}
-              {slots.header && (
-                <header class="vs-modal__header">{slots.header?.()}</header>
-              )}
-
-              {/* content */}
               <div
+                style={{ '--vs-color': color }}
                 class={[
-                  'vs-modal__content',
+                  'vs-modal',
                   {
-                    notFooter: !slots.footer
+                    'vs-modal--fullScreen': props.fullScreen,
+                    'vs-modal--rebound': rebound.value,
+                    'vs-modal--square': props.square,
+                    'vs-modal--fitContent': props.fitContent,
+                    'vs-modal--scroll': props.scroll,
+                    'vs-modal--loading': props.loading,
+                    'vs-modal--centerHeader': props.centerHeader
                   }
                 ]}
+                {...modalAttrs}
               >
-                {slots.default?.()}
-              </div>
+                {/* loading */}
+                {props.loading && (
+                  <div class="vs-modal__loading">
+                    <div class="vs-modal__loading__load" />
+                  </div>
+                )}
 
-              {/* footer */}
-              {slots.footer && (
-                <footer class="vs-modal__footer">{slots.footer?.()}</footer>
-              )}
+                {/* close button */}
+                {props.showClose && (
+                  <button
+                    class="vs-modal__close"
+                    onClick={() => {
+                      emit('update:modelValue', !props.modelValue)
+                      emit('close')
+                    }}
+                  >
+                    <IconClose hover="x" />
+                  </button>
+                )}
+
+                {/* header */}
+                {slots.header && (
+                  <header class="vs-modal__header">{slots.header?.()}</header>
+                )}
+
+                {/* content */}
+                <div
+                  class={[
+                    'vs-modal__content',
+                    {
+                      notFooter: !slots.footer
+                    }
+                  ]}
+                >
+                  {slots.default?.()}
+                </div>
+
+                {/* footer */}
+                {slots.footer && (
+                  <footer class="vs-modal__footer">{slots.footer?.()}</footer>
+                )}
+              </div>
             </div>
-          </div>
-        )}
-      </Transition>
+          )}
+        </Transition>
+      </Teleport>
+
     )
   }
 })

@@ -8,6 +8,10 @@ We are focused on streamlining the work of the programmer by giving components c
 
 Vuesax does not have a design line such as other component frameworks based on Material Design, we believe that there are already emaciated frameworks that look visually and in UI / UX and we don't want to be one more of the bunch, apart from that we love to create and design new experiences and surprise you with new elements or details that we can only do by being visually free.
 
+## Whats is Vuesax-ts
+
+vuesax-ts is a component library that updates and enhances the functionality of [vuesax-next](https://github.com/lusaxweb/vuesax-next), which is no longer being actively developed.**vuesax-ts** provides full **Vue 3** + **typescript** support and uses **Vite** for component compilation.
+
 ## Why Vuesax?
 
 Vuesax is a relatively new framework with a refreshing design and in the latest trends, vuesax based on vuejs which means that we go hand in hand with one of the most popular javascript frameworks in the world and with a huge community with which you will have all the help and documentation to create and make your project

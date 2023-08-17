@@ -1,6 +1,6 @@
 import { useData } from 'vitepress'
 import { defineComponent } from 'vue'
-import { VsTable, VsTh, VsTr } from 'vuesax-ts'
+import { VsTable, VsTh, VsTr, VsTd } from 'vuesax-ts'
 
 const DocsApi = defineComponent({
   name: 'DocsApi',
@@ -96,23 +96,26 @@ const DocsApi = defineComponent({
                           usageUrl: string
                         }) => (
                           <VsTr>
-                            <VsTh>{line.name}</VsTh>
-                            <VsTh>{line.type}</VsTh>
-                            <VsTh>{line.values}</VsTh>
-                            <VsTh>{line.description}</VsTh>
-                            <VsTh>{line.default}</VsTh>
-                            <VsTh>
-                              <a href={line.usageUrl}>
-                                Usage<i class="bx bx-code-block"></i>
-                              </a>
-                            </VsTh>
-                            <VsTh>
+                            <VsTd>{line.name}</VsTd>
+                            <VsTd>{line.type}</VsTd>
+                            <VsTd>{line.values}</VsTd>
+                            <VsTd>{line.description}</VsTd>
+                            <VsTd>{line.default}</VsTd>
+                            <VsTd>
+                              {line.usageUrl && (
+                                <a href={line.usageUrl}>
+                                  {line.usageUrl}
+                                  Usage<i class="bx bx-code-block"></i>
+                                </a>
+                              )}
+                            </VsTd>
+                            <VsTd>
                               <a
                                 href={`https://github.com/lusaxweb/vuesax/issues/new?title=[Alert]%20prop%20(${line.name})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
                               >
                                 <i class="bx bx-bug"></i>
                               </a>
-                            </VsTh>
+                            </VsTd>
                           </VsTr>
                         )
                       )
