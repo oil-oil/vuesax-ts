@@ -19,7 +19,7 @@ const Sidebar = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: "primary"
+      default: 'primary'
     },
     modelValue: {
       type: String
@@ -127,8 +127,6 @@ const Sidebar = defineComponent({
         handleReduce()
       }
     )
-
-
 
     const active = toRef(props, 'modelValue')
     provide('activeValue', {

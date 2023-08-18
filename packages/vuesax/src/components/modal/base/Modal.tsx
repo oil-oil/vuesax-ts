@@ -10,11 +10,10 @@ import {
   watch
 } from 'vue'
 
-import IconClose from '@/icons/Close'
-
 import './style.scss'
 import { Color } from '@/components'
 import useColor from '@/hooks/useColor'
+import IconClose from '@/icons/Close'
 
 const Modal = defineComponent({
   name: 'VsModal',
@@ -191,7 +190,6 @@ const Modal = defineComponent({
           )}
         </Transition>
       </Teleport>
-
     )
   }
 })

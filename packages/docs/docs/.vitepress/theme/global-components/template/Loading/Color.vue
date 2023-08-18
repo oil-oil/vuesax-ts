@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { useLoading } from 'vuesax-ts'
+import { useLoading, VsLoading } from 'vuesax-ts'
 import type { VsLoadingProps, Color } from 'vuesax-ts'
 
 const color = ref<Color>('#D5397B')

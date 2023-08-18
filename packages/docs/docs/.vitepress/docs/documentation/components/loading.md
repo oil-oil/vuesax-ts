@@ -98,7 +98,7 @@ You can change the loading background with the property `loading`
 
 <card subtitle="Text">
 
-## Text <Badge text="New" />
+## Text
 
 Add a descriptive text of the loading or informing the user that it is loading or that it is missing to load with the property `text`
 
@@ -106,7 +106,7 @@ Add a descriptive text of the loading or informing the user that it is loading o
 
 <card subtitle="Percent">
 
-## Percent <Badge text="New" />
+## Percent
 
 You can add a string of the percentage of load with the `percent` property, if you need to change that value use the `changePercent` function in the loading instance.
 
@@ -114,7 +114,7 @@ You can add a string of the percentage of load with the `percent` property, if y
 
 <card subtitle="Progress">
 
-## Progress <Badge text="New" />
+## Progress
 
 Add a progress bar at the top to indicate the loading progress of the loading with the `progress` property, the value is a number that determines the percentage and the allowed value is (0 - 100)
 
@@ -122,7 +122,7 @@ Add a progress bar at the top to indicate the loading progress of the loading wi
 
 <card subtitle="Target">
 
-## Target <Badge text="New" />
+## Target
 
 If you want use the loading on a specific dom element. Put the loading in a parent container positioned as a relative.And set `isVisible` value.
 </card>
