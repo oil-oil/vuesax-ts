@@ -44,7 +44,9 @@ const Card = defineComponent({
               {exampleComponentsArr.map((arr) => {
                 if (
                   arr[0] ===
-                  `./template/${page.value.title}/${props.subtitle}.vue`
+                  `./template/${page.value.title.split(' ')[0]}/${
+                    props.subtitle
+                  }.vue`
                 ) {
                   const Example = arr[1].default
 

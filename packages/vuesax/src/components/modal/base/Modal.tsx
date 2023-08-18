@@ -7,14 +7,14 @@ import {
   onMounted,
   onUnmounted,
   ref,
+  toRef,
   watch
 } from 'vue'
-
-import IconClose from '@/icons/Close'
 
 import './style.scss'
 import { Color } from '@/components'
 import useColor from '@/hooks/useColor'
+import IconClose from '@/icons/Close'
 
 const Modal = defineComponent({
   name: 'VsModal',
@@ -71,7 +71,8 @@ const Modal = defineComponent({
   emits: ['update:modelValue', 'close'],
   slots: ['header', 'footer'],
   setup(props, { emit, attrs, slots }) {
-    const color = useColor(props.color)
+    const colorRef = toRef(props, 'color')
+    const color = useColor(colorRef)
     const modalAttrs = attrs as HTMLAttributes
     const rebound = ref(false)
     const modalContentRef = ref<HTMLElement>()
@@ -130,7 +131,7 @@ const Modal = defineComponent({
               }}
             >
               <div
-                style={{ '--vs-color': color }}
+                style={{ '--vs-color': color.value }}
                 class={[
                   'vs-modal',
                   {
@@ -191,7 +192,6 @@ const Modal = defineComponent({
           )}
         </Transition>
       </Teleport>
-
     )
   }
 })

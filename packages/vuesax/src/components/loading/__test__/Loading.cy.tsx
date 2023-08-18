@@ -31,13 +31,13 @@ describe('Loading', () => {
   })
 
   it('test loading style', () => {
-    cy.mount(<VsLoading background="#7a76cb" color="#fff" opacity="0.7" />)
+    cy.mount(<VsLoading background="#7a76cb" color="#fff" />)
     cy.get('.vs-loading--default')
       .should('have.css', 'color', 'rgb(0, 0, 0)')
       .should(
         'have.css',
         'background',
-        'rgba(122, 118, 203, 0.7) none repeat scroll 0% 0% / auto padding-box border-box'
+        'rgba(122, 118, 203) none repeat scroll 0% 0% / auto padding-box border-box'
       )
   })
 

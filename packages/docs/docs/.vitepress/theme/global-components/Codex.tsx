@@ -3,6 +3,11 @@ import { useData } from 'vitepress'
 import { defineComponent, Transition, ref, onMounted, inject, Ref } from 'vue'
 import './Codex.scss'
 
+const file: Record<string, string> = (import.meta as any).glob(
+  './template/**/*.vue',
+  { eager: true, as: 'raw' }
+)
+
 const Codex = defineComponent({
   name: 'Codex',
   props: {
@@ -29,10 +34,9 @@ const Codex = defineComponent({
     const template = ref<string>()
     const title = ref<string>()
     const highlighter = inject<Ref<Highlighter>>('highlighter')
-    let file: any
     const renderTemplate = async () => {
       template.value = highlighter?.value.codeToHtml(
-        file[`./template/${page.value.title}/${props.subtitle}.vue`],
+        file?.[`./template/${page.value.title}/${props.subtitle}.vue`],
         {
           lang: 'vue'
         }
@@ -44,14 +48,6 @@ const Codex = defineComponent({
         .getElementsByTagName('h1')
         .item(0)
         ?.innerText.trim()
-
-      file = (import.meta as any).glob(
-        '../global-components/template/**/*.vue',
-        {
-          as: 'raw',
-          eager: true
-        }
-      )
 
       renderTemplate()
     })
@@ -66,7 +62,7 @@ const Codex = defineComponent({
 
     const copy = () => {
       navigator.clipboard.writeText(
-        file[`./template/${page.value.title}/${props.subtitle}.vue`]
+        file?.[`./template/${page.value.title}/${props.subtitle}.vue`]
       )
       check.value = true
       setTimeout(() => {
@@ -91,13 +87,13 @@ const Codex = defineComponent({
       const el = element as HTMLElement
       el.style.height = '0px'
     }
-    const beforeEntercodes = (element: Element) => {
+    const beforeEnterCodes = (element: Element) => {
       const el = element as HTMLElement
       el.style.height = '0'
       el.style.opacity = '0'
       el.style.position = 'absolute'
     }
-    const entercodes = (element: Element, done: () => void) => {
+    const enterCodes = (element: Element, done: () => void) => {
       const el = element as HTMLElement
       const h = el.scrollHeight
       el.style.position = 'relative'
@@ -106,7 +102,7 @@ const Codex = defineComponent({
       el.style.opacity = '1'
       done()
     }
-    const leavecodes = (element: Element) => {
+    const leaveCodes = (element: Element) => {
       const el = element as HTMLElement
       el.style.height = '0px'
       el.style.opacity = '0'
@@ -163,13 +159,6 @@ const Codex = defineComponent({
                 <i class="bx bx-check"></i>
               )}
             </li>
-            {/* 
-        <li class="con-api-link">
-          <a href="#vs-api">
-            <!API
-            <i class='bx bx-list-ul' ></i>
-          </a>
-        </li> */}
 
             <li
               title={active.value ? 'hide code' : 'View code'}
@@ -188,9 +177,9 @@ const Codex = defineComponent({
               <div ref={ulRef} class="ul-codes"></div>
               <div class="con-codes">
                 <Transition
-                  onBeforeEnter={beforeEntercodes}
-                  onEnter={entercodes}
-                  onLeave={leavecodes}
+                  onBeforeEnter={beforeEnterCodes}
+                  onEnter={enterCodes}
+                  onLeave={leaveCodes}
                 >
                   <div key="3" class="slot-all slots">
                     <div class="language-html" v-html={template.value}></div>

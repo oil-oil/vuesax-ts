@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { useLoading } from 'vuesax-ts'
+import { useLoading, VsButton } from 'vuesax-ts'
 import type { VsLoadingProps } from 'vuesax-ts'
 
 const active = ref(false)

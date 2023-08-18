@@ -19,7 +19,7 @@ const Sidebar = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>,
-      default: "primary"
+      default: 'primary'
     },
     modelValue: {
       type: String
@@ -72,7 +72,8 @@ const Sidebar = defineComponent({
   slots: ['default', 'header', 'footer', 'logo'],
   emits: ['update:modelValue', 'update:open'],
   setup(props, { slots, emit, attrs }) {
-    const color = useColor(props.color)
+    const colorRef = toRef(props, 'color')
+    const color = useColor(colorRef)
     const rootRef = ref<HTMLElement | null>(null)
     const staticWidth = 260
     const reduceInternal = ref(false)
@@ -128,8 +129,6 @@ const Sidebar = defineComponent({
       }
     )
 
-
-
     const active = toRef(props, 'modelValue')
     provide('activeValue', {
       active,
@@ -176,7 +175,7 @@ const Sidebar = defineComponent({
       <div
         ref={rootRef}
         class={sideBarClass.value}
-        style={{ '--vs-color': color }}
+        style={{ '--vs-color': color.value }}
         onMouseenter={mouseEnterEvent}
         onMouseleave={mouseLeaveEvent}
         {...attrs}

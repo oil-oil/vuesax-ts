@@ -1,18 +1,15 @@
+import catalogs from 'locales/zh/catalogs'
 import { useData, useRouter, useRoute } from 'vitepress'
 import { defineComponent } from 'vue'
 import { VsNavbar, VsNavbarItem, VsNavbarGroup } from 'vuesax-ts'
+
 import './style.scss'
 
 const Navbar = defineComponent({
   name: 'Navbar',
   setup() {
     const { theme, isDark } = useData<{
-      nav: {
-        text: string
-        link: string
-        items?: { link: string; text: string }[]
-        parts?: { title: string; part: { link: string; text: string }[] }[]
-      }[]
+      nav: typeof catalogs
       logo: string
       siteTitle: string
     }>()
@@ -73,68 +70,25 @@ const Navbar = defineComponent({
       >
         {theme.value.nav.map((value) => (
           <>
-            {value.items && (
-              <VsNavbarGroup
-                v-slots={{
-                  items: () => (
-                    <>
-                      {value.items?.map((item) => (
-                        <VsNavbarItem
-                          onClick={(e: MouseEvent) => pushTo(item.link, e)}
-                          active={route.path === item.link}
-                          id={item.text}
-                        >
-                          {item.text}
-                        </VsNavbarItem>
-                      ))}
-                    </>
-                  )
-                }}
-              >
-                {value.text}
-              </VsNavbarGroup>
-            )}
-            {value.parts && (
-              <VsNavbarGroup
-                v-slots={{
-                  items: () => (
-                    <>
-                      {value.parts?.map((part) => (
-                        <>
-                          <h5
-                            style={{ width: '100%', margin: '8px 0 8px 8px' }}
-                          >
-                            {part.title}
-                          </h5>
-                          {part.part.map((partValue) => (
-                            <VsNavbarItem
-                              active={route.path === partValue.link}
-                              id={partValue.text}
-                              onClick={(e: MouseEvent) =>
-                                pushTo(partValue.link, e)
-                              }
-                            >
-                              {partValue.text}
-                            </VsNavbarItem>
-                          ))}
-                        </>
-                      ))}
-                    </>
-                  )
-                }}
-              >
-                {value.text}
-              </VsNavbarGroup>
-            )}
-            {!value.parts && !value.items && (
-              <VsNavbarItem
-                active={route.path === value.link}
-                id={value.text}
-                onClick={(e: MouseEvent) => pushTo(value.link, e)}
-              >
-                {value.text}
-              </VsNavbarItem>
-            )}
+            <VsNavbarGroup
+              v-slots={{
+                items: () => (
+                  <>
+                    {value.items?.map((item) => (
+                      <VsNavbarItem
+                        active={route.path === item.link}
+                        id={item.text}
+                        onClick={(e: MouseEvent) => pushTo(item.link, e)}
+                      >
+                        {item.text}
+                      </VsNavbarItem>
+                    ))}
+                  </>
+                )
+              }}
+            >
+              {value.text}
+            </VsNavbarGroup>
           </>
         ))}
       </VsNavbar>

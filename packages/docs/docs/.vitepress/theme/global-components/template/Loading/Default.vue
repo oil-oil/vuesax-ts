@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useLoading } from 'vuesax-ts'
+import { VsButton, useLoading } from 'vuesax-ts'
 
 const active = ref(false)
 const { open, close } = useLoading()
