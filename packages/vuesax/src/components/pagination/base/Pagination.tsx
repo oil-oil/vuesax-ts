@@ -5,6 +5,7 @@ import {
   nextTick,
   onMounted,
   ref,
+  toRef,
   watch
 } from 'vue'
 
@@ -70,7 +71,8 @@ const Pagination = defineComponent({
   },
   emits: ['update:modelValue'],
   setup(props, { emit, slots }) {
-    const color = useColor(props.color)
+    const colorRef = toRef(props, 'color')
+    const color = useColor(colorRef)
     const innerValue = ref<number>(0)
     const paginationRef = ref<HTMLElement>()
     const buttonRefs = ref<HTMLElement[]>([])
@@ -290,7 +292,7 @@ const Pagination = defineComponent({
             disabled: props.disabled
           }
         ]}
-        style={{ '--vs-color': color }}
+        style={{ '--vs-color': color.value }}
       >
         {!props.onlyArrow && (
           <div

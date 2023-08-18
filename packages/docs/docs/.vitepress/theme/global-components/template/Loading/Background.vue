@@ -4,15 +4,14 @@
       <input v-model="color" type="color" />
       <i class="bx bxs-color-fill" />
     </div>
-    <VsButton flat :loading="active" :color="color" @click="handleClick"
-      >Open Loading</VsButton
-    >
+    {{color}}
+    <VsButton flat :loading="active" :color="color" @click="handleClick">Open Loading</VsButton>
   </div>
 </template>
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { useLoading } from 'vuesax-ts'
+import { useLoading, VsButton } from 'vuesax-ts'
 import type { LoadingHookProps, Color } from 'vuesax-ts'
 
 const color = ref<Color>('#7A76CB')

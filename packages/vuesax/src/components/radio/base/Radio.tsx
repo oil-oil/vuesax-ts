@@ -1,5 +1,11 @@
 import { nanoid } from 'nanoid'
-import { InputHTMLAttributes, PropType, computed, defineComponent } from 'vue'
+import {
+  InputHTMLAttributes,
+  PropType,
+  computed,
+  defineComponent,
+  toRef
+} from 'vue'
 
 import useColor from '@/hooks/useColor'
 import { Color, CompWithAttr } from '@/types/utils'
@@ -39,7 +45,8 @@ const Radio = defineComponent({
   slots: ['default', 'icon'],
   emits: ['update:modelValue'],
   setup(props, { attrs, slots, emit }) {
-    const color = useColor(props.color)
+    const colorRef = toRef(props, 'color')
+    const color = useColor(colorRef)
     const inputAttrs = attrs as InputHTMLAttributes
     const uniqueId = inputAttrs?.id || nanoid()
 
@@ -88,7 +95,7 @@ const Radio = defineComponent({
             active: isChecked.value
           }
         ]}
-        style={{ '--vs-color': color }}
+        style={{ '--vs-color': color.value }}
       >
         {props.labelBefore && label()}
         {radio()}

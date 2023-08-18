@@ -39,7 +39,9 @@ const useLoading = (props?: LoadingHookProps) => {
 
   const unMountLoading = () => {
     app.value.unmount()
-    document.body.removeChild(LoadingDom)
+    setTimeout(() => {
+      document.body.removeChild(LoadingDom)
+    }, 500)
   }
 
   onMounted(() => {

@@ -4,7 +4,8 @@ import {
   PropType,
   Transition,
   computed,
-  defineComponent
+  defineComponent,
+  toRef
 } from 'vue'
 
 import './style.scss'
@@ -77,7 +78,8 @@ const Input = defineComponent({
     }
   },
   setup(props, { attrs, slots, emit }) {
-    const color = useColor(props.color)
+    const colorRef = toRef(props, 'color')
+    const color = useColor(colorRef)
 
     const id = computed(() => `vs-input--${attrs.id || 'id'}`)
 
@@ -128,7 +130,7 @@ const Input = defineComponent({
             'vs-component--is-color': !!props.color
           }
         ]}
-        style={{ '--vs-color': color }}
+        style={{ '--vs-color': color.value }}
       >
         {/* input content */}
         <div

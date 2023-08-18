@@ -78,7 +78,8 @@ const Select = defineComponent({
   emits: ['update:modelValue', 'blur', 'focus'],
   slots: ['default', 'noData'],
   setup(props, { slots, attrs, emit }) {
-    const color = useColor(props.color)
+    const colorRef = toRef(props, 'color')
+    const color = useColor(colorRef)
     const selectAttrs = attrs as InputHTMLAttributes
     const uniqueId = selectAttrs?.id || nanoid()
 
@@ -441,7 +442,7 @@ const Select = defineComponent({
           }
         ]}
         style={{
-          '--vs-color': color,
+          '--vs-color': color.value,
           marginTop: props.label ? '32px' : '0'
         }}
         ref={selectRef}
@@ -598,7 +599,7 @@ const Select = defineComponent({
                 }
               ]}
               style={{
-                '--vs-color': color
+                '--vs-color': color.value
               }}
               ref={optionRef}
               onMouseleave={() => {

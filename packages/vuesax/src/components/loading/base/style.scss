@@ -12,8 +12,6 @@
 }
 
 .vs-loading {
-    --vs-background: 255, 255, 255;
-    --vs-opacity: 0.6;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -23,7 +21,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: -color("background", -var("opacity"));
     transition: all 0.25s ease;
     padding: 20px;
     border-radius: inherit;

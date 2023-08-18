@@ -1,9 +1,9 @@
 import {
   ButtonHTMLAttributes,
   PropType,
-  computed,
   defineComponent,
-  ref
+  ref,
+  toRef
 } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -112,7 +112,8 @@ const Button = defineComponent({
   slots: ['default', 'animate'],
   emits: ['click'],
   setup(props, { slots, attrs, emit }) {
-    const color = useColor(props.color)
+    const colorRef = toRef(props, 'color')
+    const color = useColor(colorRef)
 
     const buttonRef = ref<Element>()
     const router = useRouter()
@@ -132,40 +133,6 @@ const Button = defineComponent({
     )
 
     const loadingElement = <div class="vs-button__loading"></div>
-
-    const buttonClass = computed(() => [
-      'vs-button',
-      `vs-button--size-${props.size}`,
-      {
-        'vs-button--fff': props.color === '#fff',
-        'vs-button--active': props.active,
-        'vs-button--active-disabled': props.activeDisabled,
-        'vs-button--icon': props.icon,
-        'vs-button--circle': props.circle,
-        'vs-button--square': props.square,
-        'vs-button--loading': props.loading,
-        'vs-button--upload': props.upload,
-        'vs-button--block': props.block,
-        'vs-button--animate': slots.animate,
-        [`vs-button--animate-${props.animationType}`]: props.animationType,
-        'vs-button--animate-inactive': props.animateInactive,
-        'vs-button--default':
-          !props.flat &&
-          !props.border &&
-          !props.gradient &&
-          !props.relief &&
-          !props.transparent &&
-          !props.shadow &&
-          !props.floating,
-        'vs-button--flat': props.flat,
-        'vs-button--border': props.border,
-        'vs-button--gradient': props.gradient,
-        'vs-button--relief': props.relief,
-        'vs-button--transparent': props.transparent,
-        'vs-button--shadow': props.shadow,
-        'vs-button--floating': props.floating
-      }
-    ])
 
     const handleMouseDown = (evt: MouseEvent) => {
       if (props.ripple === 'reverse') {
@@ -200,8 +167,40 @@ const Button = defineComponent({
 
     return () => (
       <button
-        class={buttonClass.value}
-        style={{ '--vs-color': color }}
+        class={[
+          'vs-button',
+          `vs-button--size-${props.size}`,
+          {
+            'vs-button--fff': props.color === '#fff',
+            'vs-button--active': props.active,
+            'vs-button--active-disabled': props.activeDisabled,
+            'vs-button--icon': props.icon,
+            'vs-button--circle': props.circle,
+            'vs-button--square': props.square,
+            'vs-button--loading': props.loading,
+            'vs-button--upload': props.upload,
+            'vs-button--block': props.block,
+            'vs-button--animate': slots.animate,
+            [`vs-button--animate-${props.animationType}`]: props.animationType,
+            'vs-button--animate-inactive': props.animateInactive,
+            'vs-button--default':
+              !props.flat &&
+              !props.border &&
+              !props.gradient &&
+              !props.relief &&
+              !props.transparent &&
+              !props.shadow &&
+              !props.floating,
+            'vs-button--flat': props.flat,
+            'vs-button--border': props.border,
+            'vs-button--gradient': props.gradient,
+            'vs-button--relief': props.relief,
+            'vs-button--transparent': props.transparent,
+            'vs-button--shadow': props.shadow,
+            'vs-button--floating': props.floating
+          }
+        ]}
+        style={{ '--vs-color': color.value }}
         onMousedown={(e) => handleMouseDown(e)}
         onClick={onClick}
         ref="buttonRef"

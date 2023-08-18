@@ -6,6 +6,7 @@ import {
   nextTick,
   onMounted,
   ref,
+  toRef,
   toRefs,
   watch
 } from 'vue'
@@ -73,7 +74,8 @@ const Alert = defineComponent({
   slots: ['default', 'icon', 'title'],
   emits: ['update:page', 'update:hiddenContent', 'update:isShow'],
   setup(props, { slots, emit }) {
-    const color = useColor(props.color)
+    const colorRef = toRef(props, 'color')
+    const color = useColor(colorRef)
     const { page } = toRefs(props)
     const rootRef = ref<HTMLElement | null>(null)
     const contentRef = ref<HTMLElement | null>(null)
@@ -166,7 +168,7 @@ const Alert = defineComponent({
                 'vs-alert--pages': getPagesValue.value.length > 0
               }
             ]}
-            style={{ '--vs-color': color }}
+            style={{ '--vs-color': color.value }}
           >
             {/* icon */}
             {slots.icon && <div class="vs-alert__icon">{slots.icon()}</div>}
