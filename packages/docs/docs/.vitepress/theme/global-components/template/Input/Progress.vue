@@ -22,8 +22,8 @@
 
     <template v-if="getProgress >= 100" #message-success>
       Secure password
-    </template></VsInput
-  >
+    </template>
+  </VsInput>
 </template>
 
 <script setup lang="ts">
@@ -68,5 +68,3 @@ const getProgress = computed(() => {
   return progress
 })
 </script>
-
-<style scoped></style>

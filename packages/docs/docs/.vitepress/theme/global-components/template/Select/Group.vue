@@ -1,14 +1,12 @@
 <template>
   <div class="center">
     <VsSelect v-model="value" labelPlaceholder="Group" class="select">
-      <VsOptionGroup>
-        <template #title> VueTs </template>
+      <VsOptionGroup title="VueTs">
         <VsOption label="Vuesax" value="1">Vuesax</VsOption>
         <VsOption label="Vue" value="2">Vue</VsOption>
         <VsOption label="Javascript" value="3">Javascript</VsOption>
       </VsOptionGroup>
-      <VsOptionGroup>
-        <template #title> Others </template>
+      <VsOptionGroup title="Others">
         <VsOption label="Scss" value="4">Scss</VsOption>
         <VsOption label="Typescript" value="5">Typescript</VsOption>
         <VsOption label="Nodejs" value="6">Nodejs</VsOption>
@@ -20,14 +18,12 @@
       filter
       class="select"
     >
-      <VsOptionGroup>
-        <template #title> VueTs </template>
+      <VsOptionGroup title="VueTs">
         <VsOption label="Vuesax" value="1">Vuesax</VsOption>
         <VsOption label="Vue" value="2">Vue</VsOption>
         <VsOption label="Javascript" value="3">Javascript</VsOption>
       </VsOptionGroup>
-      <VsOptionGroup>
-        <template #title> Others </template>
+      <VsOptionGroup title="Others">
         <VsOption label="Scss" value="4">Scss</VsOption>
         <VsOption label="Typescript" value="5">Typescript</VsOption>
         <VsOption label="Nodejs" value="6">Nodejs</VsOption>
@@ -40,17 +36,15 @@
       multiple
       class="select"
     >
-      <VsOptionGroup>
-        <template #title> Vuejs </template>
-        <VsOption label="Vuesax" value="1">Vuesax</VsOption>
-        <VsOption label="Vue" value="2">Vue</VsOption>
-        <VsOption label="Javascript" value="3">Javascript</VsOption>
+      <VsOptionGroup title="Vuejs">
+        <VsOption label="Vuesax" value="1"></VsOption>
+        <VsOption label="Vue" value="2"></VsOption>
+        <VsOption label="Javascript" value="3"></VsOption>
       </VsOptionGroup>
-      <VsOptionGroup>
-        <template #title> Other </template>
-        <VsOption label="Scss" value="4">Scss</VsOption>
-        <VsOption label="Typescript" value="5">Typescript</VsOption>
-        <VsOption label="Nodejs" value="6">Nodejs</VsOption>
+      <VsOptionGroup title="Other">
+        <VsOption label="Scss" value="4"></VsOption>
+        <VsOption label="Typescript" value="5"></VsOption>
+        <VsOption label="Nodejs" value="6"></VsOption>
       </VsOptionGroup>
     </VsSelect>
   </div>

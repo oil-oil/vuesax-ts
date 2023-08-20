@@ -33,5 +33,3 @@ const handleClick = () => {
   }, 10000)
 }
 </script>
-
-<style scoped></style>

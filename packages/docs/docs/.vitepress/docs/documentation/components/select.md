@@ -16,7 +16,6 @@ Change the color of the component with the `color` property, the allowed values 
 
 </card>
 
-
 <card subtitle="Label">
 
 ## Label
@@ -24,7 +23,6 @@ Change the color of the component with the `color` property, the allowed values 
 Add a label to the select easily with the `label` property, you can also add a `label-placeholder` which as its name says is a placeholder that encourages label, and finally the placeholder with the `placeholder` property
 
 </card>
-
 
 <card subtitle="Group">
 
@@ -62,11 +60,11 @@ Add a loading animation to the select with the `loading` property, this property
 
 </card>
 
-<card subtitle="State">
+<card subtitle="Status">
 
-## State
+## Status
 
-Change the style of the component to the color passed in the `state` property, the allowed colors are only the main ones of vuesax
+Change the style of the component to the color passed in the `status` property, the allowed colors are only the main ones of vuesax
 
 :::tip
 This property can be used to indicate a missing field to the user or when something is ready.

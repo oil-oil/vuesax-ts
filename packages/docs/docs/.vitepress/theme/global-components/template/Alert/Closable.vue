@@ -21,5 +21,3 @@ import { VsAlert } from 'vuesax-ts'
 
 const activeShow = ref(true)
 </script>
-
-<style scoped></style>

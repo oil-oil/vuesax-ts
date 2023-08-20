@@ -17,5 +17,3 @@ import { VsSelect, VsOption } from 'vuesax-ts'
 
 const value = ref(0)
 </script>
-
-<style scoped></style>

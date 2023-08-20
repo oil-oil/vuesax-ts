@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { InputHTMLAttributes, PropType, defineComponent, toRef } from 'vue'
+import { InputHTMLAttributes, PropType, defineComponent } from 'vue'
 
 import './style.scss'
 
@@ -37,8 +37,8 @@ const Switch = defineComponent({
   slots: ['circle', 'on', 'off'],
   emits: ['update:modelValue'],
   setup(props, { attrs, slots, emit }) {
-    const colorRef = toRef(props, 'color')
-    const color = useColor(colorRef)
+    const { getColor } = useColor()
+    const color = getColor(props.color)
 
     return () => (
       <div
@@ -51,7 +51,7 @@ const Switch = defineComponent({
             'vs-switch--icon': props.icon
           }
         ]}
-        style={{ '--vs-color': color.value }}
+        style={{ '--vs-color': color }}
       >
         <input
           type="checkbox"

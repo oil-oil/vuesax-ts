@@ -6,8 +6,7 @@ import {
   ref,
   watch,
   Transition,
-  PropType,
-  toRef
+  PropType
 } from 'vue'
 
 import useColor from '@/hooks/useColor'
@@ -79,8 +78,8 @@ const Tooltip = defineComponent({
   },
   slots: ['default', 'tooltip'],
   setup(props, { slots, emit }) {
-    const colorRef = toRef(props, 'color')
-    const color = useColor(colorRef)
+    const { getColor } = useColor()
+    const color = getColor(props.color)
     const activeTooltip = ref(false)
     const isHoverTooltip = ref(false)
     const contentRef = ref<HTMLElement>()
@@ -220,7 +219,7 @@ const Tooltip = defineComponent({
           {activeTooltip.value && (
             <div
               ref={tooltipRef}
-              style={{ '--vs-color': color.value }}
+              style={{ '--vs-color': color }}
               class={[
                 'vs-tooltip',
                 {

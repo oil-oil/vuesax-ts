@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { Ref, computed, inject } from 'vue'
+import { inject } from 'vue'
 
 import innerColors from '@/styles/colors'
 import { Color, InnerColor } from '@/types/utils'
@@ -21,37 +21,39 @@ const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
     : null
 }
 
-const useColor = (colorRef?: Ref<Color | undefined>) =>
-  computed(() => {
-    if (colorRef?.value) {
+const useColor = () => {
+  const getColor = (color?: Color) => {
+    if (color) {
       const options = inject<VuesaxOptions>(vuesaxOptionsKey, {
         colors: undefined
       })
 
       const colors = { ...innerColors, ...(options?.colors || {}) }
-      const isRGB = /^(rgb|rgba)/.test(colorRef?.value)
+      const isRGB = /^(rgb|rgba)/.test(color)
       const isRGBNumbers =
         /^(0|255|25[0-4]|2[0-4]\d|1\d\d|0?\d?\d),(0|255|25[0-4]|2[0-4]\d|1\d\d|0?\d?\d),(0|255|25[0-4]|2[0-4]\d|1\d\d|0?\d?\d)$/.test(
-          colorRef?.value
+          color
         )
-      const isHEX = /^(#)/.test(colorRef?.value)
+      const isHEX = /^(#)/.test(color)
       if (isRGB) {
-        const arrayColor = colorRef.value!.replace(/[rgba()]/g, '').split(',')
+        const arrayColor = color.replace(/[rgba()]/g, '').split(',')
         return `${arrayColor[0]},${arrayColor[1]},${arrayColor[2]}`
       }
       if (isHEX) {
-        const rgb = hexToRgb(colorRef.value!)
+        const rgb = hexToRgb(color!)
         return `${rgb!.r},${rgb!.g},${rgb!.b}`
       }
-      if (isColor(colorRef.value!)) {
-        return colors[colorRef.value as InnerColor]
+      if (isColor(color)) {
+        return colors[color as InnerColor]
       }
       if (isRGBNumbers) {
-        return colorRef?.value
+        return color
       }
     }
 
     return undefined
-  })
+  }
 
+  return { getColor }
+}
 export default useColor

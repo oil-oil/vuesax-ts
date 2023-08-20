@@ -7,8 +7,7 @@ import {
   inject,
   Ref,
   HTMLAttributes,
-  PropType,
-  toRef
+  PropType
 } from 'vue'
 
 import useColor from '@/hooks/useColor'
@@ -74,8 +73,8 @@ const Avatar = defineComponent({
   },
   slots: ['default', 'icons', 'badge'],
   setup(props, { slots, attrs }) {
-    const colorRef = toRef(props, 'color')
-    const color = useColor(colorRef)
+    const { getColor } = useColor()
+    const color = getColor(props.color)
     const textLength = ref(0)
     const index = ref<number>(0)
     const badgeRef = ref<HTMLElement>()
@@ -206,7 +205,7 @@ const Avatar = defineComponent({
           width: `${props.size}px`,
           height: `${props.size}px`,
           cursor: props.pointer ? 'pointer' : 'default',
-          '--vs-color': color.value
+          '--vs-color': color
         }}
         class={[
           'vs-avatar-content',

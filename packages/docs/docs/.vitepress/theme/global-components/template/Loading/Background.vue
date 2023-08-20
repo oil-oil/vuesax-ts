@@ -4,8 +4,10 @@
       <input v-model="color" type="color" />
       <i class="bx bxs-color-fill" />
     </div>
-    {{color}}
-    <VsButton flat :loading="active" :color="color" @click="handleClick">Open Loading</VsButton>
+    {{ color }}
+    <VsButton flat :loading="active" :color="color" @click="handleClick"
+      >Open Loading</VsButton
+    >
   </div>
 </template>
 

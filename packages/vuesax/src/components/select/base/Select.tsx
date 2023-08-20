@@ -16,7 +16,7 @@ import {
 } from 'vue'
 
 import { beforeEnter, enter, leave } from './transition'
-import { Option, SelectProvider } from '../types'
+import { Option, SelectProvider, SelectValue } from '../types'
 import useColor from '@/hooks/useColor'
 import IconArrow from '@/icons/Arrow'
 import IconClose from '@/icons/Close'
@@ -34,7 +34,7 @@ const Select = defineComponent({
       default: 'primary'
     },
     modelValue: {
-      type: [Array, String] as PropType<string[] | string>
+      type: [Array, String] as PropType<SelectValue>
     },
     multiple: {
       type: Boolean,
@@ -64,7 +64,7 @@ const Select = defineComponent({
       type: Boolean,
       default: false
     },
-    state: {
+    status: {
       type: String as PropType<
         'success' | 'warn' | 'danger' | 'primary' | 'dark'
       >,
@@ -78,8 +78,8 @@ const Select = defineComponent({
   emits: ['update:modelValue', 'blur', 'focus'],
   slots: ['default', 'noData'],
   setup(props, { slots, attrs, emit }) {
-    const colorRef = toRef(props, 'color')
-    const color = useColor(colorRef)
+    const { getColor } = useColor()
+    const color = getColor(props.color)
     const selectAttrs = attrs as InputHTMLAttributes
     const uniqueId = selectAttrs?.id || nanoid()
 
@@ -91,16 +91,16 @@ const Select = defineComponent({
     const placeholderRef = ref<HTMLElement>()
     const contentRef = ref<HTMLElement>()
 
-    const uids = ref<string[]>([])
-    const valueLabel = ref<{ label: string; value: string }[] | string>()
+    const uids: SelectProvider['uids'] = ref([])
+    const selectedLabel = ref<Pick<Option, 'label' | 'value'>[] | string>()
     const isOptionsShow = ref(false)
-    const hoverOption = ref(-1)
-    const childOptions = ref<Option[]>([])
     const isFilterActive = ref(false)
-    const textFilter = ref('')
-    const targetSelect = ref(false)
+    const hoverOption: SelectProvider['hoverOption'] = ref(-1)
+    const childOptions: SelectProvider['childOptions'] = ref<Option[]>([])
+    const textFilter: SelectProvider['textFilter'] = ref('')
+    const isTargetSelect: SelectProvider['isTargetSelect'] = ref(false)
+    const isTargetClose: SelectProvider['isTargetClose'] = ref(false)
     const isInputHover = ref(false)
-    const targetClose = ref(false)
 
     const insertOptions = () => {
       const options = optionRef.value as HTMLElement
@@ -125,34 +125,28 @@ const Select = defineComponent({
 
     const getValue = () => {
       if (!isNil(props.modelValue)) {
-        const filterOptions = childOptions.value.filter((option) =>
-          typeof props.modelValue === 'number'
-            ? props.modelValue === option.value
-            : props.modelValue?.indexOf(option.value) !== -1
-        )
-
-        const label: { label: string; value: string }[] = []
-        filterOptions.forEach((item) => {
-          label.push({
+        const modelValue = props.modelValue as (string | number)[]
+        selectedLabel.value = childOptions.value
+          .filter(
+            (option) => (modelValue || [])?.indexOf(option.value || '') !== -1
+          )
+          .map((item) => ({
             label: item.label,
             value: item.value
-          })
-        })
-
-        label.sort(
-          (a, b) =>
-            props.modelValue!.indexOf(a.value) -
-            props.modelValue!.indexOf(b.value)
-        )
-        valueLabel.value = label
+          }))
+          .sort(
+            (a, b) =>
+              modelValue.indexOf(a.value || '') -
+              modelValue.indexOf(b.value || '')
+          )
       }
     }
 
-    const computedValueLabel = computed(() => {
-      if (Array.isArray(valueLabel.value)) {
-        return valueLabel.value.map((item) => item.label)
+    const computedSelectedLabel = computed(() => {
+      if (Array.isArray(selectedLabel.value)) {
+        return selectedLabel.value.map((item) => item.label)
       }
-      return valueLabel.value
+      return selectedLabel.value
     })
 
     const handleBlur = () => {
@@ -190,19 +184,26 @@ const Select = defineComponent({
       }
     }
 
-    const onClickOption = (value: string | null, label: string) => {
+    const onClickOption: SelectProvider['onClickOption'] = ({
+      value,
+      label
+    }) => {
       let newValue
-      const oldValue = isNil(props.modelValue) ? [] : props.modelValue
+      const oldValue = isNil(props.modelValue)
+        ? []
+        : (props.modelValue as (string | number)[])
       if (props.multiple && value) {
-        const index = props.modelValue?.indexOf(value)
+        const index = (
+          (props.modelValue as (string | number)[]) || []
+        )?.indexOf(value)
         if (index === -1) {
-          newValue = [...oldValue!, value]
+          newValue = [...oldValue, value]
         } else {
-          newValue = [...oldValue!].filter((_, i) => i !== index)
+          newValue = [...oldValue].filter((_, i) => i !== index)
         }
       } else {
         newValue = value
-        valueLabel.value = label
+        selectedLabel.value = label
       }
 
       emit('update:modelValue', newValue)
@@ -219,7 +220,7 @@ const Select = defineComponent({
 
     const chips = computed(() => {
       const chip = (
-        item: { value: string | null; label: string },
+        item: Pick<Option, 'label' | 'value'>,
         isCollapse: boolean
       ): VNode => (
         <span
@@ -232,7 +233,7 @@ const Select = defineComponent({
               class="vs-select__chips__chip__close"
               onClick={() => {
                 setTimeout(() => {
-                  targetClose.value = false
+                  isTargetClose.value = false
                 }, 100)
                 if (!isOptionsShow.value) {
                   ;(chipsRef.value as HTMLElement).blur()
@@ -240,7 +241,7 @@ const Select = defineComponent({
                     ;(chipsInputRef.value as HTMLElement).blur()
                   }
                 }
-                onClickOption(item.value, item.label)
+                onClickOption({ value: item.value, label: item.label })
               }}
             >
               <IconClose hover="less" />
@@ -251,8 +252,8 @@ const Select = defineComponent({
 
       let tempChips: VNode[] = []
 
-      if (Array.isArray(valueLabel.value)) {
-        valueLabel.value.forEach((item) => {
+      if (Array.isArray(selectedLabel.value)) {
+        selectedLabel.value.forEach((item) => {
           tempChips.push(chip(item, false))
         })
       }
@@ -260,7 +261,7 @@ const Select = defineComponent({
       if (props.collapseChips && tempChips.length > 1) {
         tempChips = [
           tempChips[0],
-          chip({ label: `+${tempChips.length - 1}`, value: null }, true)
+          chip({ label: `+${tempChips.length - 1}`, value: undefined }, true)
         ]
       }
 
@@ -274,7 +275,7 @@ const Select = defineComponent({
         handleBlur()
       } else if (
         !isInputHover.value ||
-        (!targetSelect.value && !isOptionsShow.value)
+        (!isTargetSelect.value && !isOptionsShow.value)
       ) {
         handleBlur()
       }
@@ -310,10 +311,10 @@ const Select = defineComponent({
         evt.preventDefault()
         if (hoverOption.value !== -1) {
           if (!childOptions.value[hoverOption.value].disabled) {
-            onClickOption(
-              childOptions.value[hoverOption.value].value,
-              childOptions.value[hoverOption.value].label
-            )
+            onClickOption({
+              value: childOptions.value[hoverOption.value].value,
+              label: childOptions.value[hoverOption.value].label
+            })
             if (!props.multiple) {
               handleBlur()
               ;(inputRef.value as HTMLElement).blur()
@@ -355,10 +356,13 @@ const Select = defineComponent({
       }
     }
 
-    const getMessage = (type: string) => (
+    const getMessage = (type: Color) => (
       <Transition onBeforeEnter={beforeEnter} onEnter={enter} onLeave={leave}>
         {!!slots[`message-${type}`] && (
-          <div class={['vs-select__message', `vs-select__message--${type}`]}>
+          <div
+            class={['vs-select__message']}
+            style={{ '--vs-color': getColor(type) }}
+          >
             {slots[`message-${type}`]?.()}
           </div>
         )}
@@ -380,9 +384,6 @@ const Select = defineComponent({
       () => props.modelValue,
       () => {
         getValue()
-        setTimeout(() => {
-          emit('update:modelValue', props.modelValue)
-        }, 10)
 
         if (props.multiple) {
           nextTick(() => {
@@ -428,8 +429,8 @@ const Select = defineComponent({
       uids,
       hoverOption,
       childOptions,
-      targetSelect,
-      targetClose,
+      isTargetSelect,
+      isTargetClose,
       color: toRef(props, 'color')
     })
 
@@ -442,17 +443,18 @@ const Select = defineComponent({
           }
         ]}
         style={{
-          '--vs-color': color.value,
+          '--vs-color': color,
           marginTop: props.label ? '32px' : '0'
         }}
         ref={selectRef}
       >
         {/* select content */}
         <div
+          style={{ '--vs-color': color }}
           class={[
             'vs-select',
             {
-              [`vs-select--state-${props.state}`]: props.state,
+              [`vs-select--status-${props.status}`]: props.status,
               'vs-select--disabled': selectAttrs.disabled,
               'show-options': isOptionsShow.value,
               loading: props.loading
@@ -461,7 +463,7 @@ const Select = defineComponent({
           onMouseleave={(e) => {
             if (e.relatedTarget !== optionRef.value) {
               isInputHover.value = false
-              targetSelect.value = false
+              isTargetSelect.value = false
             }
           }}
           onMouseenter={() => {
@@ -482,7 +484,9 @@ const Select = defineComponent({
               }
             ]}
             value={
-              isFilterActive.value ? textFilter.value : computedValueLabel.value
+              isFilterActive.value
+                ? textFilter.value
+                : computedSelectedLabel.value
             }
             onKeydown={handleKeydown}
             onFocus={(e) => {
@@ -507,13 +511,16 @@ const Select = defineComponent({
                   'vs-select__label--placeholder': props.labelPlaceholder,
                   'vs-select__label--label': props.label,
                   'vs-select__label--hidden': (() => {
-                    if (Array.isArray(props.modelValue)) {
-                      return props.modelValue.length !== 0
+                    if (props.labelPlaceholder) {
+                      if (Array.isArray(props.modelValue)) {
+                        return props.modelValue.length !== 0
+                      }
+                      if (typeof props.modelValue === 'number') {
+                        return true
+                      }
+                      return props.modelValue && !props.label
                     }
-                    if (typeof props.modelValue === 'number') {
-                      return true
-                    }
-                    return props.modelValue && !props.label
+                    return false
                   })()
                 }
               ]}
@@ -554,7 +561,7 @@ const Select = defineComponent({
               ref={chipsRef}
               onKeydown={handleKeydown}
               onFocus={(e) => {
-                if (!targetClose.value) {
+                if (!isTargetClose.value) {
                   isOptionsShow.value = true
                   emit('focus', e)
                 }
@@ -573,7 +580,7 @@ const Select = defineComponent({
                   id={uniqueId}
                   value={textFilter.value}
                   onFocus={(e) => {
-                    if (!targetClose.value) {
+                    if (!isTargetClose.value) {
                       isOptionsShow.value = true
                       emit('focus', e)
                     }
@@ -599,15 +606,15 @@ const Select = defineComponent({
                 }
               ]}
               style={{
-                '--vs-color': color.value
+                '--vs-color': color
               }}
               ref={optionRef}
               onMouseleave={() => {
-                targetSelect.value = false
+                isTargetSelect.value = false
                 isInputHover.value = false
               }}
               onMouseenter={() => {
-                targetSelect.value = true
+                isTargetSelect.value = true
                 isInputHover.value = true
               }}
             >
@@ -638,7 +645,7 @@ const Select = defineComponent({
         </div>
 
         {/* message */}
-        {['success', 'danger', 'warn', 'primary'].map((type) =>
+        {(['success', 'danger', 'warn', 'primary'] as const).map((type) =>
           getMessage(type)
         )}
       </div>

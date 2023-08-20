@@ -5,8 +5,7 @@ import {
   onMounted,
   onUnmounted,
   provide,
-  ref,
-  toRef
+  ref
 } from 'vue'
 
 import useColor from '@/hooks/useColor'
@@ -74,8 +73,8 @@ const Navbar = defineComponent({
   },
   slots: ['default', 'left', 'right'],
   setup(props, { slots, emit }) {
-    const colorRef = toRef(props, 'color')
-    const color = useColor(colorRef)
+    const { getColor } = useColor()
+    const color = getColor(props.color)
     const leftLine = ref(0)
     const widthLine = ref(0)
     const scrollTop = ref(0)
@@ -230,7 +229,7 @@ const Navbar = defineComponent({
             'vs-component--is-color': props.color
           }
         ]}
-        style={{ '--vs-color': color.value }}
+        style={{ '--vs-color': color }}
         ref={elRef}
       >
         <div class="vs-navbar">
