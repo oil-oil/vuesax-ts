@@ -1,13 +1,16 @@
 @import "@/styles/mixins";
+
 .vs-select__option-group {
   padding-left: 10px;
   border-bottom: 2px solid -color("gray-1");
   position: relative;
   overflow: hidden;
   transition: all 0.25s ease;
+
   &:last-child {
     border: 0px;
   }
+
   h5 {
     max-height: 28px;
     transition: all 0.25s ease;
@@ -18,6 +21,7 @@
     font-size: 0.7rem;
     user-select: none;
     overflow: hidden;
+
     * {
       pointer-events: none;
     }

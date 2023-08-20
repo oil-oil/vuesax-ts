@@ -2,9 +2,11 @@ import { Ref } from 'vue'
 
 import { Color } from '@/types/utils'
 
+export type SelectValue = string[] | string | number | number[]
+
 export type Option = {
-  label: string
-  value: string
+  label?: string
+  value?: string | number
   disabled: boolean
   hiddenOption: boolean
   hiddenOptionGroup: boolean
@@ -12,14 +14,20 @@ export type Option = {
 }
 
 export type SelectProvider = {
-  value: Ref<string[] | string | undefined>
+  value: Ref<SelectValue | undefined>
   textFilter: Ref<string>
   multiple: Ref<boolean>
-  onClickOption: (value: string | null, label: string) => void
+  onClickOption: ({
+    value,
+    label
+  }: {
+    value?: Option['value']
+    label?: string
+  }) => void
   uids: Ref<string[]>
   hoverOption: Ref<number>
   childOptions: Ref<Option[]>
-  targetSelect: Ref<boolean>
-  targetClose: Ref<boolean>
+  isTargetSelect: Ref<boolean>
+  isTargetClose: Ref<boolean>
   color: Ref<Color | undefined>
 }

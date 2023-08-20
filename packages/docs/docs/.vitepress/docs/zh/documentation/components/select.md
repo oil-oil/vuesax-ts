@@ -16,21 +16,19 @@
 
 </card>
 
-
 <card subtitle="Label">
 
 ## Label
 
-使用 `label` 属性可以轻松将标签添加到 Select 中，我们还可以添加一个 ``label-placeholder`，顾名思义，这是一个鼓励使用标签的占位符，最后是带有 `placeholder` 属性的占位符
+使用 `label` 属性可以轻松将标签添加到 Select 中，我们还可以添加一个 ``label-placeholder`，顾名思义，这是一个鼓励使用标签的占位符，最后是带有`placeholder` 属性的占位符
 
 </card>
-
 
 <card subtitle="Group">
 
 ## Group
 
-使用子组件 `vs-option-group `对选择内的选项进行分组， "title" 插槽可以为每一项组添加标题。
+使用子组件 `vs-option-group`对选择内的选项进行分组， "title" 插槽可以为每一项组添加标题。
 
 </card>
 
@@ -59,6 +57,18 @@ The value of the select must be an array
 ## Loading
 
 使用 `loading` 属性为选择器添加加载动画，该属性是 `boolean` 类型
+
+</card>
+
+<card subtitle="Status">
+
+## Status
+
+将组件的样式更改为 "status" 属性中传递的颜色，允许的颜色仅为 vuesax 的主题颜色
+
+:::tip
+该属性可用于向用户提示缺少的字段，或在某些内容准备就绪时指示缺少的字段。
+:::
 
 </card>
 

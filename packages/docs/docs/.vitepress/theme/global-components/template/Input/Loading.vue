@@ -8,5 +8,3 @@ import { VsInput } from 'vuesax-ts'
 
 const value = ref()
 </script>
-
-<style scoped></style>

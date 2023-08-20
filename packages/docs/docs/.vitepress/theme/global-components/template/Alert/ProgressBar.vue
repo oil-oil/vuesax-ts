@@ -18,5 +18,3 @@ import { VsAlert } from 'vuesax-ts'
 
 const progress = ref(70)
 </script>
-
-<style scoped></style>

@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid/non-secure'
 import {
   ButtonHTMLAttributes,
+  PropType,
   computed,
   defineComponent,
   inject,
@@ -10,7 +11,7 @@ import {
 } from 'vue'
 
 import VsCheckbox from '../../checkbox/base/Checkbox'
-import { SelectProvider } from '../types'
+import { SelectProvider, Option } from '../types'
 import { CompWithAttr } from '@/types/utils'
 
 import './style.scss'
@@ -19,14 +20,14 @@ const SelectOption = defineComponent({
   name: 'VsSelectOption',
   props: {
     value: {
-      type: null
+      type: [String, Number] as PropType<Option['value']>
     },
     disabled: {
       type: Boolean,
       default: false
     },
     label: {
-      type: null
+      type: String
     }
   },
   setup(props, { slots, attrs }) {
@@ -40,7 +41,9 @@ const SelectOption = defineComponent({
     const isActive = computed(() =>
       typeof provider?.value?.value === 'number'
         ? provider?.value?.value === props.value
-        : (provider?.value.value || []).indexOf(props.value) !== -1
+        : ((provider?.value.value || []) as (string | number)[]).indexOf(
+            props.value as any
+          ) !== -1
     )
 
     const isHover = computed(
@@ -53,7 +56,7 @@ const SelectOption = defineComponent({
       () => provider?.textFilter?.value,
       (val) => {
         if (val) {
-          if (props.label.toLowerCase().indexOf(val.toLowerCase()) === -1) {
+          if (props.label?.toLowerCase().indexOf(val.toLowerCase()) === -1) {
             hiddenOption.value = true
           } else {
             hiddenOption.value = false
@@ -92,17 +95,20 @@ const SelectOption = defineComponent({
           }
         ]}
         onMousedown={() => {
-          provider?.onClickOption?.(props.value, props.label)
+          provider?.onClickOption?.({ value: props.value, label: props.label })
         }}
         onBlur={() => {
-          if (provider?.targetSelect?.value && provider?.targetClose?.value) {
+          if (
+            provider?.isTargetSelect?.value &&
+            provider?.isTargetClose?.value
+          ) {
             activeOption.value = false
           }
         }}
         {...attrs}
       >
         {provider?.multiple?.value ? (
-          <VsCheckbox modelValue={isActive.value}>
+          <VsCheckbox modelValue={isActive.value} color={provider.color.value}>
             {slots.default?.() || props.label}
           </VsCheckbox>
         ) : (

@@ -1,20 +1,19 @@
 @import "@/styles/mixins.scss";
 
-@mixin state($color) {
+@mixin status($color) {
   .vs-select__input {
-    border: 2px solid -color($color, 0.5);
-    background: -color($color, 0.05);
-    color: -color($color, 1);
+    background: -color(color, 0.05);
+    color: -color(color, 1);
 
     &:hover {
-      border: 2px solid -color($color, 0);
+      border: 2px solid -color(color, 0);
       color: -color("text", 1);
     }
   }
 
   .vs-select__chips {
-    background: -color($color, 0.05);
-    color: -color($color, 1);
+    background: -color(color, 0.05);
+    color: -color(color, 1);
 
     &:hover {
       &:after {
@@ -29,29 +28,29 @@
       position: absolute;
       top: 0px;
       left: 0px;
-      border: 2px solid -color($color, 0.5);
+      border: 2px solid -color(color, 0.5);
       border-radius: inherit;
       transition: all 0.25s ease;
     }
   }
 
   .vs-select__label {
-    color: -color($color, 1);
+    color: -color(color, 1);
   }
 
   .vs-select__icon {
-    color: -color($color, 1);
-    background: -color($color, 0.1);
-    box-shadow: -15px 10px 10px -10px -color($color, 0.1);
+    color: -color(color, 1);
+    background: -color(color, 0.1);
+    box-shadow: -15px 10px 10px -10px -color(color, 0.1);
   }
 
   .vs-icon-arrow {
     &:after {
-      background: -color($color, 1);
+      background: -color(color, 1);
     }
 
     &:before {
-      background: -color($color, 1);
+      background: -color(color, 1);
     }
   }
 }
@@ -104,7 +103,6 @@
 }
 
 .vs-select {
-  --vs-color: var(--vs-primary);
   position: relative;
   display: flex;
   align-items: center;
@@ -112,24 +110,24 @@
   min-height: 38px;
   width: 100%;
 
-  &--state-success {
-    @include state("success");
+  &--status-success {
+    @include status("success");
   }
 
-  &--state-danger {
-    @include state("danger");
+  &--status-danger {
+    @include status("danger");
   }
 
-  &--state-warn {
-    @include state("warn");
+  &--status-warn {
+    @include status("warn");
   }
 
-  &--state-dark {
-    @include state("dark");
+  &--status-dark {
+    @include status("dark");
   }
 
-  &--state-primary {
-    @include state("primary");
+  &--status-primary {
+    @include status("primary");
   }
 
   &.loading {
@@ -386,7 +384,6 @@
   }
 
   &__options {
-    --vs-color: var(--vs-primary);
     position: absolute;
     z-index: 99999;
     background: -color("background");
@@ -507,7 +504,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      border: 2px solid -color("primary", 1);
+      border: 2px solid -color(color, 1);
       border-radius: inherit;
       border-top: 2px solid transparent;
       border-left: 2px solid transparent;
@@ -544,26 +541,7 @@
     padding: 0px 7px;
     transition: all 0.25s ease;
     overflow: hidden;
-
-    &--success {
-      color: -color("success", 1);
-    }
-
-    &--danger {
-      color: -color("danger", 1);
-    }
-
-    &--warn {
-      color: -color("warn", 1);
-    }
-
-    &--dark {
-      color: -color("dark", 1);
-    }
-
-    &--primary {
-      color: -color("primary", 1);
-    }
+    color: -color(color)
   }
 }
 

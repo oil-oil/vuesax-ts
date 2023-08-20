@@ -5,7 +5,6 @@ import {
   nextTick,
   onMounted,
   ref,
-  toRef,
   watch
 } from 'vue'
 
@@ -19,7 +18,8 @@ const Pagination = defineComponent({
   name: 'VsPagination',
   props: {
     color: {
-      type: String as PropType<Color>
+      type: String as PropType<Color>,
+      default: 'primary'
     },
     modelValue: {
       type: Number,
@@ -70,9 +70,10 @@ const Pagination = defineComponent({
     }
   },
   emits: ['update:modelValue'],
+  slots: ['default', 'arrowPrev', 'arrowNext'],
   setup(props, { emit, slots }) {
-    const colorRef = toRef(props, 'color')
-    const color = useColor(colorRef)
+    const { getColor } = useColor()
+    const color = getColor(props.color)
     const innerValue = ref<number>(0)
     const paginationRef = ref<HTMLElement>()
     const buttonRefs = ref<HTMLElement[]>([])
@@ -292,17 +293,8 @@ const Pagination = defineComponent({
             disabled: props.disabled
           }
         ]}
-        style={{ '--vs-color': color.value }}
+        style={{ '--vs-color': color }}
       >
-        {!props.onlyArrow && (
-          <div
-            class={['vs-pagination__active', { move: activeClassMove.value }]}
-            style={{ left: `${leftActive.value}px` }}
-          >
-            {props.shape === 'dotted' ? '' : props.modelValue}
-          </div>
-        )}
-
         {/* prev button */}
         {props.showArrow && (
           <button
@@ -321,10 +313,23 @@ const Pagination = defineComponent({
           </button>
         )}
 
-        {!props.onlyArrow && (
-          <div class="vs-pagination" ref={paginationRef}>
-            {getPages.value}
-          </div>
+        {!props.onlyArrow && !slots.default && (
+          <>
+            <div
+              class={['vs-pagination__active', { move: activeClassMove.value }]}
+              style={{ left: `${leftActive.value}px` }}
+            >
+              {props.shape === 'dotted' ? '' : props.modelValue}
+            </div>
+
+            <div class="vs-pagination" ref={paginationRef}>
+              {getPages.value}
+            </div>
+          </>
+        )}
+
+        {slots.default && (
+          <div class="vs-pagination__slot">{slots.default?.()}</div>
         )}
 
         {/* next button */}

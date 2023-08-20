@@ -11,5 +11,3 @@ import { VsRadio } from 'vuesax-ts'
 
 const value = ref('1')
 </script>
-
-<style scoped></style>

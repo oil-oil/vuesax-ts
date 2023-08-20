@@ -3,7 +3,7 @@
     <VsSelect
       v-for="(color, index) in colors"
       :key="index"
-      :state="color.color"
+      :status="color.color"
       :color="color.color"
       v-model="color.value"
       :labelPlaceholder="color.color"
@@ -20,16 +20,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { VsSelect, VsOption } from 'vuesax-ts'
 
-const colors = ref([
+const colors = [
   { color: 'danger', value: '1' },
   { color: 'success', value: '2' },
   { color: 'warn', value: '3' },
   { color: 'dark', value: '4' },
   { color: 'primary', value: '5' }
-] as const)
+] as const
 </script>
 
 <style scoped>
