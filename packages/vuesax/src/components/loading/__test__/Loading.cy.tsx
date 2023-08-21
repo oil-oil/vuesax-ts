@@ -37,7 +37,7 @@ describe('Loading', () => {
       .should(
         'have.css',
         'background',
-        'rgba(122, 118, 203) none repeat scroll 0% 0% / auto padding-box border-box'
+        'rgba(122, 118, 203, 0.6) none repeat scroll 0% 0% / auto padding-box border-box'
       )
   })
 
