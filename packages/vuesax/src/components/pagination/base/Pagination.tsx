@@ -64,7 +64,7 @@ const Pagination = defineComponent({
       type: Number,
       default: 9
     },
-    dottedNumber: {
+    pageStep: {
       type: Number,
       default: 5
     }
@@ -167,9 +167,9 @@ const Pagination = defineComponent({
         ]}
         onClick={() => {
           if (props.modelValue === props.length || text !== '...>') {
-            innerValue.value -= props.dottedNumber
+            innerValue.value -= props.pageStep
           } else if (text === '...>') {
-            innerValue.value += props.dottedNumber
+            innerValue.value += props.pageStep
           }
 
           if (innerValue.value > props.length) {

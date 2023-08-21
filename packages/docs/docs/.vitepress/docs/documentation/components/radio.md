@@ -13,13 +13,13 @@ props :
       type: Boolean
       values: true | false
       description: Determine if the component is in the disabled state.
-      default: false
+      default: "false"
       usageUrl: radio#default
     - name: loading
       type: Boolean
       values: true | false
       description: Determine if the component has a loading animation and is disabled.
-      default: false
+      default: "false"
       usageUrl: radio#loading
     - name: value
       type: String

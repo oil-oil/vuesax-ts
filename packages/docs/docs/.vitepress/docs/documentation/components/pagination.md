@@ -3,102 +3,72 @@ prev: Modal
 next: Table
 last Update: 2/10/2020, 2:21:50 AM
 props : 
-    - name: title
-      type: String
-      values: string
-      description: Add a title to the notification.
-      default: 
-      usageUrl: notification#default
-    - name: text
-      type: String
-      values: string
-      description: Add a text to the notification.
-      default:
-      usageUrl: notification#default
-    - name: position
-      type: String
-      values: bottom-right | top-right | top-center | top-left | bottom-left | bottom-center
-      description: Change the position of the component.
-      default: bottom-right
-      usageUrl: notification#position
-    - name: color
-      type: String
-      values: VuesaxColors | RGB | HEX
-      description: Add a background color to the notification.
-      default: 
-      usageUrl: notification#color
-    - name: border
-      type: String
-      values: VuesaxColors | RGB | HEX
-      description: Add a color border to the notification.
-      default: 
-      usageUrl: notification#border
-    - name: duration
+    - name: v-model
       type: Number
-      values: number
-      description: Determine the time until the notification is hidden.
-      default: 4000
-      usageUrl: notification#duration
-    - name: buttonClose
+      values: Number
+      description: Determine the page where the user is.
+      default: 1
+      usageUrl: pagination#default
+    - name: color
+      type: Vuesax colors, RGB, HEX
+      values: String
+      description: Change the base color of the component.
+      default: "primary"
+      usageUrl: pagination#color
+    - name: disabled
       type: Boolean
       values: true | false
-      description: Determine the time until the notification is hidden.
-      default: "true"
-      usageUrl: notification#default
-    - name: flat
-      type: Boolean
-      values: true | false
-      description: Change the notification style to flat.
+      description: Determine if the entire component is in the disabled status.
       default: "false"
-      usageUrl: notification#flat
-    - name: sticky
+      usageUrl: pagination#disabled
+    - name: noArrow
       type: Boolean
       values: true | false
-      description: Change the position of the notification attached to the nearest corner.	
+      description: Remove the arrows (next and back) of the component.
       default: "false"
-      usageUrl: notification#sticky
-    - name: square
+      usageUrl: pagination#noArrow
+    - name: onlyArrow
       type: Boolean
       values: true | false
-      description: Determine if the notification is square and remove the border-radius.
+      description: Remove the items leaving only the arrows (next and back).
       default: "false"
-      usageUrl: notification#square
-    - name: width
+      usageUrl: pagination#onlyArrow
+    - name: shape
       type: String
-      values: 100% | auto
-      description: Determine the width of the notification.
-      default: 340px
-      usageUrl: notification#width
-    - name: loading
+      values: circle | square | dotted | compact
+      description: Change the style of the buttons.
+      default: "false"
+      usageUrl: pagination#circle
+    - name: disabledItems	
+      type: Number[]
+      values: Number[]
+      description: Determine which items are in the disabled status.	
+      default: "[]"
+      usageUrl: pagination#disabledItems
+    - name: loadingItems	
+      type: Number[]
+      values: Number[]
+      description: Determine which items are in the loading status.	
+      default: "[]"
+      usageUrl: pagination#loadingItems
+    - name: progress	
       type: Boolean
       values: true | false
-      description: Determine if the notification has a loading animation.
+      description: Add a progress bar to the component determined by the current page and the total (length) of pages.	
       default: "false"
-      usageUrl: notification#loading
-    - name: progressAuto
+      usageUrl: pagination#progress
+    - name: pageStep	
+      type: Number
+      values: Number
+      description: Change the total pages to be added or subtracted by clicking on the points.
+      default: 5
+      usageUrl: pagination#pageStep
+    - name: infinite	
       type: Boolean
       values: true | false
-      description: Enable an auto-incrementing progress bar
+      description: Determine if the pagination is infinite.
       default: "false"
-      usageUrl: notification#progress
-    - name: noPadding
-      type: Boolean
-      values: true | false
-      description: Remove padding from notification.
-      default: "false"
-      usageUrl: notification#example
-    - name: icon
-      type: VNode
-      values: VNode
-      description: Add an icon at the notification beginning
-      default: 
-      usageUrl: notification#icons
-    - name: content
-      type: VNode
-      values: VNode
-      description: Change the content of the notification to the one provided as a value
-      default: 
-      usageUrl: notification#example
+      usageUrl: pagination#infinite
 ---
 
 # Pagination
@@ -132,7 +102,7 @@ the allowed values are:
 
 ## Disabled
 
-Change the disabled state of the component with the disabled property, this property is a boolean and you can add it without value
+Change the disabled status of the component with the disabled property, this property is a boolean and you can add it without value
 
 </card>
 
@@ -188,7 +158,7 @@ You can put disabled buttons specific to the pagination component with the `disa
 
 ## Loading Items
 
-You can make a button inside the pagination be in the state of loading with the `loadingItems` property, this property is an array with the number of the button that you want to put in the disabled state
+You can make a button inside the pagination be in the status of loading with the `loadingItems` property, this property is an array with the number of the button that you want to put in the disabled status
 
 </card>
 
@@ -207,3 +177,33 @@ Change the style of the entire component by removing the margin between the butt
 You may need to customize your pagination and for this you can use the default slot between the arrows and replace the items on the pages
 
 </card>
+
+<card subtitle="Progress">
+
+## Progress
+
+Add a progress bar to the pagination by referencing where you find the last page with the `progress` property
+
+</card>
+
+<card subtitle="PageStep">
+
+## Page Step
+
+You can change the number of pages that are added when the user clicks on the points to advance more pages quickly, this can be done with the `pageStep` property and the value would be the number of pages that are added or subtracted (default is 5)
+
+</card>
+
+<card subtitle="Infinite">
+
+## Infinite
+
+You can make the pagination infinite with the `infinite` property, this means that the arrow buttons are no longer in the disabled status.
+
+</card>
+
+<script setup>
+import Api from "../../../theme/global-components/template/API.tsx"
+</script>
+
+<Api></Api>
