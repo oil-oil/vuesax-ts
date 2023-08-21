@@ -19,7 +19,7 @@ props :
       type: Boolean
       values: true | false
       description: Determine if the badge is active.
-      default: false
+      default: "false"
       usageUrl: avatar#badge
     - name: badgeColor
       type: String
@@ -37,55 +37,55 @@ props :
       type: Boolean
       values: true | false
       description: Change the style of the avatar by making it square.
-      default: false
+      default: "false"
       usageUrl: avatar#circle
     - name: square
       type: Boolean
       values: true | false
       description: Change the style of the avatar by making it square.
-      default: false
+      default: "false"
       usageUrl: avatar#square
     - name: writing
       type: Boolean
       values: true | false
       description: Add an animation to the writing badge.
-      default: false
+      default: "false"
       usageUrl: avatar#badge
     - name: history
       type: Boolean
       values: true | false
       description: Add a border to the avatar.
-      default: false
+      default: "false"
       usageUrl: avatar#history
     - name: historyGradient
       type: Boolean
       values: true | false
       description: Change the color of the border to a gradient.
-      default: false
+      default: "false"
       usageUrl: avatar#history
     - name: loading
       type: Boolean
       values: true | false
       description: Add a loading animation to the avatar.
-      default: false
+      default: "false"
       usageUrl: avatar#loading
     - name: max(VsAvatarGroup)
       type: Number
       values: number
       description: Add a loading animation to the avatar.
-      default: false
+      default: "false"
       usageUrl: avatar#group
     - name: float(VsAvatarGroup)
       type: Boolean
       values: true | false
       description: change the way the avatar is composed by placing one next to the other.
-      default: false
+      default: "false"
       usageUrl: avatar#group
     - name: pointer
       type: Boolean
       values: true | false
       description: change the way the avatar is composed by placing one next to the other.
-      default: false
+      default: "false"
       usageUrl: avatar#default
 slots : 
     - name: badge

@@ -19,67 +19,67 @@ props :
       type: Boolean
       values: true | false
       description: Determine if the component is active and change its style to that state.
-      default: false
+      default: "false"
       usageUrl: button#default
     - name: upload
       type: Boolean
       values: true | false
       description: Determine if the component has the upload status active by changing the style and adding the animation.
-      default: false
+      default: "false"
       usageUrl: button#upload
     - name: to
       type: String
       values: url vue-router
       description: Add the functionality of vue-router to the button, clicking it will redirect to the last route.
-      default: false
+      default: "false"
       usageUrl: button#to-href
     - name: href
       type: String
       values: href - link
       description: Add an href of an external link to add the functionality by clicking on the component.
-      default: false
+      default: "false"
       usageUrl: button#to-href
     - name: blank
       type: Boolean
       values: true | false
       description: as in an html element `a` determines whether a new window is opened or the current one is replaced.
-      default: false
+      default: "false"
       usageUrl: button#to-href
     - name: icon
       type: Boolean
       values: true | false
       description: Determine if the component contains only one icon, by adding this property the component has an equal width and height.
-      default: false
+      default: "false"
       usageUrl: button#icon
     - name: circle
       type: Boolean
       values: true | false
       description: Change the border radius to give a circle style.
-      default: false
+      default: "false"
       usageUrl: button#circle
     - name: square
       type: Boolean
       values: true | false
       description: Change the border radius to give a rectangle style.
-      default: false
+      default: "false"
       usageUrl: button#square
     - name: block
       type: Boolean
       values: true | false
       description: Change the width of the component to the possible total determined by the parent element.
-      default: false
+      default: "false"
       usageUrl: button#block
     - name: animationType
       type: Boolean
       values: true | false
       description: Change the type of animation, this property only works if you have the slot animate.
-      default: false
+      default: "false"
       usageUrl: button#animate
     - name: animateInactive
       type: Boolean
       values: true | false
       description: Determine if the animation is active for the user when hovering.
-      default: false
+      default: "false"
       usageUrl: button#animate
 slots : 
     - name: animate

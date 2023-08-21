@@ -19,19 +19,19 @@ props :
       type: Prop
       values: solid | border | shadow | gradient | relief 
       description: Change the style of all the alert.
-      default: false
+      default: "false"
       usageUrl: alert#solid
     - name: hidden-content
       type: Boolean
       values: Boolean
       description: With this property you can hide the content of the alert.
-      default: false
+      default: "false"
       usageUrl: alert#false
     - name: page
       type: Number
       values: Number
       description: Determine the page that is active (this property is linked to the slots='page-{n}').
-      default: false
+      default: "false"
       usageUrl: alert#pagination
     - name: progress
       type: Number
@@ -43,7 +43,7 @@ props :
       type: Boolean
       values: true | false
       description: Add a button to close the alert (it is necessary to use v-model).
-      default: false
+      default: "false"
       usageUrl: alert#closable
 slots : 
     - name: icon
