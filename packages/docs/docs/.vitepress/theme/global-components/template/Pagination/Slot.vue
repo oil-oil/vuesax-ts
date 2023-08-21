@@ -4,7 +4,7 @@
       <VsSelect v-model="page">
         <VsOption
           v-for="numberPage in 20"
-          :label="numberPage"
+          :label="`${numberPage}`"
           :value="numberPage"
           :key="numberPage"
         >

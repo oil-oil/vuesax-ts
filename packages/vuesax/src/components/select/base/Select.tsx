@@ -34,7 +34,7 @@ const Select = defineComponent({
       default: 'primary'
     },
     modelValue: {
-      type: [Array, String] as PropType<SelectValue>
+      type: [Array, String, Number] as PropType<SelectValue>
     },
     multiple: {
       type: Boolean,
@@ -125,20 +125,21 @@ const Select = defineComponent({
 
     const getValue = () => {
       if (!isNil(props.modelValue)) {
-        const modelValue = props.modelValue as (string | number)[]
         selectedLabel.value = childOptions.value
-          .filter(
-            (option) => (modelValue || [])?.indexOf(option.value || '') !== -1
-          )
+          .filter((option) => {
+            if (Array.isArray(props.modelValue)) {
+              return (
+                (props.modelValue as (string | number)[]).indexOf(
+                  option.value || ''
+                ) !== -1
+              )
+            }
+            return option.value === props.modelValue
+          })
           .map((item) => ({
             label: item.label,
             value: item.value
           }))
-          .sort(
-            (a, b) =>
-              modelValue.indexOf(a.value || '') -
-              modelValue.indexOf(b.value || '')
-          )
       }
     }
 

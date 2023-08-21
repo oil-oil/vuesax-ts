@@ -33,7 +33,7 @@ describe('Select', () => {
       })
       cy.get('.vs-select__options')
         .should('have.attr', 'style')
-        .and('include', `--vs-color:${color}`)
+        .and('include', `--vs-color: ${color}`)
     })
   })
 
