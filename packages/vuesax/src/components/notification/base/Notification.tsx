@@ -5,6 +5,7 @@ import {
   PropType,
   Ref,
   ref,
+  toRef,
   Transition,
   watch
 } from 'vue'
@@ -85,8 +86,7 @@ const Notification = defineComponent({
   emits: ['onClick', 'clickClose', 'onDestroy'],
   slots: ['default', 'content', 'icon'],
   setup(props, { slots, emit }) {
-    const { getColor } = useColor()
-    const color = getColor(props.color)
+    const { color } = useColor(toRef(props, 'color'))
 
     const elRef = ref<HTMLElement>()
     const innerIsVisible = ref(false)
@@ -223,7 +223,7 @@ const Notification = defineComponent({
               }
             ]}
             style={{
-              '--vs-color': color,
+              '--vs-color': color.value,
               width:
                 props.width === '100%' ||
                 props.width === '100vw' ||

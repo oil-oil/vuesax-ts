@@ -1,4 +1,10 @@
-import { ButtonHTMLAttributes, PropType, defineComponent, ref } from 'vue'
+import {
+  ButtonHTMLAttributes,
+  PropType,
+  defineComponent,
+  ref,
+  toRef
+} from 'vue'
 import { useRouter } from 'vue-router'
 
 import useColor from '@/hooks/useColor'
@@ -106,8 +112,7 @@ const Button = defineComponent({
   slots: ['default', 'animate'],
   emits: ['click'],
   setup(props, { slots, attrs, emit }) {
-    const { getColor } = useColor()
-    const color = getColor(props.color)
+    const { color } = useColor(toRef(props, 'color'))
 
     const buttonRef = ref<Element>()
     const router = useRouter()
@@ -194,7 +199,7 @@ const Button = defineComponent({
             'vs-button--floating': props.floating
           }
         ]}
-        style={{ '--vs-color': color }}
+        style={{ '--vs-color': color.value }}
         onMousedown={(e) => handleMouseDown(e)}
         onClick={onClick}
         ref="buttonRef"

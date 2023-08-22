@@ -1,4 +1,4 @@
-import { PropType, Transition, defineComponent, ref } from 'vue'
+import { PropType, Transition, defineComponent, ref, toRef } from 'vue'
 import './style.scss'
 
 import useColor from '@/hooks/useColor'
@@ -59,10 +59,8 @@ const Loading = defineComponent({
   emits: ['update:isVisible', 'update:text'],
   setup(props) {
     const rootRef = ref<HTMLElement>()
-    const { getColor } = useColor()
-
-    const color = getColor(props.color)
-    const bgColor = getColor(props.background)
+    const { color } = useColor(toRef(props, 'color'))
+    const { color: bgColor } = useColor(toRef(props, 'background'))
 
     return () => (
       <Transition name="loading">
@@ -70,7 +68,7 @@ const Loading = defineComponent({
           <div
             ref={rootRef}
             style={{
-              background: `rgba(${bgColor},${props.opacity})`
+              background: `rgba(${bgColor.value},${props.opacity})`
             }}
             class={[
               'vs-loading',
@@ -84,7 +82,7 @@ const Loading = defineComponent({
             >
               <div
                 class="vs-loading__load__animation"
-                style={{ '--vs-color': color }}
+                style={{ '--vs-color': color.value }}
               >
                 {props.percent && (
                   <div class="vs-loading__load__percent">{props.percent}</div>
