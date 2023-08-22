@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { inject } from 'vue'
+import { Ref, computed, inject } from 'vue'
 
 import innerColors from '@/styles/colors'
 import { Color, InnerColor } from '@/types/utils'
@@ -21,13 +21,13 @@ const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
     : null
 }
 
-const useColor = () => {
+const useColor = (colorRef: Ref<Color | undefined>) => {
+  const options = inject<VuesaxOptions>(vuesaxOptionsKey, {
+    colors: undefined
+  })
+
   const getColor = (color?: Color) => {
     if (color) {
-      const options = inject<VuesaxOptions>(vuesaxOptionsKey, {
-        colors: undefined
-      })
-
       const colors = { ...innerColors, ...(options?.colors || {}) }
       const isRGB = /^(rgb|rgba)/.test(color)
       const isRGBNumbers =
@@ -54,6 +54,8 @@ const useColor = () => {
     return undefined
   }
 
-  return { getColor }
+  const color = computed(() => getColor(colorRef.value))
+
+  return { getColor, color }
 }
 export default useColor

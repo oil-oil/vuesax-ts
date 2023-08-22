@@ -7,6 +7,7 @@ import {
   onMounted,
   onUnmounted,
   ref,
+  toRef,
   watch
 } from 'vue'
 
@@ -70,8 +71,7 @@ const Modal = defineComponent({
   emits: ['update:modelValue', 'close'],
   slots: ['header', 'footer'],
   setup(props, { emit, attrs, slots }) {
-    const { getColor } = useColor()
-    const color = getColor(props.color)
+    const { color } = useColor(toRef(props, 'color'))
     const modalAttrs = attrs as HTMLAttributes
     const rebound = ref(false)
     const modalContentRef = ref<HTMLElement>()
@@ -130,7 +130,7 @@ const Modal = defineComponent({
               }}
             >
               <div
-                style={{ '--vs-color': color }}
+                style={{ '--vs-color': color.value }}
                 class={[
                   'vs-modal',
                   {

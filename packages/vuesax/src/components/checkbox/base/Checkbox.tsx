@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { nanoid } from 'nanoid'
-import { InputHTMLAttributes, PropType, defineComponent, ref } from 'vue'
+import { InputHTMLAttributes, PropType, defineComponent, ref, toRef } from 'vue'
 
 import './style.scss'
 import useColor from '@/hooks/useColor'
@@ -42,8 +42,7 @@ const Checkbox = defineComponent({
   slots: ['icon'],
   emits: ['update:modelValue'],
   setup(props, { attrs, slots, emit }) {
-    const { getColor } = useColor()
-    const color = getColor(props.color)
+    const { color } = useColor(toRef(props, 'color'))
     const checkboxAttrs = attrs as InputHTMLAttributes
     const uniqueId = checkboxAttrs?.id || nanoid()
 
@@ -52,7 +51,7 @@ const Checkbox = defineComponent({
     return () => (
       <>
         <div
-          style={{ '--vs-color': color }}
+          style={{ '--vs-color': color.value }}
           class={[
             'vs-checkbox-content',
             {
