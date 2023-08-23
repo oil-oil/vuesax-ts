@@ -220,8 +220,8 @@ const HomeFeatures = defineComponent({
         </div>
 
         <div class="vue-card">
-          <VsAvatar size="70" color="rgba(65, 184, 131, 0.8)">
-            <img src="/vue-logo.png" alt="" />
+          <VsAvatar size="70" color="rgba(65, 184, 131, 0.1)">
+            <img src="/vue-logo.png" alt=""/>
           </VsAvatar>
           <h6>{theme.value.home.custom.title}</h6>
         </div>

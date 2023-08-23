@@ -37,7 +37,9 @@ const useColor = (colorRef: Ref<Color | undefined>) => {
       const isHEX = /^(#)/.test(color)
       if (isRGB) {
         const arrayColor = color.replace(/[rgba()]/g, '').split(',')
-        return `${arrayColor[0]},${arrayColor[1]},${arrayColor[2]}`
+        return `${arrayColor[0]},${arrayColor[1]},${arrayColor[2]},${
+          arrayColor[3] || 1
+        }`
       }
       if (isHEX) {
         const rgb = hexToRgb(color!)
