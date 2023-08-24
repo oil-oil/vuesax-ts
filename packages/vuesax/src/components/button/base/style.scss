@@ -187,6 +187,21 @@
     }
     // SIZE -----
   }
+  // SIZE - CLOSE -----
+  &--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      .vs-button__content {
+        padding: 10px;
+      }
+  }
+  &--circle {
+    border-radius: 25px;
+  }
+  &--square {
+    border-radius: 0px;
+  }
   &--size-xl {
     border-radius: 20px;
     .vs-button__content {
@@ -225,11 +240,6 @@
     .vs-button__content {
       padding: 5px 10px;
     }
-    +.vs-button--icon {
-      .vs-button__content {
-        padding: 5px;
-      }
-    }
   }
   &--size-xs {
     font-size: 0.6rem;
@@ -242,18 +252,6 @@
         padding: 3px;
       }
     }
-  }
-  // SIZE - CLOSE -----
-  &--icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &--circle {
-    border-radius: 25px;
-  }
-  &--square {
-    border-radius: 0px;
   }
 }
 
