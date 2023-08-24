@@ -147,20 +147,6 @@ In this example you can click on the buttons and dynamically change the color va
 
 Add an icon to the alert easily with the slot **icon**
 
-<VsAlert color="warn" >
-  <template #title>
-  Default Icons
-  </template>
-Vuesax does not use any library or default icon source, with this we give you the freedom to use the one you prefer All the components that use a default icon somewhere like the close one in an <b>Alert</b> or a <b>Popup</b> will be an <b>svg</b> for not having to install any type of external font, and it can be replaced with an icon of your preference<code style="padding: .25rem .5rem;font-size:.85rem;background-color:var(--vs-theme-bg2);border-radius: 3px;">slot="icon"</code>
-</VsAlert>
-
-<VsAlert color="success" style="margin:10px 0 0 0 ">
-  <template #title>
-  Vuesax Docs Icons
-  </template>
-These documents and examples use the <a href="https://boxicons.com/" target="_blank">boxicons</a> component library, it is not mandatory or necessary for the use of Vuesax but we recommend it for its wide range of icons and how they visually complement the framework
-</VsAlert>
-
 </card>
 
 <card subtitle="Title">

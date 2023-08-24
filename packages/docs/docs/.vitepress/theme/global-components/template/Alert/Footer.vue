@@ -17,5 +17,5 @@
 </template>
 
 <script setup lang="ts">
-import { VsAlert } from 'vuesax-ts'
+import { VsAlert, VsButton } from 'vuesax-ts'
 </script>

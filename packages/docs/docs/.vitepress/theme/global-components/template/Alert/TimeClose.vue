@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { VsAlert } from 'vuesax-ts'
+import { VsAlert, VsButton } from 'vuesax-ts'
 
 const progress = ref(0)
 const active = ref(false)
