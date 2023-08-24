@@ -58,20 +58,12 @@ const HomeContent = defineComponent({
             Get start
           </VsButton>
           <VsButton
-            class="text-button"
-            border
-            href="http://vuesax.com/"
-            blank
-            color={isDark.value ? '#fff' : '#22252A'}
-          >
-            <i class="bx bxl-discord"></i>Discord
-          </VsButton>
-          <VsButton
             class="icon-button"
             icon
             color="dark"
-            href="https://github.com/lusaxweb/vuesax"
+            href="https://github.com/oil-oil/vuesax-ts"
             blank
+            size="xs"
           >
             <i class="bx bxl-github"></i>
           </VsButton>

@@ -6,7 +6,7 @@
     <VsButton
       icon
       square
-      color=""
+      color="success"
       flat
       :active="active === 1"
       @click="active = 1"
