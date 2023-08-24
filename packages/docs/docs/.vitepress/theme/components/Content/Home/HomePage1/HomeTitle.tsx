@@ -5,7 +5,7 @@ import { VsButton } from 'vuesax-ts'
 const HomeContent = defineComponent({
   name: 'HomeContent',
   setup() {
-    const { site, frontmatter, isDark, lang } = useData()
+    const { site, frontmatter, lang } = useData()
     const router = useRouter()
     const to = () => {
       router.go('/documentation/components/button')

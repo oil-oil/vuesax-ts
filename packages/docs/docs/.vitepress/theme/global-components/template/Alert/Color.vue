@@ -21,14 +21,14 @@
         :active="color === 'success'"
         @click="color = 'success'"
         flat
-        success
+        color="success"
         >Success</VsButton
       >
       <VsButton
         :active="color === 'danger'"
         @click="color = 'danger'"
         flat
-        danger
+        color="danger"
         >Danger</VsButton
       >
       <VsButton
@@ -65,9 +65,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { VsAlert } from 'vuesax-ts'
+import { Color, VsAlert, VsButton } from 'vuesax-ts'
 
-const color = ref('primary')
+const color = ref<Color>('primary')
 </script>
 
 <style scoped>

@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { VsAlert } from 'vuesax-ts'
+import { VsAlert, VsButton } from 'vuesax-ts'
 
 const activeShow = ref(true)
 </script>
