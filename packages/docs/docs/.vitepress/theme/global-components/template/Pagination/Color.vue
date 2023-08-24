@@ -25,7 +25,6 @@ import { VsRadio, VsPagination, Color } from 'vuesax-ts'
 
 const page = ref(1)
 const color = ref<Color>('success')
-
 </script>
 <style lang="scss">
 .con-pagination {

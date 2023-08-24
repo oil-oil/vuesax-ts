@@ -196,12 +196,7 @@
         padding: 10px;
       }
   }
-  &--circle {
-    border-radius: 25px;
-  }
-  &--square {
-    border-radius: 0px;
-  }
+  
   &--size-xl {
     border-radius: 20px;
     .vs-button__content {
@@ -252,6 +247,12 @@
         padding: 3px;
       }
     }
+  }
+  &--circle {
+    border-radius: 25px;
+  }
+  &--square {
+    border-radius: 0px;
   }
 }
 
