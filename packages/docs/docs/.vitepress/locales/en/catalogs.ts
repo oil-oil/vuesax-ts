@@ -32,4 +32,4 @@ export default [
       { text: 'Card', link: '/documentation/components/card' }
     ]
   }
-]
+] as const

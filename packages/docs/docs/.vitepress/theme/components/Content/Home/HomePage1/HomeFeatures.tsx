@@ -1,3 +1,4 @@
+import home from 'locales/en/home'
 import { useData } from 'vitepress'
 import { defineComponent, onMounted, onUnmounted, reactive, ref } from 'vue'
 import {
@@ -10,39 +11,17 @@ import {
   VsOption,
   VsCard,
   VsSwitch,
-  VsLoading
+  VsLoading,
+  color
 } from 'vuesax-ts'
+
 import './HomeFeatures.scss'
 
 const HomeFeatures = defineComponent({
   name: 'HomeFeatures',
   setup() {
     const { theme } = useData<{
-      home: {
-        avatarPart: {
-          title: string
-          text: string
-          button: {
-            red: string
-            white: string
-          }
-        }
-        checkPart: {
-          input: string
-          checkList: string[]
-          button: string
-        }
-        search: string
-        select: string
-        card: {
-          title: string
-          text: string
-        }
-        custom: {
-          title: string
-          button: string
-        }
-      }
+      home: typeof home
     }>()
     const selectValue = ref()
     const selectValue2 = ref()
@@ -221,9 +200,44 @@ const HomeFeatures = defineComponent({
 
         <div class="vue-card">
           <VsAvatar size="70" color="rgba(65, 184, 131, 0.1)">
-            <img src="/vue-logo.png" alt=""/>
+            <img src="/vue-logo.png" alt="" />
           </VsAvatar>
-          <h6>{theme.value.home.custom.title}</h6>
+          <h6>{theme.value.home.vueCard.title}</h6>
+          <p>{theme.value.home.vueCard.content}</p>
+        </div>
+
+        <div class="comment-card">
+          <img src="/foto4.png" alt="" />
+          <header>
+            <VsButton shadow>
+              <i
+                class="bx bxs-heart"
+                style={{
+                  color: `rgba(${color.danger})`,
+                  textShadow: `0 4px 15px rgba(${color.danger},0.4)`
+                }}
+              ></i>
+            </VsButton>
+            <VsButton shadow>
+              <i
+                class="bx bxs-chat"
+                style={{
+                  color: `rgba(${color.primary})`,
+                  textShadow: `0 4px 15px rgba(${color.primary},0.4)`
+                }}
+              ></i>{' '}
+              12
+            </VsButton>
+          </header>
+          <h6>{theme.value.home.commentCard.title}</h6>
+          <p>{theme.value.home.commentCard.content}</p>
+
+          <div class="footer">
+            <VsInput></VsInput>
+            <VsButton icon size="xs" flat>
+              <i class="bx bx-send" />
+            </VsButton>
+          </div>
         </div>
       </>
     )

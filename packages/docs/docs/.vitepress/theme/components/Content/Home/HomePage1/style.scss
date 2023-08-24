@@ -60,11 +60,6 @@ a {
 		button:nth-child(2) {
 			border-radius: 17px;
 			margin: 0 10px 0 0;
-
-			div {
-				padding: 10.8px 25px;
-			}
-
 			.bx {
 				font-size: 1.5rem;
 			}
@@ -90,4 +85,52 @@ a {
 	width: 50%;
 	height: 100vh;
 	position: relative;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(8px);
+    }
+}
+
+
+@media (max-width: 1150px) {
+	.features-part {
+		transform: scale(0.7);
+	}
+}
+@media (max-width: 960px) {
+	.page {
+		width: 100%;
+		.features-part {
+			transform: scale(0.7);
+			left: -7%;
+			right: auto;
+			bottom: 0px;
+			width: 100% !important;
+			margin-top: 250px;
+			left: -12%;
+		}
+	}
+}
+@media (max-width: 760px) {
+	.page {
+		display: none;
+		.features-part {
+			left: -18%;
+		}
+	}
+}
+@media (max-width: 470px) {
+	.page {
+		.features-part {
+			margin-top: 280px;
+			transform: scale(0.6);
+			left: -25%;
+		}
+	}
 }
