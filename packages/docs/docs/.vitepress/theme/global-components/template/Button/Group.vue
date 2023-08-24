@@ -56,7 +56,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { VsButton } from 'vuesax-ts'
+import { VsButton, VsButtonGroup } from 'vuesax-ts'
 
 const active = ref(0)
 </script>
+
+<style scoped lang="scss">
+.vs-button-group {
+  margin: 20px;
+}
+</style>

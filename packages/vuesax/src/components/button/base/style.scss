@@ -187,10 +187,30 @@
     }
     // SIZE -----
   }
+  // SIZE - CLOSE -----
+  &--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      .vs-button__content {
+        padding: 10px;
+      }
+  }
+  &--circle {
+    border-radius: 25px;
+  }
+  &--square {
+    border-radius: 0px;
+  }
   &--size-xl {
     border-radius: 20px;
     .vs-button__content {
       padding: 20px 25px;
+    }
+    +.vs-button--icon {
+      .vs-button__content {
+        padding: 20px;
+      }
     }
   }
   &--size-lg {
@@ -199,10 +219,20 @@
     .vs-button__content {
       padding: 15px 20px;
     }
+    +.vs-button--icon {
+      .vs-button__content {
+        padding: 15px;
+      }
+    }
   }
   &--size-md {
     font-size: 0.8rem;
     border-radius: -var(button-border-radius);
+    +.vs-button--icon {
+      .vs-button__content {
+        padding: 10px;
+      }
+    }
   }
   &--size-sm {
     font-size: 0.75rem;
@@ -216,25 +246,11 @@
     border-radius: 7px;
     .vs-button__content {
       padding: 3px 8px;
-    } 
-  }
-  // SIZE - CLOSE -----
-  &--circle {
-    border-radius: 25px;
-  }
-  &--square {
-    border-radius: 0px;
-  }
-  &--icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    .vs-button__content {
-      aspect-ratio: 1/1;
     }
-    i {
-      font-size: 1.15rem;
+    +.vs-button--icon {
+      .vs-button__content {
+        padding: 3px;
+      }
     }
   }
 }
@@ -265,7 +281,9 @@
   &:focus {
     color: #fff;
     background: -color(color, 1);
-    transition: all 0.25s ease, background 0.25s ease 0.25s;
+    transition:
+      all 0.25s ease,
+      background 0.25s ease 0.25s;
   }
   &.vs-button--active {
     background: -color(color, 1);

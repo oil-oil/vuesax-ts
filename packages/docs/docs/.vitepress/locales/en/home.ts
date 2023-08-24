@@ -18,5 +18,15 @@ export default {
   custom: {
     title: 'Potted cactus',
     button: 'Button'
+  },
+  vueCard: {
+    title: 'Vue Component',
+    content:
+      'Framework components for VueJS. Create instances quickly with a few lines of code.'
+  },
+  commentCard: {
+    title: 'Get Started',
+    content:
+      'Vuesax is an open source framework and you can help even in simple details'
   }
-}
+} as const

@@ -174,8 +174,6 @@ const Button = defineComponent({
             'vs-button--active': props.active,
             'vs-button--active-disabled': props.activeDisabled,
             'vs-button--icon': props.icon,
-            'vs-button--circle': props.circle,
-            'vs-button--square': props.square,
             'vs-button--loading': props.loading,
             'vs-button--upload': props.upload,
             'vs-button--block': props.block,
@@ -196,7 +194,9 @@ const Button = defineComponent({
             'vs-button--relief': props.relief,
             'vs-button--transparent': props.transparent,
             'vs-button--shadow': props.shadow,
-            'vs-button--floating': props.floating
+            'vs-button--floating': props.floating,
+            'vs-button--circle': props.circle,
+            'vs-button--square': props.square
           }
         ]}
         style={{ '--vs-color': color.value }}

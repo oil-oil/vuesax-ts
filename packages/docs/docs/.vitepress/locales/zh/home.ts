@@ -19,4 +19,4 @@ export default {
     title: '我最喜欢可莉了',
     button: '对！'
   }
-}
+} as const

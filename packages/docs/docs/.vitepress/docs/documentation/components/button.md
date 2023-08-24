@@ -269,7 +269,7 @@ these buttons usually do an important action in specific and go with a fixed pos
 
 ## Group
 
-If you need to make a group of buttons you can use the **sub-component** `<Vsbutton-group> </Vsbutton-group>` and inside the default slot put the buttons you want to group
+If you need to make a group of buttons you can use the **sub-component** `<VsButtonGroup> </VsButtonGroup>` and inside the default slot put the buttons you want to group
 
 </Card>
 
