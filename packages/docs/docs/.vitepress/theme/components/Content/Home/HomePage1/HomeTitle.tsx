@@ -54,8 +54,8 @@ const HomeContent = defineComponent({
           <p class="tagline">{frontmatter.value.hero.tagline}</p>
         )) || <p>{site.value.description}</p>}
         <div class="button-content">
-          <VsButton class="text-button" onClick={to}>
-            Get start
+          <VsButton class="text-button" size="lg" onClick={to}>
+            Get Started
           </VsButton>
           <VsButton
             class="icon-button"
@@ -63,7 +63,7 @@ const HomeContent = defineComponent({
             color="dark"
             href="https://github.com/oil-oil/vuesax-ts"
             blank
-            size="xs"
+            size="lg"
           >
             <i class="bx bxl-github"></i>
           </VsButton>

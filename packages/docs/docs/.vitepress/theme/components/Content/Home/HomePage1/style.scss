@@ -43,41 +43,6 @@ a {
 		display: flex;
 		align-items: center;
 		justify-content: start;
-
-		button:nth-child(1) {
-			border-radius: 17px;
-			margin: 0 10px 0 0;
-
-			div {
-				padding: 14.9px 30px;
-			}
-
-			.bx {
-				font-size: 1.5rem;
-			}
-		}
-
-		button:nth-child(2) {
-			border-radius: 17px;
-			margin: 0 10px 0 0;
-			.bx {
-				font-size: 1.5rem;
-			}
-		}
-
-		.icon-button {
-			border-radius: 16px;
-			margin: 0;
-
-			div {
-				padding: 12.7px;
-			}
-
-			.bx {
-				font-size: 1.3rem;
-			}
-		}
-
 	}
 }
 

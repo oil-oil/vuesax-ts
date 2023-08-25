@@ -60,20 +60,8 @@
     .header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         width: 100%;
-
-        .check-input {
-            input {
-                background-color: var(--vs-theme-bg2);
-                color: var(--vs-theme-color);
-            }
-        }
-
-        button {
-            transform: scale(0.9);
-            width: 35px;
-            margin: 0;
-        }
     }
 
     .content {
@@ -150,16 +138,11 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    scale: 0.8;
     top: 620px;
     left: 330px;
     background-color: var(--vs-theme-home-component-bg);
     transition: all 0.25s ease;
     animation: float 8s ease-in-out 2.3s infinite alternate;
-
-    button {
-        border-radius: 13px;
-    }
 
     &:hover {
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
@@ -168,7 +151,7 @@
 
 .home-card {
     position: absolute;
-    scale: 0.65;
+    scale: 0.75;
     top: 250px;
     left: 250px;
     transition: all 0.25s ease;
@@ -228,9 +211,9 @@
     justify-content: space-between;
     align-items: center;
     top: 380px;
-    left: 820px;
-    width: 100px;
-    height: 100px;
+    left: 850px;
+    width: 80px;
+    height: 80px;
     box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.08);
     animation: float 8s ease-in-out 2.6s infinite alternate;
     padding: 8px 10px;

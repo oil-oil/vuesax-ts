@@ -63,14 +63,18 @@ const HomeFeatures = defineComponent({
 
         <div class="check-card">
           <div class="header">
-            <VsInput
-              class="check-input"
-              label-placeholder={theme.value.home.checkPart.input}
-              color="primary"
-            ></VsInput>
-            <VsButton border icon size="xs">
-              <i class="bx bx-chevron-right"></i>
-            </VsButton>
+            <div>
+              <VsInput
+                class="check-input"
+                label-placeholder={theme.value.home.checkPart.input}
+                color="primary"
+              ></VsInput>
+            </div>
+            <div>
+              <VsButton border icon>
+                <i class="bx bx-chevron-right"></i>
+              </VsButton>
+            </div>
           </div>
 
           <div class="content">
@@ -78,9 +82,7 @@ const HomeFeatures = defineComponent({
               <VsCheckbox lineThrough>{name}</VsCheckbox>
             ))}
           </div>
-          <VsButton style={{ width: '100%' }}>
-            {theme.value.home.checkPart.button}
-          </VsButton>
+          <VsButton block>{theme.value.home.checkPart.button}</VsButton>
         </div>
 
         <div class="search-card">
@@ -106,13 +108,13 @@ const HomeFeatures = defineComponent({
         </div>
 
         <div class="button-card">
-          <VsButton color="danger" icon size="xs">
+          <VsButton color="danger" icon>
             <i class="bx bx-play"></i>
           </VsButton>
-          <VsButton color="warn" icon size="xs">
+          <VsButton color="warn" icon>
             <i class="bx bx-git-pull-request"></i>
           </VsButton>
-          <VsButton color="dark" icon size="xs">
+          <VsButton color="dark" icon>
             <i class="bx bxl-github"></i>
           </VsButton>
         </div>
@@ -141,12 +143,12 @@ const HomeFeatures = defineComponent({
               ),
               interactions: () => (
                 <>
-                  <VsButton size="xs" color="danger" icon>
+                  <VsButton color="danger" icon>
                     <i class="bx bx-heart"></i>
                   </VsButton>
                   <VsButton shadow>
                     <i class="bx bx-chat"></i>
-                    <span>54</span>
+                    <span style={{ marginLeft: '4px' }}>54</span>
                   </VsButton>
                 </>
               )
@@ -176,7 +178,7 @@ const HomeFeatures = defineComponent({
         </div>
 
         <div class="loading-card">
-          <VsLoading type="waves" opacity="1"></VsLoading>
+          <VsLoading type="default" opacity="1"></VsLoading>
         </div>
 
         <div class="custom-card">
@@ -184,7 +186,9 @@ const HomeFeatures = defineComponent({
             <img src="/foto3.png" alt="" />
           </VsAvatar>
           <h6>{theme.value.home.custom.title}</h6>
-          <VsButton size="md">{theme.value.home.custom.button}</VsButton>
+          <VsButton size="md" circle>
+            {theme.value.home.custom.button}
+          </VsButton>
         </div>
 
         <div class="select-card2">
@@ -234,7 +238,7 @@ const HomeFeatures = defineComponent({
 
           <div class="footer">
             <VsInput></VsInput>
-            <VsButton icon size="xs" flat>
+            <VsButton icon flat>
               <i class="bx bx-send" />
             </VsButton>
           </div>
