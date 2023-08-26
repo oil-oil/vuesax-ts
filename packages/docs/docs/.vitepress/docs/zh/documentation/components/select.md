@@ -84,4 +84,4 @@ The value of the select must be an array
 import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

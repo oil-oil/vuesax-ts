@@ -48,7 +48,7 @@
 
 ## Indeterminate
 
-添加一个具有 `indeterminate` 属性的未确定状态，该属性是 ` boolean` 类型。
+添加一个具有 `indeterminate` 属性的未确定状态，该属性是 `boolean` 类型。
 
 </card>
 
@@ -72,4 +72,4 @@
 import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

@@ -71,7 +71,7 @@
 `history` 属性在头像周围生成一个边框，通常用来表示用户正在进行某个操作，或者在很多情况下表示用户有 "历史"。
 
 :::tip
-我们可以通过 `history-gradient` 属性将边框设置为类似 instagram 的渐变渐变色 
+我们可以通过 `history-gradient` 属性将边框设置为类似 instagram 的渐变渐变色
 :::
 
 </card>
@@ -100,7 +100,7 @@
 
 </card>
 
-<card subtitle="Group"> 
+<card subtitle="Group">
 
 ## Group
 
@@ -116,4 +116,4 @@
 import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

@@ -204,7 +204,7 @@ Add a space next to the avatar with the slot `icons` where you can put icons for
 
 </card>
 
-<card subtitle="Group"> 
+<card subtitle="Group">
 
 ## Group
 
@@ -220,4 +220,4 @@ You can group several avatar with the parent component `vs-avatar-group`, this c
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

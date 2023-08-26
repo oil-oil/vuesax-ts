@@ -63,16 +63,17 @@ Generate a loading with the vuesax function `useLoading(Props)`
 Change the type of loading with the option `type`
 
 Tipos de loading:
-  - waves
-  - corners
-  - border
-  - points
-  - square
-  - gradient
-  - rectangle
-  - circles
-  - square-rotate
-  - scale
+
+- waves
+- corners
+- border
+- points
+- square
+- gradient
+- rectangle
+- circles
+- square-rotate
+- scale
 
 ::: tip
   Click on the example loading to open it in the whole page
@@ -131,4 +132,4 @@ If you want use the loading on a specific dom element. Put the loading in a pare
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

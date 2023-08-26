@@ -133,7 +133,7 @@ You can change the full style towards *Gradient* of a button with the `gradient`
 
 ## Relief
 
-Change the style of the button to a relief aspect with the `relief` property, the property is a `boolean` 
+Change the style of the button to a relief aspect with the `relief` property, the property is a `boolean`
 
 </Card>
 
@@ -141,7 +141,7 @@ Change the style of the button to a relief aspect with the `relief` property, th
 
 ## Transparent
 
-Change the style of the button with the `transparent` property, the property is a `boolean` 
+Change the style of the button with the `transparent` property, the property is a `boolean`
 
 </Card>
 
@@ -149,7 +149,7 @@ Change the style of the button with the `transparent` property, the property is 
 
 ## Shadow
 
-Change the style of the button with the `shadow` property, the property is a `boolean` 
+Change the style of the button with the `shadow` property, the property is a `boolean`
 
 </Card>
 
@@ -165,7 +165,7 @@ Change the color of the Button component with the `color` property and the color
 
 ## Icon
 
-If you need an icon-only button use the `icon` property, the property is a `boolean` 
+If you need an icon-only button use the `icon` property, the property is a `boolean`
 
 This property makes the button have a specific size making it the same width and height, do not use when it is icon and text
 
@@ -183,7 +183,7 @@ If you need a button with text and icon you can do them by adding them in the `s
 
 ## Circle
 
-You can completely round the corners with the `circle` property, the property is a `boolean` 
+You can completely round the corners with the `circle` property, the property is a `boolean`
 
 </Card>
 
@@ -191,7 +191,7 @@ You can completely round the corners with the `circle` property, the property is
 
 ## Square
 
-You can make all the corners completely straight with the `Square` property, the property is a `boolean` 
+You can make all the corners completely straight with the `Square` property, the property is a `boolean`
 
 </Card>
 
@@ -215,7 +215,7 @@ values:
 
 ## Loading
 
-Now you can add a loading status with the `loading` property, the property is a `boolean` 
+Now you can add a loading status with the `loading` property, the property is a `boolean`
 
 </Card>
 
@@ -223,7 +223,7 @@ Now you can add a loading status with the `loading` property, the property is a 
 
 ## Upload
 
-Now you can add a status of sending or uploading data to the server with the `upload` property, the property is a `boolean` 
+Now you can add a status of sending or uploading data to the server with the `upload` property, the property is a `boolean`
 
 </Card>
 
@@ -231,7 +231,7 @@ Now you can add a status of sending or uploading data to the server with the `up
 
 ## Block
 
-You can make the button have the full width allowed with the `block` property, the property is a `boolean` 
+You can make the button have the full width allowed with the `block` property, the property is a `boolean`
 
 </Card>
 
@@ -259,7 +259,7 @@ Supported colors: (`facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `s
 
 ## Floating
 
-You can make a float style button easily with the `Floating` property, the property is a `boolean` 
+You can make a float style button easily with the `Floating` property, the property is a `boolean`
 
 these buttons usually do an important action in specific and go with a fixed position in the lower corner
 
@@ -293,4 +293,4 @@ If you need to use a button such as a vue-router link or an external link you ca
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

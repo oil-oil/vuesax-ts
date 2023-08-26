@@ -129,4 +129,4 @@
 import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

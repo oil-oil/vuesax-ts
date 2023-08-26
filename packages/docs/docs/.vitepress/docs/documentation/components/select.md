@@ -84,4 +84,4 @@ Add an item below the select showing a message to the user
 import Api from "../../../theme/global-components/template/Select/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>
