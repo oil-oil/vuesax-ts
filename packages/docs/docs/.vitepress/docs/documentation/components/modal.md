@@ -78,7 +78,6 @@ props :
 
 It generates a Modal with the vs-modal component, this component is very customizable since it provides a slot to put and make any type of interface to the user's need
 
-
 </card>
 
 <card subtitle="Type">
@@ -86,7 +85,6 @@ It generates a Modal with the vs-modal component, this component is very customi
 ## Type
 
 You can easily create the most common types of dialogs such as Alert, Confirm or Prompt using the different slots for the structure of the header, default, footer
-
 
 </card>
 
@@ -166,4 +164,4 @@ With the `preventClose` property you do not close the dialog by clicking outside
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

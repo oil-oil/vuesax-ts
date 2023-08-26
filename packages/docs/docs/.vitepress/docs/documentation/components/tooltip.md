@@ -163,7 +163,6 @@ Change the style of the tooltip to have a shadow and the background color
 
 </card>
 
-
 <card subtitle="NotArrow">
 
 ## Not Arrow
@@ -192,4 +191,4 @@ We create the tooltip component in such a way that you have a lot of freedom to 
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

@@ -88,4 +88,4 @@ Add an icon inside the radio with the `icon` slot
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

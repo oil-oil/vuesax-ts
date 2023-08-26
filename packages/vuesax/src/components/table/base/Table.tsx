@@ -1,13 +1,19 @@
-import { computed, defineComponent, onMounted, provide, ref } from 'vue'
+import { PropType, defineComponent, onMounted, provide, ref, toRef,watch} from 'vue'
 
 import './style.scss'
 import { TableProvider } from '../types'
+import useColor from '@/hooks/useColor'
+import { Color } from '@/components'
 
 const Table = defineComponent({
   name: 'VsTable',
   props: {
     modelValue: {
       type: Object
+    },
+    color: {
+      type: String as PropType<Color>,
+      default: 'primary'
     },
     striped: {
       type: Boolean,
@@ -16,10 +22,11 @@ const Table = defineComponent({
     loading: {
       type: Boolean,
       default: false
-    }
+    },
   },
   slots: ['footer', 'header', 'thead', 'tbody', 'notFound'],
   setup(props, { slots, emit }) {
+    const { color } = useColor(toRef(props, 'color'))
     const colspan = ref(0)
     const rootRef = ref<HTMLElement>()
     const theadRef = ref<HTMLElement>()
@@ -29,17 +36,14 @@ const Table = defineComponent({
       colspan.value = tds?.length || 0
     })
 
-    const isMultipleSelected = computed(() => Array.isArray(props.modelValue))
-
     const selected = (value: unknown) => {
-      if (isMultipleSelected.value) {
+      if (Array.isArray(props.modelValue)) {
         const newVal = props.modelValue
         if (props.modelValue?.includes(value)) {
           newVal?.splice(props.modelValue.indexOf(value), 1)
         } else {
           newVal?.push(value)
         }
-
         emit('update:modelValue', newVal)
       } else {
         emit('update:modelValue', value)
@@ -49,6 +53,11 @@ const Table = defineComponent({
     provide<TableProvider>('TableProvider', {
       rootRef,
       selected
+    })
+
+    watch(()=>props.modelValue,()=>{
+      console.log('props.modelValue: ', props.modelValue?.value);
+
     })
 
     return () => (
@@ -63,9 +72,10 @@ const Table = defineComponent({
             {
               isSelectedValue: props.modelValue,
               striped: props.striped,
-              isMultipleSelected: isMultipleSelected.value
+              isMultipleSelected: Array.isArray(props.modelValue)
             }
           ]}
+          style={{ '--vs-color': color.value }}
         >
           <table>
             <thead class="vs-table__thead" ref={theadRef}>

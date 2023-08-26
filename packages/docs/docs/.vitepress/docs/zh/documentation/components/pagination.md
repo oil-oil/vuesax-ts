@@ -207,4 +207,4 @@ Change the style of the entire component by removing the margin between the butt
 import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

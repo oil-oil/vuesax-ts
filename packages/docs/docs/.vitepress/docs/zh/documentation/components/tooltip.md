@@ -163,7 +163,6 @@ slots :
 
 </card>
 
-
 <card subtitle="NotArrow">
 
 ## Not Arrow
@@ -192,4 +191,4 @@ slots :
 import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

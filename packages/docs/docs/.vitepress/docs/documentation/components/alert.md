@@ -86,7 +86,7 @@ Alert component is a component used to display important information. They are t
 
 ## Solid
 
-You can set the alert to a solid color background by adding the `solid` property, the property is a` boolean` 
+You can set the alert to a solid color background by adding the `solid` property, the property is a`boolean`
 
 </card>
 
@@ -94,7 +94,7 @@ You can set the alert to a solid color background by adding the `solid` property
 
 ## Border
 
-You can style the alert with a shadow by adding the `border` property, the property is a` boolean` value.
+You can style the alert with a shadow by adding the `border` property, the property is a`boolean` value.
 
 </card>
 
@@ -102,7 +102,7 @@ You can style the alert with a shadow by adding the `border` property, the prope
 
 ## Shadow
 
-You can change the style of the component by adding the `shadow` property, the property is a` boolean` value.
+You can change the style of the component by adding the `shadow` property, the property is a`boolean` value.
 
 </card>
 
@@ -118,7 +118,7 @@ You can change the style of the component by adding the `gradient` property, the
 
 ## Relief
 
-You can change the style of the component by adding the `relief` property, the property is a` boolean` value.
+You can change the style of the component by adding the `relief` property, the property is a`boolean` value.
 
 </card>
 
@@ -126,8 +126,7 @@ You can change the style of the component by adding the `relief` property, the p
 
 ## Animate
 
-A beautiful and simple animation to show and hide the alert to the user 
-
+A beautiful and simple animation to show and hide the alert to the user
 
 </card>
 
@@ -193,7 +192,7 @@ You can add a progress bar to the alert with the `progress` property and a numbe
 
 ## Closable
 
-You can add a close alert icon with the `closable` property, the property is a` boolean` 
+You can add a close alert icon with the `closable` property, the property is a`boolean`
 
 </card>
 
@@ -209,5 +208,4 @@ If you need an alert to have time to hide, you can do so by joining some propert
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
-
+<Api/>

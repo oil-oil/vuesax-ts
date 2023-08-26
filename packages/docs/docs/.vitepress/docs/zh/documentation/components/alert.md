@@ -56,7 +56,6 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 当为用户展示或隐藏警告时增加一个简单好看的动画
 
-
 </card>
 
 <card subtitle="Color">
@@ -81,7 +80,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 ## Title
 
-我们可以使用 `slot="title"` 向警告添加描述性标题 
+我们可以使用 `slot="title"` 向警告添加描述性标题
 
 </card>
 
@@ -137,5 +136,4 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
-
+<Api/>

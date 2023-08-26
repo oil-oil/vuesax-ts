@@ -206,4 +206,4 @@ You can make the pagination infinite with the `infinite` property, this means th
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>
