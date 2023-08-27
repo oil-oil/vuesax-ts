@@ -77,6 +77,7 @@ const Input = defineComponent({
       type: String as PropType<Status>
     }
   },
+  emits: ['update:modelValue'],
   setup(props, { attrs, slots, emit }) {
     const { color } = useColor(toRef(props, 'color'))
 

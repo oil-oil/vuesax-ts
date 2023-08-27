@@ -42,6 +42,22 @@ You can add the select functionality with a v-model in the table and the `isSele
 
 </card>
 
+<card subtitle="ExpandData">
+
+## Expand Data
+
+To add a `tr` that can display expanded data use the `#expand` slot inside the `VsTr` component.
+
+</card>
+
+<card subtitle="EditData">
+
+## Edit Data
+
+You can edit the data inside the table easily using the `VsModal` component and the magic of vuejs
+
+</card>
+
 <script setup>
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
