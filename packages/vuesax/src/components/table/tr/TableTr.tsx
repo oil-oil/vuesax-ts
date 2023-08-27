@@ -1,24 +1,19 @@
 import {
   HTMLAttributes,
-  PropType,
   Transition,
   defineComponent,
-  inject,
   nextTick,
+  onMounted,
   ref,
   watch
 } from 'vue'
 
 import './style.scss'
-import { TableProvider } from '../types'
 import { CompWithAttr } from '@/types/utils'
 
 const TableTr = defineComponent({
   name: 'VsTr',
   props: {
-    data: {
-      type: Object as PropType<unknown>
-    },
     isSelected: {
       type: Boolean,
       default: false
@@ -27,60 +22,36 @@ const TableTr = defineComponent({
       type: Boolean,
       default: false
     },
-    openExpandOnlyTd: {
+    expand: {
       type: Boolean,
       default: false
     }
   },
   slots: ['expand'],
-  setup(props, { attrs, emit, slots }) {
-    const isExpand = ref(false)
+  setup(props, { attrs, slots }) {
     const rootRef = ref<HTMLElement>()
     const expandContentRef = ref<HTMLElement>()
-    const provider = inject<TableProvider>('TableProvider')
 
     const expandColspan = ref(0)
+
+    onMounted(() => {
+      if (slots?.expand) {
+        expandColspan.value = rootRef.value?.querySelectorAll('td').length || 0
+      }
+    })
+
     watch(
-      () => props.data,
+      () => props.expand,
       () => {
-        rootRef.value?.style.removeProperty('--vs-color')
-        if (isExpand.value) {
-          isExpand.value = false
+        if (props.expand) {
+          nextTick(() => {
+            if (expandContentRef.value) {
+              expandContentRef.value.style.height = `${expandContentRef.value.scrollHeight}px`
+            }
+          })
         }
       }
     )
-
-    const onClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      if (slots?.expand) {
-        if (
-          (props.openExpandOnlyTd ? target.nodeName === 'TD' : true) &&
-          !target.className.includes('isEdit')
-        ) {
-          expandColspan.value =
-            rootRef.value?.querySelectorAll('td').length || 0
-
-          isExpand.value = !isExpand.value
-        }
-      }
-
-      if (target.nodeName === 'TD' && !props.notClickSelected) {
-        provider?.selected(props.data)
-        emit('selected', props.data)
-      }
-
-      emit('click', e)
-    }
-
-    watch(isExpand, () => {
-      if (isExpand.value) {
-        nextTick(() => {
-          if (expandContentRef.value) {
-            expandContentRef.value.style.height = `${expandContentRef.value.scrollHeight}px`
-          }
-        })
-      }
-    })
 
     return () => (
       <>
@@ -90,11 +61,10 @@ const TableTr = defineComponent({
             'vs-table__tr',
             {
               selected: props.isSelected,
-              isExpand: isExpand.value,
+              isExpand: props.expand,
               expand: !!slots.expand
             }
           ]}
-          onClick={onClick}
           ref={rootRef}
           {...attrs}
         >
@@ -103,8 +73,8 @@ const TableTr = defineComponent({
 
         {/* expand tr */}
         <Transition name="fade-expand">
-          {isExpand.value && (
-            <tr class="vs-table__tr__expand" {...attrs}>
+          {props.expand && (
+            <tr class="vs-table__tr__expand">
               <td class="vs-table__expand__td" colspan={expandColspan.value}>
                 <div
                   class="vs-table__expand__td__content"

@@ -8,7 +8,7 @@
       </VsTr>
     </template>
     <template #tbody>
-      <VsTr :key="i" v-for="(tr, i) in users" :data="tr">
+      <VsTr :key="i" v-for="(tr, i) in users" >
         <VsTd>
           {{ tr.name }}
         </VsTd>

@@ -1,47 +1,58 @@
 <template>
-  <div style="width: 100%;">
-    <VsTable >
-      <template #thead>
-        <VsTr>
-          <VsTh> Name </VsTh>
-          <VsTh> Email </VsTh>
-          <VsTh> Id </VsTh>
-        </VsTr>
-      </template>
-      <template #tbody>
-        <VsTr
-          :key="i"
-          v-for="(tr, i) in users"
-          :isSelected="selected === i"
-          @click="selected = i"
-          style="cursor: pointer;"
-        >
-          <VsTd>
-            {{ tr.name }}
-          </VsTd>
-          <VsTd>
-            {{ tr.email }}
-          </VsTd>
-          <VsTd>
-            {{ tr.id }}
-          </VsTd>
-        </VsTr>
-      </template>
-    </VsTable>
-    <span class="data">
-      <pre>
-  {{ selected ? users[selected] : 'Select an item in the table' }}
-        </pre
+  <VsTable>
+    <template #thead>
+      <VsTr>
+        <VsTh> Name </VsTh>
+        <VsTh> Email </VsTh>
+        <VsTh> Id </VsTh>
+      </VsTr>
+    </template>
+    <template #tbody>
+      <VsTr
+        :key="i"
+        v-for="(tr, i) in users"
+        :expand="expand === tr.id"
+        @click="expand = expand === tr.id ? undefined : tr.id"
       >
-    </span>
-  </div>
+        <VsTd>
+          {{ tr.name }}
+        </VsTd>
+        <VsTd>
+          {{ tr.email }}
+        </VsTd>
+        <VsTd>
+          {{ tr.id }}
+        </VsTd>
+        <template #expand>
+          <div class="expand-content">
+            <div class="container">
+              <VsAvatar>
+                <img :src="`/avatars/avatar-${i + 1}.png`" alt="" />
+              </VsAvatar>
+              <p>
+                {{ tr.name }}
+              </p>
+            </div>
+            <div class="container">
+              <VsButton flat icon>
+                <i class="bx bx-lock-open-alt"></i>
+              </VsButton>
+              <VsButton flat> Send Email </VsButton>
+              <VsButton border color="danger"> Remove User </VsButton>
+            </div>
+          </div>
+        </template>
+      </VsTr>
+    </template>
+  </VsTable>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { VsTable, VsTh, VsTr, VsTd } from 'vuesax-ts'
+import { VsTable, VsAvatar, VsButton, VsTh, VsTr, VsTd } from 'vuesax-ts'
 
-const selected = ref(0)
+const expand = ref<number>()
+
 const users = [
   {
     id: 1,
@@ -115,3 +126,16 @@ const users = [
   }
 ]
 </script>
+
+<style scoped lang="scss">
+.expand-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+</style>

@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <VsTable v-mode="selected">
+  <div style="width: 100%;">
+    <VsTable multiple>
       <template #thead>
         <VsTr>
           <VsTh>
             <VsCheckbox
               :indeterminate="selected.length === users.length"
               :checked="selected.length === users.length"
-              @change="selected = selected.length === 0 ? users : []"
+              @change="selected = selected.length === users.length ? [] : [...users]"
             />
           </VsTh>
           <VsTh> Name </VsTh>
@@ -19,11 +19,10 @@
         <VsTr
           :key="i"
           v-for="(tr, i) in users"
-          :data="tr"
           :isSelected="selected.includes(tr)"
         >
           <VsTd checkbox>
-            <VsCheckbox :value="{ tr }" :checked="selected.includes(tr)" />
+            <VsCheckbox :value="{ tr }" :checked="selected.includes(tr)" @change="onSelect(tr)" />
           </VsTd>
           <VsTd>
             {{ tr.name }}
@@ -39,7 +38,7 @@
     </VsTable>
     <span class="data">
       <pre>
-    {{ selected ? users : 'Select an item in the table' }}
+    {{ selected.length ? selected : 'Select an item in the table' }}
           </pre
       >
     </span>
@@ -47,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { VsTable, VsCheckbox, VsTh, VsTr, VsTd } from 'vuesax-ts'
 
 const users = [
@@ -124,4 +123,14 @@ const users = [
 ]
 
 const selected = ref<typeof users>([])
+const onSelect = (user:(typeof users)[number])=>{
+  console.log('user: ', users);
+  const index = selected.value.indexOf(user)
+  if(index === -1){
+    selected.value.push(user)
+  }
+  else{
+    selected.value.splice(index,1)
+  }
+}
 </script>
