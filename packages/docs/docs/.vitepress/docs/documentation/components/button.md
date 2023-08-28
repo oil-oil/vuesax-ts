@@ -27,12 +27,6 @@ props :
       description: Determine if the component has the upload status active by changing the style and adding the animation.
       default: "false"
       usageUrl: button#upload
-    - name: to
-      type: String
-      values: url vue-router
-      description: Add the functionality of vue-router to the button, clicking it will redirect to the last route.
-      default: "false"
-      usageUrl: button#to-href
     - name: href
       type: String
       values: href - link

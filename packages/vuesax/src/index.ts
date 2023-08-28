@@ -1,19 +1,19 @@
 import { App as VueApp } from 'vue'
 
-import * as vsComponents from './components'
 import './styles/vuesax.scss'
+import * as components from './components'
 import defineVuesaxOptions, { VuesaxOptions } from './utils/defineVuesaxOptions'
 
-const install = (app: VueApp, options?: VuesaxOptions) => {
+export const install = (app: VueApp, options?: VuesaxOptions) => {
   // Components
-  Object.values(vsComponents).forEach((vsComponent) => {
-    app.use(vsComponent)
+  Object.values(components).forEach((component) => {
+    app.use(component)
   })
 
   defineVuesaxOptions(app, options)
 }
 export * from './components'
+export * from './components/hooks'
+export * from './components/styles'
 
-export { default as color } from './styles/colors'
-
-export default install
+export default { install }

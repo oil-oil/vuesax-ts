@@ -11,7 +11,7 @@
       "import": "./dist/es/index.js",
       "require": "./dist/lib/index.js"
     },
-    "./dist/es/style.css": "./dist/es/style.css"
+    "./style.css": "./dist/es/style.css"
   },
   "files": [
     "dist"
@@ -32,8 +32,7 @@
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "nanoid": "^4.0.2",
-    "vue": "^3.2.47",
-    "vue-router": "4"
+    "vue": "^3.2.47"
   },
   "devDependencies": {
     "@types/node": "^20.1.4",

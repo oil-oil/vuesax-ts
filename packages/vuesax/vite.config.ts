@@ -1,50 +1,53 @@
-import path from "path";
+import path from 'path'
 
-import vue from "@vitejs/plugin-vue";
-import vueJsx from "@vitejs/plugin-vue-jsx";
-import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
+      '@': path.resolve(__dirname, './src')
+    }
   },
   build: {
-    cssMinify: "lightningcss",
     lib: {
-      entry: "src/index.ts",
+      entry: 'src/index.ts'
     },
-    outDir: "es",
+    outDir: 'es',
     rollupOptions: {
-      external: ["vue"],
-      input: "src/index.ts",
+      external: ['vue'],
+      input: {
+        index: 'src/index.ts',
+      },
       output: [
         {
-          format: "es",
-          entryFileNames: "[name].js",
-          dir: "dist/es",
-          preserveModulesRoot: "src",
+          format: 'es',
+          entryFileNames: '[name].js',
+          dir: 'dist/es',
+          preserveModulesRoot: 'src',
+          exports:"named"
         },
         {
-          format: "cjs",
-          entryFileNames: "[name].js",
-          dir: "dist/lib",
-          preserveModulesRoot: "src",
-        },
-      ],
-    },
+          format: 'cjs',
+          entryFileNames: '[name].js',
+          dir: 'dist/lib',
+          preserveModulesRoot: 'src',
+          exports:"named"
+        }
+      ]
+    }
   },
   plugins: [
     vue(),
     vueJsx(),
     dts({
-      outputDir: ["dist/lib", "dist/es"],
-      tsConfigFilePath: "./tsconfig.json",
-      entryRoot: "src",
-      copyDtsFiles: true,
-    }),
-  ],
-});
+      outputDir: ['dist/lib', 'dist/es'],
+      tsConfigFilePath: './tsconfig.json',
+      entryRoot: 'src',
+      copyDtsFiles: true
+    })
+  ]
+})

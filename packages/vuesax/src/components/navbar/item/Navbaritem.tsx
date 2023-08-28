@@ -1,5 +1,4 @@
 import { defineComponent, inject, nextTick, onMounted, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
 
 import { NavbarProvider } from '../types'
 
@@ -11,9 +10,6 @@ const NavbarItem = defineComponent({
     active: {
       type: Boolean,
       default: false
-    },
-    to: {
-      type: String
     },
     id: {
       type: String
@@ -28,7 +24,6 @@ const NavbarItem = defineComponent({
   },
   emits: ['click'],
   setup(props, { slots, emit }) {
-    const router = useRouter()
     const elRef = ref<HTMLElement>()
 
     const provider = inject<NavbarProvider>('provider')
@@ -61,9 +56,7 @@ const NavbarItem = defineComponent({
     )
 
     const handleClick = () => {
-      if (props.to) {
-        router.push(props.to)
-      } else if (props.href) {
+      if (props.href) {
         window.open(props.href, props.target)
       }
     }

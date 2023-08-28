@@ -2,8 +2,8 @@ import { PropType, defineComponent, onMounted, provide, ref, toRef } from 'vue'
 
 import './style.scss'
 import { TableProvider } from '../types'
-import { Color } from '@/components'
 import useColor from '@/hooks/useColor'
+import { Color } from '@/types/utils'
 
 const Table = defineComponent({
   name: 'VsTable',
