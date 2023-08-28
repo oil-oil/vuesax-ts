@@ -2,7 +2,9 @@
 
 # vuesax-ts
 
-## Status: Alpha
+## ✨ Status: Alpha
+
+[📋vuesax-ts 文档站](https://vuesax-ts-docs.vercel.app)
 
 vuesax-ts 是一个 vue 组件库，它基于 [vuesax-next](https://github.com/lusaxweb/vuesax-next) 重构并进行优化，目前 vuesax-next 现在已经不再维护。
 
@@ -17,11 +19,10 @@ vuesax-ts 是一个 vue 组件库，它基于 [vuesax-next](https://github.com/l
 | Typescript 支持 | Yes             | **更加完善**         |
 | 样式文件格式    | `sass`          | `scss`               |
 
+## 💪🏼 贡献
 
-## 贡献
+我们目前正在努力重构和测试 vuesax-next 中的所有组件以及相关文档，我们希望您能加入我们！🌟无论您是经验丰富的开发人员还是有胸怀抱负的新人，我们都欢迎任何有兴趣为 vuesax-ts 做出贡献的人。
 
-我们目前正在努力重构和测试 vuesax-next 中的所有组件以及相关文档，我们希望您能加入我们！🌟无论您是经验丰富的开发人员还是有胸怀抱负的新人，我们都欢迎任何有兴趣为 vuesax-ts 做出贡献的人。💪🏼
-
-那么，您该如何参与呢？🤔 非常简单，只需访问我的 GitHub 主页联系我即可。🚀 如果您有任何宝贵的建议或意见，请随时在 GitHub issue 中提出！🙌🏼 我们非常欢迎反馈意见，并将积极处理。
+那么，您该如何参与呢？🤔 直接访问我的 GitHub 主页联系我即可。🚀 如果您有任何宝贵的建议或意见，请随时在 GitHub issue 中提出！🙌🏼 我们非常欢迎反馈意见，并将积极处理。
 
 让我们共同努力，让 vuesax-ts 成为更好的组件库！

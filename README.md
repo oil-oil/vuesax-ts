@@ -2,7 +2,9 @@ English | [中文](./README-zh_CN.md)
 
 # vuesax-ts
 
-## Status: Alpha
+## ✨ Status: Alpha
+
+[📋vuesax-ts documentation](https://vuesax-ts-docs.vercel.app)
 
 vuesax-ts is a vue component library refactored and optimized based on [vuesax-next](https://github.com/lusaxweb/vuesax-next), which is no longer maintained.
 
@@ -20,9 +22,9 @@ vuesax-ts is a vue component library refactored and optimized based on [vuesax-n
 We would love our users to test with vuesax-ts to find bugs so we can fix them on the fly.
 
 
-## Contribute
+## 💪🏼 Contribute
 
-We're currently working hard on refactoring and testing all components and related documents within vuesax-next, and we want YOU to join us! 🌟 Whether you're a seasoned developer or an aspiring newbie, we welcome anyone interested in contributing to vuesax-ts. 💪🏼
+We're currently working hard on refactoring and testing all components and related documents within vuesax-next, and we want YOU to join us! 🌟 Whether you're a seasoned developer or an aspiring newbie, we welcome anyone interested in contributing to vuesax-ts.
 
 So, how can you get involved? 🤔 It's super easy - just head over to my GitHub page to find out more information. 🚀 And if you have any valuable suggestions or comments, don't hesitate to raise them in the GitHub issue! 🙌🏼 We always welcome feedback and will actively consider your ideas.
 
