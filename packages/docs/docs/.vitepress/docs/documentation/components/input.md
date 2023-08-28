@@ -221,4 +221,4 @@ Use the `shadow` property to add a shadow to the input, the property is a `Boole
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

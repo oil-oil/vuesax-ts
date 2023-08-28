@@ -8,7 +8,6 @@ export { default as VsCardGroup } from './card/group'
 
 export { default as VsModal } from './modal/base'
 export type { VsModalProps } from './modal/base'
-export { default as useModal } from './modal/base/useModal'
 
 export { default as VsSidebar } from './sidebar/base'
 export { default as VsSidebarItem } from './sidebar/item'
@@ -20,8 +19,6 @@ export { default as VsToolTip } from './tooltip/base'
 
 export { default as VsLoading } from './loading/base'
 export type { VsLoadingProps } from './loading/base'
-export { default as useLoading } from './loading/base/useLoading'
-export type { LoadingHookProps } from './loading/base/useLoading'
 
 export { default as VsInput } from './input/base'
 export { default as VsCheckbox } from './checkbox/base'
@@ -42,10 +39,3 @@ export { default as VsRadio } from './radio/base'
 
 export { default as VsNotification } from './notification/base'
 export type { VsNotificationProps } from './notification/base'
-export { default as useNotification } from './notification/base/useNotification'
-export type {
-  NotificationHookProps,
-  Position
-} from './notification/base/useNotification'
-
-export type { Color } from '../types/utils'

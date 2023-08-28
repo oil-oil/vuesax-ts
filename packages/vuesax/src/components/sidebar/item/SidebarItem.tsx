@@ -5,7 +5,6 @@ import {
   PropType,
   Ref
 } from 'vue'
-import { useRouter } from 'vue-router'
 
 import VsIconsArrow from '@/icons/Arrow'
 import { Color, CompWithAttr } from '@/types/utils'
@@ -17,9 +16,6 @@ const SidebarItem = defineComponent({
   props: {
     color: {
       type: String as PropType<Color>
-    },
-    to: {
-      type: String
     },
     href: {
       type: String
@@ -41,7 +37,6 @@ const SidebarItem = defineComponent({
   slots: ['default', 'icon', 'arrow'],
   emits: ['click'],
   setup(props, { slots, attrs, emit }) {
-    const router = useRouter()
     const { active, updateActive } = inject<{
       active: Ref<string> | null
       updateActive: (id: string) => void
@@ -51,9 +46,7 @@ const SidebarItem = defineComponent({
       if (props.id) {
         updateActive?.(props.id)
       }
-      if (props.to) {
-        router.push(props.to)
-      } else if (props.href) {
+      if (props.href) {
         window.open(props.href, props.target)
       }
       emit('click')

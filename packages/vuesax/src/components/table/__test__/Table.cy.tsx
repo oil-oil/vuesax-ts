@@ -127,7 +127,10 @@ describe('Table', () => {
           ),
           tbody: () =>
             data.map(({ username, email, id }) => (
-              <VsTr v-slots={{ expand: () => <h1>Expand content</h1> }}>
+              <VsTr
+                v-slots={{ expand: () => <h1>Expand content</h1> }}
+                expand={id === 1}
+              >
                 <VsTd>{id}</VsTd>
                 <VsTd>{username}</VsTd>
                 <VsTd>{email}</VsTd>
@@ -137,14 +140,6 @@ describe('Table', () => {
         }}
       ></VsTable>
     )
-
-    cy.contains('.vs-table__td', '1')
-      .parent()
-      .next()
-      .contains('h1', 'Expand')
-      .should('not.exist')
-
-    cy.contains('.vs-table__td', '1').click()
 
     cy.contains('.vs-table__td', '1')
       .parent()

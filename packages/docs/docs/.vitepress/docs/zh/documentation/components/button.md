@@ -58,7 +58,7 @@
 
 ## Shadow
 
-我们可以通过添加 `shadow`  属性来将按钮设置为带有阴影的效果，该属性是 `boolean` 类型 
+我们可以通过添加 `shadow`  属性来将按钮设置为带有阴影的效果，该属性是 `boolean` 类型
 
 </Card>
 
@@ -123,7 +123,6 @@
 
 我们可以使用 `square` 属性移除所有圆角，该属性是 `boolean` 类型
 
-
 </Card>
 
 <Card subtitle="Size">
@@ -162,7 +161,6 @@
 
 我们可以使用 `block` 属性使按钮的宽度占满父级容器，，该属性是  `boolean` 类型。
 
-
 </Card>
 
 <Card subtitle="Animate">
@@ -188,7 +186,6 @@ You can create an animation to the component by adding the ``#"animate" `and the
 <Card subtitle="Floating">
 
 ## Floating
-
 
 我们可以使用 `floating` 属性轻松制作浮动样式按钮，该属性是 `boolean` 类型。
 
@@ -224,4 +221,4 @@ You can create an animation to the component by adding the ``#"animate" `and the
 import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

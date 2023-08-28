@@ -132,4 +132,4 @@ There are some cases where you have several checkboxes and you need one that man
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

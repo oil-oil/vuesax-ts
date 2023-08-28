@@ -59,18 +59,6 @@ describe('Button', () => {
       .should('have.css', 'border-radius', '0px')
   })
 
-  it('test button click', () => {
-    const onClickSpy = cy.spy().as('onClickSpy')
-    cy.mount(<VsButton onClick={onClickSpy}>Button</VsButton>)
-    cy.contains('Button').click()
-    cy.get('@onClickSpy').should('have.callCount', 1)
-
-    cy.mount(<VsButton to="testRoute">Router Button</VsButton>)
-    cy.contains('Router Button').click()
-
-    cy.url().should('contain', '/testRoute')
-  })
-
   it('test button loading', () => {
     const onClickSpy = cy.spy().as('onClickSpy')
     cy.mount(

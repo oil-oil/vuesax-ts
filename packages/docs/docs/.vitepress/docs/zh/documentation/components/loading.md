@@ -63,16 +63,17 @@ props :
 使用选项 `type` 更改加载动画类型
 
 有以下选项:
-  - waves
-  - corners
-  - border
-  - points
-  - square
-  - gradient
-  - rectangle
-  - circles
-  - square-rotate
-  - scale
+
+- waves
+- corners
+- border
+- points
+- square
+- gradient
+- rectangle
+- circles
+- square-rotate
+- scale
 
 ::: tip
   点击示例加载即可再全屏显示加载动画
@@ -132,4 +133,4 @@ props :
 import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

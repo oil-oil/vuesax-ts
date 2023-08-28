@@ -62,7 +62,7 @@
 
 ## Indeterminate
 
-在某些情况下，如果我们有多个复选框，而只需要一个复选框来管理所有其他复选框，这时您可以使用 `indeterminate ` 属性，为复选框添加不同的样式。
+在某些情况下，如果我们有多个复选框，而只需要一个复选框来管理所有其他复选框，这时您可以使用 `indeterminate` 属性，为复选框添加不同的样式。
 
 </card>
 
@@ -70,4 +70,4 @@
 import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>

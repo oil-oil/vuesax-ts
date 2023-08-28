@@ -238,4 +238,4 @@ You can do great things with this component and some others from vuesax, to add 
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
-<Api></Api>
+<Api/>
