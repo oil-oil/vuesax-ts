@@ -198,11 +198,13 @@
   }
   
   &--size-xl {
+    font-size: 1.2rem;
     border-radius: 20px;
     .vs-button__content {
       padding: 20px 25px;
     }
     +.vs-button--icon {
+      font-size: 1.4rem;
       .vs-button__content {
         padding: 20px;
       }
@@ -215,6 +217,7 @@
       padding: 15px 20px;
     }
     +.vs-button--icon {
+      font-size: 1.2rem;
       .vs-button__content {
         padding: 15px;
       }
@@ -224,6 +227,7 @@
     font-size: 0.8rem;
     border-radius: -var(button-border-radius);
     +.vs-button--icon {
+      font-size: 1rem;
       .vs-button__content {
         padding: 10px;
       }
@@ -243,6 +247,7 @@
       padding: 3px 8px;
     }
     +.vs-button--icon {
+      font-size: 0.8rem;
       .vs-button__content {
         padding: 3px;
       }

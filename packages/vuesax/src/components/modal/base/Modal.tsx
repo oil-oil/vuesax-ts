@@ -12,9 +12,9 @@ import {
 } from 'vue'
 
 import './style.scss'
-import { Color } from '@/components'
 import useColor from '@/hooks/useColor'
 import IconClose from '@/icons/Close'
+import { Color } from '@/types/utils'
 
 const Modal = defineComponent({
   name: 'VsModal',

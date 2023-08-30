@@ -1,6 +1,6 @@
 import { defineComponent, ref } from 'vue'
 
-import { VsSelect, VsOption, VsOptionGroup } from '.'
+import { VsSelect, VsOption, VsOptionGroup } from './components'
 
 export default defineComponent({
   setup() {

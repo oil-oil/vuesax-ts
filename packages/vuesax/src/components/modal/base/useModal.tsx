@@ -1,9 +1,18 @@
-import { ref, createApp, onMounted, onUnmounted, computed, VNode } from 'vue'
+import {
+  ref,
+  createApp,
+  onMounted,
+  onUnmounted,
+  computed,
+  VNode,
+  ComputedRef
+} from 'vue'
 
 import Modal, { ModalProps } from './Modal'
 import { VsButton } from '@/components'
+import { exclude } from '@/utils/shared'
 
-type ModalHookProps = Omit<ModalProps, 'modelValue'> & {
+export type ModalHookProps = Omit<ModalProps, 'modelValue'> & {
   title?: string
   content?: VNode
   cancelText?: string
@@ -11,9 +20,11 @@ type ModalHookProps = Omit<ModalProps, 'modelValue'> & {
   showCancel?: boolean
   showConfirm?: boolean
   noFooter?: boolean
+  onCancel?: (close: () => void) => void
+  onConfirm?: (close: () => void) => void
 }
 
-const useModal = (props: ModalHookProps) => {
+const useModal = (props: ComputedRef<ModalHookProps>) => {
   const isVisible = ref(false)
 
   const open = () => {
@@ -25,51 +36,62 @@ const useModal = (props: ModalHookProps) => {
   }
 
   let ModalDom: HTMLDivElement
-  const app = computed(() =>
-    createApp({
+  const app = computed(() => {
+    const componentProps = exclude(props.value, [
+      'title',
+      'content',
+      'cancelText',
+      'confirmText',
+      'showCancel',
+      'showConfirm',
+      'noFooter'
+    ])
+    return createApp({
       render: () => (
         <Modal
+          {...componentProps}
           v-model={isVisible.value}
-          {...props}
           v-slots={{
             header: () => (
               <span style={{ fontSize: '18px', fontWeight: 'bold' }}>
-                {props.title}
+                {props.value.title}
               </span>
             ),
             footer: () =>
-              !props.noFooter && (
+              !props.value.noFooter && (
                 <div
                   style={{
                     display: 'flex',
                     justifyContent: 'end'
                   }}
                 >
-                  {props.showCancel && (
+                  {props.value.showCancel && (
                     <VsButton
                       transparent
                       color="dark"
                       onClick={() => {
-                        close()
+                        props.value.onCancel ? props.value.onCancel(close) : close()
                       }}
                     >
-                      {props.cancelText || 'Cancel'}
+                      {props.value.cancelText || 'Cancel'}
                     </VsButton>
                   )}
-                  {props.showConfirm && (
-                    <VsButton transparent>
-                      {props.confirmText || 'Confirm'}
+                  {props.value.showConfirm && (
+                    <VsButton transparent onClick={() => {
+                      props.value.onConfirm?.(close)
+                    }}>
+                      {props.value.confirmText || 'Confirm'}
                     </VsButton>
                   )}
                 </div>
               )
           }}
         >
-          {props.content}
+          {props.value.content}
         </Modal>
       )
     })
-  )
+  })
 
   const mountModal = () => {
     app.value.mount(ModalDom)

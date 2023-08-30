@@ -27,12 +27,6 @@ props :
       description: Determine if the component has the upload status active by changing the style and adding the animation.
       default: "false"
       usageUrl: button#upload
-    - name: to
-      type: String
-      values: url vue-router
-      description: Add the functionality of vue-router to the button, clicking it will redirect to the last route.
-      default: "false"
-      usageUrl: button#to-href
     - name: href
       type: String
       values: href - link
@@ -285,7 +279,7 @@ This is an example of what you can achieve with simple logic and few lines of co
 
 ## To - href
 
-If you need to use a button such as a vue-router link or an external link you can do it with the properties (`to`: vue-router link) or (`href`: html external link)
+If you need to use a button such as a vue-router link or an external link you can do it with (`href`: html external link)
 
 </Card>
 

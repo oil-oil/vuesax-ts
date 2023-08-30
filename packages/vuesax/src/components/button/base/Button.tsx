@@ -5,7 +5,6 @@ import {
   ref,
   toRef
 } from 'vue'
-import { useRouter } from 'vue-router'
 
 import useColor from '@/hooks/useColor'
 import { Color, CompWithAttr, Size } from '@/types/utils'
@@ -96,10 +95,6 @@ const Button = defineComponent({
       type: Boolean,
       default: false
     },
-    to: {
-      type: String,
-      default: null
-    },
     href: {
       type: String,
       default: null
@@ -113,9 +108,7 @@ const Button = defineComponent({
   emits: ['click'],
   setup(props, { slots, attrs, emit }) {
     const { color } = useColor(toRef(props, 'color'))
-
     const buttonRef = ref<Element>()
-    const router = useRouter()
 
     const animateSlot = (
       <div
@@ -156,9 +149,7 @@ const Button = defineComponent({
     }
 
     const onClick = (evt: MouseEvent) => {
-      if (props.to) {
-        router.push(props.to)
-      } else if (props.href) {
+      if (props.href) {
         window.open(props.href, (props.blank && '_blank') || '_self')
       }
       emit('click', evt)

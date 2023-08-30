@@ -11,7 +11,7 @@ import {
 import Loading, { LoadingProps } from './Loading'
 import { vuesaxOptionsKey } from '@/utils/defineVuesaxOptions'
 
-type LoadingHookProps = Omit<LoadingProps, 'isVisible'>
+export type LoadingHookProps = Omit<LoadingProps, 'isVisible'>
 
 const useLoading = (props?: LoadingHookProps) => {
   const vuesaxOptions = inject(vuesaxOptionsKey)
@@ -65,4 +65,3 @@ const useLoading = (props?: LoadingHookProps) => {
 }
 
 export default useLoading
-export type { LoadingHookProps }

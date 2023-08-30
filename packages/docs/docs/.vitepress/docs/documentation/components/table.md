@@ -58,6 +58,14 @@ You can edit the data inside the table easily using the `VsModal` component and 
 
 </card>
 
+<card subtitle="Search&Sort">
+
+## Search and sort
+
+You can use the `#header` slot and sort property to implement table searching and table sorting.
+
+</card>
+
 <script setup>
 import Api from "../../../theme/global-components/template/API.tsx"
 </script>

@@ -90,6 +90,7 @@
 
       .vs-table__th {
         background: -color("gray-2");
+        color: -color("text", 1);
 
         &:first-child {
           border-radius: 14px 0px 0px 0px;
@@ -97,10 +98,6 @@
 
         &:last-child {
           border-radius: 0px 14px 0px 0px;
-        }
-
-        .vs-table__th__content {
-          justify-content: center;
         }
       }
     }

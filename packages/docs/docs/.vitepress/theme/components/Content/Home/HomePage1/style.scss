@@ -61,6 +61,7 @@ a {
 			border-radius: 17px;
 			margin: 0 10px 0 0;
 
+
 			.bx {
 				font-size: 1.5rem;
 			}
@@ -93,6 +94,14 @@ a {
 		transform: translateY(-8px);
 	}
 
+	50% {
+		transform: translateY(-8px);
+	}
+
+	100% {
+		transform: translateY(8px);
+	}
+
 	100% {
 		transform: translateY(8px);
 	}
@@ -123,6 +132,7 @@ a {
 	}
 }
 
+
 @media (max-width: 760px) {
 	.page {
 		.title-part {
@@ -131,10 +141,12 @@ a {
 
 
 		.features-part {
+			transform: scale(0.7);
 			left: -18%;
 		}
 	}
 }
+
 
 @media (max-width: 470px) {
 	.page {
