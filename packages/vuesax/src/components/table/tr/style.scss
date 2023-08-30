@@ -61,8 +61,7 @@
         }
     }
     .vs-table__td {
-        background: -color("bg", 0.1);
-        color: -color("bg", 1);
+        color: -color("text", 1);
     }
     &.vs-change-color {
         &:hover {
