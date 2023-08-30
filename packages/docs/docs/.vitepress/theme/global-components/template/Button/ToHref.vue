@@ -1,6 +1,5 @@
 <template>
   <div class="center">
-    <VsButton to="/" flat> To - vue-router </VsButton>
     <VsButton href="http://vuesax.com/" color="success" flat>
       Href - Replace Url
     </VsButton>
