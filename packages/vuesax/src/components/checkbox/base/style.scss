@@ -43,7 +43,7 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    background: -color("color", 1);
+    background: -color("color");
     transform: scale(0.5);
     border-radius: inherit;
     opacity: 0;
@@ -182,7 +182,7 @@
       background: transparent !important;
       &:before {
         border-radius: 50%;
-        border: 2px solid -color("color", 1) !important;
+        border: 2px solid -color("color") !important;
         border-top: 2px solid transparent !important;
         animation: rotateCheckboxLoading 0.6s linear infinite;
         opacity: 1 !important;

@@ -10,7 +10,7 @@
     position: relative;
     transition: all 0.25s ease;
     &:before {
-        background: -color("color", 1);
+        background: -color("color");
         content: "";
         position: absolute;
         width: 16px;
@@ -20,7 +20,7 @@
         transition: all 0.3s ease;
     }
     &:after {
-        background: -color("color", 1);
+        background: -color("color");
         content: "";
         position: absolute;
         width: 16px;

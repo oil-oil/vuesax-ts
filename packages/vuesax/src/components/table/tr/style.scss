@@ -16,7 +16,7 @@
     &.vs-change-color {
         .vs-table__td {
             background: -color("color", 0.1) !important;
-            color: -color("color", 1) !important;
+            color: -color("color") !important;
             &:hover {
                 background: -color("color", 0.2) !important;
             }
@@ -57,7 +57,7 @@
     &.selected {
         .vs-table__td {
             background: -color("color", 0.1) !important;
-            color: -color("color", 1) !important;
+            color: -color("color") !important;
         }
     }
     .vs-table__td {

@@ -91,18 +91,18 @@
 
             // box-shadow: 0px 10px 20px -5px -color('color',.3)
             &:focus {
-                border-bottom: 2px solid -color("color", 1);
+                border-bottom: 2px solid -color("color");
 
                 ~.vs-input__icon {
-                    color: -color("color", 1);
+                    color: -color("color");
                 }
 
                 ~.vs-input__label {
-                    color: -color("color", 1);
+                    color: -color("color");
                 }
 
                 ~.vs-input__label--placeholder {
-                    color: -color("color", 1);
+                    color: -color("color");
                 }
             }
         }
@@ -410,7 +410,7 @@
             }
 
             &__2 {
-                border-bottom: 2px solid -color("color", 1);
+                border-bottom: 2px solid -color("color");
                 width: 0%;
                 height: 2px;
                 position: absolute;
