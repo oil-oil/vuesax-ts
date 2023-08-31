@@ -81,7 +81,7 @@ Add an item below the select showing a message to the user
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/Select/API.tsx"
+import Api from "../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api/>
