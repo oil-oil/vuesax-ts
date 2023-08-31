@@ -23,13 +23,13 @@ props :
     - name: hidden-content
       type: Boolean
       values: Boolean
-      description: With this props you can hide the content of the alert.
+      description: With this property you can hide the content of the alert.
       default: "false"
       usageUrl: alert#false
     - name: page
       type: Number
       values: Number
-      description: Determine the page that is active (this props is linked to the slots='page-{n}').
+      description: Determine the page that is active (this property is linked to the slots='page-{n}').
       default: "false"
       usageUrl: alert#pagination
     - name: progress
@@ -85,7 +85,7 @@ Alert component is a component used to display important information. They are t
 
 ## Solid
 
-You can set the alert to a solid color background by adding the `solid` props, the props is a`boolean`
+You can set the alert to a solid color background by adding the `solid` property, the property is a`boolean`
 
 </card>
 
@@ -93,7 +93,7 @@ You can set the alert to a solid color background by adding the `solid` props, t
 
 ## Border
 
-You can style the alert with a shadow by adding the `border` props, the props is a`boolean` value.
+You can style the alert with a shadow by adding the `border` property, the property is a`boolean` value.
 
 </card>
 
@@ -101,7 +101,7 @@ You can style the alert with a shadow by adding the `border` props, the props is
 
 ## Shadow
 
-You can change the style of the component by adding the `shadow` props, the props is a`boolean` value.
+You can change the style of the component by adding the `shadow` property, the property is a`boolean` value.
 
 </card>
 
@@ -109,7 +109,7 @@ You can change the style of the component by adding the `shadow` props, the prop
 
 ## Gradient
 
-You can change the style of the component by adding the `gradient` props, the props is a `boolean` value.
+You can change the style of the component by adding the `gradient` property, the property is a `boolean` value.
 
 </card>
 
@@ -117,7 +117,7 @@ You can change the style of the component by adding the `gradient` props, the pr
 
 ## Relief
 
-You can change the style of the component by adding the `relief` props, the props is a`boolean` value.
+You can change the style of the component by adding the `relief` property, the property is a`boolean` value.
 
 </card>
 
@@ -133,7 +133,7 @@ A beautiful and simple animation to show and hide the alert to the user
 
 ## Color
 
-Change the color of the entire alert with the `color` props
+Change the color of the entire alert with the `color` property
 
 In this example you can click on the buttons and dynamically change the color value to display it in the component **VsAlert**
 
@@ -183,7 +183,7 @@ Use the `footer` slot to add a footer to the alert where for example you can add
 
 ## Progress bar
 
-You can add a progress bar to the alert with the `progress` props and a number of (`0 - 100`)
+You can add a progress bar to the alert with the `progress` property and a number of (`0 - 100`)
 
 </card>
 
@@ -191,7 +191,7 @@ You can add a progress bar to the alert with the `progress` props and a number o
 
 ## Closable
 
-You can add a close alert icon with the `closable` props, the props is a`boolean`
+You can add a close alert icon with the `closable` property, the property is a`boolean`
 
 </card>
 

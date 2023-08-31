@@ -178,7 +178,7 @@ const HomeFeatures = defineComponent({
         </div>
 
         <div class="loading-card">
-          <VsLoading type="default" opacity="1"></VsLoading>
+          <VsLoading type="default" opacity={1}></VsLoading>
         </div>
 
         <div class="custom-card">
