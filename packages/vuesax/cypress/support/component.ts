@@ -22,7 +22,6 @@ import "./commands";
 // require('./commands')
 
 import { mount } from "cypress/vue";
-import { createRouter, createWebHistory } from "vue-router";
 import "@/styles/vuesax.scss";
 import "boxicons/css/boxicons.min.css";
 
@@ -35,21 +34,7 @@ Cypress.Commands.add("mount", (component, options = {}) => {
   // Setup options object
   options.global = options.global || {};
   options.global.plugins = options.global.plugins || [];
-
-  // create router if one is not provided
-  if (!options.router) {
-    options.router = createRouter({
-      history: createWebHistory(),
-      routes: [
-        {
-          path: "/testRoute",
-          name: "test",
-          component: { template: "<div>Home</div>" },
-        },
-      ],
-    });
-  }
-
+  
   // Add router plugin
   options.global.plugins.push({
     install(app) {
