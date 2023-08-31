@@ -1,7 +1,6 @@
 ---
 prev: Select
 next: Notification
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: color
       type: String

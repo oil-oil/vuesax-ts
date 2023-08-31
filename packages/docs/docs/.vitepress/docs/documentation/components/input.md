@@ -1,7 +1,6 @@
 ---
 prev: Loading
 next: Checkbox
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: placeHolder
       type: String

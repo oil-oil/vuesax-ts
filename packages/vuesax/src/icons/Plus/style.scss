@@ -11,7 +11,7 @@
     transition: all 0.25s ease;
     cursor: pointer;
     &:before {
-        background: -color("color", 1);
+        background: -color("color");
         content: "";
         position: absolute;
         width: 14px;
@@ -21,7 +21,7 @@
         transition: all 0.3s ease;
     }
     &:after {
-        background: -color("color", 1);
+        background: -color("color");
         content: "";
         position: absolute;
         width: 14px;

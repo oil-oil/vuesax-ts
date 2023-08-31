@@ -1,5 +1,5 @@
 <template>
-  <div class="center" style="width: 100%;">
+  <div class="center" style="width: 100%">
     <VsTable>
       <template #thead>
         <VsTr>
@@ -9,7 +9,7 @@
         </VsTr>
       </template>
       <template #tbody>
-        <VsTr :key="i" v-for="(tr, i) in users" >
+        <VsTr :key="i" v-for="(tr, i) in users">
           <VsTd>
             {{ tr.name }}
           </VsTd>

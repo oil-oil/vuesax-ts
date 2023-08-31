@@ -1,6 +1,6 @@
 <template>
-  <div style="width: 100%;">
-    <VsTable >
+  <div style="width: 100%">
+    <VsTable>
       <template #thead>
         <VsTr>
           <VsTh> Name </VsTh>
@@ -14,7 +14,7 @@
           v-for="(tr, i) in users"
           :isSelected="selected === i"
           @click="selected = i"
-          style="cursor: pointer;"
+          style="cursor: pointer"
         >
           <VsTd>
             {{ tr.name }}

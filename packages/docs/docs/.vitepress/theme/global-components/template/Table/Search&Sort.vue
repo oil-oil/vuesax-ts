@@ -5,9 +5,15 @@
     </template>
     <template #thead>
       <VsTr>
-        <VsTh sort @sort="(sortType:SortType)=>onSort(sortType,'name')"> Name </VsTh>
-        <VsTh sort @sort="(sortType:SortType)=>onSort(sortType,'email')"> Email </VsTh>
-        <VsTh sort @sort="(sortType:SortType)=>onSort(sortType,'id')"> Id </VsTh>
+        <VsTh sort @sort="(sortType: SortType) => onSort(sortType, 'name')">
+          Name
+        </VsTh>
+        <VsTh sort @sort="(sortType: SortType) => onSort(sortType, 'email')">
+          Email
+        </VsTh>
+        <VsTh sort @sort="(sortType: SortType) => onSort(sortType, 'id')">
+          Id
+        </VsTh>
       </VsTr>
     </template>
     <template #tbody>
@@ -28,8 +34,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { VsInput,VsTable, VsTh, VsTr, VsTd } from 'vuesax-ts'
-
+import { VsInput, VsTable, VsTh, VsTr, VsTd } from 'vuesax-ts'
 
 const search = ref('')
 
@@ -107,21 +112,21 @@ const users = ref([
 ])
 
 type SortType = 'asc' | 'desc' | null
-type FieldType = 'id'|'name'|'email'
-const onSort = (sortType: SortType,fieldType:FieldType) => {
-  users.value = users.value.sort((a,b)=>{
-    if(typeof a[fieldType] === "string"){
-      if(sortType === "asc"){
+type FieldType = 'id' | 'name' | 'email'
+const onSort = (sortType: SortType, fieldType: FieldType) => {
+  users.value = users.value.sort((a, b) => {
+    if (typeof a[fieldType] === 'string') {
+      if (sortType === 'asc') {
         return (a[fieldType] as string).localeCompare(b[fieldType] as string)
       }
-      else if(sortType === "desc"){
+      if (sortType === 'desc') {
         return (b[fieldType] as string).localeCompare(a[fieldType] as string)
       }
     }
-    if(sortType === "asc"){
-      return (a[fieldType] as number)-(b[fieldType] as number)
-      }
-      return (b[fieldType] as number)-(a[fieldType] as number)
+    if (sortType === 'asc') {
+      return (a[fieldType] as number) - (b[fieldType] as number)
+    }
+    return (b[fieldType] as number) - (a[fieldType] as number)
   })
 }
 </script>

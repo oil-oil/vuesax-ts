@@ -1,7 +1,6 @@
 ---
 prev: Avatar
 next: Radio
-last Update: 2023/13/1
 ---
 # Notification 警告
 
@@ -74,7 +73,7 @@ Allowed values ​​are:
 
 使用 `duration` 属性更改通知的持续时间，该值为 `number` 类型，用于确定隐藏组件前的秒数，**10s** 等于 **10000** 的值。
 
-如果我们需要通知永不隐藏，持续时间值应为 `undefined`。
+如果你需要通知永不隐藏，持续时间值应为 `undefined`。
 
 </card>
 
@@ -82,7 +81,7 @@ Allowed values ​​are:
 
 ## Square
 
-我们可以使用 `square` 属性移除所有圆角，该属性是 `boolean` 类型
+你可以使用 `square` 属性移除所有圆角，该属性是 `boolean` 类型
 
 </card>
 
@@ -90,7 +89,7 @@ Allowed values ​​are:
 
 ## Border
 
-我们可以通过添加 `border`  属性来将 Notification 设置为带有边框的样式，该属性是 `boolean` 类型
+你可以通过添加 `border`  属性来将 Notification 设置为带有边框的样式，该属性是 `boolean` 类型
 
 </card>
 
@@ -98,7 +97,7 @@ Allowed values ​​are:
 
 ## Flat
 
-我们可以通过添加 `flat`  属性来将 Notification 设置为扁平的样式，该属性是 `boolean` 类型
+你可以通过添加 `flat`  属性来将 Notification 设置为扁平的样式，该属性是 `boolean` 类型
 
 </card>
 
@@ -132,7 +131,7 @@ Allowed values ​​are:
 
 ## Example
 
-如果想在通知中添加任意元素，我们可以使用 `content` 属性，该属性只能接收一个导入的组件，它将在通知中生成该组件。
+如果想在通知中添加任意元素，你可以使用 `content` 属性，该属性只能接收一个导入的组件，它将在通知中生成该组件。
 
 </card>
 

@@ -74,7 +74,7 @@ $background-color_2: var(--vs-theme-bg2);
 		align-items: center;
 		justify-content: space-between;
 		width: calc(100% - 40px);
-		max-width: 900px;
+		max-width: 720px;
 		transition: background-color 0.25s ease;
 		z-index: 10;
 
@@ -222,15 +222,15 @@ $background-color_2: var(--vs-theme-bg2);
 		}
 
 		.page-docs-content-docs {
-			width: 820px;
-			max-width: 820px;
+			width: 720px;
+			max-width: 720px;
 			padding: 0 40px;
 		}
 	}
 
 	.page-footer {
 		margin: 80px auto 0 auto;
-		width: 820px;
+		width: 720px;
 		display: flex;
 		flex-direction: column;
 		justify-items: center;

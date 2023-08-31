@@ -1,7 +1,6 @@
 ---
 prev: Radio
 next: Modal
-last Update: 2023/13/1
 props : 
     - name: color
       type: String
@@ -183,7 +182,7 @@ slots :
 
 ## Content
 
-我们创建文字提示组件的方式让您可以自由添加任何内容，并在其中添加各种组件。
+你创建文字提示组件的方式让您可以自由添加任何内容，并在其中添加各种组件。
 
 </card>
 

@@ -6,27 +6,38 @@ import { Color, InnerColor } from '@/types/utils'
 import { isColor } from '@/utils'
 import { VuesaxOptions, vuesaxOptionsKey } from '@/utils/defineVuesaxOptions'
 
-const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
+const hexToRgba = (hex: string, alpha?: number) => {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
   const result = hex
     .replace(shorthandRegex, (_, r, g, b) => r + r + g + g + b + b)
     .match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i)
 
-  return result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-      }
-    : null
+  if (result) {
+    const rgb = {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    }
+
+    if (alpha && alpha >= 0 && alpha <= 1) {
+      return `${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha}`
+    }
+
+    return `${rgb.r}, ${rgb.g}, ${rgb.b}`
+  }
+
+  return undefined
 }
 
-const useColor = (colorRef: Ref<Color | undefined>) => {
+const useColor = (
+  colorRef: Ref<Color | undefined>,
+  opacityRef?: Ref<number>
+) => {
   const options = inject<VuesaxOptions>(vuesaxOptionsKey, {
     colors: undefined
   })
 
-  const getColor = (color?: Color) => {
+  const getColor = (color?: Color, alpha?: number) => {
     if (color) {
       const colors = { ...innerColors, ...(options?.colors || {}) }
       const isRGB = /^(rgb|rgba)/.test(color)
@@ -37,13 +48,12 @@ const useColor = (colorRef: Ref<Color | undefined>) => {
       const isHEX = /^(#)/.test(color)
       if (isRGB) {
         const arrayColor = color.replace(/[rgba()]/g, '').split(',')
-        return `${arrayColor[0]},${arrayColor[1]},${arrayColor[2]},${
-          arrayColor[3] || 1
+        return `${arrayColor[0]},${arrayColor[1]},${arrayColor[2]}, ${
+          arrayColor[3] || alpha || 1
         }`
       }
       if (isHEX) {
-        const rgb = hexToRgb(color!)
-        return `${rgb!.r},${rgb!.g},${rgb!.b}`
+        return hexToRgba(color!, alpha)
       }
       if (isColor(color)) {
         return colors[color as InnerColor]
@@ -56,7 +66,7 @@ const useColor = (colorRef: Ref<Color | undefined>) => {
     return undefined
   }
 
-  const color = computed(() => getColor(colorRef.value))
+  const color = computed(() => getColor(colorRef.value, opacityRef?.value))
 
   return { getColor, color }
 }

@@ -24,9 +24,7 @@ const useLoading = (props?: LoadingHookProps) => {
         h(Loading, {
           ...props,
           isVisible: isVisible.value,
-          style: {
-            position: 'fixed'
-          }
+          isFixed: true
         })
     }).provide(vuesaxOptionsKey, vuesaxOptions)
   )

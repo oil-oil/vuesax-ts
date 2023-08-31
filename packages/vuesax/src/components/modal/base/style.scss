@@ -114,14 +114,14 @@
             width: 30px;
             height: 30px;
             border-radius: inherit;
-            border: 2px solid -color("color", 1);
+            border: 2px solid -color("color");
             border-top: 2px solid -color("color", 0);
             border-left: 2px solid -color("color", 0);
             border-bottom: 2px solid -color("color", 0);
             box-sizing: border-box;
             transition: all 0.25s ease;
             display: block;
-            box-shadow: 0px 0px 0px 0px -color("color", 1);
+            box-shadow: 0px 0px 0px 0px -color("color");
             animation: loadingModal 0.6s ease infinite;
         }
         &:before {
@@ -130,14 +130,14 @@
             width: 30px;
             height: 30px;
             border-radius: inherit;
-            border: 2px dashed -color("color", 1);
+            border: 2px dashed -color("color");
             border-top: 2px solid -color("color", 0);
             border-left: 2px solid -color("color", 0);
             border-bottom: 2px solid -color("color", 0);
             box-sizing: border-box;
             transition: all 0.25s ease;
             display: block;
-            box-shadow: 0px 0px 0px 0px -color("color", 1);
+            box-shadow: 0px 0px 0px 0px -color("color");
             animation: loadingModal 0.6s linear infinite;
         }
     }

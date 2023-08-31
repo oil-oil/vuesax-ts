@@ -357,7 +357,7 @@
   }
   &::before {
     content: "";
-    background: linear-gradient(30deg, -color("color", 0) 33%, -color("color", 1) 100%);
+    background: linear-gradient(30deg, -color("color", 0) 33%, -color("color") 100%);
     position: absolute;
     top: 0px;
     left: 0px;

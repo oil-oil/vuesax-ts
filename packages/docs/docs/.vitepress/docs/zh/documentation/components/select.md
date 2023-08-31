@@ -20,7 +20,7 @@
 
 ## Label
 
-使用 `label` 属性可以轻松将标签添加到 Select 中，我们还可以添加一个 ``label-placeholder`，顾名思义，这是一个鼓励使用标签的占位符，最后是带有`placeholder` 属性的占位符
+使用 `label` 属性可以轻松将标签添加到 Select 中，你还可以添加一个 ``label-placeholder`，顾名思义，这是一个鼓励使用标签的占位符，最后是带有`placeholder` 属性的占位符
 
 </card>
 
@@ -36,7 +36,7 @@
 
 ## Filter
 
-我们可以使用 `filter` 属性添加过滤选项的功能，此属性是 `boolean` 类型
+你可以使用 `filter` 属性添加过滤选项的功能，此属性是 `boolean` 类型
 
 </card>
 
