@@ -19,10 +19,6 @@ const Table = defineComponent({
     multiple: {
       type: Boolean,
       default: false
-    },
-    loading: {
-      type: Boolean,
-      default: false
     }
   },
   slots: ['footer', 'header', 'thead', 'tbody', 'notFound'],

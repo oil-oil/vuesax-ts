@@ -1,7 +1,6 @@
 ---
 prev: Alert
 next: Input
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: color
       type: String

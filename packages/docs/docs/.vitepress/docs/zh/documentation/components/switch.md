@@ -56,7 +56,7 @@
 
 ## Square
 
-我们可以使用 `square` 属性移除所有圆角，该属性是 `boolean` 类型
+你可以使用 `square` 属性移除所有圆角，该属性是 `boolean` 类型
 
 </card>
 

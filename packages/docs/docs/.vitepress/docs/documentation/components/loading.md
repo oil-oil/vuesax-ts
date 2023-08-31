@@ -1,7 +1,6 @@
 ---
 prev: Alert
 next: Input
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: color
       type: String
@@ -85,7 +84,7 @@ Tipos de loading:
 
 ## Color
 
-Change the color of the loading animation with the property `color`, the colors can be the main ones of vuesax or (**RGB**, **HEX**)
+Change the color of the loading animation with the props `color`, the colors can be the main ones of vuesax or (**RGB**, **HEX**)
 
 </card>
 
@@ -93,7 +92,7 @@ Change the color of the loading animation with the property `color`, the colors 
 
 ## Background
 
-You can change the loading background with the property `loading`
+You can change the loading background with the props `loading`
 
 </card>
 
@@ -101,7 +100,7 @@ You can change the loading background with the property `loading`
 
 ## Text
 
-Add a descriptive text of the loading or informing the user that it is loading or that it is missing to load with the property `text`
+Add a descriptive text of the loading or informing the user that it is loading or that it is missing to load with the props `text`
 
 </card>
 
@@ -109,7 +108,7 @@ Add a descriptive text of the loading or informing the user that it is loading o
 
 ## Percent
 
-You can add a string of the percentage of load with the `percent` property, if you need to change that value use the `changePercent` function in the loading instance.
+You can add a string of the percentage of load with the `percent` props, if you need to change that value use the `changePercent` function in the loading instance.
 
 </card>
 
@@ -117,7 +116,7 @@ You can add a string of the percentage of load with the `percent` property, if y
 
 ## Progress
 
-Add a progress bar at the top to indicate the loading progress of the loading with the `progress` property, the value is a number that determines the percentage and the allowed value is (0 - 100)
+Add a progress bar at the top to indicate the loading progress of the loading with the `progress` props, the value is a number that determines the percentage and the allowed value is (0 - 100)
 
 </card>
 

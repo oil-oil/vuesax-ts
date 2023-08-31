@@ -20,7 +20,7 @@
 
 ## Label Placeholder
 
-我们可以使用 "label-placeholder "属性，在占位符处于焦点时或在焦点上时添加精美的动画，或者将占位符的值变成输入上方的标签
+你可以使用 "label-placeholder "属性，在占位符处于焦点时或在焦点上时添加精美的动画，或者将占位符的值变成输入上方的标签
 
 </card>
 
@@ -38,32 +38,13 @@
 
 如果需要在输入前面添加图标，可以使用属性 `iconbefore` 来实现。
 
-  <div>
-    <div class="warning custom-block">
-      <p class="custom-block-title">
-        Iconos por defecto
-      </p>
-      <p>
-        Vuesax no usa ninguna librería o fuente de iconos por defecto, con esto damos la libertad de usar la que prefieras Todos los componentes que usen en algún lugar un icono por defecto como el de close en un <b>Alert</b> o un <b>Popup</b> va a ser un <b>svg</b> para no tener que instalar ningún tipo de fuente externa, y se podrá sustituir con un <code>slot="icon"</code> por el icono de su preferencia
-      </p>
-    </div>
-    <div class="tip custom-block">
-      <p class="custom-block-title">
-        Vuesax Docs Icons
-      </p>
-      <p>
-        Estos documentos y los ejemplos usan la libreria de componentes <a target="_blank" href="https://boxicons.com/">boxicons</a>, no es obligatoria o necesaria para el uso de Vuesax pero la recomendamos por su amplia gama de iconos y como complementan visualmente el framework
-      </p>
-    </div>
-  </div>
-
 </card>
 
 <card subtitle="Message">
 
 ## Message
 
-我们可以使用 `slot="message-{vuesax color}"` 在输入框下面添加一条信息，以提示字段缺失或数值错误。
+你可以使用 `slot="message-{vuesax color}"` 在输入框下面添加一条信息，以提示字段缺失或数值错误。
 
 </card>
 

@@ -1,7 +1,6 @@
 ---
 prev: Avatar
 next: Radio
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: title
       type: String
@@ -110,7 +109,7 @@ props :
 It generates a notification with the vuesax hook (`useNotification`)
 
 :::tip
-  The necessary properties are the `title` and the`text` or failing the `content` property
+  The necessary properties are the `title` and the`text` or failing the `content` props
 :::
 
 </card>
@@ -119,7 +118,7 @@ It generates a notification with the vuesax hook (`useNotification`)
 
 ## Position
 
-Change the notification position with the `position` property
+Change the notification position with the `position` props
 
 supported values
 
@@ -136,7 +135,7 @@ supported values
 
 ## Color
 
-Use the `color` property to change the base color of the component and some of the child components, to better understand the handling of colors and themes you can see it.
+Use the `color` props to change the base color of the component and some of the child components, to better understand the handling of colors and themes you can see it.
 
 Allowed values ​​are:
 
@@ -162,7 +161,7 @@ Add the icon provided as the value of the `icon` slot to the notification
 
 ## Progress
 
-Add a progress bar to the notification, if the value of the `progressAuto` property is `auto` be determined by the `duration` property to reach 100%.
+Add a progress bar to the notification, if the value of the `progressAuto` props is `auto` be determined by the `duration` props to reach 100%.
 
 </card>
 
@@ -170,7 +169,7 @@ Add a progress bar to the notification, if the value of the `progressAuto` prope
 
 ## Duration
 
-Change the duration of the notification with the `duration` property, the value is numerical and determine the seconds before the bone component is hidden that **10s** equals **10000** as the value
+Change the duration of the notification with the `duration` props, the value is numerical and determine the seconds before the bone component is hidden that **10s** equals **10000** as the value
 
 if you need the notification to never be hidden, the duration value would be `none`
 
@@ -180,7 +179,7 @@ if you need the notification to never be hidden, the duration value would be `no
 
 ## Square
 
-Change the style of the notification with the `square` property so as not to have `border-radius` making it a rectangle
+Change the style of the notification with the `square` props so as not to have `border-radius` making it a rectangle
 
 </card>
 
@@ -188,7 +187,7 @@ Change the style of the notification with the `square` property so as not to hav
 
 ## Border
 
-Change the notification style with the `border` property by adding a border of the color provided as the value
+Change the notification style with the `border` props by adding a border of the color provided as the value
 
 </card>
 
@@ -196,7 +195,7 @@ Change the notification style with the `border` property by adding a border of t
 
 ## Flat
 
-Change the style of the notification with the `flat` property, having this property changes to lighter colors and the text of the color of the `color` property, this property is a boolean so you can only use the value `true`
+Change the style of the notification with the `flat` props, having this props changes to lighter colors and the text of the color of the `color` props, this props is a boolean so you can only use the value `true`
 
 </card>
 
@@ -204,7 +203,7 @@ Change the style of the notification with the `flat` property, having this prope
 
 ## Loading
 
-Add a loading animation to the notification, having this property will only show the animation and the content will be hidden
+Add a loading animation to the notification, having this props will only show the animation and the content will be hidden
 
 </card>
 
@@ -212,7 +211,7 @@ Add a loading animation to the notification, having this property will only show
 
 ## Width
 
-Change the size of the notification to the total screen with the property `width` and giving it a value of `100%`
+Change the size of the notification to the total screen with the props `width` and giving it a value of `100%`
 
 If you need the notification to have an automatic size to your content you can do it with the value `auto`
 
@@ -222,7 +221,7 @@ If you need the notification to have an automatic size to your content you can d
 
 ## Sticky
 
-You can add a style to the paste component to the nearest corner with the `sticky` property, this property is a `boolean` po which can only have the value `true`
+You can add a style to the paste component to the nearest corner with the `sticky` props, this props is a `boolean` po which can only have the value `true`
 
 </card>
 
@@ -230,7 +229,7 @@ You can add a style to the paste component to the nearest corner with the `stick
 
 ## Example
 
-You can do great things with this component and some others from vuesax, to add any element within the notification we have the property `content` this property can only receive an imported component and that is what it will generate within the notification
+You can do great things with this component and some others from vuesax, to add any element within the notification we have the props `content` this props can only receive an imported component and that is what it will generate within the notification
 
 </card>
 

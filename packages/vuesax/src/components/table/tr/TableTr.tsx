@@ -18,10 +18,6 @@ const TableTr = defineComponent({
       type: Boolean,
       default: false
     },
-    notClickSelected: {
-      type: Boolean,
-      default: false
-    },
     expand: {
       type: Boolean,
       default: false

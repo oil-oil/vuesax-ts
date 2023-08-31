@@ -1,7 +1,6 @@
 ---
 prev: Tooltip
 next: Pagination
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: v-model
       type: Boolean
@@ -92,7 +91,7 @@ You can easily create the most common types of dialogs such as Alert, Confirm or
 
 ## Loading
 
-Add a loading animation to the dialog with the `loading` property
+Add a loading animation to the dialog with the `loading` props
 
 </card>
 
@@ -100,7 +99,7 @@ Add a loading animation to the dialog with the `loading` property
 
 ## No close
 
-You can remove the close button by set the `showClose` property to `false`
+You can remove the close button by set the `showClose` props to `false`
 
 </card>
 
@@ -108,7 +107,7 @@ You can remove the close button by set the `showClose` property to `false`
 
 ## Scroll
 
-There are cases where you need a scroll because there is a lot of information within the dialog for this you can use the `scroll` property
+There are cases where you need a scroll because there is a lot of information within the dialog for this you can use the `scroll` props
 
 </card>
 
@@ -116,7 +115,7 @@ There are cases where you need a scroll because there is a lot of information wi
 
 ## LockScroll
 
-If you need to remove the page scroll when opening the dialog you can do it with the `lockScroll` property
+If you need to remove the page scroll when opening the dialog you can do it with the `lockScroll` props
 
 </card>
 
@@ -132,7 +131,7 @@ You can nest as many `VsModal` as you need without problem
 
 ## Full Screen
 
-If you need the dialog to be the total window size you can do it with the `fullScreen` property
+If you need the dialog to be the total window size you can do it with the `fullScreen` props
 
 </card>
 
@@ -140,7 +139,7 @@ If you need the dialog to be the total window size you can do it with the `fullS
 
 ## Blur
 
-You can add a blur style to all the elements behind the dialog with the `blur` property, this functionality depends on the css property backdrop-filter
+You can add a blur style to all the elements behind the dialog with the `blur` props, this functionality depends on the css props backdrop-filter
 
 </card>
 
@@ -156,7 +155,7 @@ Change the dialog style by removing the border radius and making it rectangular
 
 ## Prevent Close
 
-With the `preventClose` property you do not close the dialog by clicking outside or pressing the esc key
+With the `preventClose` props you do not close the dialog by clicking outside or pressing the esc key
 
 </card>
 

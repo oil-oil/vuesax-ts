@@ -1,7 +1,6 @@
 ---
 prev: Modal
 next: Table
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: v-model
       type: Number
@@ -111,7 +110,7 @@ props :
 
 ## No Arrow
 
-我们可以使用 "noArrows "属性移除上一页和下一页的箭头
+你可以使用 "noArrows "属性移除上一页和下一页的箭头
 
 </card>
 
@@ -119,7 +118,7 @@ props :
 
 ## OnlyArrow
 
-在比较小的空间中，我们可能需要移除按钮，只留下箭头，为此我们设置了属性 `onlyArrows` 。
+在比较小的空间中，你可能需要移除按钮，只留下箭头，为此你设置了属性 `onlyArrows` 。
 
 </card>
 
@@ -151,7 +150,7 @@ props :
 
 ## Disabled Items
 
-我们可以使用 `disabledItems` 属性为分页组件设置特定的禁用按钮，该属性是一个数组，包含我们要设置为禁用状态的按钮的索引。
+你可以使用 `disabledItems` 属性为分页组件设置特定的禁用按钮，该属性是一个数组，包含你要设置为禁用状态的按钮的索引。
 
 </card>
 
@@ -167,7 +166,7 @@ props :
 
 ## Compact
 
-Change the style of the entire component by removing the margin between the buttons, you can set the `shape` property to `compact`.
+Change the style of the entire component by removing the margin between the buttons, you can set the `shape` props to `compact`.
 
 </card>
 
@@ -175,7 +174,7 @@ Change the style of the entire component by removing the margin between the butt
 
 ## Slot
 
-我们可能需要自定义分页，为此您可以使用箭头之间的默认插槽，并替换页面上的项目
+你可能需要自定义分页，为此您可以使用箭头之间的默认插槽，并替换页面上的项目
 
 </card>
 
@@ -191,7 +190,7 @@ Change the style of the entire component by removing the margin between the butt
 
 ## Page Step
 
-我们可以更改用户点击...按钮时增加的页数，以便快速前进更多页，这可以通过 `pageStep` 属性实现，其值将是添加或减少的页数（默认值为 5）。
+你可以更改用户点击...按钮时增加的页数，以便快速前进更多页，这可以通过 `pageStep` 属性实现，其值将是添加或减少的页数（默认值为 5）。
 
 </card>
 
@@ -199,7 +198,7 @@ Change the style of the entire component by removing the margin between the butt
 
 ## Infinite
 
-我们可以使用 `infinite` 属性实现无限分页，这意味着箭头按钮不再处于禁用状态。
+你可以使用 `infinite` 属性实现无限分页，这意味着箭头按钮不再处于禁用状态。
 
 </card>
 

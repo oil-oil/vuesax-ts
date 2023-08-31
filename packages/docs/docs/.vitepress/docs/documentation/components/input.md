@@ -1,7 +1,6 @@
 ---
 prev: Loading
 next: Checkbox
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: placeHolder
       type: String
@@ -104,7 +103,7 @@ Add an elements input facilitate with the component `<VsInput>`
 
 ## Label
 
-Add a label to the input with the property `label`
+Add a label to the input with the props `label`
 
 </card>
 
@@ -112,7 +111,7 @@ Add a label to the input with the property `label`
 
 ## Label Placeholder
 
-You can have a placeholder with a great animation when being or in focus or with a value becoming a label above the input with the property `label-placeholder`
+You can have a placeholder with a great animation when being or in focus or with a value becoming a label above the input with the props `label-placeholder`
 
 </card>
 
@@ -120,7 +119,7 @@ You can have a placeholder with a great animation when being or in focus or with
 
 ## Color
 
-Change the color of the component and add a border below with the `color` property, the allowed values ​​are the main colors of vuesax and the custom colors (**RGB**, **HEX**)
+Change the color of the component and add a border below with the `color` props, the allowed values ​​are the main colors of vuesax and the custom colors (**RGB**, **HEX**)
 
 </card>
 
@@ -128,7 +127,7 @@ Change the color of the component and add a border below with the `color` proper
 
 ## icon
 
-Add an icon to the input easily with the slot icon if you want the icon to be before the input you can do it with the property `icon-before`
+Add an icon to the input easily with the slot icon if you want the icon to be before the input you can do it with the props `icon-before`
 
   <div>
     <div class="warning custom-block">
@@ -189,7 +188,7 @@ Add a validation progress bar, the most common is its use to validate passwords 
 
 ## Loading
 
-Add a loading animation to the input with the `loading` property, the property is a `Boolean`
+Add a loading animation to the input with the `loading` props, the props is a `Boolean`
 
 </card>
 
@@ -197,7 +196,7 @@ Add a loading animation to the input with the `loading` property, the property i
 
 ## Input types
 
-Change the type of input with the `type` property as a native html input, the default value is `text`
+Change the type of input with the `type` props as a native html input, the default value is `text`
 
 </card>
 
@@ -205,7 +204,7 @@ Change the type of input with the `type` property as a native html input, the de
 
 ## Border
 
-Use the `border` property to add a border to the input, the property is a `Boolean`
+Use the `border` props to add a border to the input, the props is a `Boolean`
 
 </card>
 
@@ -213,7 +212,7 @@ Use the `border` property to add a border to the input, the property is a `Boole
 
 ## Shadow
 
-Use the `shadow` property to add a shadow to the input, the property is a `Boolean`
+Use the `shadow` props to add a shadow to the input, the props is a `Boolean`
 
 </card>
 

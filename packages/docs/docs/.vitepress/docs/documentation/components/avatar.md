@@ -1,7 +1,6 @@
 ---
 prev: Select
 next: Notification
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: color
       type: String
@@ -116,7 +115,7 @@ An avatar component is a tool used to display user or entity images in a webpage
 
 ## Color
 
-Change the color of the compound with the `color` property, the colors allowed are the main colors of vuesax and (`HEX`, `RGB`)
+Change the color of the compound with the `color` props, the colors allowed are the main colors of vuesax and (`HEX`, `RGB`)
 
 </card>
 
@@ -132,11 +131,11 @@ Change the size of the component to the number provided if for example the size 
 
 ## Badge
 
-Add a badge to the component with the `badge` property or the slot
+Add a badge to the component with the `badge` props or the slot
 
-You can also change the color to represent a user status as disconnected or connected with colors such as `success` or `danger`, this you do with the `badge-color` property
+You can also change the color to represent a user status as disconnected or connected with colors such as `success` or `danger`, this you do with the `badge-color` props
 
-There are times when you need to use the avatar in a chat environment and for this you can add the `writing` property that adds a writing animation
+There are times when you need to use the avatar in a chat environment and for this you can add the `writing` props that adds a writing animation
 
 </card>
 
@@ -156,7 +155,7 @@ The maximum length of characters is **5**. When that limit is exceeded, changes 
 
 ## Circle
 
-Change the border-radius of the entire component to `50%` with the `circle` property making it fully circular
+Change the border-radius of the entire component to `50%` with the `circle` props making it fully circular
 
 </card>
 
@@ -164,7 +163,7 @@ Change the border-radius of the entire component to `50%` with the `circle` prop
 
 ## Square
 
-Change the border-radius of the entire component to `0%` with the `square` property making it completely square
+Change the border-radius of the entire component to `0%` with the `square` props making it completely square
 
 </card>
 
@@ -175,7 +174,7 @@ Change the border-radius of the entire component to `0%` with the `square` prope
 It generates a border around the avatar, this is usually used to represent that the user is doing an action or in many cases has a `History`
 
 :::tip
-You can make the border a gradient like instagram with the property `history-gradient`
+You can make the border a gradient like instagram with the props `history-gradient`
 :::
 
 </card>
@@ -192,7 +191,7 @@ You can put an icon inside an avatar when for example an image is not yet added 
 
 ## Loading
 
-Add a loading animation to the component, this property is a `boolean`
+Add a loading animation to the component, this props is a `boolean`
 
 </card>
 
