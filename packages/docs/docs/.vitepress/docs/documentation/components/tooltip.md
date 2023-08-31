@@ -126,10 +126,10 @@ Change the position of the tooltip with the properties
 
 ## Border
 
-Change the style of the tooltip by adding a border and changing the color of the background with the `border` props
+Change the style of the tooltip by adding a border and changing the color of the background with the `border` property
 
 ::: tip
-Now the color props would change the color of the border
+Now the color property would change the color of the border
 :::
 
 </card>
@@ -149,7 +149,7 @@ Change the `border-radius` of the tooltip so that it is completely a rectangle
 Change the `border-radius` of the tooltip to make it more circular
 
 ::: tip
-This props only applies when the tooltip has less than one line of text.
+This property only applies when the tooltip has less than one line of text.
 :::
 
 </card>
@@ -166,7 +166,7 @@ Change the style of the tooltip to have a shadow and the background color
 
 ## Not Arrow
 
-In some cases you may need to remove the arrow from the tooltip for this you can use the `not-arrow` props
+In some cases you may need to remove the arrow from the tooltip for this you can use the `not-arrow` property
 
 </card>
 

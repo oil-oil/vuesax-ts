@@ -40,7 +40,7 @@ Add icons to the component in the default slot or the `on` or `off` status slots
 
 ## Loading
 
-Add a loading animation to the component with the `loading` props, the props is a`boolean`
+Add a loading animation to the component with the `loading` property, the property is a`boolean`
 
 </card>
 
@@ -48,7 +48,7 @@ Add a loading animation to the component with the `loading` props, the props is 
 
 ## Indeterminate
 
-Add an undetermined state to the compound with the `indeterminate` props, the props is a`boolean`
+Add an undetermined state to the compound with the `indeterminate` property, the property is a`boolean`
 
 </card>
 
@@ -56,7 +56,7 @@ Add an undetermined state to the compound with the `indeterminate` props, the pr
 
 ## Square
 
-Change the circular style to square with the `square` props, the props is a`boolean`
+Change the circular style to square with the `square` property, the property is a`boolean`
 
 </card>
 

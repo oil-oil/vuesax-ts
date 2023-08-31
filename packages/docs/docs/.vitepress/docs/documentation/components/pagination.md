@@ -84,7 +84,7 @@ Easily add a pagination with the `VsPagination` component, the required properti
 
 ## Color
 
-Use the color props to change the base color of the component and some of the child components, to better understand the handling of colors and themes you can see it here
+Use the color property to change the base color of the component and some of the child components, to better understand the handling of colors and themes you can see it here
 
 the allowed values are:
 
@@ -101,7 +101,7 @@ the allowed values are:
 
 ## Disabled
 
-Change the disabled status of the component with the disabled props, this props is a boolean and you can add it without value
+Change the disabled status of the component with the disabled property, this property is a boolean and you can add it without value
 
 </card>
 
@@ -109,7 +109,7 @@ Change the disabled status of the component with the disabled props, this props 
 
 ## No Arrow
 
-You can remove the back and next arrows with the `noArrows` props
+You can remove the back and next arrows with the `noArrows` property
 
 </card>
 
@@ -117,7 +117,7 @@ You can remove the back and next arrows with the `noArrows` props
 
 ## OnlyArrow
 
-You may need in small spaces to remove the buttons and leave only the arrows for it we have the props `onlyArrows`
+You may need in small spaces to remove the buttons and leave only the arrows for it we have the property `onlyArrows`
 
 </card>
 
@@ -125,7 +125,7 @@ You may need in small spaces to remove the buttons and leave only the arrows for
 
 ## Circle
 
-If you want to make the pagination circular, you can set the `shape` props to `circle`.
+If you want to make the pagination circular, you can set the `shape` property to `circle`.
 
 </card>
 
@@ -133,7 +133,7 @@ If you want to make the pagination circular, you can set the `shape` props to `c
 
 ## Square
 
-If you want to make the pagination square, you can set the `shape` props to `circle`.
+If you want to make the pagination square, you can set the `shape` property to `circle`.
 
 </card>
 
@@ -141,7 +141,7 @@ If you want to make the pagination square, you can set the `shape` props to `cir
 
 ## Dotted
 
-If you want to make the pagination Dotted, you can set the `shape` props to `dotted`.
+If you want to make the pagination Dotted, you can set the `shape` property to `dotted`.
 
 </card>
 
@@ -149,7 +149,7 @@ If you want to make the pagination Dotted, you can set the `shape` props to `dot
 
 ## Disabled Items
 
-You can put disabled buttons specific to the pagination component with the `disabledItems` props, this props is an array with the number of the button you want to put in disabled status
+You can put disabled buttons specific to the pagination component with the `disabledItems` property, this property is an array with the number of the button you want to put in disabled status
 
 </card>
 
@@ -157,7 +157,7 @@ You can put disabled buttons specific to the pagination component with the `disa
 
 ## Loading Items
 
-You can make a button inside the pagination be in the status of loading with the `loadingItems` props, this props is an array with the number of the button that you want to put in the disabled status
+You can make a button inside the pagination be in the status of loading with the `loadingItems` property, this property is an array with the number of the button that you want to put in the disabled status
 
 </card>
 
@@ -165,7 +165,7 @@ You can make a button inside the pagination be in the status of loading with the
 
 ## Compact
 
-Change the style of the entire component by removing the margin between the buttons, you can set the `shape` props to `compact`.
+Change the style of the entire component by removing the margin between the buttons, you can set the `shape` property to `compact`.
 
 </card>
 
@@ -181,7 +181,7 @@ You may need to customize your pagination and for this you can use the default s
 
 ## Progress
 
-Add a progress bar to the pagination by referencing where you find the last page with the `progress` props
+Add a progress bar to the pagination by referencing where you find the last page with the `progress` property
 
 </card>
 
@@ -189,7 +189,7 @@ Add a progress bar to the pagination by referencing where you find the last page
 
 ## Page Step
 
-You can change the number of pages that are added when the user clicks on the points to advance more pages quickly, this can be done with the `pageStep` props and the value would be the number of pages that are added or subtracted (default is 5)
+You can change the number of pages that are added when the user clicks on the points to advance more pages quickly, this can be done with the `pageStep` property and the value would be the number of pages that are added or subtracted (default is 5)
 
 </card>
 
@@ -197,7 +197,7 @@ You can change the number of pages that are added when the user clicks on the po
 
 ## Infinite
 
-You can make the pagination infinite with the `infinite` props, this means that the arrow buttons are no longer in the disabled status.
+You can make the pagination infinite with the `infinite` property, this means that the arrow buttons are no longer in the disabled status.
 
 </card>
 

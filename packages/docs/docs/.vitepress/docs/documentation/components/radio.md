@@ -1,6 +1,7 @@
 ---
 prev: Avatar
 next: Radio
+last Update: 2023/13/1
 props : 
     - name: color
       type: String
@@ -63,7 +64,7 @@ Add the radio type input with the component `<vs-radio />`
 
 ## Label
 
-Add a label to the radio with the `default` slot, if you need the label to be before the radio you can use the `label-before` props
+Add a label to the radio with the `default` slot, if you need the label to be before the radio you can use the `label-before` property
 
 </card>
 
@@ -71,7 +72,7 @@ Add a label to the radio with the `default` slot, if you need the label to be be
 
 ## Loading
 
-Add a loading animation to the component, when the radio has this props active it is as if it were in `disabled`
+Add a loading animation to the component, when the radio has this property active it is as if it were in `disabled`
 
 </card>
 

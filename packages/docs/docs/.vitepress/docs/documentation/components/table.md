@@ -104,7 +104,7 @@ This component has a different logic for better data management and freer custom
 
 ## Striped
 
-You can easily strip the table with the `striped` props
+You can easily strip the table with the `striped` property
 
 </card>
 
@@ -120,7 +120,7 @@ You can add the pagination functionality for the table using the #footer slot an
 
 ## Single Selected
 
-You can achieve the table selected effect by using the `isSelected` props.
+You can achieve the table selected effect by using the `isSelected` property.
 
 </card>
 
@@ -128,7 +128,7 @@ You can achieve the table selected effect by using the `isSelected` props.
 
 ## Multiple Selected
 
-You can achieve the table multi-select effect by using the `isSelected` props and the `checkbox` props.
+You can achieve the table multi-select effect by using the `isSelected` property and the `checkbox` property.
 
 </card>
 
@@ -152,7 +152,7 @@ You can edit the data inside the table easily using the `VsModal` component and 
 
 ## Search and sort
 
-You can use the `#header` slot and `sort` props to implement table searching and table sorting.
+You can use the `#header` slot and `sort` property to implement table searching and table sorting.
 
 </card>
 

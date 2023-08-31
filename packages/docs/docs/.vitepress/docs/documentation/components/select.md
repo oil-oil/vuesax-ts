@@ -12,7 +12,7 @@ Add a select element with the `vs-select` component and the `vs-option` sub comp
 
 ## Color
 
-Change the color of the component with the `color` props, the allowed values ​​are the main colors of vuesax and the colors (**RGB** and **HEX**)
+Change the color of the component with the `color` property, the allowed values ​​are the main colors of vuesax and the colors (**RGB** and **HEX**)
 
 </card>
 
@@ -20,7 +20,7 @@ Change the color of the component with the `color` props, the allowed values ​
 
 ## Label
 
-Add a label to the select easily with the `label` props, you can also add a `label-placeholder` which as its name says is a placeholder that encourages label, and finally the placeholder with the `placeholder` props
+Add a label to the select easily with the `label` property, you can also add a `label-placeholder` which as its name says is a placeholder that encourages label, and finally the placeholder with the `placeholder` property
 
 </card>
 
@@ -36,7 +36,7 @@ Group options within the select with the sub-component `vs-option-group`, as the
 
 ## Filter
 
-You can add the functionality of filtering options with the `filter` props, this props is a `boolean`
+You can add the functionality of filtering options with the `filter` property, this property is a `boolean`
 
 </card>
 
@@ -44,7 +44,7 @@ You can add the functionality of filtering options with the `filter` props, this
 
 ## Multiple
 
-Add the functionality of multiple selection of options with the `multiple` props, this props is a `boolean`
+Add the functionality of multiple selection of options with the `multiple` property, this property is a `boolean`
 
 :::tip
 The value of the select must be an array
@@ -56,7 +56,7 @@ The value of the select must be an array
 
 ## Loading
 
-Add a loading animation to the select with the `loading` props, this props is a `boolean`
+Add a loading animation to the select with the `loading` property, this property is a `boolean`
 
 </card>
 
@@ -64,10 +64,10 @@ Add a loading animation to the select with the `loading` props, this props is a 
 
 ## Status
 
-Change the style of the component to the color passed in the `status` props, the allowed colors are only the main ones of vuesax
+Change the style of the component to the color passed in the `status` property, the allowed colors are only the main ones of vuesax
 
 :::tip
-This props can be used to indicate a missing field to the user or when something is ready.
+This property can be used to indicate a missing field to the user or when something is ready.
 :::
 
 </card>

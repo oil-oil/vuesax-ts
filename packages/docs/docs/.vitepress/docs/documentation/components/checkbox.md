@@ -41,7 +41,7 @@ props :
     - name: checked
       type: Boolean
       values: true | false
-      description: Determine if the component is initially in check (this changes the props computed in v-model to true).
+      description: Determine if the component is initially in check (this changes the property computed in v-model to true).
       default: "false"
       usageUrl: checkbox#boolean-value
 slots : 
@@ -73,7 +73,7 @@ Add a checkbox type input easily and with a beautiful animation
 
 ## color
 
-Change the color of the component with the `color` props, the allowed values ​​are (main colors of vuesax, RGB, HEX)
+Change the color of the component with the `color` property, the allowed values ​​are (main colors of vuesax, RGB, HEX)
 
 </card>
 
@@ -107,7 +107,7 @@ Add a label to the checkbox with the default slot of the component
 
 ## Loading
 
-Add a loading status to the component with the props `loading`
+Add a loading status to the component with the property `loading`
 
 </card>
 
@@ -115,7 +115,7 @@ Add a loading status to the component with the props `loading`
 
 ## LineThrough
 
-Add a line in the middle of the label when the checkbox is checked with the props `line-through`
+Add a line in the middle of the label when the checkbox is checked with the property `line-through`
 
 </card>
 
@@ -123,7 +123,7 @@ Add a line in the middle of the label when the checkbox is checked with the prop
 
 ## Indeterminate
 
-There are some cases where you have several checkboxes and you need one that manages all the others for this you can do it with the indeterminate props that adds a different style to the checkbox
+There are some cases where you have several checkboxes and you need one that manages all the others for this you can do it with the indeterminate property that adds a different style to the checkbox
 
 </card>
 
