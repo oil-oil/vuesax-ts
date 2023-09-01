@@ -1,25 +1,43 @@
 <template>
   <VsTable>
     <template #header>
-      <VsInput v-model="search" border placeholder="Search" />
+      <VsInput v-model="search" border placeholder="Search" block />
     </template>
     <template #thead>
       <VsTr>
-        <VsTh sort @sort="(sortType:SortType)=>onSort(sortType,'name')"> Name </VsTh>
-        <VsTh sort @sort="(sortType:SortType)=>onSort(sortType,'email')"> Email </VsTh>
-        <VsTh sort @sort="(sortType:SortType)=>onSort(sortType,'id')"> Id </VsTh>
+        <VsTh sort @sort="(sortType: SortType) => onSort(sortType, 'id')">
+          Id
+        </VsTh>
+        <VsTh sort @sort="(sortType: SortType) => onSort(sortType, 'name')">
+          Name
+        </VsTh>
+        <VsTh sort @sort="(sortType: SortType) => onSort(sortType, 'username')">
+          Username
+        </VsTh>
+        <VsTh sort @sort="(sortType: SortType) => onSort(sortType, 'email')">
+          Email
+        </VsTh>
+        <VsTh sort @sort="(sortType: SortType) => onSort(sortType, 'email')">
+          Website
+        </VsTh>
       </VsTr>
     </template>
     <template #tbody>
-      <VsTr :key="i" v-for="(tr, i) in users">
+      <VsTr :key="tr.id" v-for="tr in users">
+        <VsTd>
+          {{ tr.id }}
+        </VsTd>
         <VsTd>
           {{ tr.name }}
+        </VsTd>
+        <VsTd>
+          {{ tr.username }}
         </VsTd>
         <VsTd>
           {{ tr.email }}
         </VsTd>
         <VsTd>
-          {{ tr.id }}
+          {{ tr.website }}
         </VsTd>
       </VsTr>
     </template>
@@ -27,13 +45,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { VsInput,VsTable, VsTh, VsTr, VsTd } from 'vuesax-ts'
+import { reactive, ref, watchEffect } from 'vue'
+import { VsInput, VsTable, VsTh, VsTr, VsTd } from 'vuesax-ts'
 
-
-const search = ref('')
-
-const users = ref([
+const usersData = [
   {
     id: 1,
     name: 'Leanne Graham',
@@ -104,24 +119,59 @@ const users = ref([
     email: 'Rey.Padberg@karina.biz',
     website: 'ambrose.net'
   }
-])
+]
 
 type SortType = 'asc' | 'desc' | null
-type FieldType = 'id'|'name'|'email'
-const onSort = (sortType: SortType,fieldType:FieldType) => {
-  users.value = users.value.sort((a,b)=>{
-    if(typeof a[fieldType] === "string"){
-      if(sortType === "asc"){
-        return (a[fieldType] as string).localeCompare(b[fieldType] as string)
+type FieldType = keyof (typeof usersData)[number]
+
+const users = ref(usersData)
+const search = ref('')
+const sort = reactive<{ sortType: SortType; fieldType: FieldType }>({
+  sortType: null,
+  fieldType: 'id'
+})
+
+watchEffect(() => {
+  const { fieldType, sortType } = sort
+  let filterData = [...usersData]
+  if (search.value) {
+    filterData = filterData.filter((item) => {
+      let isMatch = false
+      Object.entries(item).forEach(([_, value]) => {
+        if (String(value).includes(search.value)) {
+          isMatch = true
+        }
+      })
+      return isMatch
+    })
+  }
+
+  filterData = filterData.sort((a, b) => {
+    if (typeof a[fieldType] === 'string') {
+      const compareResult = (a?.[fieldType] as string).localeCompare(
+        b[fieldType] as string
+      )
+      if (sortType === 'asc') {
+        return compareResult
       }
-      else if(sortType === "desc"){
-        return (b[fieldType] as string).localeCompare(a[fieldType] as string)
+      if (sortType === 'desc') {
+        return -compareResult
       }
     }
-    if(sortType === "asc"){
-      return (a[fieldType] as number)-(b[fieldType] as number)
-      }
-      return (b[fieldType] as number)-(a[fieldType] as number)
+    if (sortType === 'asc') {
+      return (a[fieldType] as number) - (b[fieldType] as number)
+    }
+    if (sortType === 'desc') {
+      return (b[fieldType] as number) - (a[fieldType] as number)
+    }
+    return 1
   })
+
+  users.value = filterData
+})
+
+const onSort = (sortType: SortType, fieldType: FieldType) => {
+  sort.fieldType = fieldType
+  sort.sortType = sortType
 }
 </script>
