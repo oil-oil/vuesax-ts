@@ -27,6 +27,7 @@ const Table = defineComponent({
     const colspan = ref(0)
     const rootRef = ref<HTMLElement>()
     const theadRef = ref<HTMLElement>()
+    const activeSort = ref(-1)
 
     onMounted(() => {
       const tds = theadRef.value?.querySelectorAll('th')
@@ -34,7 +35,8 @@ const Table = defineComponent({
     })
 
     provide<TableProvider>('tableProvider', {
-      rootRef
+      rootRef,
+      activeSort
     })
 
     return () => (
