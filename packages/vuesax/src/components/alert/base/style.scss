@@ -2,7 +2,7 @@
 
 .vs-alert {
   background: -color("color", 0.1);
-  color: -color("color", 1);
+  color: -color("color");
   width: 100%;
   padding: 0px 20px;
   border-radius: 0px 12px 12px 0px;
@@ -30,7 +30,7 @@
   }
   &::after {
     content: "";
-    background: -color("color", 1);
+    background: -color("color");
     left: 0px;
     top: 0px;
     width: 2px;
@@ -38,7 +38,7 @@
     position: absolute;
   }
   &--solid {
-    background: -color("color", 1);
+    background: -color("color");
     color: #fff;
     .vs-alert__icon {
       i {
@@ -66,7 +66,7 @@
   &--border {
     background: transparent;
     &::before {
-      border: 1px solid -color("color", 1);
+      border: 1px solid -color("color");
       border-left: 0px;
       width: calc(100% - 2px);
       content: "";
@@ -83,7 +83,7 @@
     box-shadow: 0px 4px 15px 0px -color("color", 0.12);
   }
   &--gradient {
-    background: -color("color", 1);
+    background: -color("color");
     color: #fff;
     border-radius: 12px;
     .vs-alert__icon {
@@ -109,7 +109,7 @@
       display: none;
     }
     &::before {
-      background: linear-gradient(30deg, -color("color", 0) 33%, -color("color", 1) 100%);
+      background: linear-gradient(30deg, -color("color", 0) 33%, -color("color") 100%);
       filter: hue-rotate(-50deg);
       width: 100%;
       content: "";
@@ -125,7 +125,7 @@
     background: rgba(0, 0, 0, 0.03);
   }
   &--relief {
-    background: -color("color", 1);
+    background: -color("color");
     color: #fff;
     border-radius: 12px;
     box-shadow: 6px 6px 0px 0px -color("color", 0.3);
@@ -228,12 +228,12 @@
   padding-left: 2px;
   i {
     font-size: 1.3rem;
-    color: -color("color", 1);
+    color: -color("color");
   }
   svg {
     width: 24px;
     height: 24px;
-    fill: -color("color", 1);
+    fill: -color("color");
   }
   ~ .vs-alert__footer {
     padding-left: 35px;
@@ -257,7 +257,7 @@
     left: 0px;
     position: relative;
     height: 100%;
-    background: -color("color", 1);
+    background: -color("color");
     transition: all 0.25s ease;
   }
 }
@@ -277,14 +277,14 @@
   button {
     border: 0px;
     background: transparent;
-    color: -color("color", 1);
+    color: -color("color");
     padding: 3px 7px;
     font-size: 1rem;
     background: -color("color", 0.1);
     border-radius: 8px;
     transition: all 0.25s ease;
     &:hover {
-      background: -color("color", 1);
+      background: -color("color");
       color: #fff;
     }
   }

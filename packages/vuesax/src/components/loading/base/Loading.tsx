@@ -5,6 +5,7 @@ import useColor from '@/hooks/useColor'
 import { Color } from '@/types/utils'
 
 type LoadingType =
+  | 'default'
   | 'waves'
   | 'corners'
   | 'points'
@@ -25,7 +26,7 @@ const Loading = defineComponent({
     },
     background: {
       type: String as PropType<Color>,
-      default: '255, 255, 255'
+      default: 'rgb(255, 255, 255)'
     },
     text: {
       type: String,
@@ -33,11 +34,11 @@ const Loading = defineComponent({
     },
     type: {
       type: String as PropType<LoadingType>,
-      default: null
+      default: 'default'
     },
     opacity: {
-      type: String,
-      default: '0.6'
+      type: Number,
+      default: 0.6
     },
     percent: {
       type: String,
@@ -54,13 +55,20 @@ const Loading = defineComponent({
     isVisible: {
       type: Boolean,
       default: true
+    },
+    isFixed: {
+      type: Boolean,
+      default: true
     }
   },
   emits: ['update:isVisible', 'update:text'],
   setup(props) {
     const rootRef = ref<HTMLElement>()
     const { color } = useColor(toRef(props, 'color'))
-    const { color: bgColor } = useColor(toRef(props, 'background'))
+    const { color: bgColor } = useColor(
+      toRef(props, 'background'),
+      toRef(props, 'opacity')
+    )
 
     return () => (
       <Transition name="loading">
@@ -68,13 +76,10 @@ const Loading = defineComponent({
           <div
             ref={rootRef}
             style={{
-              background: `rgba(${bgColor.value},${props.opacity})`
+              background: `rgba(${bgColor.value})`,
+              position: props.isFixed ? 'fixed' : 'static'
             }}
-            class={[
-              'vs-loading',
-              `vs-loading--${props.type || 'default'}`,
-              { 'vs-loading--background': !!props.background }
-            ]}
+            class={['vs-loading', `vs-loading--${props.type || 'default'}`]}
           >
             <div
               class="vs-loading__load"

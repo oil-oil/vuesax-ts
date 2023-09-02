@@ -61,6 +61,7 @@ a {
 			border-radius: 17px;
 			margin: 0 10px 0 0;
 
+
 			.bx {
 				font-size: 1.5rem;
 			}
@@ -93,33 +94,59 @@ a {
 		transform: translateY(-8px);
 	}
 
+	50% {
+		transform: translateY(-8px);
+	}
+
+	100% {
+		transform: translateY(8px);
+	}
+
 	100% {
 		transform: translateY(8px);
 	}
 }
 
+
 @media (max-width: 1400px) {
+	.features-part {
+		transform: scale(0.8);
+		left: -14%;
+	}
+}
+
+@media (max-width: 960px) {
 	.page {
 		width: 100%;
 
+		.title-part {
+			display: none;
+		}
+
+
 		.features-part {
-			transform: scale(0.8);
-			left: -7%;
+			transform: scale(0.7);
 			right: auto;
-			bottom: 0px;
 			left: -12%;
 		}
 	}
 }
 
+
 @media (max-width: 760px) {
 	.page {
+		.title-part {
+			display: none;
+		}
+
+
 		.features-part {
 			transform: scale(0.7);
 			left: -18%;
 		}
 	}
 }
+
 
 @media (max-width: 470px) {
 	.page {

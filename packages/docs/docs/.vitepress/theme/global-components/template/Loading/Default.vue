@@ -17,6 +17,6 @@ const handleClick = () => {
   setTimeout(() => {
     close()
     active.value = false
-  }, 3500)
+  }, 350000)
 }
 </script>

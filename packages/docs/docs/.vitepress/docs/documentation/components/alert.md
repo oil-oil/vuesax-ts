@@ -1,7 +1,6 @@
 ---
 prev: Button
 next: Alert
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: active
       type: Boolean

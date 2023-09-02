@@ -43,15 +43,12 @@
 }
 html {
   scroll-behavior: smooth;
+  color:var(--vs-theme-color)
 }
-input {
-  font-family: "FangYuanTiVF";
-}
-button {
+input,button,body {
   font-family: "FangYuanTiVF";
 }
 body {
-  font-family: "FangYuanTiVF";
   margin: 0;
 }
 

@@ -108,6 +108,7 @@ const Button = defineComponent({
   emits: ['click'],
   setup(props, { slots, attrs, emit }) {
     const { color } = useColor(toRef(props, 'color'))
+    console.log('color: ', color.value, props.color)
     const buttonRef = ref<Element>()
 
     const animateSlot = (

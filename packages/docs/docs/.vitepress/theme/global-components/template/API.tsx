@@ -47,9 +47,11 @@ const DocsApi = defineComponent({
                             <VsTh>{line.description}</VsTh>
                             <VsTh>{line.default}</VsTh>
                             <VsTh>
-                              <a href={line.usageUrl}>
-                                Usage<i class="bx bx-code-block"></i>
-                              </a>
+                              {line.usageUrl && (
+                                <a href={line.usageUrl}>
+                                  Usage<i class="bx bx-code-block"></i>
+                                </a>
+                              )}
                             </VsTh>
                             <VsTh>
                               <a
@@ -104,7 +106,6 @@ const DocsApi = defineComponent({
                             <VsTd>
                               {line.usageUrl && (
                                 <a href={line.usageUrl}>
-                                  {line.usageUrl}
                                   Usage<i class="bx bx-code-block"></i>
                                 </a>
                               )}

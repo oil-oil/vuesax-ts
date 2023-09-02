@@ -15,7 +15,7 @@
 
 ## Flat
 
-我们可以通过添加 `flat`  属性来将按钮设置为扁平样式，该属性是 `boolean` 类型
+你可以通过添加 `flat`  属性来将按钮设置为扁平样式，该属性是 `boolean` 类型
 
 </Card>
 
@@ -23,7 +23,7 @@
 
 ## Border
 
-我们可以通过添加 `border`  属性来将按钮设置为带有边框的样式，该属性是 `boolean` 类型
+你可以通过添加 `border`  属性来将按钮设置为带有边框的样式，该属性是 `boolean` 类型
 
 </Card>
 
@@ -31,7 +31,7 @@
 
 ## Gradient
 
-我们可以通过添加 `gradient`  属性来将按钮设置为渐变色背景，该属性是 `boolean` 类型
+你可以通过添加 `gradient`  属性来将按钮设置为渐变色背景，该属性是 `boolean` 类型
 
 :::tip 渐变色由 `color` 属性自动生成，在本例中为 `primary` 颜色
 :::
@@ -42,7 +42,7 @@
 
 ## Relief
 
-我们可以通过添加 `relief`  属性来将按钮设置为悬浮效果，该属性是 `boolean` 类型
+你可以通过添加 `relief`  属性来将按钮设置为悬浮效果，该属性是 `boolean` 类型
 
 </Card>
 
@@ -50,7 +50,7 @@
 
 ## Transparent
 
-我们可以通过添加 `transparent`  属性来将按钮设置为透明背景，该属性是 `boolean` 类型
+你可以通过添加 `transparent`  属性来将按钮设置为透明背景，该属性是 `boolean` 类型
 
 </Card>
 
@@ -58,7 +58,7 @@
 
 ## Shadow
 
-我们可以通过添加 `shadow`  属性来将按钮设置为带有阴影的效果，该属性是 `boolean` 类型
+你可以通过添加 `shadow`  属性来将按钮设置为带有阴影的效果，该属性是 `boolean` 类型
 
 </Card>
 
@@ -74,7 +74,7 @@
 
 ## Icon
 
-如果我们需要一个只有图标的按钮,可以使用 `icon` 属性，这个属性是 `boolean` 类型
+如果你需要一个只有图标的按钮,可以使用 `icon` 属性，这个属性是 `boolean` 类型
 
 该属性使按钮具有特定的大小且具有相同的宽度和高度
 
@@ -85,7 +85,7 @@
        默认图标
       </p>
       <p>
-       默认情况下，Vuesax 不使用任何图标库或字体，因此我们可以自由使用喜欢的图标 所有在某处使用默认图标（例如在 <b>Alert</b> 或<b>Modal</b> 中关闭）的组件都将是 <b>svg</b>，以避免必须安装任何类型的外部源， 并可以通过您喜欢的图标替换为<code>插槽=</code>“图标”
+       默认情况下，Vuesax 不使用任何图标库或字体，因此你可以自由使用喜欢的图标 所有在某处使用默认图标（例如在 <b>Alert</b> 或<b>Modal</b> 中关闭）的组件都将是 <b>svg</b>，以避免必须安装任何类型的外部源， 并可以通过您喜欢的图标替换为<code>插槽=</code>“图标”
       </p>
     </div>
     <div class="tip custom-block">
@@ -93,7 +93,7 @@
         Vuesax Docs Icons
       </p>
       <p>
-        在文档和示例我们使用了图标库 <a target=“_blank” href=“https://boxicons.com/”>boxicons</a>，这对于使用 Vuesax 并非强制性的或必需的，但我们推荐它，因为它具有大量的图标以及它们在视觉上与框架调性相符
+        在文档和示例你使用了图标库 <a target=“_blank” href=“https://boxicons.com/”>boxicons</a>，这对于使用 Vuesax 并非强制性的或必需的，但你推荐它，因为它具有大量的图标以及它们在视觉上与框架调性相符
       </p>
     </div>
   </div>
@@ -105,7 +105,7 @@
 
 ## Icon - Text
 
-如果我们需要带有文字和图标的按钮，可以将它们添加到默认的 `slot` 中。
+如果你需要带有文字和图标的按钮，可以将它们添加到默认的 `slot` 中。
 
 </Card>
 
@@ -113,7 +113,7 @@
 
 ## Circle
 
-我们可以使用 `circle` 属性对边角进行完全圆角处理，该属性是 `boolean` 类型
+你可以使用 `circle` 属性对边角进行完全圆角处理，该属性是 `boolean` 类型
 
 </Card>
 
@@ -121,7 +121,7 @@
 
 ## Square
 
-我们可以使用 `square` 属性移除所有圆角，该属性是 `boolean` 类型
+你可以使用 `square` 属性移除所有圆角，该属性是 `boolean` 类型
 
 </Card>
 
@@ -143,7 +143,7 @@
 
 ## Loading
 
-我们可以使用 `loading` 属性添加加载状态，该属性是 `boolean` 类型
+你可以使用 `loading` 属性添加加载状态，该属性是 `boolean` 类型
 
 </Card>
 
@@ -151,7 +151,7 @@
 
 ## Upload
 
-我们可以使用 `upload` 属性添加向服务器发送或上传数据的状态，该属性 `boolean` 类型
+你可以使用 `upload` 属性添加向服务器发送或上传数据的状态，该属性 `boolean` 类型
 
 </Card>
 
@@ -159,7 +159,7 @@
 
 ## Block
 
-我们可以使用 `block` 属性使按钮的宽度占满父级容器，，该属性是  `boolean` 类型。
+你可以使用 `block` 属性使按钮的宽度占满父级容器，，该属性是  `boolean` 类型。
 
 </Card>
 
@@ -169,7 +169,7 @@
 
 You can create an animation to the component by adding the ``#"animate" `and the content will be the one that appears when the component is animated
 
-我们可以通过添加 `#"animate"` 为组件创建动画，而内容将是组件动画时出现的内容，还还可以使用 `animation-type` 属性更改动画类型，允许的值有（`vertical`, `scale`, `rotate`）
+你可以通过添加 `#"animate"` 为组件创建动画，而内容将是组件动画时出现的内容，还还可以使用 `animation-type` 属性更改动画类型，允许的值有（`vertical`, `scale`, `rotate`）
 
 </Card>
 
@@ -187,7 +187,7 @@ You can create an animation to the component by adding the ``#"animate" `and the
 
 ## Floating
 
-我们可以使用 `floating` 属性轻松制作浮动样式按钮，该属性是 `boolean` 类型。
+你可以使用 `floating` 属性轻松制作浮动样式按钮，该属性是 `boolean` 类型。
 
 这些按钮通常执行特定的重要操作，位置固定在下角
 
@@ -197,7 +197,7 @@ You can create an animation to the component by adding the ``#"animate" `and the
 
 ## Group
 
-如果我们需要开发一组按钮，可以使用 `<VsbuttonGroup> </VsbuttonGroup>` 并在默认插槽中放入我们要组合的按钮
+如果你需要开发一组按钮，可以使用 `<VsbuttonGroup> </VsbuttonGroup>` 并在默认插槽中放入你要组合的按钮
 
 </Card>
 

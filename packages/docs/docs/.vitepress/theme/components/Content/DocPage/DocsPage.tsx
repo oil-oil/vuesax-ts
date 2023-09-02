@@ -69,7 +69,7 @@ const DocsPage = defineComponent({
               backgroundColor: pageHeaderTrigger.value
                 ? 'var(--vs-theme-bg)'
                 : '',
-              width: pageHeaderTrigger.value ? '820px' : ''
+              width: pageHeaderTrigger.value ? '720px' : ''
             }}
           >
             <div ref={pageHeaderContentTitleRef} class="h1">
@@ -168,10 +168,6 @@ const DocsPage = defineComponent({
           <RightSidebar></RightSidebar>
         </div>
         <footer class="page-footer">
-          <div class="update-time">
-            <span class="title">Last Update:</span>
-            <span class="time">{frontmatter.value['last Update']}</span>
-          </div>
           <div class="next-control">
             <a href={`${frontmatter.value.prev}`} class="prev">
               <i class="bx bx-chevron-left"></i>

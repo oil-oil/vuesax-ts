@@ -177,7 +177,7 @@
             position: absolute;
             animation: corners 1s ease infinite;
             border-radius: 50%;
-            border: 2px solid -color("color", 1);
+            border: 2px solid -color("color");
         }
         &__2 {
             display: none;
@@ -359,7 +359,7 @@
             border-radius: inherit;
             animation: rotate 1s linear infinite;
             top: 0px;
-            background: linear-gradient(0deg, -color("background", 0) 33%, -color("color", 1) 100%);
+            background: linear-gradient(0deg, -color("background", 0) 33%, -color("color") 100%);
             border-radius: 50%;
         }
         &__2 {
@@ -394,7 +394,7 @@
             border: 0px;
             border-radius: inherit;
             animation: rectangle 1s ease infinite;
-            background: -color("color", 1);
+            background: -color("color");
         }
         &__2 {
             position: absolute;
@@ -436,7 +436,7 @@
             height: 40px;
             animation: rotate 1s ease infinite;
             border-radius: 50%;
-            border: 2px solid -color("color", 1);
+            border: 2px solid -color("color");
             border-top: 3px solid transparent;
             border-left: 3px solid transparent;
             border-right: 3px solid transparent;
@@ -447,7 +447,7 @@
             height: 50px;
             animation: rotate 1s ease-in-out infinite;
             border-radius: 50%;
-            border: 2px dashed -color("color", 1);
+            border: 2px dashed -color("color");
             border-top: 3px solid transparent;
             border-left: 3px solid transparent;
             border-right: 3px solid transparent;
@@ -458,7 +458,7 @@
             height: 60px;
             animation: rotate 1s linear infinite reverse;
             border-radius: 50%;
-            border: 2px solid -color("color", 1);
+            border: 2px solid -color("color");
             border-top: 3px solid transparent;
             border-left: 3px solid transparent;
             border-right: 3px solid transparent;
@@ -482,7 +482,7 @@
             width: 25px;
             height: 25px;
             animation: squareRotate 3s ease infinite;
-            background: -color("color", 1);
+            background: -color("color");
         }
         &__2 {
             display: none;
@@ -527,7 +527,7 @@
             position: relative;
             width: 5px;
             height: 5px;
-            background: -color("color", 1);
+            background: -color("color");
             margin: 3px;
             animation: scale 0.8s ease infinite;
             border-radius: 5px;
@@ -536,7 +536,7 @@
             position: relative;
             width: 5px;
             height: 5px;
-            background: -color("color", 1);
+            background: -color("color");
             margin: 3px;
             animation: scale 0.8s ease infinite 0.2s;
             border-radius: 5px;
@@ -545,7 +545,7 @@
             position: relative;
             width: 5px;
             height: 5px;
-            background: -color("color", 1);
+            background: -color("color");
             margin: 3px;
             animation: scale 0.8s ease infinite 0.4s;
             border-radius: 5px;

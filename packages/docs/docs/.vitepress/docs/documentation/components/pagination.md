@@ -1,7 +1,6 @@
 ---
 prev: Modal
 next: Table
-last Update: 2/10/2020, 2:21:50 AM
 props : 
     - name: v-model
       type: Number

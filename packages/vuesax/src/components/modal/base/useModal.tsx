@@ -70,16 +70,23 @@ const useModal = (props: ComputedRef<ModalHookProps>) => {
                       transparent
                       color="dark"
                       onClick={() => {
-                        props.value.onCancel ? props.value.onCancel(close) : close()
+                        if (props.value.onCancel) {
+                          props.value.onCancel(close)
+                        } else {
+                          close()
+                        }
                       }}
                     >
                       {props.value.cancelText || 'Cancel'}
                     </VsButton>
                   )}
                   {props.value.showConfirm && (
-                    <VsButton transparent onClick={() => {
-                      props.value.onConfirm?.(close)
-                    }}>
+                    <VsButton
+                      transparent
+                      onClick={() => {
+                        props.value.onConfirm?.(close)
+                      }}
+                    >
                       {props.value.confirmText || 'Confirm'}
                     </VsButton>
                   )}
