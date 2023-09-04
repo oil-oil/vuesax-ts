@@ -5,49 +5,49 @@ props :
     - name: color
       type: String
       values: Vuesax Colors | RGB | HEX
-      description: Change the color of the radio.
+      description: 修改单选框的颜色
       default: primary
       usageUrl: radio#color
     - name: disabled
       type: Boolean
       values: true | false
-      description: Determine if the component is in the disabled state.
+      description: 确定单选框是否处于禁用状态
       default: "false"
       usageUrl: radio#default
     - name: loading
       type: Boolean
       values: true | false
-      description: Determine if the component has a loading animation and is disabled.
+      description: 确定单选框是否有加载动画并已禁用
       default: "false"
       usageUrl: radio#loading
     - name: value
       type: String
       values: String
-      description: Determine the value of the radio input.
+      description: 确定单选框的值。
       default: 
       usageUrl: radio#default
 slots : 
     - name: default
       type: slot
       values:
-      description: Add a label to the component.
+      description: 为单选框添加标签
       default: 
       usageUrl: radio#default
     - name: icon
       type: slot
       values:
-      description: Add an icon inside the radio.
+      description: 为单选框中添加一个图标。
       default: 
       usageUrl: radio#default
 ---
 
-# Radio
+# Radio 单选框
 
 <card>
 
 ## Default
 
-Add the radio type input with the component `<vs-radio />`
+使用组件 `<VsRadio />` 添加单选框
 
 </card>
 
@@ -55,7 +55,7 @@ Add the radio type input with the component `<vs-radio />`
 
 ## Color
 
-Change the color of the component with the `color` property, the allowed values ​​are (main colors of vuesax, RGB, HEX)
+使用 `color` 属性更改组件的颜色，允许的值有（vuesax 的主题颜色、RGB、HEX）
 
 </card>
 
@@ -63,7 +63,7 @@ Change the color of the component with the `color` property, the allowed values 
 
 ## Label
 
-Add a label to the radio with the `default` slot, if you need the label to be before the radio you can use the `label-before` property
+使用 `default` 插槽为单选框添加标签，如果需要标签位于单选框之前，可以使用 `label-before` 属性
 
 </card>
 
@@ -71,7 +71,7 @@ Add a label to the radio with the `default` slot, if you need the label to be be
 
 ## Loading
 
-Add a loading animation to the component, when the radio has this property active it is as if it were in `disabled`
+为组件添加加载动画，当单选框激活此属性时，它同时也处于 `disabled` 状态
 
 </card>
 
@@ -79,7 +79,7 @@ Add a loading animation to the component, when the radio has this property activ
 
 ## Icon
 
-Add an icon inside the radio with the `icon` slot
+使用 `icon` 插槽在单选框中添加图标
 
 </card>
 

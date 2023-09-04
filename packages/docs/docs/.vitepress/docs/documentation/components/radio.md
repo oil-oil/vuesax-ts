@@ -11,13 +11,13 @@ props :
     - name: disabled
       type: Boolean
       values: true | false
-      description: Determine if the component is in the disabled state.
+      description: Determine if the radio is in the disabled status.
       default: "false"
       usageUrl: radio#default
     - name: loading
       type: Boolean
       values: true | false
-      description: Determine if the component has a loading animation and is disabled.
+      description: Determine if the radio has a loading animation and is disabled.
       default: "false"
       usageUrl: radio#loading
     - name: value
@@ -30,7 +30,7 @@ slots :
     - name: default
       type: slot
       values:
-      description: Add a label to the component.
+      description: Add a label to the radio.
       default: 
       usageUrl: radio#default
     - name: icon
@@ -47,7 +47,7 @@ slots :
 
 ## Default
 
-Add the radio type input with the component `<vs-radio />`
+Add the radio type input with the component `<VsRadio />`
 
 </card>
 
@@ -69,7 +69,7 @@ Add a label to the radio with the `default` slot, if you need the label to be be
 
 ## Loading
 
-Add a loading animation to the component, when the radio has this property active it is as if it were in `disabled`
+Add a loading animation to the radio, when the radio has this property active it is as if it were in `disabled`
 
 </card>
 
