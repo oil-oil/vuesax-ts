@@ -11,7 +11,7 @@ props :
     - name: v-model
       type: Boolean
       values: true | false
-      description: Determine if the component is in the disabled state.
+      description: Determine if the component is in the disabled status.
       default: "false"
       usageUrl: tooltip#default
     - name: left, right, bottom

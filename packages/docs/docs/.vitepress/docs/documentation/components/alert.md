@@ -1,17 +1,17 @@
 ---
 prev: Button
-next: Alert
+next: Loading
 props : 
     - name: active
       type: Boolean
       values: true | false
-      description: Determine if the component is visible.
+      description: Determine if the alert is visible.
       default: primary
       usageUrl: alert#animate
     - name: color
       type: String
       values: Vuesax Colors | RGB | HEX
-      description: Change the color of the component and some of its sub components.
+      description: Change the color of the alert and some of its sub components.
       default: primary
       usageUrl: alert#color
     - name: type
@@ -60,13 +60,13 @@ slots :
     - name: page-{n}
       type: slot
       values: (page-1 - page-{n})
-      description: Add the pages to the alert component if it is page one would be (slot='page-1').
+      description: Add the pages to the alert if it is page one would be (slot='page-1').
       default: 
       usageUrl: alert#title
     - name: footer
       type: slot
       values:
-      description: Add a footer to the alert component.
+      description: Add a footer to the alert.
       default: 
       usageUrl: alert#footer
 ---
@@ -77,7 +77,7 @@ slots :
 
 ## Default
 
-Alert component is a component used to display important information. They are typically presented in the form of a pop-up or slide-out panel and can display alert, error, success, or information messages.
+Alert is a component used to display important information. They are typically presented in the form of a pop-up or slide-out panel and can display alert, error, success, or information messages.
 
 </card>
 
@@ -101,7 +101,7 @@ You can style the alert with a shadow by adding the `border` property, the prope
 
 ## Shadow
 
-You can change the style of the component by adding the `shadow` property, the property is a`boolean` value.
+You can change the style of the alert by adding the `shadow` property, the property is a`boolean` value.
 
 </card>
 
@@ -109,7 +109,7 @@ You can change the style of the component by adding the `shadow` property, the p
 
 ## Gradient
 
-You can change the style of the component by adding the `gradient` property, the property is a `boolean` value.
+You can change the style of the alert by adding the `gradient` property, the property is a `boolean` value.
 
 </card>
 
@@ -117,7 +117,7 @@ You can change the style of the component by adding the `gradient` property, the
 
 ## Relief
 
-You can change the style of the component by adding the `relief` property, the property is a`boolean` value.
+You can change the style of the alert by adding the `relief` property, the property is a`boolean` value.
 
 </card>
 
@@ -135,7 +135,7 @@ A beautiful and simple animation to show and hide the alert to the user
 
 Change the color of the entire alert with the `color` property
 
-In this example you can click on the buttons and dynamically change the color value to display it in the component **VsAlert**
+In this example you can click on the buttons and dynamically change the color value to display it in **VsAlert**
 
 </card>
 
