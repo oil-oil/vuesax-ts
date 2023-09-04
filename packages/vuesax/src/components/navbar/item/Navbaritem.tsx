@@ -26,10 +26,10 @@ const NavbarItem = defineComponent({
     const groupProvider = inject<NavbarGroupProvider>('navbarGroupProvider')
 
     const resetLinePosition = () => {
-      if(provider?.active.value === props.id){
+      if (provider?.active.value === props.id) {
         if (groupProvider?.setGroupLineLeft) {
           groupProvider.setGroupLineLeft()
-        } else if (elRef.value  ) {
+        } else if (elRef.value) {
           const left = elRef.value.offsetLeft
           provider?.setLineLeft(left)
           const width = elRef.value.scrollWidth
