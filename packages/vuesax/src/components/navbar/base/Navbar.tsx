@@ -1,7 +1,6 @@
 import {
   PropType,
   defineComponent,
-  nextTick,
   onMounted,
   onUnmounted,
   provide,
@@ -9,6 +8,7 @@ import {
   toRef
 } from 'vue'
 
+import { NavbarProvider } from '../types'
 import useColor from '@/hooks/useColor'
 import useThrottle from '@/hooks/useThrottle'
 import './style.scss'
@@ -75,14 +75,14 @@ const Navbar = defineComponent({
   slots: ['default', 'left', 'right'],
   setup(props, { slots, emit }) {
     const { color } = useColor(toRef(props, 'color'))
-    const leftLine = ref(0)
-    const widthLine = ref(0)
+    const lineLeft = ref(0)
+    const lineWidth = ref(0)
     const scrollTop = ref(0)
     const collapsedWidth = ref(0)
     const hidden = ref(false)
     const shadowActive = ref(false)
     const paddingScrollActive = ref(false)
-    const lineNotTransition = ref(false)
+    // const lineNotTransition = ref(false)
     const collapsedForced = ref(false)
 
     const elRef = ref<HTMLElement>()
@@ -94,26 +94,18 @@ const Navbar = defineComponent({
       emit('update:modelValue', id)
     }
 
-    const setLeftLine = (left: number, transition = true) => {
-      if (!transition) {
-        lineNotTransition.value = true
-      } else {
-        lineNotTransition.value = false
-      }
-      nextTick(() => {
-        leftLine.value = left
-      })
+    const setLineLeft = (left: number) => {
+      lineLeft.value = left
     }
 
-    const setWidthLine = (width: number) => {
-      nextTick(() => {
-        widthLine.value = width
-      })
+    const setLineWidth = (width: number) => {
+      lineWidth.value = width
     }
 
-    provide('provider', {
-      setLeftLine,
-      setWidthLine,
+    provide<NavbarProvider>('navbarProvider', {
+      active: toRef(props, 'modelValue'),
+      setLineLeft,
+      setLineWidth,
       setModel
     })
 
@@ -159,9 +151,9 @@ const Navbar = defineComponent({
         '.vs-navbar__item.active'
       ) as HTMLElement
       if (active) {
-        setLeftLine(active.offsetLeft, false)
+        setLineLeft(active.offsetLeft)
       } else {
-        widthLine.value = 0
+        lineWidth.value = 0
       }
 
       if (
@@ -199,7 +191,6 @@ const Navbar = defineComponent({
           if (elRef.value && elRef.value.offsetWidth < collapsedWidth.value) {
             collapsedForced.value = true
             emit('collapsed', true)
-            widthLine.value = 0
             handleResize()
           }
         }
@@ -251,15 +242,12 @@ const Navbar = defineComponent({
         </div>
         {!props.notLine && (
           <div
-            class={[
-              'vs-navbar__line',
-              { notTransition: lineNotTransition.value }
-            ]}
+            class="vs-navbar__line"
             style={{
-              left: `${leftLine.value}px`,
-              width: `${widthLine.value}px`
+              left: `${lineLeft.value}px`,
+              width: `${lineWidth.value}px`
             }}
-          ></div>
+          />
         )}
       </div>
     )

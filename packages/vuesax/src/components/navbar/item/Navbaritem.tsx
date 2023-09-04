@@ -1,16 +1,12 @@
-import { defineComponent, inject, nextTick, onMounted, ref, watch } from 'vue'
+import { defineComponent, inject, onMounted, ref, watch } from 'vue'
 
-import { NavbarProvider } from '../types'
+import { NavbarGroupProvider, NavbarProvider } from '../types'
 
 import './style.scss'
 
 const NavbarItem = defineComponent({
   name: 'VsNavbarItem',
   props: {
-    active: {
-      type: Boolean,
-      default: false
-    },
     id: {
       type: String
     },
@@ -26,34 +22,32 @@ const NavbarItem = defineComponent({
   setup(props, { slots, emit }) {
     const elRef = ref<HTMLElement>()
 
-    const provider = inject<NavbarProvider>('provider')
-    const setLeftLineGroup = inject<() => void>('setLeftLineGroup')
+    const provider = inject<NavbarProvider>('navbarProvider')
+    const groupProvider = inject<NavbarGroupProvider>('navbarGroupProvider')
 
-    const handleLine = () => {
-      nextTick(() => {
-        if (elRef.value) {
-          if (props.active) {
-            const left = elRef.value.offsetLeft
-            provider?.setLeftLine(left)
-            const width = elRef.value.scrollWidth
-            provider?.setWidthLine(width)
-          }
+    const resetLinePosition = () => {
+      if(provider?.active.value === props.id){
+        if (groupProvider?.setGroupLineLeft) {
+          groupProvider.setGroupLineLeft()
+        } else if (elRef.value  ) {
+          const left = elRef.value.offsetLeft
+          provider?.setLineLeft(left)
+          const width = elRef.value.scrollWidth
+          provider?.setLineWidth(width)
         }
-      })
+      }
     }
 
     watch(
-      () => props.active,
+      () => provider?.active.value,
       () => {
-        if (props.active) {
-          if (setLeftLineGroup) {
-            setLeftLineGroup()
-          } else {
-            handleLine()
-          }
-        }
+        resetLinePosition()
       }
     )
+
+    onMounted(() => {
+      resetLinePosition()
+    })
 
     const handleClick = () => {
       if (props.href) {
@@ -67,28 +61,16 @@ const NavbarItem = defineComponent({
       }
     }
 
-    onMounted(() => {
-      if (props.active && elRef.value) {
-        if (setLeftLineGroup) {
-          setLeftLineGroup()
-        } else {
-          const left = elRef.value.offsetLeft
-          provider?.setLeftLine(left)
-          const width = elRef.value.scrollWidth
-          provider?.setWidthLine(width)
-        }
-      }
-    })
-
     return () => (
       <button
-        class={['vs-navbar__item', { active: props.active }]}
+        class={[
+          'vs-navbar__item',
+          { active: provider?.active.value === props.id }
+        ]}
         onClick={(evt: MouseEvent) => {
           emit('click', evt)
-
           handleClick()
           handleActive()
-
           evt.preventDefault()
           evt.stopPropagation()
         }}
