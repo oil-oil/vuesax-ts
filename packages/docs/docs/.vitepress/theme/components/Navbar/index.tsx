@@ -22,6 +22,8 @@ const Navbar = defineComponent({
     }
     return () => (
       <VsNavbar
+        modelValue={route.path}
+        class="top-navbar"
         textWhite={isDark.value}
         color={isDark.value ? 'dark' : undefined}
         fixed
@@ -76,8 +78,7 @@ const Navbar = defineComponent({
                   <>
                     {value.items?.map((item) => (
                       <VsNavbarItem
-                        active={route.path === item.link}
-                        id={item.text}
+                        id={item.link}
                         onClick={(e: MouseEvent) => pushTo(item.link, e)}
                       >
                         {item.text}

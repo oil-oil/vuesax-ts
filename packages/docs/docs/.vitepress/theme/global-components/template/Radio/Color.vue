@@ -6,7 +6,7 @@
     <VsRadio v-model="value" value="4" color="warn">Warn</VsRadio>
     <VsRadio v-model="value" value="5" color="dark">Dark</VsRadio>
     <VsRadio v-model="value" value="6" color="#7d33ff">HEX</VsRadio>
-    <VsRadio v-model="value" value="7" color="rgb( 59, 222, 200)">RGB</VsRadio>
+    <VsRadio v-model="value" value="7" color="rgb(59, 222, 200)">RGB</VsRadio>
   </div>
 </template>
 

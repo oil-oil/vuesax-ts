@@ -1,6 +1,6 @@
 import { defineComponent, inject, provide, ref } from 'vue'
 
-import { NavbarProvider } from '../types'
+import { NavbarGroupProvider, NavbarProvider } from '../types'
 
 import './style.scss'
 
@@ -10,18 +10,18 @@ const NavbarGroup = defineComponent({
   setup(_, { slots }) {
     const elRef = ref<HTMLElement>()
     const itemRef = ref<HTMLElement>()
-    const provider = inject<NavbarProvider>('provider')
+    const provider = inject<NavbarProvider>('navbarProvider')
 
-    const setLeftLineGroup = () => {
+    const setGroupLineLeft = () => {
       if (elRef.value && itemRef.value) {
         const left = elRef.value.offsetLeft
-        provider?.setLeftLine(left)
+        provider?.setLineLeft(left)
         const width = itemRef.value.scrollWidth
-        provider?.setWidthLine(width)
+        provider?.setLineWidth(width)
       }
     }
 
-    provide('setLeftLineGroup', setLeftLineGroup)
+    provide<NavbarGroupProvider>('navbarGroupProvider', { setGroupLineLeft })
 
     return () => (
       <div class="vs-navbar__group" ref={elRef}>

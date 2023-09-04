@@ -23,27 +23,17 @@ describe('Navbar', () => {
           v-slots={{
             items: () => (
               <>
-                <VsNavbarItem active={active.basic === 'baidu'} id="baidu">
-                  baidu
-                </VsNavbarItem>
-                <VsNavbarItem active={active.basic === 'tx'} id="tx">
-                  tx
-                </VsNavbarItem>
+                <VsNavbarItem id="baidu">baidu</VsNavbarItem>
+                <VsNavbarItem id="tx">tx</VsNavbarItem>
               </>
             )
           }}
         >
           Docs
         </VsNavbarGroup>
-        <VsNavbarItem active={active.basic === 'guide'} id="guide">
-          Guide
-        </VsNavbarItem>
-        <VsNavbarItem active={active.basic === 'components'} id="components">
-          Documents
-        </VsNavbarItem>
-        <VsNavbarItem active={active.basic === 'license'} id="license">
-          License
-        </VsNavbarItem>
+        <VsNavbarItem id="guide">Guide</VsNavbarItem>
+        <VsNavbarItem id="components">Documents</VsNavbarItem>
+        <VsNavbarItem id="license">License</VsNavbarItem>
       </VsNavbar>
     )
     cy.get(
@@ -68,27 +58,17 @@ describe('Navbar', () => {
           v-slots={{
             items: () => (
               <>
-                <VsNavbarItem active={active.click === 'baidu'} id="baidu">
-                  baidu
-                </VsNavbarItem>
-                <VsNavbarItem active={active.click === 'tx'} id="tx">
-                  tx
-                </VsNavbarItem>
+                <VsNavbarItem id="baidu">baidu</VsNavbarItem>
+                <VsNavbarItem id="tx">tx</VsNavbarItem>
               </>
             )
           }}
         >
           Docs
         </VsNavbarGroup>
-        <VsNavbarItem active={active.click === 'guide'} id="guide">
-          Guide
-        </VsNavbarItem>
-        <VsNavbarItem active={active.click === 'components'} id="components">
-          Documents
-        </VsNavbarItem>
-        <VsNavbarItem active={active.basic === 'license'} id="license">
-          License
-        </VsNavbarItem>
+        <VsNavbarItem id="guide">Guide</VsNavbarItem>
+        <VsNavbarItem id="components">Documents</VsNavbarItem>
+        <VsNavbarItem id="license">License</VsNavbarItem>
       </VsNavbar>
     )
 

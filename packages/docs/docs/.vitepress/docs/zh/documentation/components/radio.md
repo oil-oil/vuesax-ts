@@ -1,6 +1,6 @@
 ---
-prev: Avatar
-next: Radio
+prev: Notification
+next: Tooltip
 props : 
     - name: color
       type: String
@@ -55,6 +55,8 @@ Add the radio type input with the component `<vs-radio />`
 
 ## Color
 
+Change the color of the component with the `color` property, the allowed values ​​are (main colors of vuesax, RGB, HEX)
+
 </card>
 
 <card subtitle="Label">
@@ -82,7 +84,7 @@ Add an icon inside the radio with the `icon` slot
 </card>
 
 <script setup>
-import Api from "../../../theme/global-components/template/API.tsx"
+import Api from "../../../../theme/global-components/template/API.tsx"
 </script>
 
 <Api/>
