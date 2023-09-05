@@ -6,7 +6,7 @@ import './style.scss'
 
 const NavbarGroup = defineComponent({
   name: 'VsNavbarGroup',
-  slots: ['default', 'items'],
+  slots: ['title', 'default'],
   setup(_, { slots }) {
     const elRef = ref<HTMLElement>()
     const itemRef = ref<HTMLElement>()
@@ -26,10 +26,10 @@ const NavbarGroup = defineComponent({
     return () => (
       <div class="vs-navbar__group" ref={elRef}>
         <button class="vs-navbar__group__item" ref={itemRef}>
-          {slots.default?.()}
+          {slots.title?.()}
           <i class="arrow bx bx-chevron-down"></i>
         </button>
-        <div class="vs-navbar__group__items">{slots.items?.()}</div>
+        <div class="vs-navbar__group__items">{slots.default?.()}</div>
       </div>
     )
   }

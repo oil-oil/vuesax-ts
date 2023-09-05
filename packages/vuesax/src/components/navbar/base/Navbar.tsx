@@ -113,6 +113,7 @@ const Navbar = defineComponent({
       const scrollT = props.targetScroll
         ? document.querySelector(props.targetScroll)?.scrollTop
         : window.scrollY
+
       if (props.hideScroll) {
         if (scrollT && Math.sign(scrollT - scrollTop.value) === 1) {
           hidden.value = true
@@ -139,12 +140,6 @@ const Navbar = defineComponent({
 
       if (scrollT) scrollTop.value = scrollT
     }, 200)
-
-    const handleScroll = () => {
-      if (props.hideScroll || props.shadowScroll || props.paddingScroll) {
-        window.addEventListener('scroll', onScroll)
-      }
-    }
 
     const handleResize = () => {
       const active = elRef.value?.querySelector(
@@ -196,7 +191,14 @@ const Navbar = defineComponent({
         }
       }, 150)
 
-      handleScroll()
+      if (
+        props.targetScroll &&
+        (props.hideScroll || props.shadowScroll || props.paddingScroll)
+      ) {
+        ;(
+          document.querySelector(props.targetScroll) || window
+        ).addEventListener('scroll', onScroll)
+      }
       window.addEventListener('resize', handleResize)
     })
 

@@ -21,15 +21,11 @@ describe('Navbar', () => {
       >
         <VsNavbarGroup
           v-slots={{
-            items: () => (
-              <>
-                <VsNavbarItem id="baidu">baidu</VsNavbarItem>
-                <VsNavbarItem id="tx">tx</VsNavbarItem>
-              </>
-            )
+            title: () => 'Docs'
           }}
         >
-          Docs
+          <VsNavbarItem id="baidu">baidu</VsNavbarItem>
+          <VsNavbarItem id="tx">tx</VsNavbarItem>
         </VsNavbarGroup>
         <VsNavbarItem id="guide">Guide</VsNavbarItem>
         <VsNavbarItem id="components">Documents</VsNavbarItem>
@@ -56,15 +52,11 @@ describe('Navbar', () => {
       >
         <VsNavbarGroup
           v-slots={{
-            items: () => (
-              <>
-                <VsNavbarItem id="baidu">baidu</VsNavbarItem>
-                <VsNavbarItem id="tx">tx</VsNavbarItem>
-              </>
-            )
+            title: () => 'Docs'
           }}
         >
-          Docs
+          <VsNavbarItem id="baidu">baidu</VsNavbarItem>
+          <VsNavbarItem id="tx">tx</VsNavbarItem>
         </VsNavbarGroup>
         <VsNavbarItem id="guide">Guide</VsNavbarItem>
         <VsNavbarItem id="components">Documents</VsNavbarItem>

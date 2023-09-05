@@ -74,21 +74,17 @@ const Navbar = defineComponent({
           <>
             <VsNavbarGroup
               v-slots={{
-                items: () => (
-                  <>
-                    {value.items?.map((item) => (
-                      <VsNavbarItem
-                        id={item.link}
-                        onClick={(e: MouseEvent) => pushTo(item.link, e)}
-                      >
-                        {item.text}
-                      </VsNavbarItem>
-                    ))}
-                  </>
-                )
+                title: () => value.text
               }}
             >
-              {value.text}
+              {value.items?.map((item) => (
+                <VsNavbarItem
+                  id={item.link}
+                  onClick={(e: MouseEvent) => pushTo(item.link, e)}
+                >
+                  {item.text}
+                </VsNavbarItem>
+              ))}
             </VsNavbarGroup>
           </>
         ))}

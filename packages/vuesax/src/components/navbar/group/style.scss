@@ -34,15 +34,13 @@
   }
   &__items {
     position: absolute;
-    // bottom: 0px;
-    top: 20px;
+    top: 0px;
     left: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin-bottom: -12px;
-    // transform: translate(0, 90%);
     background: -color("color");
     border-radius: 5px 18px 18px 18px;
     padding: 10px;
@@ -52,6 +50,7 @@
     transition: all 0.2s ease;
     color: inherit;
     visibility: hidden;
+    z-index: 9999;
     &:after {
       content: "";
       left: 0px;
