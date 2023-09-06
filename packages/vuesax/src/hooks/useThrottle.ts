@@ -1,11 +1,14 @@
 export default (func: () => void, wait: number) => {
-  let timeout: NodeJS.Timeout | null
+  let timeout: NodeJS.Timeout | null = null
+
   return () => {
-    if (!timeout) {
-      timeout = setTimeout(() => {
-        func()
-        timeout = null
-      }, wait)
+    if (timeout) {
+      clearTimeout(timeout)
     }
+
+    timeout = setTimeout(() => {
+      func()
+      timeout = null
+    }, wait)
   }
 }

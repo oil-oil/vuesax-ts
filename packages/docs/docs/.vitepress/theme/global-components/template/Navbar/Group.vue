@@ -1,5 +1,5 @@
 <template>
-  <div class="center">
+  <div>
     <VsNavbar v-model="active">
       <VsNavbarGroup>
         <template #title> Docs </template>
@@ -56,15 +56,13 @@ const active = ref<string>('')
   padding: 5px;
 }
 
-.center {
-  flex: 1;
-}
 .square {
   flex: 1;
   height: 400px;
   width: 100%;
   overflow: auto;
   .child {
+    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;

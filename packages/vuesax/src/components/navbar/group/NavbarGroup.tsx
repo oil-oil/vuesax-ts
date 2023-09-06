@@ -10,7 +10,7 @@ const NavbarGroup = defineComponent({
   setup(_, { slots }) {
     const elRef = ref<HTMLElement>()
     const itemRef = ref<HTMLElement>()
-    const provider = inject<NavbarProvider>('navbarProvider')
+    const provider = inject<NavbarProvider | null>('navbarProvider', null)
 
     const setGroupLineLeft = () => {
       if (elRef.value && itemRef.value) {

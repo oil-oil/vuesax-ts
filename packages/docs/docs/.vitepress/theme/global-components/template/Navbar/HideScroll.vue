@@ -1,5 +1,5 @@
 <template>
-  <div class="center">
+  <div>
     <VsNavbar v-model="active" hideScroll targetScroll="#hide-scroll-content">
       <VsNavbarItem
         v-for="[key, item] in Object.entries(navbarData)"
@@ -36,16 +36,14 @@ const active = ref<keyof typeof navbarData>('guide')
 </script>
 
 <style lang="scss" scoped>
-.center {
-  flex: 1;
-  overflow: auto;
-}
 .square {
   flex: 1;
   height: 400px;
   width: 100%;
   overflow: auto;
+
   .child {
+    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;

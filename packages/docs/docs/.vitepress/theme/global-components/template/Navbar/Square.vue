@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VsNavbar v-model="active">
+    <VsNavbar v-model="active" square textWhite color="#7d33ff">
       <VsNavbarItem
         v-for="[key, item] in Object.entries(navbarData)"
         :key="key"
@@ -9,8 +9,8 @@
         {{ item }}
       </VsNavbarItem>
       <template #right>
-        <VsButton flat>Login</VsButton>
-        <VsButton>Get Started</VsButton>
+        <VsButton color="#fff" flat>Login</VsButton>
+        <VsButton color="#fff" border>Get Started</VsButton>
       </template>
     </VsNavbar>
     <div class="square">
@@ -36,7 +36,6 @@ const active = ref<keyof typeof navbarData>('guide')
 </script>
 
 <style lang="scss" scoped>
-
 .square {
   flex: 1;
   height: 400px;

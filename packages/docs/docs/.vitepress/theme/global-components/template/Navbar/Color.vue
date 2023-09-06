@@ -1,5 +1,5 @@
 <template>
-  <div class="center">
+  <div>
     <VsNavbar v-model="active" :color="active" textWhite>
       <VsNavbarItem
         v-for="[key, item] in Object.entries(navbarData)"
@@ -36,13 +36,17 @@ const active = ref<(typeof navbarData)[keyof typeof navbarData]>('primary')
 <style lang="scss" scoped>
 .center {
   flex: 1;
+  padding: 0;
 }
+
 .square {
   flex: 1;
   height: 400px;
   width: 100%;
   overflow: auto;
+
   .child {
+    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
