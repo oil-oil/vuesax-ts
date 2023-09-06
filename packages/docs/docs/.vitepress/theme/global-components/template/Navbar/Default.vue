@@ -36,7 +36,6 @@ const active = ref<keyof typeof navbarData>('guide')
 </script>
 
 <style lang="scss" scoped>
-
 .square {
   flex: 1;
   height: 400px;
