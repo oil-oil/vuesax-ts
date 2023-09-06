@@ -1,5 +1,6 @@
 <template>
-  <VsInput
+  <div class="center">
+    <VsInput
     type="password"
     labelPlaceholder="Password"
     v-model="value"
@@ -24,6 +25,8 @@
       Secure password
     </template>
   </VsInput>
+  </div>
+  
 </template>
 
 <script setup lang="ts">

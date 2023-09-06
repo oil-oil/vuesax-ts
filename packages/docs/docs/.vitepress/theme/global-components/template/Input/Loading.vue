@@ -1,5 +1,7 @@
 <template>
-  <VsInput loading placeholder="Name" v-model="value"></VsInput>
+  <div class="center">
+    <VsInput loading placeholder="Name" v-model="value" />
+  </div>
 </template>
 
 <script setup lang="ts">
