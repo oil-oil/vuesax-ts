@@ -1,6 +1,6 @@
 import { App, Plugin } from 'vue'
 
-import NavbarItem from './Navbaritem'
+import NavbarItem from './NavbarItem'
 
 NavbarItem.install = (app: App) => {
   app.component(NavbarItem.name, NavbarItem)

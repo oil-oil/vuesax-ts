@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VsNavbar v-model="active">
+    <VsNavbar v-model="active" noLine>
       <VsNavbarItem
         v-for="[key, item] in Object.entries(navbarData)"
         :key="key"
@@ -41,6 +41,7 @@ const active = ref<keyof typeof navbarData>('guide')
   height: 400px;
   width: 100%;
   overflow: auto;
+
   .child {
     background-color: #f0f0f0;
     display: flex;

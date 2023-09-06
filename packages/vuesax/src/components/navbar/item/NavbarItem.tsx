@@ -22,8 +22,11 @@ const NavbarItem = defineComponent({
   setup(props, { slots, emit }) {
     const elRef = ref<HTMLElement>()
 
-    const provider = inject<NavbarProvider>('navbarProvider')
-    const groupProvider = inject<NavbarGroupProvider>('navbarGroupProvider')
+    const provider = inject<NavbarProvider | null>('navbarProvider', null)
+    const groupProvider = inject<NavbarGroupProvider | null>(
+      'navbarGroupProvider',
+      null
+    )
 
     const resetLinePosition = () => {
       if (provider?.active.value === props.id) {

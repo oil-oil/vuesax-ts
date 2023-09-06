@@ -195,7 +195,7 @@ const DocsPage = defineComponent({
         <div
           class={['up', { active: pageHeaderTrigger.value }]}
           onClick={() => {
-            window.scrollTo({ top: 0 })
+            window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
         >
           <i class="bx bx-chevron-up"></i>

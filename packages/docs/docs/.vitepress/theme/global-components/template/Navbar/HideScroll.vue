@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VsNavbar v-model="active">
+    <VsNavbar v-model="active" hideScroll targetScroll="#hide-scroll-content">
       <VsNavbarItem
         v-for="[key, item] in Object.entries(navbarData)"
         :key="key"
@@ -13,7 +13,7 @@
         <VsButton>Get Started</VsButton>
       </template>
     </VsNavbar>
-    <div class="square">
+    <div class="square" id="hide-scroll-content">
       <div class="child">child 1</div>
       <div class="child">child 2</div>
       <div class="child">child 3</div>
@@ -41,6 +41,7 @@ const active = ref<keyof typeof navbarData>('guide')
   height: 400px;
   width: 100%;
   overflow: auto;
+
   .child {
     background-color: #f0f0f0;
     display: flex;

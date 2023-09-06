@@ -33,7 +33,7 @@ export default [
         link: 'zh/documentation/components/pagination'
       },
       { text: 'Table 表格', link: 'zh/documentation/components/table' },
-      { text: 'Navbar 顶部菜单', link: 'zh/documentation/components/navbar' },
+      { text: 'Navbar 导航栏', link: 'zh/documentation/components/navbar' },
       { text: 'Sidebar 侧边菜单', link: 'zh/documentation/components/sidebar' },
       { text: 'Card 卡片', link: 'zh/documentation/components/card' }
     ]
