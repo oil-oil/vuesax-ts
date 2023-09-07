@@ -7,7 +7,8 @@ import VSContent from './components/Content'
 import NavBar from './components/Navbar'
 import SideBar from './components/Sidebar'
 
-const highlighter = await getHighlighter({
+const highlighter = ref<Highlighter | null>(null)
+getHighlighter({
   theme: 'material-theme-palenight',
   langs: ['vue'],
   paths: {
@@ -15,12 +16,14 @@ const highlighter = await getHighlighter({
     languages: '/shiki/language',
     wasm: '/shiki'
   }
+}).then((res) => {
+  highlighter.value = res
 })
 
 const Layout = defineComponent({
   name: 'Layout',
   setup() {
-    const { page, frontmatter, lang } = useData()
+    const { page, frontmatter } = useData()
     const isSidebarOpen = ref(true)
     const toggleSidebar = () => {
       isSidebarOpen.value = !isSidebarOpen.value
@@ -44,7 +47,7 @@ const Layout = defineComponent({
             }}
           ></Config>
         )}
-        {highlighter && <VSContent />}
+        {highlighter.value && <VSContent />}
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import { Highlighter } from 'shiki'
 import { useData } from 'vitepress'
-import { defineComponent, Transition, ref, onMounted, inject } from 'vue'
+import { defineComponent, Transition, ref, onMounted, inject, Ref } from 'vue'
 import './Codex.scss'
 
 const file: Record<string, string> = (import.meta as any).glob(
@@ -29,16 +29,14 @@ const Codex = defineComponent({
     const check = ref(false)
     const codexRef = ref<HTMLElement>()
     const ulRef = ref<HTMLElement>()
-    const data = ref<string>()
-
     const template = ref<string>()
-    const highlighter = inject<Highlighter>('highlighter')
+    const highlighter = inject<Ref<Highlighter>>('highlighter')
+
     const renderTemplate = async () => {
       const title =
         lang.value === 'zh' ? page.value.title.split(' ')[0] : page.value.title
-      data.value = file?.[`./template/${title}/${props.subtitle}.vue`]
 
-      template.value = highlighter?.codeToHtml(
+      template.value = highlighter?.value?.codeToHtml(
         file?.[`./template/${title}/${props.subtitle}.vue`],
         {
           lang: 'vue'

@@ -57,7 +57,7 @@ Generate a loading with the vuesax function `useLoading(Props)`
 
 <card subtitle="Type">
 
-## Type <Badge text="Update" type="warn" />
+## Type
 
 Change the type of loading with the option `type`
 
