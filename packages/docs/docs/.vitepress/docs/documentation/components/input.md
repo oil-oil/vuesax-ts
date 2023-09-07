@@ -2,7 +2,7 @@
 prev: Loading
 next: Checkbox
 props : 
-    - name: placeHolder
+    - name: placeholder
       type: String
       values: String
       description: Add a placeholder to the input.
@@ -11,7 +11,7 @@ props :
     - name: label
       type: String
       values: string
-      description: Add a label above the component.
+      description: Add a label above the input.
       default: 
       usageUrl: input#label
     - name: labelPlaceholder
@@ -23,13 +23,13 @@ props :
     - name: color
       type: String
       values: VuesaxColors | RGB | HEX
-      description: Change component color.
+      description: Change input color.
       default: "null"
       usageUrl: input#color
     - name: status
       type: String
       values: VuesaxColors | RGB | HEX
-      description: Change the background color of the component by changing its status.
+      description: Change the background color of the input by changing its status.
       default: 
       usageUrl: input#status
     - name: progress
@@ -59,7 +59,7 @@ props :
     - name: shadow
       type: Boolean
       values: true | false
-      description: Change the style of the component.
+      description: Change the style of the input.
       default: "false"
       usageUrl: input#shadow
     - name: iconAfter
@@ -119,7 +119,7 @@ You can have a placeholder with a great animation when being or in focus or with
 
 ## Color
 
-Change the color of the component and add a border below with the `color` property, the allowed values ​​are the main colors of vuesax and the custom colors (**RGB**, **HEX**)
+Change the color of the input and add a border below with the `color` property, the allowed values ​​are the main colors of vuesax and the custom colors (**RGB**, **HEX**)
 
 </card>
 
@@ -128,25 +128,6 @@ Change the color of the component and add a border below with the `color` proper
 ## icon
 
 Add an icon to the input easily with the slot icon if you want the icon to be before the input you can do it with the property `icon-before`
-
-  <div>
-    <div class="warning custom-block">
-      <p class="custom-block-title">
-        Iconos por defecto
-      </p>
-      <p>
-        Vuesax no usa ninguna librería o fuente de iconos por defecto, con esto damos la libertad de usar la que prefieras Todos los componentes que usen en algún lugar un icono por defecto como el de close en un <b>Alert</b> o un <b>Popup</b> va a ser un <b>svg</b> para no tener que instalar ningún tipo de fuente externa, y se podrá sustituir con un <code>slot="icon"</code> por el icono de su preferencia
-      </p>
-    </div>
-    <div class="tip custom-block">
-      <p class="custom-block-title">
-        Vuesax Docs Icons
-      </p>
-      <p>
-        Estos documentos y los ejemplos usan la libreria de componentes <a target="_blank" href="https://boxicons.com/">boxicons</a>, no es obligatoria o necesaria para el uso de Vuesax pero la recomendamos por su amplia gama de iconos y como complementan visualmente el framework
-      </p>
-    </div>
-  </div>
 
 </card>
 
