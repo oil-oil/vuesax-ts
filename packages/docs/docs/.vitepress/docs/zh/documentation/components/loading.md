@@ -57,7 +57,7 @@ props :
 
 <card subtitle="Type">
 
-## Type <Badge text="Update" type="warn" />
+## Type
 
 使用选项 `type` 更改加载动画类型
 

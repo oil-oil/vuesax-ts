@@ -8,40 +8,35 @@ import VSContent from './components/Content'
 import NavBar from './components/Navbar'
 import SideBar from './components/Sidebar'
 
+const highlighter = ref<Highlighter | null>(null)
+
 const Layout = defineComponent({
   name: 'Layout',
   setup() {
     const { page, frontmatter } = useData()
-    const { open, close } = useLoading()
+    const { open, close } = useLoading({ type: 'points' })
     const isSidebarOpen = ref(true)
     const toggleSidebar = () => {
       isSidebarOpen.value = !isSidebarOpen.value
     }
-
-    const highlighter = ref<Highlighter>()
-
-    const initHighlighter = async () => {
-      if (!highlighter.value) {
-        open()
-        highlighter.value = await getHighlighter({
-          theme: 'material-theme-palenight',
-          langs: ['vue'],
-          paths: {
-            themes: '/shiki',
-            languages: '/shiki/language',
-            wasm: '/shiki'
-          }
-        })
+    open()
+    onMounted(() => {
+      getHighlighter({
+        theme: 'material-theme-palenight',
+        langs: ['vue'],
+        paths: {
+          themes: '/shiki',
+          languages: '/shiki/language',
+          wasm: '/shiki'
+        }
+      }).then((res) => {
+        highlighter.value = res
         close()
-      }
-    }
+      })
+    })
 
     provide('sidebarController', { isSidebarOpen, toggleSidebar })
     provide('highlighter', highlighter)
-
-    onMounted(() => {
-      initHighlighter()
-    })
 
     return () => (
       <div class="layout">

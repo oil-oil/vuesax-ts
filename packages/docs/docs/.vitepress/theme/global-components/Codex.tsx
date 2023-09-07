@@ -24,19 +24,20 @@ const Codex = defineComponent({
   },
   slots: ['default', 'template', 'script', 'style'],
   setup(props) {
-    const { page } = useData()
+    const { page, lang } = useData()
     const active = ref(false)
     const check = ref(false)
-
     const codexRef = ref<HTMLElement>()
     const ulRef = ref<HTMLElement>()
-
     const template = ref<string>()
-    const title = ref<string>()
     const highlighter = inject<Ref<Highlighter>>('highlighter')
+
     const renderTemplate = async () => {
-      template.value = highlighter?.value.codeToHtml(
-        file?.[`./template/${page.value.title}/${props.subtitle}.vue`],
+      const title =
+        lang.value === 'zh' ? page.value.title.split(' ')[0] : page.value.title
+
+      template.value = highlighter?.value?.codeToHtml(
+        file?.[`./template/${title}/${props.subtitle}.vue`],
         {
           lang: 'vue'
         }
@@ -44,11 +45,6 @@ const Codex = defineComponent({
     }
 
     onMounted(() => {
-      title.value = document
-        .getElementsByTagName('h1')
-        .item(0)
-        ?.innerText.trim()
-
       renderTemplate()
     })
 
@@ -93,6 +89,7 @@ const Codex = defineComponent({
       el.style.opacity = '0'
       el.style.position = 'absolute'
     }
+
     const enterCodes = (element: Element, done: () => void) => {
       const el = element as HTMLElement
       const h = el.scrollHeight
@@ -102,6 +99,7 @@ const Codex = defineComponent({
       el.style.opacity = '1'
       done()
     }
+
     const leaveCodes = (element: Element) => {
       const el = element as HTMLElement
       el.style.height = '0px'

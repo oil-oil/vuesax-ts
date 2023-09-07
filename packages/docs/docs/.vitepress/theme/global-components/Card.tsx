@@ -40,19 +40,20 @@ const Card = defineComponent({
         <div class="text">{slots.default?.()}</div>
         {props.renderExample && (
           <div class={['example', { mobile: theme.value.mobileActive }]}>
-            {exampleComponentsArr.map((arr) => {
-              if (
-                arr[0] ===
-                `./template/${page.value.title.split(' ')[0]}/${
-                  props.subtitle
-                }.vue`
-              ) {
-                const Example = arr[1].default
-
-                return <Example />
-              }
-              return ''
-            })}
+            <div class="center">
+              {exampleComponentsArr.map((arr) => {
+                if (
+                  arr[0] ===
+                  `./template/${page.value.title.split(' ')[0]}/${
+                    props.subtitle
+                  }.vue`
+                ) {
+                  const Example = arr[1].default
+                  return <Example />
+                }
+                return ''
+              })}
+            </div>
           </div>
         )}
         {props.renderCode && (
@@ -61,7 +62,7 @@ const Card = defineComponent({
               codesandbox={props.codesandbox}
               codepen={props.codepen}
               subtitle={props.subtitle}
-            ></Codex>
+            />
           </div>
         )}
       </div>

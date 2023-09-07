@@ -29,7 +29,7 @@ const SideBar = defineComponent({
       <VsSidebar
         open={sidebarController?.isSidebarOpen.value}
         textWhite={isDark.value}
-        v-model={sideBarValue.value}
+        modelValue={sideBarValue.value}
         style={{
           top: '70px',
           backgroundColor: 'var(--vs-theme-layout)'
