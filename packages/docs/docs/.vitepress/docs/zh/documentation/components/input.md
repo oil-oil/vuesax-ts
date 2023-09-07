@@ -1,3 +1,94 @@
+---
+prev: Loading
+next: Checkbox
+props : 
+    - name: placeholder
+      type: String
+      values: String
+      description: 在输入框中添加占位内容
+      default: 
+      usageUrl: input#label-placeholder
+    - name: label
+      type: String
+      values: string
+      description: 在输入框上方添加标签
+      default: 
+      usageUrl: input#label
+    - name: labelPlaceholder
+      type: String
+      values: string
+      description: 添加占位内容，聚焦时变为标签。
+      default: 
+      usageUrl: input#label-placeholder
+    - name: color
+      type: String
+      values: VuesaxColors | RGB | HEX
+      description: 修改输入框的颜色
+      default: "null"
+      usageUrl: input#color
+    - name: status
+      type: String
+      values: VuesaxColors | RGB | HEX
+      description: 通过更改状态来更改输入框的背景颜色
+      default: 
+      usageUrl: input#status
+    - name: progress
+      type: Number
+      values: 0 - 100
+      description: 添加一个从红色开始到绿色结束的进度条
+      default: 0
+      usageUrl: input#progress
+    - name: loading
+      type: Boolean
+      values: true | false
+      description: 为输入框添加加载动画
+      default: "false"
+      usageUrl: input#loading
+    - name: type
+      type: String
+      values: Html Type
+      description: 更改输入框类型（html 值）
+      default: text
+      usageUrl: input#input-type
+    - name: border
+      type: Boolean
+      values: true | false
+      description: 将输入改为底部边框样式
+      default: "false"
+      usageUrl: input#border
+    - name: shadow
+      type: Boolean
+      values: true | false
+      description: 为输入框添加阴影
+      default: "false"
+      usageUrl: input#shadow
+    - name: iconAfter
+      type: Boolean
+      values: true | false
+      description: 将图标放在输入框右侧
+      default: "false"
+      usageUrl: input#icon
+    - name: visiblePassword
+      type: Boolean
+      values: true | false
+      description: 如果输入的是密码类型，确定是否为显示密码。
+      default: "false"
+      usageUrl: input#input-type
+slots : 
+    - name: icon
+      type: slot
+      values:
+      description: 为输入框添加图标
+      default: 
+      usageUrl: input#icon
+    - name: message
+      type: slot
+      values:
+      description: 在输入内容下方添加说明性文字
+      default: 
+      usageUrl: input#message
+---
+
 # Input 输入框
 
 <card>
