@@ -1,6 +1,6 @@
 import { Highlighter, getHighlighter } from 'shiki'
-import { useData, inBrowser } from 'vitepress'
-import { defineComponent, ref, provide } from 'vue'
+import { useData } from 'vitepress'
+import { defineComponent, ref, provide, onMounted } from 'vue'
 import { useLoading } from 'vuesax-ts'
 
 import Config from './components/Config'
@@ -20,18 +20,21 @@ const Layout = defineComponent({
       isSidebarOpen.value = !isSidebarOpen.value
     }
     open()
-    getHighlighter({
-      theme: 'material-theme-palenight',
-      langs: ['vue'],
-      paths: {
-        themes: '/shiki',
-        languages: '/shiki/language',
-        wasm: '/shiki'
-      }
-    }).then((res) => {
-      highlighter.value = res
-      close()
+    onMounted(() => {
+      getHighlighter({
+        theme: 'material-theme-palenight',
+        langs: ['vue'],
+        paths: {
+          themes: '/shiki',
+          languages: '/shiki/language',
+          wasm: '/shiki'
+        }
+      }).then((res) => {
+        highlighter.value = res
+        close()
+      })
     })
+
     provide('sidebarController', { isSidebarOpen, toggleSidebar })
     provide('highlighter', highlighter)
 
