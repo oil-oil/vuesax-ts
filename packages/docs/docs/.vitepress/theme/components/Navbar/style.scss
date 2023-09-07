@@ -1,16 +1,19 @@
-.vs-navbar {
-    min-height: 70px;
-    .vs-navbar__center {
-        * {
-            font-size: 0.9rem;
+.top-navbar{
+    .vs-navbar {
+        min-height: 70px;
+        .vs-navbar__center {
+            * {
+                font-size: 0.9rem;
+            }
         }
-    }
-    .vs-navbar__item {
-        &.active {
-            color: rgb(var(--vs-primary));
-            &::before {
-                background: rgba(var(--vs-primary), 1);
+        .vs-navbar__item {
+            &.active {
+                color: rgb(var(--vs-primary));
+                &::before {
+                    background: rgba(var(--vs-primary), 1);
+                }
             }
         }
     }
 }
+

@@ -1,5 +1,7 @@
 <template>
-  <VsInput labelPlaceholder="Country" v-model="value"></VsInput>
+  <div class="center">
+    <VsInput labelPlaceholder="Country" v-model="value" />
+  </div>
 </template>
 
 <script setup lang="ts">

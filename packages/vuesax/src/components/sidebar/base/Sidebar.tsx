@@ -36,7 +36,7 @@ const Sidebar = defineComponent({
       type: Boolean,
       default: false
     },
-    notLineActive: {
+    noLineActive: {
       type: Boolean,
       default: false
     },
@@ -48,7 +48,7 @@ const Sidebar = defineComponent({
       type: Boolean,
       default: false
     },
-    notShadow: {
+    noShadow: {
       type: Boolean,
       default: false
     },
@@ -98,9 +98,9 @@ const Sidebar = defineComponent({
       'vs-sidebar-content',
       { reduce: reduceInternal.value },
       { open: props.open },
-      { notLineActive: props.notLineActive },
+      { noLineActive: props.noLineActive },
       { square: props.square },
-      { notShadow: props.notShadow },
+      { noShadow: props.noShadow },
       { textWhite: props.textWhite },
       { relative: props.relative },
       { absolute: props.absolute },

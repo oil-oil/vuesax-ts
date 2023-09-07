@@ -38,7 +38,6 @@ const handleClick = () => {
 .center {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   padding: 20px;
   flex-wrap: wrap;
 

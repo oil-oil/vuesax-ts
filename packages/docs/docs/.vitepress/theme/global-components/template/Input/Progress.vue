@@ -1,29 +1,31 @@
 <template>
-  <VsInput
-    type="password"
-    labelPlaceholder="Password"
-    v-model="value"
-    :visiblePassword="hasVisiblePassword"
-    iconAfter
-    :progress="getProgress"
-    isIconClick
-  >
-    <template #icon>
-      <div
-        v-if="!hasVisiblePassword"
-        @click="hasVisiblePassword = !hasVisiblePassword"
-      >
-        <i class="bx bx-show-alt"></i>
-      </div>
-      <div v-else @click="hasVisiblePassword = !hasVisiblePassword">
-        <i class="bx bx-hide"></i>
-      </div>
-    </template>
+  <div class="center">
+    <VsInput
+      type="password"
+      labelPlaceholder="Password"
+      v-model="value"
+      :visiblePassword="hasVisiblePassword"
+      iconAfter
+      :progress="getProgress"
+      isIconClick
+    >
+      <template #icon>
+        <div
+          v-if="!hasVisiblePassword"
+          @click="hasVisiblePassword = !hasVisiblePassword"
+        >
+          <i class="bx bx-show-alt"></i>
+        </div>
+        <div v-else @click="hasVisiblePassword = !hasVisiblePassword">
+          <i class="bx bx-hide"></i>
+        </div>
+      </template>
 
-    <template v-if="getProgress >= 100" #message-success>
-      Secure password
-    </template>
-  </VsInput>
+      <template v-if="getProgress >= 100" #message-success>
+        Secure password
+      </template>
+    </VsInput>
+  </div>
 </template>
 
 <script setup lang="ts">

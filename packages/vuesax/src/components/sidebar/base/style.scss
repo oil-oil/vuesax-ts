@@ -74,13 +74,13 @@
       }
     }
   }
-  &.notShadow {
+  &.noShadow {
     box-shadow: none !important;
   }
   &.square {
     border-radius: 0px;
   }
-  &.notLineActive {
+  &.noLineActive {
     .vs-sidebar {
       .vs-sidebar__item {
         &:after {

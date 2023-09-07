@@ -9,12 +9,12 @@ import {
 } from 'vue'
 
 import Loading, { LoadingProps } from './Loading'
-import { vuesaxOptionsKey } from '@/utils/defineVuesaxOptions'
+import { VuesaxOptions, vuesaxOptionsKey } from '@/utils/defineVuesaxOptions'
 
 export type LoadingHookProps = Omit<LoadingProps, 'isVisible'>
 
 const useLoading = (props?: LoadingHookProps) => {
-  const vuesaxOptions = inject(vuesaxOptionsKey)
+  const vuesaxOptions = inject<VuesaxOptions | null>(vuesaxOptionsKey, null)
   let LoadingDom: HTMLDivElement
   const isVisible = ref(false)
 

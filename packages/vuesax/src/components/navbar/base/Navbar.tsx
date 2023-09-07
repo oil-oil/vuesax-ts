@@ -1,7 +1,6 @@
 import {
   PropType,
   defineComponent,
-  nextTick,
   onMounted,
   onUnmounted,
   provide,
@@ -9,6 +8,7 @@ import {
   toRef
 } from 'vue'
 
+import { NavbarProvider } from '../types'
 import useColor from '@/hooks/useColor'
 import useThrottle from '@/hooks/useThrottle'
 import './style.scss'
@@ -52,19 +52,7 @@ const Navbar = defineComponent({
       type: Boolean,
       default: false
     },
-    notLine: {
-      type: Boolean,
-      default: false
-    },
-    leftCollapsed: {
-      type: Boolean,
-      default: false
-    },
-    centerCollapsed: {
-      type: Boolean,
-      default: false
-    },
-    rightCollapsed: {
+    noLine: {
       type: Boolean,
       default: false
     },
@@ -75,15 +63,12 @@ const Navbar = defineComponent({
   slots: ['default', 'left', 'right'],
   setup(props, { slots, emit }) {
     const { color } = useColor(toRef(props, 'color'))
-    const leftLine = ref(0)
-    const widthLine = ref(0)
+    const lineLeft = ref(0)
+    const lineWidth = ref(0)
     const scrollTop = ref(0)
-    const collapsedWidth = ref(0)
     const hidden = ref(false)
     const shadowActive = ref(false)
     const paddingScrollActive = ref(false)
-    const lineNotTransition = ref(false)
-    const collapsedForced = ref(false)
 
     const elRef = ref<HTMLElement>()
     const leftRef = ref<HTMLElement>()
@@ -94,26 +79,18 @@ const Navbar = defineComponent({
       emit('update:modelValue', id)
     }
 
-    const setLeftLine = (left: number, transition = true) => {
-      if (!transition) {
-        lineNotTransition.value = true
-      } else {
-        lineNotTransition.value = false
-      }
-      nextTick(() => {
-        leftLine.value = left
-      })
+    const setLineLeft = (left: number) => {
+      lineLeft.value = left
     }
 
-    const setWidthLine = (width: number) => {
-      nextTick(() => {
-        widthLine.value = width
-      })
+    const setLineWidth = (width: number) => {
+      lineWidth.value = width
     }
 
-    provide('provider', {
-      setLeftLine,
-      setWidthLine,
+    provide<NavbarProvider>('navbarProvider', {
+      active: toRef(props, 'modelValue'),
+      setLineLeft,
+      setLineWidth,
       setModel
     })
 
@@ -121,6 +98,7 @@ const Navbar = defineComponent({
       const scrollT = props.targetScroll
         ? document.querySelector(props.targetScroll)?.scrollTop
         : window.scrollY
+
       if (props.hideScroll) {
         if (scrollT && Math.sign(scrollT - scrollTop.value) === 1) {
           hidden.value = true
@@ -148,69 +126,31 @@ const Navbar = defineComponent({
       if (scrollT) scrollTop.value = scrollT
     }, 200)
 
-    const handleScroll = () => {
-      if (props.hideScroll || props.shadowScroll || props.paddingScroll) {
-        window.addEventListener('scroll', onScroll)
-      }
-    }
-
-    const handleResize = () => {
+    const onResize = useThrottle(() => {
       const active = elRef.value?.querySelector(
         '.vs-navbar__item.active'
       ) as HTMLElement
       if (active) {
-        setLeftLine(active.offsetLeft, false)
+        setLineLeft(active.offsetLeft)
       } else {
-        widthLine.value = 0
+        lineWidth.value = 0
       }
-
-      if (
-        props.leftCollapsed ||
-        props.centerCollapsed ||
-        props.rightCollapsed
-      ) {
-        if (elRef.value && elRef.value.offsetWidth < collapsedWidth.value) {
-          collapsedForced.value = true
-        }
-      }
-
-      if (collapsedForced.value) {
-        emit('collapsed', true)
-      } else {
-        emit('collapsed', false)
-      }
-
-      if (elRef.value && elRef.value.offsetWidth < collapsedWidth.value) {
-        emit('collapsed', true)
-      } else {
-        emit('collapsed', false)
-        collapsedForced.value = false
-      }
-    }
+    }, 200)
 
     onMounted(() => {
-      setTimeout(() => {
-        if (leftRef.value && centerRef.value && rightRef.value) {
-          collapsedWidth.value =
-            leftRef.value.offsetWidth +
-            centerRef.value.offsetWidth +
-            rightRef.value.offsetWidth +
-            150
-          if (elRef.value && elRef.value.offsetWidth < collapsedWidth.value) {
-            collapsedForced.value = true
-            emit('collapsed', true)
-            widthLine.value = 0
-            handleResize()
-          }
-        }
-      }, 150)
-
-      handleScroll()
-      window.addEventListener('resize', handleResize)
+      if (
+        props.targetScroll &&
+        (props.hideScroll || props.shadowScroll || props.paddingScroll)
+      ) {
+        ;(
+          document.querySelector(props.targetScroll) || window
+        ).addEventListener('scroll', onScroll)
+      }
+      window.addEventListener('resize', onResize)
     })
 
     onUnmounted(() => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', onResize)
       window.removeEventListener('scroll', onScroll)
     })
 
@@ -233,33 +173,26 @@ const Navbar = defineComponent({
         ref={elRef}
       >
         <div class="vs-navbar">
-          {(props.leftCollapsed ? !collapsedForced.value : true) && (
-            <div class="vs-navbar__left" ref={leftRef}>
-              {slots.left?.()}
-            </div>
-          )}
-          {(props.centerCollapsed ? !collapsedForced.value : true) && (
-            <div class="vs-navbar__center" ref={centerRef}>
-              {slots.default?.()}
-            </div>
-          )}
-          {(props.rightCollapsed ? !collapsedForced.value : true) && (
-            <div class="vs-navbar__right" ref={rightRef}>
-              {slots.right?.()}
-            </div>
-          )}
+          <div class="vs-navbar__left" ref={leftRef}>
+            {slots.left?.()}
+          </div>
+
+          <div class="vs-navbar__center" ref={centerRef}>
+            {slots.default?.()}
+          </div>
+
+          <div class="vs-navbar__right" ref={rightRef}>
+            {slots.right?.()}
+          </div>
         </div>
-        {!props.notLine && (
+        {!props.noLine && (
           <div
-            class={[
-              'vs-navbar__line',
-              { notTransition: lineNotTransition.value }
-            ]}
+            class="vs-navbar__line"
             style={{
-              left: `${leftLine.value}px`,
-              width: `${widthLine.value}px`
+              left: `${lineLeft.value}px`,
+              width: `${lineWidth.value}px`
             }}
-          ></div>
+          />
         )}
       </div>
     )

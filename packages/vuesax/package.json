@@ -1,7 +1,7 @@
 {
   "name": "vuesax-ts",
   "description": "vuesax with full vue3 and typescript support",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "type": "module",
   "main": "dist/lib/index.js",
   "module": "dist/es/index.js",

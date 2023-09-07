@@ -1,3 +1,75 @@
+---
+prev: Button
+next: Loading
+props : 
+    - name: active
+      type: Boolean
+      values: true | false
+      description: 确定警告是否可见
+      default: primary
+      usageUrl: alert#animate
+    - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: 更改警告及其某些子组件的颜色
+      default: primary
+      usageUrl: alert#color
+    - name: type
+      type: Prop
+      values: solid | border | shadow | gradient | relief 
+      description: 更改警告的样式。
+      default: "false"
+      usageUrl: alert#solid
+    - name: hidden-content
+      type: Boolean
+      values: Boolean
+      description: 使用该属性可以隐藏警告内容
+      default: "false"
+      usageUrl: alert#false
+    - name: page
+      type: Number
+      values: Number
+      description: 确定当前显示页面（此属性与 slots='page-{n}' 相关联）
+      default: "false"
+      usageUrl: alert#pagination
+    - name: progress
+      type: Number
+      values: 0-100
+      description: 在警告中添加进度条，其值为宽度的百分比
+      default: 0
+      usageUrl: alert#progress-bar
+    - name: closable
+      type: Boolean
+      values: true | false
+      description: 添加关闭警告的按钮（必须使用 v-model）
+      default: "false"
+      usageUrl: alert#closable
+slots : 
+    - name: icon
+      type: slot
+      values:
+      description: 为警告添加图标
+      default: 
+      usageUrl: alert#icon
+    - name: title
+      type: slot
+      values:
+      description: 为警告添加标题
+      default: 
+      usageUrl: alert#title
+    - name: page-{n}
+      type: slot
+      values: (page-1 - page-{n})
+      description: 将页面添加到警告中，例如第一页为（slot='page-1'）
+      default: 
+      usageUrl: alert#title
+    - name: footer
+      type: slot
+      values:
+      description: 为警告添加页脚
+      default: 
+      usageUrl: alert#footer
+---
 
 # Alert 警告
 
@@ -112,7 +184,7 @@ Alert 组件是用于显示重要信息的组件。通常使用弹出框或滑�
 
 ## Progress bar
 
-你可以使用 `progress` 属性和数字（`0 - 100`）向警报添加进度条
+你可以使用 `progress` 属性和数字（`0 - 100`）向警告添加进度条
 
 </card>
 

@@ -22,6 +22,8 @@ const Navbar = defineComponent({
     }
     return () => (
       <VsNavbar
+        modelValue={route.path}
+        class="top-navbar"
         textWhite={isDark.value}
         color={isDark.value ? 'dark' : undefined}
         fixed
@@ -72,22 +74,17 @@ const Navbar = defineComponent({
           <>
             <VsNavbarGroup
               v-slots={{
-                items: () => (
-                  <>
-                    {value.items?.map((item) => (
-                      <VsNavbarItem
-                        active={route.path === item.link}
-                        id={item.text}
-                        onClick={(e: MouseEvent) => pushTo(item.link, e)}
-                      >
-                        {item.text}
-                      </VsNavbarItem>
-                    ))}
-                  </>
-                )
+                title: () => value.text
               }}
             >
-              {value.text}
+              {value.items?.map((item) => (
+                <VsNavbarItem
+                  id={item.link}
+                  onClick={(e: MouseEvent) => pushTo(item.link, e)}
+                >
+                  {item.text}
+                </VsNavbarItem>
+              ))}
             </VsNavbarGroup>
           </>
         ))}
