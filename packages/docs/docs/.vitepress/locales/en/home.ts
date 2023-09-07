@@ -1,32 +1,30 @@
 export default {
   avatarPart: {
-    title: 'Segoe cute',
-    text: 'DO you want to participate in our initiative?We are open.',
-    button: { red: 'Open', white: 'Cancel' }
+    title: '可爱的Segoe',
+    text: '你想参与我们的倡议吗？我们很开放。',
+    button: { red: '开放', white: '取消' }
   },
   checkPart: {
-    input: 'locale',
-    checkList: ['China', 'Japan', 'Italy', 'Germany'],
-    button: 'Lets Go!'
+    input: '地区',
+    checkList: ['中国', '日本', '意大利', '德国'],
+    button: '开始吧！'
   },
-  search: 'Search',
-  select: 'Dropdown',
+  search: '搜索',
+  select: '下拉菜单',
   card: {
     title: 'Vuesax Ts',
-    text: 'Framework'
+    text: '框架'
   },
   custom: {
-    title: 'Potted cactus',
-    button: 'Button'
+    title: '盆栽仙人掌',
+    button: '按钮'
   },
   vueCard: {
-    title: 'Vue Component',
-    content:
-      'Framework components for VueJS. Create instances quickly with a few lines of code.'
+    title: 'Vue 组件',
+    content: '用于 VueJS 的框架组件。几行代码即可快速创建实例。'
   },
   commentCard: {
-    title: 'Get Started',
-    content:
-      'Vuesax is an open source framework and you can help even in simple details'
+    title: '入门指南',
+    content: 'Vuesax 是一个开源框架，即使在简单的细节上也可以提供帮助。'
   }
 } as const

@@ -49,7 +49,6 @@ const Card = defineComponent({
                   }.vue`
                 ) {
                   const Example = arr[1].default
-
                   return <Example />
                 }
                 return ''
@@ -63,7 +62,7 @@ const Card = defineComponent({
               codesandbox={props.codesandbox}
               codepen={props.codepen}
               subtitle={props.subtitle}
-            ></Codex>
+            />
           </div>
         )}
       </div>

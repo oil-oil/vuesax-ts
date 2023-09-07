@@ -1,47 +1,33 @@
 import { Highlighter, getHighlighter } from 'shiki'
 import { useData } from 'vitepress'
-import { defineComponent, ref, provide, onMounted } from 'vue'
-import { useLoading } from 'vuesax-ts'
+import { defineComponent, ref, provide } from 'vue'
 
 import Config from './components/Config'
 import VSContent from './components/Content'
 import NavBar from './components/Navbar'
 import SideBar from './components/Sidebar'
 
+const highlighter = await getHighlighter({
+  theme: 'material-theme-palenight',
+  langs: ['vue'],
+  paths: {
+    themes: '/shiki',
+    languages: '/shiki/language',
+    wasm: '/shiki'
+  }
+})
+
 const Layout = defineComponent({
   name: 'Layout',
   setup() {
-    const { page, frontmatter } = useData()
-    const { open, close } = useLoading()
+    const { page, frontmatter, lang } = useData()
     const isSidebarOpen = ref(true)
     const toggleSidebar = () => {
       isSidebarOpen.value = !isSidebarOpen.value
     }
 
-    const highlighter = ref<Highlighter>()
-
-    const initHighlighter = async () => {
-      if (!highlighter.value) {
-        open()
-        highlighter.value = await getHighlighter({
-          theme: 'material-theme-palenight',
-          langs: ['vue'],
-          paths: {
-            themes: '/shiki',
-            languages: '/shiki/language',
-            wasm: '/shiki'
-          }
-        })
-        close()
-      }
-    }
-
     provide('sidebarController', { isSidebarOpen, toggleSidebar })
     provide('highlighter', highlighter)
-
-    onMounted(() => {
-      initHighlighter()
-    })
 
     return () => (
       <div class="layout">
@@ -58,7 +44,7 @@ const Layout = defineComponent({
             }}
           ></Config>
         )}
-        {highlighter.value && <VSContent />}
+        {highlighter && <VSContent />}
       </div>
     )
   }
