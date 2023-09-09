@@ -1,12 +1,12 @@
 import { useData } from 'vitepress'
 import { defineComponent, DefineComponent } from 'vue'
 
-import Codex from './Codex'
+import Codex from '../Codex'
 import './Card.scss'
 
 const exampleComponentsArr: [string, { default: DefineComponent }][] =
   Object.entries(
-    (import.meta as any).glob('./template/**/*.vue', { eager: true })
+    (import.meta as any).glob('../template/**/*.vue', { eager: true })
   )
 
 const Card = defineComponent({
@@ -19,12 +19,6 @@ const Card = defineComponent({
     renderCode: {
       type: Boolean,
       default: true
-    },
-    codesandbox: {
-      type: String
-    },
-    codepen: {
-      type: String
     },
     subtitle: {
       type: String,
@@ -44,7 +38,7 @@ const Card = defineComponent({
               {exampleComponentsArr.map((arr) => {
                 if (
                   arr[0] ===
-                  `./template/${page.value.title.split(' ')[0]}/${
+                  `../template/${page.value.title.split(' ')[0]}/${
                     props.subtitle
                   }.vue`
                 ) {
@@ -58,11 +52,7 @@ const Card = defineComponent({
         )}
         {props.renderCode && (
           <div class="slotcode">
-            <Codex
-              codesandbox={props.codesandbox}
-              codepen={props.codepen}
-              subtitle={props.subtitle}
-            />
+            <Codex subtitle={props.subtitle} />
           </div>
         )}
       </div>

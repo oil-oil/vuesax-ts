@@ -4,7 +4,7 @@ import { Theme } from 'vitepress'
 import 'vuesax-ts/style.css'
 import 'boxicons/css/boxicons.min.css'
 
-import Card from './global-components/Card.tsx'
+import Card from './global-components/Card'
 import Layout from './Layout.tsx'
 import './style.scss'
 
