@@ -1,30 +1,30 @@
 <template>
   <div class="center">
-    <VsButton @click="active = !active"> Open Dialog 1 </VsButton>
-    <VsModal overflow-hidden v-model="active">
+    <VsButton @click="visible = !visible"> Open Dialog 1 </VsButton>
+    <VsModal overflow-hidden v-model="visible">
       <template #header>
         <h3>Nested dialogs</h3>
       </template>
       <div class="con-content">
-        <VsButton @click="active2 = !active2"> Open Dialog 2 </VsButton>
+        <VsButton @click="visible2 = !visible2"> Open Dialog 2 </VsButton>
       </div>
     </VsModal>
-    <VsModal v-model="active2">
+    <VsModal v-model="visible2">
       <template #header>
         <h4 class="not-margin">Welcome to <b>Vuesax</b></h4>
       </template>
 
       <div class="con-form">
-        <VsInput v-model="input1" placeholder="Email">
+        <VsInput v-model="email" placeholder="Email">
           <template #icon> @ </template>
         </VsInput>
-        <VsInput type="password" v-model="input2" placeholder="Password">
+        <VsInput type="password" v-model="password" placeholder="Password">
           <template #icon>
             <i class="bx bxs-lock"></i>
           </template>
         </VsInput>
         <div class="flex">
-          <VsCheckbox v-model="checkbox1">Remember me</VsCheckbox>
+          <VsCheckbox v-model="remember">Remember me</VsCheckbox>
           <a href="#">Forgot Password?</a>
         </div>
       </div>
@@ -42,13 +42,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { VsModal, VsButton, VsInput } from 'vuesax-ts'
+import { VsModal, VsButton, VsInput, VsCheckbox } from 'vuesax-ts'
 
-const active = ref(false)
-const active2 = ref(false)
-const input1 = ref('')
-const input2 = ref('')
-const checkbox1 = ref('')
+const visible = ref(false)
+const visible2 = ref(false)
+const email = ref('')
+const password = ref('')
+const remember = ref(false)
 </script>
 
 <style lang="scss" scoped>

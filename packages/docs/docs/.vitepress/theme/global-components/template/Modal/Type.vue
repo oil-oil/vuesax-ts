@@ -3,7 +3,7 @@
     <VsButton @click="active = !active"> Alert </VsButton>
     <VsButton flat @click="active2 = !active2"> Confirm </VsButton>
     <VsButton border @click="active3 = !active3"> Prompt </VsButton>
-    <VsModal width="550px" not-center v-model="active">
+    <VsModal width="550px" v-model="active">
       <template #header>
         <h4 class="not-margin">Welcome to <b>Vuesax</b></h4>
       </template>
@@ -24,7 +24,7 @@
         </div>
       </template>
     </VsModal>
-    <VsModal width="550px" not-center v-model="active2">
+    <VsModal width="550px" v-model="active2">
       <template #header>
         <h4 class="not-margin">Welcome to <b>Vuesax</b></h4>
       </template>
@@ -48,7 +48,7 @@
         </div>
       </template>
     </VsModal>
-    <VsModal width="300px" not-center v-model="active3">
+    <VsModal width="300px" v-model="active3">
       <template #header>
         <h4 class="not-margin">Welcome what is your <b>Name</b></h4>
       </template>
