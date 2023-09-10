@@ -5,7 +5,7 @@
     <VsButton border @click="active3 = !active3"> Prompt </VsButton>
     <VsModal width="550px" v-model="active">
       <template #header>
-        <h4 class="not-margin">Welcome to <b>Vuesax</b></h4>
+        <h4 class="no-margin">Welcome to <b>Vuesax</b></h4>
       </template>
 
       <div class="con-content">
@@ -26,7 +26,7 @@
     </VsModal>
     <VsModal width="550px" v-model="active2">
       <template #header>
-        <h4 class="not-margin">Welcome to <b>Vuesax</b></h4>
+        <h4 class="no-margin">Welcome to <b>Vuesax</b></h4>
       </template>
 
       <div class="con-content">
@@ -50,7 +50,7 @@
     </VsModal>
     <VsModal width="300px" v-model="active3">
       <template #header>
-        <h4 class="not-margin">Welcome what is your <b>Name</b></h4>
+        <h4 class="no-margin">Welcome what is your <b>Name</b></h4>
       </template>
 
       <div class="con-content">
@@ -94,7 +94,7 @@ const name = ref('')
     }
   }
 }
-.not-margin {
+.no-margin {
   margin: 0px;
   font-weight: normal;
   padding: 10px;

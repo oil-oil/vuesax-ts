@@ -1,5 +1,5 @@
 import { Content, useData } from 'vitepress'
-import { defineComponent, ref, onUnmounted, computed, inject, Ref } from 'vue'
+import { defineComponent, ref, onUnmounted } from 'vue'
 import { VsButton, VsInput } from 'vuesax-ts'
 
 import RightSidebar from '../../Sidebar/RightSidebar'
@@ -13,9 +13,7 @@ const DocsPage = defineComponent({
     const pageHeaderContentTitleRef = ref()
     const pageHeaderTrigger = ref(false)
     const pageHeaderDelta = ref()
-    const sidebarController = inject<{ isSidebarOpen: Ref<boolean> }>(
-      'sidebarController'
-    )
+
     const scrollEvent = () => {
       pageHeaderDelta.value = (window.scrollY * 0.55).toFixed(0)
       const pageHeaderFontDelta = window.scrollY * 0.11
@@ -34,12 +32,6 @@ const DocsPage = defineComponent({
       window.removeEventListener('scroll', scrollEvent)
     })
 
-    const getLeft = computed(() => {
-      if (sidebarController?.isSidebarOpen.value && pageHeaderTrigger.value) {
-        return '300px'
-      }
-      return '40px'
-    })
     return () => (
       <main class="Page">
         <header class="page-header">
@@ -48,7 +40,7 @@ const DocsPage = defineComponent({
             style={{
               position: pageHeaderTrigger.value ? 'fixed' : 'absolute',
               top: pageHeaderTrigger.value ? '61px' : '',
-              left: getLeft.value
+              left: '300px'
             }}
           >
             <a href="/">

@@ -229,13 +229,13 @@
     .vs-button__content {
       padding: 20px 25px;
     }
+  }
 
-    +.vs-button--icon {
-      font-size: 1.4rem;
+  &--size-xl.vs-button--icon {
+    font-size: 1.4rem;
 
-      .vs-button__content {
-        padding: 20px;
-      }
+    .vs-button__content {
+      padding: 20px;
     }
   }
 
@@ -246,26 +246,26 @@
     .vs-button__content {
       padding: 15px 20px;
     }
+  }
 
-    +.vs-button--icon {
-      font-size: 1.2rem;
+  &--size-lg.vs-button--icon {
+    font-size: 1.2rem;
 
-      .vs-button__content {
-        padding: 15px;
-      }
+    .vs-button__content {
+      padding: 15px;
     }
   }
 
   &--size-md {
     font-size: 0.8rem;
     border-radius: -var(button-border-radius);
+  }
 
-    +.vs-button--icon {
-      font-size: 1rem;
+  &--size-md.vs-button--icon {
+    font-size: 1rem;
 
-      .vs-button__content {
-        padding: 10px;
-      }
+    .vs-button__content {
+      padding: 10px;
     }
   }
 
@@ -273,8 +273,17 @@
     font-size: 0.75rem;
     border-radius: 9px;
 
+
     .vs-button__content {
       padding: 5px 10px;
+    }
+  }
+
+  &--size-sm.vs-button--icon {
+    font-size: 0.75rem;
+
+    .vs-button__content {
+      padding: 5px;
     }
   }
 
@@ -285,13 +294,13 @@
     .vs-button__content {
       padding: 3px 8px;
     }
+  }
 
-    +.vs-button--icon {
-      font-size: 0.8rem;
+  &--size-xs.vs-button--icon {
+    font-size: 0.8rem;
 
-      .vs-button__content {
-        padding: 3px;
-      }
+    .vs-button__content {
+      padding: 3px;
     }
   }
 

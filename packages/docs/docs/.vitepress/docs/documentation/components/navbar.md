@@ -8,17 +8,18 @@ props :
       description: Change the text color of the navbar.
       default: primary
       usageUrl: navbar#color
-    - name: color
+    - name: activeColor
       type: String
       values: Vuesax Colors | RGB | HEX
       description: Change the active item text color of the navbar.
       default: primary
       usageUrl: navbar#color
-    - name: backgroud
+    - name: background
       type: String
       values: Vuesax Colors | RGB | HEX
-      description: Change the backgroud color of the navbar.
+      description: Change the background color of the navbar.
       default: white
+      usageUrl: navbar#color
     - name: v-model
       type: String
       values: String
@@ -92,7 +93,7 @@ slots :
       type: slot
       description: Adds an element to the right of the navbar.
       usageUrl: navbar#default
-    - name: NavbarGroup:title
+    - name: NavbarGroup#title
       type: slot
       description: Group title element in navbar.
       usageUrl: navbar#group
@@ -112,7 +113,7 @@ Quickly generate a menu with the `VsNavbar` component, as such the component is 
 
 ## Color
 
-You can use `color` to change the font color of the navbar, `activeColor` to change the color of the active items in the navbar, and `backgroud` to change the background of the navbar.
+You can use `color` to change the font color of the navbar, `activeColor` to change the color of the active items in the navbar, and `background` to change the background of the navbar.
 
 </card>
 
@@ -144,7 +145,7 @@ Add the functionality that the component has a padding up and down that when it 
 
 ## Square
 
-Making the navbar square by remove the `border-radius` property
+You can use `square` property making the navbar square by remove the `border-radius`
 
 </card>
 
@@ -152,7 +153,7 @@ Making the navbar square by remove the `border-radius` property
 
 ## No Line
 
-Eliminates the active effect line of the navbar
+You can use `noLine` remove the active effect line of the navbar
 
 </card>
 

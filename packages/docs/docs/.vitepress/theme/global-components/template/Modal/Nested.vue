@@ -11,7 +11,7 @@
     </VsModal>
     <VsModal v-model="visible2">
       <template #header>
-        <h4 class="not-margin">Welcome to <b>Vuesax</b></h4>
+        <h4 class="no-margin">Welcome to <b>Vuesax</b></h4>
       </template>
 
       <div class="con-form">
@@ -63,7 +63,7 @@ const remember = ref(false)
     font-size: 0.9rem;
   }
 }
-.not-margin {
+.no-margin {
   margin: 0px;
   font-weight: normal;
   padding: 10px;

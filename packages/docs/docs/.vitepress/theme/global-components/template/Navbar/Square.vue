@@ -1,6 +1,12 @@
 <template>
   <div class="container">
-    <VsNavbar v-model="active" square backgroud="#7d33ff" color="white" activeColor="white">
+    <VsNavbar
+      v-model="active"
+      square
+      background="#7d33ff"
+      color="white"
+      activeColor="white"
+    >
       <VsNavbarItem
         v-for="[key, item] in Object.entries(navbarData)"
         :key="key"

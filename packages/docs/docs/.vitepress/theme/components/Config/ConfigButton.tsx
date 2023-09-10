@@ -1,5 +1,5 @@
 import { useData, useRouter } from 'vitepress'
-import { defineComponent, inject, onMounted, Ref } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import { VsSwitch } from 'vuesax-ts'
 
 const ConfigBtn = defineComponent({
@@ -17,11 +17,6 @@ const ConfigBtn = defineComponent({
       }
       return langLink + router.route.path.split(langLink)[1]
     }
-
-    const sidebarController = inject<{
-      toggleSidebar: () => void
-      isSidebarOpen: Ref<boolean>
-    }>('sidebarController')
 
     const initTheme = () => {
       if (
@@ -113,23 +108,6 @@ const ConfigBtn = defineComponent({
               />
             </svg>
           </div>
-        </button>
-
-        <button
-          onClick={sidebarController?.toggleSidebar}
-          class={{ active: !sidebarController?.isSidebarOpen.value }}
-        >
-          {sidebarController?.isSidebarOpen.value ? (
-            <i
-              title="Hidden Sidebar"
-              class="bx bx-left-indent hidden-sidebar-hidden"
-            ></i>
-          ) : (
-            <i
-              title="Open Sidebar"
-              class="bx bx-right-indent visible-sidebar-hidden"
-            ></i>
-          )}
         </button>
 
         <button class="btn-lang theme-translate">

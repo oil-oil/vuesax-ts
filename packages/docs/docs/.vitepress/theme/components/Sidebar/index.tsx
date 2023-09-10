@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 import { useData, useRouter } from 'vitepress'
-import { defineComponent, computed, inject, Ref } from 'vue'
+import { defineComponent, computed } from 'vue'
 import { VsSidebar, VsSidebarItem, VsSidebarGroup } from 'vuesax-ts'
 import './style/style.scss'
 
@@ -11,9 +11,6 @@ const SideBar = defineComponent({
     const { theme, isDark } = useData<{
       sidebar: { text: string; items: { text: string; link: string }[] }[]
     }>()
-    const sidebarController = inject<{ isSidebarOpen: Ref<boolean> }>(
-      'sidebarController'
-    )
     const sideBarValue = computed(() => {
       const { sidebar } = theme.value
       for (const group of sidebar) {
@@ -27,8 +24,7 @@ const SideBar = defineComponent({
     })
     const sideBarContent = () => (
       <VsSidebar
-        open={sidebarController?.isSidebarOpen.value}
-        textWhite={isDark.value}
+        color={isDark.value ? 'white' : 'text'}
         modelValue={sideBarValue.value}
         style={{
           top: '70px',
@@ -37,9 +33,8 @@ const SideBar = defineComponent({
       >
         {theme.value.sidebar.map((item) => (
           <VsSidebarGroup
-            open
             v-slots={{
-              header: () => <VsSidebarItem arrow>{item.text}</VsSidebarItem>
+              title: () => <VsSidebarItem arrow>{item.text}</VsSidebarItem>
             }}
           >
             {item.items.map((link) => (

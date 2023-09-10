@@ -25,14 +25,14 @@ export type ModalHookProps = Omit<ModalProps, 'modelValue'> & {
 }
 
 const useModal = (props: ComputedRef<ModalHookProps>) => {
-  const isVisible = ref(false)
+  const visible = ref(false)
 
   const open = () => {
-    isVisible.value = true
+    visible.value = true
   }
 
   const close = () => {
-    isVisible.value = false
+    visible.value = false
   }
 
   let ModalDom: HTMLDivElement
@@ -50,7 +50,7 @@ const useModal = (props: ComputedRef<ModalHookProps>) => {
       render: () => (
         <Modal
           {...componentProps}
-          v-model={isVisible.value}
+          v-model={visible.value}
           v-slots={{
             header: () => (
               <span style={{ fontSize: '18px', fontWeight: 'bold' }}>

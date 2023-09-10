@@ -9,7 +9,7 @@
       <span>I am the container</span>
       <span>of the</span>
       <b>loading</b>
-      <VsLoading :isVisible="isVisible"></VsLoading>
+      <VsLoading :visible="visible"></VsLoading>
     </div>
   </div>
 </template>
@@ -19,13 +19,13 @@ import { ref } from 'vue'
 import { VsLoading, VsButton } from 'vuesax-ts'
 
 const active = ref(false)
-const isVisible = ref(false)
+const visible = ref(false)
 
 const handleClick = () => {
-  isVisible.value = true
+  visible.value = true
   active.value = true
   setTimeout(() => {
-    isVisible.value = false
+    visible.value = false
     active.value = false
   }, 3500)
 }

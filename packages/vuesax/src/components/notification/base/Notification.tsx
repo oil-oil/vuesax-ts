@@ -23,7 +23,7 @@ const Notification = defineComponent({
     color: {
       type: String as PropType<Color>
     },
-    isVisible: {
+    visible: {
       type: Boolean,
       default: true
     },
@@ -94,9 +94,9 @@ const Notification = defineComponent({
     let intervalProgress: NodeJS.Timer
 
     watch(
-      () => props.isVisible,
+      () => props.visible,
       () => {
-        innerIsVisible.value = props.isVisible
+        innerIsVisible.value = props.visible
         if (elRef.value && props.color) {
           setColor('color', props.color, elRef.value)
           setColor('border', props.color, elRef.value)
@@ -105,7 +105,7 @@ const Notification = defineComponent({
     )
 
     onMounted(() => {
-      innerIsVisible.value = props.isVisible
+      innerIsVisible.value = props.visible
       if (elRef.value && props.color) {
         setColor('color', props.color, elRef.value)
         setColor('border', props.color, elRef.value)

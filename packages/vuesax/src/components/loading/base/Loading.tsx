@@ -52,16 +52,16 @@ const Loading = defineComponent({
       type: String,
       default: null
     },
-    isVisible: {
+    visible: {
       type: Boolean,
       default: true
     },
-    isFixed: {
+    fixed: {
       type: Boolean,
       default: true
     }
   },
-  emits: ['update:isVisible', 'update:text'],
+  emits: ['update:visible', 'update:text'],
   setup(props) {
     const rootRef = ref<HTMLElement>()
     const { color } = useColor(toRef(props, 'color'))
@@ -72,12 +72,12 @@ const Loading = defineComponent({
 
     return () => (
       <Transition name="loading">
-        {props.isVisible && (
+        {props.visible && (
           <div
             ref={rootRef}
             style={{
               background: `rgba(${bgColor.value})`,
-              position: props.isFixed ? 'fixed' : 'static'
+              position: props.fixed ? 'fixed' : 'static'
             }}
             class={['vs-loading', `vs-loading--${props.type || 'default'}`]}
           >

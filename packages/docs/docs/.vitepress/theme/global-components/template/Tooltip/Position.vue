@@ -1,6 +1,6 @@
 <template>
   <div class="center">
-    <VsToolTip position="left" >
+    <VsToolTip position="left">
       <VsButton>Left</VsButton>
       <template #tooltip> This is a beautiful button </template>
     </VsToolTip>

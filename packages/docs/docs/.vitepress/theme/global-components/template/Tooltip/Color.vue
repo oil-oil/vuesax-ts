@@ -28,8 +28,8 @@
       <VsButton color="#7d33ff" flat>HEX</VsButton>
       <template #tooltip> This is a beautiful button </template>
     </VsToolTip>
-    <VsToolTip color="rgb(59,222,200)">
-      <VsButton color="rgb(59,222,200)" flat>RGB</VsButton>
+    <VsToolTip color="rgb( 59, 222, 200)">
+      <VsButton color="rgb( 59, 222, 200)" flat>RGB</VsButton>
       <template #tooltip> This is a beautiful button </template>
     </VsToolTip>
   </div>
