@@ -1,10 +1,18 @@
 // get color var css
 @function -color($color, $alpha: null) {
   $alpha-value: '';
-  @if $alpha != null {
+  $color-value: $color;
+  $color-arr: str-split($color, ",");
+
+  @if $alpha !=null {
     $alpha-value: ', #{$alpha}';
+
+    @if length($color-arr)==4 {
+      $color-value: join(nth($color-arr, 1, length($color-arr) - 1), ",")
+    }
   }
-  @return unquote("rgba(var(--vs-#{$color})#{$alpha-value})");
+
+  @return unquote("rgba(var(--vs-#{$color-value})#{$alpha-value})");
 }
 
 @function -var($var) {

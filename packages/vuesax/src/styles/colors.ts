@@ -1,10 +1,13 @@
 const colors = {
+  white: '255, 255, 255',
+  black: '0, 0, 0',
   primary: '25, 91, 255',
   warn: '255, 186, 0',
   danger: '255, 71, 87',
   success: '70, 201, 58',
   dark: '34, 37, 42',
   light: '244, 247, 248',
+  text: '44, 62, 80',
 
   // social colors
   facebook: '59, 89, 153',

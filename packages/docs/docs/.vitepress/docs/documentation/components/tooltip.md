@@ -162,9 +162,9 @@ Change the style of the tooltip to have a shadow and the background color
 
 </card>
 
-<card subtitle="NotArrow">
+<card subtitle="NoArrow">
 
-## Not Arrow
+## No Arrow
 
 In some cases you may need to remove the arrow from the tooltip for this you can use the `not-arrow` property
 

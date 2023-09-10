@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <VsNavbar v-model="active" :color="active" textWhite>
+  <div class="container">
+    <VsNavbar v-model="active" :backgroud="active" color="white" activeColor="white">
       <VsNavbarItem
         v-for="[key, item] in Object.entries(navbarData)"
         :key="item"
@@ -9,7 +9,7 @@
         {{ key.toUpperCase() }}
       </VsNavbarItem>
     </VsNavbar>
-    <div class="square">
+    <div>
       <div class="child">child 1</div>
       <div class="child">child 2</div>
       <div class="child">child 3</div>
@@ -34,12 +34,7 @@ const active = ref<(typeof navbarData)[keyof typeof navbarData]>('primary')
 </script>
 
 <style lang="scss" scoped>
-.center {
-  flex: 1;
-  padding: 0;
-}
-
-.square {
+.container {
   flex: 1;
   height: 400px;
   width: 100%;

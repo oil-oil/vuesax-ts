@@ -18,7 +18,16 @@ const Navbar = defineComponent({
   name: 'VsNavbar',
   props: {
     color: {
-      type: String as PropType<Color>
+      type: String as PropType<Color>,
+      default: 'text'
+    },
+    activeColor: {
+      type: String as PropType<Color>,
+      default: 'text'
+    },
+    backgroud: {
+      type: String as PropType<Color>,
+      default: 'white'
     },
     modelValue: {
       type: String,
@@ -28,19 +37,11 @@ const Navbar = defineComponent({
       type: Boolean,
       default: false
     },
-    shadowScroll: {
-      type: Boolean,
-      default: false
-    },
     shadow: {
       type: Boolean,
-      default: false
+      default: true
     },
     hideScroll: {
-      type: Boolean,
-      default: false
-    },
-    textWhite: {
       type: Boolean,
       default: false
     },
@@ -63,11 +64,13 @@ const Navbar = defineComponent({
   slots: ['default', 'left', 'right'],
   setup(props, { slots, emit }) {
     const { color } = useColor(toRef(props, 'color'))
+    const { color: bgColor } = useColor(toRef(props, 'backgroud'))
+    const { color: activeColor } = useColor(toRef(props, 'activeColor'))
+
     const lineLeft = ref(0)
     const lineWidth = ref(0)
     const scrollTop = ref(0)
     const hidden = ref(false)
-    const shadowActive = ref(false)
     const paddingScrollActive = ref(false)
 
     const elRef = ref<HTMLElement>()
@@ -107,14 +110,6 @@ const Navbar = defineComponent({
         }
       }
 
-      if (props.shadowScroll) {
-        if (scrollT && scrollT > 0) {
-          shadowActive.value = true
-        } else {
-          shadowActive.value = false
-        }
-      }
-
       if (props.paddingScroll) {
         if (scrollT && scrollT > 0) {
           paddingScrollActive.value = false
@@ -138,10 +133,7 @@ const Navbar = defineComponent({
     }, 200)
 
     onMounted(() => {
-      if (
-        props.targetScroll &&
-        (props.hideScroll || props.shadowScroll || props.paddingScroll)
-      ) {
+      if (props.targetScroll && (props.hideScroll || props.paddingScroll)) {
         ;(
           document.querySelector(props.targetScroll) || window
         ).addEventListener('scroll', onScroll)
@@ -162,14 +154,16 @@ const Navbar = defineComponent({
             fixed: props.fixed,
             shadow: props.shadow,
             hidden: hidden.value,
-            shadowActive: shadowActive.value,
-            textWhite: props.textWhite,
             paddingScroll: paddingScrollActive.value,
-            vsNavbarSquare: props.square,
+            square: props.square,
             'vs-component--is-color': props.color
           }
         ]}
-        style={{ '--vs-color': color.value }}
+        style={{
+          '--vs-color': color.value,
+          '--vs-backgroud': bgColor.value,
+          '--vs-active-color': activeColor.value
+        }}
         ref={elRef}
       >
         <div class="vs-navbar">

@@ -5,24 +5,31 @@ props :
     - name: color
       type: String
       values: Vuesax Colors | RGB | HEX
-      description: 修改导航栏的颜色
+      description: 修改导航栏字体的颜色
       default: primary
+      usageUrl: navbar#color
+    - name: activeColor
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: 修改导航栏激活项时字体的颜色
+      default: primary
+      usageUrl: navbar#color
+    - name: backgroud
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: 修改导航栏背景的颜色.
+      default: white
     - name: v-model
       type: String
       values: String
       description: 确定当前的选中项
+      usageUrl: navbar#color
     - name: fixed
       type: Boolean
       values: true | false
       description: 定义导航栏是否固定在屏幕上
       default: "false"
       usageUrl: navbar#default
-    - name: shadowScroll
-      type: Boolean
-      values: true | false
-      description: 当与 `targetScroll` 相对应的元素未滚动到顶部时，添加阴影效果
-      default: "false"
-      usageUrl: navbar#shadowScroll
     - name: shadow
       type: Boolean
       values: true | false
@@ -105,9 +112,7 @@ slots :
 
 ## Color
 
-使用颜色属性或直接添加 vuesax 的一种主题颜色来更改组件的`颜色
-
-如果要将文字颜色改为白色，可以使用属性 `textWhite` 来实现
+你可以使用 `color` 修改导航栏的字体颜色，使用 `activeColor` 修改导航栏激活项的颜色，使用 `backgroud` 修改导航栏的背景颜色
 
 </card>
 
@@ -140,14 +145,6 @@ slots :
 ## Square
 
 移除 `border-radius` 属性，使组件成为方形
-
-</card>
-
-<card subtitle="ShadowScroll">
-
-## Shadow Scroll
-
-当与 `targetScroll` 相对应的元素没有滚动到顶部时，`shadowScroll` 属性会添加阴影效果。
 
 </card>
 

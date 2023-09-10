@@ -15,17 +15,20 @@ const Navbar = defineComponent({
     }>()
     const router = useRouter()
     const route = useRoute()
+    console.log('route: ', route.path);
+
     const pushTo = (link: string, evt: MouseEvent) => {
       router.go(link)
       evt.stopPropagation()
       evt.preventDefault()
     }
+
     return () => (
       <VsNavbar
         modelValue={route.path}
         class="top-navbar"
-        textWhite={isDark.value}
-        color={isDark.value ? 'dark' : undefined}
+        color={isDark.value ? "white" :undefined}
+        backgroud={isDark.value ? 'dark' : undefined}
         fixed
         square
         v-slots={{
@@ -73,6 +76,7 @@ const Navbar = defineComponent({
         {theme.value.nav.map((value) => (
           <>
             <VsNavbarGroup
+              key={value.text}
               v-slots={{
                 title: () => value.text
               }}
@@ -81,6 +85,7 @@ const Navbar = defineComponent({
                 <VsNavbarItem
                   id={item.link}
                   onClick={(e: MouseEvent) => pushTo(item.link, e)}
+                  key={item.link}
                 >
                   {item.text}
                 </VsNavbarItem>

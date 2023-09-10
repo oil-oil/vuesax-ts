@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <VsNavbar v-model="active">
       <VsNavbarGroup>
         <template #title> Docs </template>
@@ -28,10 +28,10 @@
       <VsNavbarItem id="license"> License </VsNavbarItem>
       <template #right>
         <VsButton flat>Login</VsButton>
-        <VsButton>Get Started</VsButton>
+        <VsButton style="margin-left: 8px">Get Started</VsButton>
       </template>
     </VsNavbar>
-    <div class="square">
+    <div>
       <div class="child">child 1</div>
       <div class="child">child 2</div>
       <div class="child">child 3</div>
@@ -56,7 +56,7 @@ const active = ref<string>('')
   padding: 5px;
 }
 
-.square {
+.container {
   flex: 1;
   height: 400px;
   width: 100%;

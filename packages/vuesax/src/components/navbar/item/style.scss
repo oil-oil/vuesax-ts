@@ -13,6 +13,7 @@
 
   &.active {
     opacity: 1;
+    color: -color('active-color')
   }
 
   &:hover {
