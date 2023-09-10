@@ -14,9 +14,9 @@ props :
       description: Determine if the component is in the disabled status.
       default: "false"
       usageUrl: tooltip#default
-    - name: left, right, bottom
+    - name: position
       type: Boolean
-      values: true | false
+      values: top|left,|right|bottom
       description: Change the position of the tooltip.
       default: top
       usageUrl: tooltip#position

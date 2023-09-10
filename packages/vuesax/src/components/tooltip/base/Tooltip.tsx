@@ -11,7 +11,7 @@ import {
 } from 'vue'
 
 import useColor from '@/hooks/useColor'
-import { Color } from '@/types/utils'
+import { Color, Position } from '@/types/utils'
 import { insertBody, setCordsPosition } from '@/utils'
 
 const Tooltip = defineComponent({
@@ -28,19 +28,11 @@ const Tooltip = defineComponent({
       type: Boolean,
       default: false
     },
-    bottom: {
-      type: Boolean,
-      default: false
+    position: {
+      type: String as PropType<Position>,
+      default: 'top'
     },
-    left: {
-      type: Boolean,
-      default: false
-    },
-    right: {
-      type: Boolean,
-      default: false
-    },
-    notHover: {
+    disabled: {
       type: Boolean,
       default: false
     },
@@ -89,15 +81,7 @@ const Tooltip = defineComponent({
       if (tooltipRef.value && contentRef.value) {
         insertBody(tooltipRef.value)
 
-        let position = 'top'
-        if (props.bottom) {
-          position = 'bottom'
-        } else if (props.left) {
-          position = 'left'
-        } else if (props.right) {
-          position = 'right'
-        }
-        setCordsPosition(tooltipRef.value, contentRef.value, position)
+        setCordsPosition(tooltipRef.value, contentRef.value, props.position)
       }
     }
 
@@ -123,31 +107,23 @@ const Tooltip = defineComponent({
     }
 
     const handleResize = () => {
-      let position = 'top'
-      if (props.bottom) {
-        position = 'bottom'
-      } else if (props.left) {
-        position = 'left'
-      } else if (props.right) {
-        position = 'right'
-      }
       const TooltipRef = tooltipRef.value as HTMLElement
       const ContentRef = contentRef.value as HTMLElement
       if (!TooltipRef) {
         return
       }
       nextTick(() => {
-        setCordsPosition(TooltipRef, ContentRef, position)
+        setCordsPosition(TooltipRef, ContentRef, props.position)
       })
 
       for (let index = 0; index < 300; index += 1) {
         setTimeout(() => {
-          setCordsPosition(TooltipRef, ContentRef, position)
+          setCordsPosition(TooltipRef, ContentRef, props.position)
         })
       }
     }
 
-    const handleMouseDownNotHover = (evt: any) => {
+    const handleMouseDownDisabled = (evt: any) => {
       if (
         !evt.target?.closest('.vs-tooltip') &&
         !evt.target?.closest('.vs-tooltip-content')
@@ -176,16 +152,17 @@ const Tooltip = defineComponent({
       })
 
       window.addEventListener('resize', handleResize)
-      if (props.notHover) {
-        window.addEventListener('mousedown', handleMouseDownNotHover)
+      if (props.disabled) {
+        window.addEventListener('mousedown', handleMouseDownDisabled)
       }
 
-      window.addEventListener('touchstart', handleMouseDownNotHover)
+      window.addEventListener('touchstart', handleMouseDownDisabled)
     })
+
     onUnmounted(() => {
       activeTooltip.value = false
       window.removeEventListener('resize', handleResize)
-      window.removeEventListener('mousedown', handleMouseDownNotHover)
+      window.removeEventListener('mousedown', handleMouseDownDisabled)
       const tooltips = document.querySelectorAll('.vs-tooltip')
       tooltips.forEach((tooltip) => {
         tooltip.remove()
@@ -197,12 +174,12 @@ const Tooltip = defineComponent({
         class="vs-tooltip-content"
         ref={contentRef}
         onMouseenter={() => {
-          if (!props.notHover) {
+          if (!props.disabled) {
             handlerMouseEnter()
           }
         }}
         onMouseleave={() => {
-          if (!props.notHover) {
+          if (!props.disabled) {
             if (props.interactivity) {
               setTimeout(() => {
                 if (!isHoverTooltip.value) {
@@ -223,10 +200,7 @@ const Tooltip = defineComponent({
               class={[
                 'vs-tooltip',
                 {
-                  top: !props.bottom && !props.left && !props.right,
-                  bottom: props.bottom,
-                  left: props.left,
-                  right: props.right,
+                  [props.position]: true,
                   shadow: props.shadow,
                   noArrow: props.noArrow,
                   square: props.square,
