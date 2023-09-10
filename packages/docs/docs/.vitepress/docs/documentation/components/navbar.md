@@ -8,7 +8,7 @@ props :
       description: Change the text color of the navbar.
       default: primary
       usageUrl: navbar#color
-      - name: color
+    - name: color
       type: String
       values: Vuesax Colors | RGB | HEX
       description: Change the active item text color of the navbar.
