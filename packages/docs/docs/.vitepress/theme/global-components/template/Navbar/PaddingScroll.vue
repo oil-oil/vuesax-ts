@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container" id="padding-scroll-content">
     <VsNavbar
       v-model="active"
       paddingScroll
@@ -14,10 +14,10 @@
       </VsNavbarItem>
       <template #right>
         <VsButton flat>Login</VsButton>
-        <VsButton>Get Started</VsButton>
+        <VsButton style="margin-left: 8px">Get Started</VsButton>
       </template>
     </VsNavbar>
-    <div class="square" id="padding-scroll-content">
+    <div>
       <div class="child">child 1</div>
       <div class="child">child 2</div>
       <div class="child">child 3</div>
@@ -40,7 +40,7 @@ const active = ref<keyof typeof navbarData>('guide')
 </script>
 
 <style lang="scss" scoped>
-.square {
+.container {
   flex: 1;
   height: 400px;
   width: 100%;

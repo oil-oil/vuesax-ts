@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <VsNavbar v-model="active" square textWhite color="#7d33ff">
+  <div class="container">
+    <VsNavbar v-model="active" square backgroud="#7d33ff" color="white" activeColor="white">
       <VsNavbarItem
         v-for="[key, item] in Object.entries(navbarData)"
         :key="key"
@@ -10,10 +10,12 @@
       </VsNavbarItem>
       <template #right>
         <VsButton color="#fff" flat>Login</VsButton>
-        <VsButton color="#fff" border>Get Started</VsButton>
+        <VsButton color="#fff" border style="margin-left: 8px"
+          >Get Started</VsButton
+        >
       </template>
     </VsNavbar>
-    <div class="square">
+    <div>
       <div class="child">child 1</div>
       <div class="child">child 2</div>
       <div class="child">child 3</div>
@@ -36,7 +38,7 @@ const active = ref<keyof typeof navbarData>('guide')
 </script>
 
 <style lang="scss" scoped>
-.square {
+.container {
   flex: 1;
   height: 400px;
   width: 100%;

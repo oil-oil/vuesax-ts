@@ -7,10 +7,9 @@
   top: 0px;
   left: 0px;
   border-radius: 0px 0px 15px 15px;
-  background: -color('color');
+  background: -color('backgroud');
   transition: all .25s ease;
-  color: -color('text');
-  --vs-color: var(--vs-background);
+  color: -color('color');
 
   &.paddingScroll {
     padding-top: 20px;
@@ -21,22 +20,8 @@
     }
   }
 
-  &.vsNavbarSquare {
+  &.square {
     border-radius: 0px;
-  }
-
-  &.textWhite {
-    color: #fff;
-
-    .vs-navbar__line {
-      background: #fff;
-    }
-
-    .vs-navbar__item {
-      &:before {
-        background: #fff;
-      }
-    }
   }
 
   &.fixed {
@@ -86,12 +71,8 @@
     left: 0px;
     bottom: 0px;
     width: 100px;
-    background: -color('text');
+    background: -color('color');
     height: 3px;
     transition: all .25s ease;
-
-    &.notTransition {
-      transition: none !important;
-    }
   }
 }

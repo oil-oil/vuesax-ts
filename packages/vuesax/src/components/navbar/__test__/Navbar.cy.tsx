@@ -11,8 +11,8 @@ describe('Navbar', () => {
     cy.mount(
       <VsNavbar
         fixed
-        textWhite
-        color="primary"
+        backgroud="primary"
+        color="white"
         v-model={active.basic}
         v-slots={{
           left: () => <>1111</>,
@@ -42,8 +42,8 @@ describe('Navbar', () => {
     cy.mount(
       <VsNavbar
         fixed
-        textWhite
-        color="primary"
+        color="white"
+        backgroud="primary"
         v-model={active.click}
         v-slots={{
           left: () => <>1111</>,

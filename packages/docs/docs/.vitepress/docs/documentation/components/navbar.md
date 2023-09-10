@@ -5,8 +5,20 @@ props :
     - name: color
       type: String
       values: Vuesax Colors | RGB | HEX
-      description: Change the color of the navbar.
+      description: Change the text color of the navbar.
       default: primary
+      usageUrl: navbar#color
+      - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: Change the active item text color of the navbar.
+      default: primary
+      usageUrl: navbar#color
+    - name: backgroud
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: Change the backgroud color of the navbar.
+      default: white
     - name: v-model
       type: String
       values: String
@@ -17,17 +29,11 @@ props :
       description: Defines if the navbar is fixed on the screen.
       default: "false"
       usageUrl: navbar#default
-    - name: shadowScroll
-      type: Boolean
-      values: true | false
-      description: Adds a shadow effect when the element corresponding to the `targetScroll` is not scrolled to the top.
-      default: "false"
-      usageUrl: navbar#shadow-scroll
     - name: shadow
       type: Boolean
       values: true | false
       description: Add a shadow to the navbar.	
-      default: "false"
+      default: "true"
     - name: hideScroll
       type: Boolean
       values: true | false
@@ -40,12 +46,6 @@ props :
       description: Hides the navbar when the element specified by `targetScroll` scrolls down.
       default: "false"
       usageUrl: navbar#hideScroll
-    - name: textWhite
-      type: Boolean
-      values: true | false
-      description: Change the text color of items to white.	
-      default: "false"
-      usageUrl: navbar#color
     - name: square
       type: Boolean
       values: true | false
@@ -112,9 +112,7 @@ Quickly generate a menu with the `VsNavbar` component, as such the component is 
 
 ## Color
 
-Change the navbar's `color` with the color property or by directly adding one of the main vuesax colors
-
-if you want to change the text color to white you can do it with the property `textWhite` 
+You can use `color` to change the font color of the navbar, `activeColor` to change the color of the active items in the navbar, and `backgroud` to change the background of the navbar.
 
 </card>
 
@@ -147,14 +145,6 @@ Add the functionality that the component has a padding up and down that when it 
 ## Square
 
 Making the navbar square by remove the `border-radius` property
-
-</card>
-
-<card subtitle="ShadowScroll">
-
-## Shadow Scroll
-
-The `shadowScroll` property adds a shadow effect when the element corresponding to the `targetScroll` is not scrolled to the top
 
 </card>
 

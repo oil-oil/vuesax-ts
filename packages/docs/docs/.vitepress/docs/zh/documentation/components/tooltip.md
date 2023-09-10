@@ -162,9 +162,9 @@ slots :
 
 </card>
 
-<card subtitle="NotArrow">
+<card subtitle="NoArrow">
 
-## Not Arrow
+## No Arrow
 
 在某些情况下，您可能需要从文字提示中移除箭头，为此您可以使用 `not-arrow` 属性
 

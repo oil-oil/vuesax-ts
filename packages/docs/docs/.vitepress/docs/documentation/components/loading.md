@@ -124,7 +124,7 @@ Add a progress bar at the top to indicate the loading progress of the loading wi
 
 ## Target
 
-If you want use the loading on a specific dom element. Put the loading in a parent container positioned as a relative.And set `isVisible` value.
+If you want use the loading on a specific dom element. Put the loading in a parent container positioned as a relative.And set `visible` value.
 </card>
 
 <script setup>
