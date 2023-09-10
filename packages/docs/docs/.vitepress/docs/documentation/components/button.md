@@ -5,43 +5,43 @@ props :
     - name: color
       type: String
       values: Vuesax Colors | RGB | HEX
-      description: Change the color of the component and some of its sub components.
+      description: Change the color of the button and some of its sub components.
       default: primary
       usageUrl: button#color
     - name: style button
       type: Prop
       values: flat | border | gradient | transparent | dashed | shadow | relief | floating
-      description: Change the style of the component and its states.
+      description: Change the style of the button and its status.
       default:
       usageUrl: button#flat
     - name: active
       type: Boolean
       values: true | false
-      description: Determine if the component is active and change its style to that state.
+      description: Determine if the button is active and change its style to that state.
       default: "false"
       usageUrl: button#default
     - name: upload
       type: Boolean
       values: true | false
-      description: Determine if the component has the upload status active by changing the style and adding the animation.
+      description: Determine if the button has the upload status active by changing the style and adding the animation.
       default: "false"
       usageUrl: button#upload
     - name: href
       type: String
       values: href - link
-      description: Add an href of an external link to add the functionality by clicking on the component.
+      description: Add external link href for button.
       default: "false"
-      usageUrl: button#to-href
+      usageUrl: button#href
     - name: blank
       type: Boolean
       values: true | false
       description: as in an html element `a` determines whether a new window is opened or the current one is replaced.
       default: "false"
-      usageUrl: button#to-href
+      usageUrl: button#href
     - name: icon
       type: Boolean
       values: true | false
-      description: Determine if the component contains only one icon, by adding this property the component has an equal width and height.
+      description: Determine if the button contains only one icon, by adding this property the button has an equal width and height.
       default: "false"
       usageUrl: button#icon
     - name: circle
@@ -59,7 +59,7 @@ props :
     - name: block
       type: Boolean
       values: true | false
-      description: Change the width of the component to the possible total determined by the parent element.
+      description: Change the width of the button to fill the parent element.
       default: "false"
       usageUrl: button#block
     - name: animationType
@@ -78,13 +78,14 @@ slots :
     - name: animate
       type: slot
       values:
-      description: Slot To add the element that will be displayed in the animation.
+      description: Slot for adding elements that will be displayed in the animation.
       default: 
       usageUrl: button#animate
 ---
+
 # Button
 
-<Card codesandbox="https://codesandbox.io/embed/reverent-shape-pmyk2?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue">
+<Card>
 
 ## Default
 
@@ -94,7 +95,7 @@ the buttons have all the states as active, focus, hover, to make its implementat
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/charming-maxwell-ms0xf?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark" subtitle="Flat">
+<Card subtitle="Flat">
 
 ## Flat
 
@@ -102,7 +103,7 @@ You can change the full style towards *flat* of a button with the `flat` propert
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-border-zc0td?fontsize=14&hidenavigation=1&theme=dark" subtitle="Border">
+<Card subtitle="Border">
 
 ## Border
 
@@ -110,7 +111,7 @@ You can change the full style towards *border* of a button with the `border` pro
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-gradient-7en0i?fontsize=14&hidenavigation=1&theme=dark" subtitle="Gradient">
+<Card subtitle="Gradient">
 
 ## Gradient
 
@@ -122,7 +123,7 @@ You can change the full style towards *Gradient* of a button with the `gradient`
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-relief-7dfh7?fontsize=14&hidenavigation=1&theme=dark" subtitle="Relief">
+<Card subtitle="Relief">
 
 ## Relief
 
@@ -130,7 +131,7 @@ Change the style of the button to a relief aspect with the `relief` property, th
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-transparent-4t6d6?fontsize=14&hidenavigation=1&theme=dark" subtitle="Transparent">
+<Card subtitle="Transparent">
 
 ## Transparent
 
@@ -138,7 +139,7 @@ Change the style of the button with the `transparent` property, the property is 
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-shadow-ufx6y?fontsize=14&hidenavigation=1&theme=dark" subtitle="Shadow">
+<Card subtitle="Shadow">
 
 ## Shadow
 
@@ -146,7 +147,7 @@ Change the style of the button with the `shadow` property, the property is a `bo
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-colors-gje98?fontsize=14&hidenavigation=1&theme=dark" subtitle="Color">
+<Card subtitle="Color">
 
 ## Color
 
@@ -274,11 +275,11 @@ This is an example of what you can achieve with simple logic and few lines of co
 
 </Card>
 
-<Card subtitle="ToHref">
+<Card subtitle="Href">
 
-## To - href
+## Href
 
-If you need to use a button such as a vue-router link or an external link you can do it with (`href`: html external link)
+If you need to use a button such as an external link you can do it with (`href`: html external link)
 
 </Card>
 

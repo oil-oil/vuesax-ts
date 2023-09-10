@@ -1,7 +1,91 @@
+---
+prev: Colors
+next: Alert
+props : 
+    - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: 修改按钮及其子组件的颜色
+      default: primary
+      usageUrl: button#color
+    - name: style button
+      type: Prop
+      values: flat | border | gradient | transparent | dashed | shadow | relief | floating
+      description: 更改按钮的样式和状态
+      default:
+      usageUrl: button#flat
+    - name: active
+      type: Boolean
+      values: true | false
+      description: 确定按钮是否处于激活状态，并将其样式更改为激活状态
+      default: "false"
+      usageUrl: button#default
+    - name: upload
+      type: Boolean
+      values: true | false
+      description: 通过更改样式和添加动画来确定按钮是否处于上传状态
+      default: "false"
+      usageUrl: button#upload
+    - name: href
+      type: String
+      values: href - link
+      description: 为按钮添加外部链接的 href
+      default: "false"
+      usageUrl: button#href
+    - name: blank
+      type: Boolean
+      values: true | false
+      description: as in an html element `a` determines whether a new window is opened or the current one is replaced.
+      default: "false"
+      usageUrl: button#href
+    - name: icon
+      type: Boolean
+      values: true | false
+      description: 确定按钮是否只包含一个图标，添加此属性后，按钮的宽度和高度将相等
+      default: "false"
+      usageUrl: button#icon
+    - name: circle
+      type: Boolean
+      values: true | false
+      description: 更改圆角为圆形样式
+      default: "false"
+      usageUrl: button#circle
+    - name: square
+      type: Boolean
+      values: true | false
+      description: 更改圆角为方形样式
+      default: "false"
+      usageUrl: button#square
+    - name: block
+      type: Boolean
+      values: true | false
+      description: 将按钮宽度改为占满父元素
+      default: "false"
+      usageUrl: button#block
+    - name: animationType
+      type: Boolean
+      values: true | false
+      description: 更改动画类型，该属性仅在设置了动画插槽时有效
+      default: "false"
+      usageUrl: button#animate
+    - name: animateInactive
+      type: Boolean
+      values: true | false
+      description: 确定用户悬停时动画是否激活
+      default: "false"
+      usageUrl: button#animate
+slots : 
+    - name: animate
+      type: slot
+      values:
+      description: 用于添加将在动画中显示的元素的插槽
+      default: 
+      usageUrl: button#animate
+---
 
 # Button 按钮
 
-<Card codesandbox="https://codesandbox.io/embed/reverent-shape-pmyk2?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue">
+<Card>
 
 ## Default
 
@@ -11,7 +95,7 @@
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/charming-maxwell-ms0xf?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark" subtitle="Flat">
+<Card subtitle="Flat">
 
 ## Flat
 
@@ -19,7 +103,7 @@
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-border-zc0td?fontsize=14&hidenavigation=1&theme=dark" subtitle="Border">
+<Card subtitle="Border">
 
 ## Border
 
@@ -27,7 +111,7 @@
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-gradient-7en0i?fontsize=14&hidenavigation=1&theme=dark" subtitle="Gradient">
+<Card subtitle="Gradient">
 
 ## Gradient
 
@@ -38,7 +122,7 @@
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-relief-7dfh7?fontsize=14&hidenavigation=1&theme=dark" subtitle="Relief">
+<Card subtitle="Relief">
 
 ## Relief
 
@@ -46,7 +130,7 @@
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-transparent-4t6d6?fontsize=14&hidenavigation=1&theme=dark" subtitle="Transparent">
+<Card subtitle="Transparent">
 
 ## Transparent
 
@@ -54,7 +138,7 @@
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-shadow-ufx6y?fontsize=14&hidenavigation=1&theme=dark" subtitle="Shadow">
+<Card subtitle="Shadow">
 
 ## Shadow
 
@@ -62,7 +146,7 @@
 
 </Card>
 
-<Card codesandbox="https://codesandbox.io/embed/vuesax-button-colors-gje98?fontsize=14&hidenavigation=1&theme=dark" subtitle="Color">
+<Card subtitle="Color">
 
 ## Color
 
@@ -78,34 +162,13 @@
 
 该属性使按钮具有特定的大小且具有相同的宽度和高度
 
-<div>
-  <div>
-    <div class="warning custom-block">
-      <p class="custom-block-title">
-       默认图标
-      </p>
-      <p>
-       默认情况下，Vuesax 不使用任何图标库或字体，因此你可以自由使用喜欢的图标 所有在某处使用默认图标（例如在 <b>Alert</b> 或<b>Modal</b> 中关闭）的组件都将是 <b>svg</b>，以避免必须安装任何类型的外部源， 并可以通过您喜欢的图标替换为<code>插槽=</code>“图标”
-      </p>
-    </div>
-    <div class="tip custom-block">
-      <p class="custom-block-title">
-        Vuesax Docs Icons
-      </p>
-      <p>
-        在文档和示例你使用了图标库 <a target=“_blank” href=“https://boxicons.com/”>boxicons</a>，这对于使用 Vuesax 并非强制性的或必需的，但你推荐它，因为它具有大量的图标以及它们在视觉上与框架调性相符
-      </p>
-    </div>
-  </div>
-</div>
-
 </Card>
 
 <Card subtitle="IconText">
 
 ## Icon - Text
 
-如果你需要带有文字和图标的按钮，可以将它们添加到默认的 `slot` 中。
+如果你需要带有文字和图标的按钮，可以将它们添加到默认的 `slot` 中
 
 </Card>
 
@@ -132,10 +195,10 @@
 使用 `size` 属性更改整个按钮（包括字体大小和边框）的大小
 
 - xl
-- l
-- default
-- small
-- mini
+- lg
+- md
+- sm
+- xs
 
 </Card>
 
@@ -209,11 +272,11 @@ You can create an animation to the component by adding the ``#"animate" `and the
 
 </Card>
 
-<Card subtitle="ToHref">
+<Card subtitle="Href">
 
-## To - href
+## href
 
-如果需要使用 vue-router 或外部链接等按钮，可以使用属性 (`to`: vue-router 路由) 或 (`href`: html 外部链接) 来实现
+如果需要外部链接按钮，可以使用属性 (`href`: html 外部链接) 来实现
 
 </Card>
 
