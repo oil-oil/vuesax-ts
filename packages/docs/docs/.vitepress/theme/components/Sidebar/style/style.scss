@@ -1,13 +1,16 @@
 .vs-sidebar-content {
     overflow: auto;
+
     &::-webkit-scrollbar-thumb {
         background: transparent;
         border-radius: 5px;
         z-index: 9999;
     }
+
     .vs-sidebar {
         margin-top: 10px;
         width: 100%;
+
         &:last-child {
             margin-bottom: 80px;
         }

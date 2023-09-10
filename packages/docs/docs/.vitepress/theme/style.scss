@@ -7,6 +7,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
 :root {
   --vs-theme-bg: #f4f7f8;
   --vs-theme-bg2: #eef2f5;
@@ -15,6 +16,7 @@
   --vs-theme-code: #3f3d56;
   --vs-theme-code2: #363449;
   --vs-theme-home-component-bg: #fff;
+
   &.dark {
     --vs-primary: 26, 92, 255;
     --vs-theme-bg: #292c33;
@@ -26,6 +28,7 @@
     --vs-theme-home-component-bg: #292c33;
   }
 }
+
 *::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -33,23 +36,28 @@
   background: var(--vs-theme-layout);
   z-index: 9999;
 }
+
 *::-webkit-scrollbar-thumb {
   background: var(--vs-theme-color);
   border-radius: 5px;
   z-index: 9999;
 }
+
 ::selection {
   background: rgba(37, 100, 255, 0.15);
 }
+
 html {
   scroll-behavior: smooth;
   color: var(--vs-theme-color);
 }
+
 input,
 button,
 body {
   font-family: "FangYuanTiVF";
 }
+
 body {
   margin: 0;
 }
@@ -58,11 +66,13 @@ div[class*="language-"] {
   background-color: var(--vs-theme-code);
   position: relative;
   border-radius: 12px 12px 20px 20px;
+
   pre {
     position: relative;
     margin: 0;
     padding: 20px;
     line-height: 1.6;
+
     .highlighted {
       position: relative;
       display: inline-block;
@@ -71,10 +81,12 @@ div[class*="language-"] {
       border-left: 6px solid hsla(0, 0%, 100%, 0.2);
     }
   }
+
   button {
     display: none;
   }
-  & > span {
+
+  &>span {
     position: absolute;
     top: 0.8em;
     right: 1em;
@@ -88,13 +100,16 @@ code {
   font-weight: lighter;
   font-size: smaller;
 }
+
 a {
   text-decoration: none;
   font-weight: 500;
   color: var(--vs-theme-color);
 }
+
 label {
   color: var(--vs-theme-color);
+
   &::before {
     background: var(--vs-theme-color) !important;
     opacity: 0.6;
@@ -106,13 +121,16 @@ label {
   position: relative;
   transition: background-color 0.25s ease;
 }
+
 .page-docs-content-docs {
   h1 {
     display: none;
   }
+
   h2 {
     font-size: 1.5rem;
     font-weight: 600;
+
     a {
       font-size: 0.85em;
       float: left;
@@ -138,7 +156,8 @@ label {
       }
     }
   }
-  > p {
+
+  >p {
     padding: 5px 20px;
     margin: 0px;
     font-size: 0.85rem;
@@ -152,6 +171,7 @@ label {
     font-size: 0.85rem;
     color: var(--vs-theme-color);
   }
+
   p {
     code {
       padding: 0.25rem 0.5rem;
@@ -180,9 +200,11 @@ label {
     position: relative;
     color: var(--vs-theme-color);
   }
+
   h2:hover {
     padding-left: 40px;
   }
+
   ul {
     margin-left: 40px;
     padding-left: 0px;
@@ -194,7 +216,7 @@ label {
     }
   }
 
-  & > img {
+  &>img {
     width: 100%;
     max-width: 600px;
     margin: auto;
@@ -297,10 +319,12 @@ label {
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px;
+  gap: 10px;
 }
 
 .api {
   color: var(--vs-theme-color);
+
   .title {
     font-size: 1.5rem;
     padding: 15px 20px 10px 40px;
@@ -310,15 +334,18 @@ label {
     z-index: 0;
     position: relative;
     color: var(--vs-theme-color);
+
     &:hover {
       padding-left: 59px;
     }
   }
+
   .content {
     padding: 0 25px 10px 25px;
     background-color: var(--vs-theme-layout);
     border-radius: 5px 20px 20px 5px;
     margin-top: 20px;
+
     .sub-title {
       font-size: 1.2rem;
       font-weight: bold;
@@ -330,9 +357,11 @@ label {
       position: relative;
       color: var(--vs-theme-color);
     }
+
     .table {
       margin-bottom: 25px;
     }
+
     .vs-table__thead {
       tr {
         th {
@@ -340,23 +369,29 @@ label {
         }
       }
     }
+
     .vs-table__tbody {
       th {
         line-height: 20px;
         padding: 20px 12px;
       }
+
       tr {
         &:nth-child(2n) {
           background: var(--vs-theme-bg2) !important;
         }
+
         .vs-table__th:nth-child(2) {
           color: #e2777a !important;
         }
+
         .vs-table__th:nth-child(5) {
           color: #7ec699 !important;
         }
+
         .vs-table__th:nth-child(6) .vs-table__th__content {
           flex-direction: column;
+
           a {
             user-select: none;
             padding: 3px 10px;
@@ -365,14 +400,17 @@ label {
             transition: all 0.25s ease;
             cursor: pointer;
             border-radius: 18px;
+
             &:hover {
               background-color: var(--vs-theme-bg2);
               transition: all 0.25s ease;
             }
           }
         }
+
         .vs-table__th:nth-child(7) .vs-table__th__content {
           flex-direction: column;
+
           a {
             display: flex;
             justify-content: center;
@@ -382,6 +420,7 @@ label {
             aspect-ratio: 1/1;
             border-radius: 100%;
             transition: all 0.25s ease;
+
             &:hover {
               background-color: #fe596715;
               transition: all 0.25s ease;

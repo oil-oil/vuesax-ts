@@ -1,7 +1,8 @@
 @import '@/styles/mixins';
+
 .vs-sidebar__item {
   width: 100%;
-  padding: 14px 16px 14px 26px;
+  padding: 14px 16px;
   padding-top: 15px;
   text-align: left;
   background: transparent;
@@ -13,18 +14,22 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  color: -color('text');
+  color: -color('color');
   border: 0px;
+
   &.hasIcon {
     padding: 0px;
+
     &.active {
       padding-left: 8px;
     }
+
     &:hover {
       padding-left: 8px;
       opacity: 1;
     }
   }
+
   &:after {
     content: '';
     position: absolute;
@@ -32,23 +37,27 @@
     top: 0px;
     width: 10px;
     height: 100%;
-    background: -color('color');
+    background: -color('active-color');
     border-radius: 0px 20px 20px 0px;
     transform: translate(-6px);
     transition: all .25s ease;
-    z-index: 999;
+    z-index: 60;
   }
+
   &.active:not(.hasIcon) {
     padding-left: 25px;
   }
+
   &.active {
     opacity: 1;
     // background: -color('background', .1) !important
-    color: -color('color');
+    color: -color('active-color');
+
     &:after {
       transform: translate(0px);
     }
   }
+
   &__icon {
     min-width: 50px;
     height: 47px;
@@ -59,10 +68,12 @@
     z-index: 50;
     background: -color('background');
   }
+
   &:hover:not(.hasIcon) {
     opacity: 1;
-    padding-left: 35px;
+    padding-left: 25px;
   }
+
   &__text {
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -71,6 +82,7 @@
     transition: all .25s ease;
     font-size: .9rem;
   }
+
   &__arrow {
     width: 7px;
     height: 7px;
@@ -81,15 +93,18 @@
     transition: all .25s ease;
     transform: rotate(-135deg) !important;
     z-index: 80;
+
     .vs-icon-arrow {
       &:before {
         width: 2px;
       }
+
       &:after {
         height: 2px;
       }
     }
   }
+
   &__text-tooltip {
     position: fixed;
     left: 50px;
@@ -98,14 +113,5 @@
     transition: all .25s ease;
     font-size: .85rem;
     white-space: nowrap;
-  }
-}
-.textWhite{
-  .vs-sidebar__group__header{
-    .vs-sidebar__item{
-      .vs-sidebar__item__arrow{
-        color: #fff;
-      }
-    }
   }
 }

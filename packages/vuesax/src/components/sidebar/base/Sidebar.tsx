@@ -5,26 +5,33 @@ import {
   watch,
   provide,
   toRef,
-  computed,
   HTMLAttributes,
   PropType
 } from 'vue'
 
+import { SidebarProvider } from '../types'
 import useColor from '@/hooks/useColor'
 import { Color, CompWithAttr } from '@/types/utils'
-import { setColor } from '@/utils'
 
 const Sidebar = defineComponent({
   name: 'VsSideBar',
   props: {
     color: {
       type: String as PropType<Color>,
+      default: 'text'
+    },
+    activeColor: {
+      type: String as PropType<Color>,
       default: 'primary'
+    },
+    background: {
+      type: String as PropType<Color>,
+      default: 'white'
     },
     modelValue: {
       type: String
     },
-    reduce: {
+    collapsed: {
       type: Boolean,
       default: false
     },
@@ -32,11 +39,11 @@ const Sidebar = defineComponent({
       type: Boolean,
       default: false
     },
-    open: {
+    visible: {
       type: Boolean,
-      default: false
+      default: true
     },
-    noLineActive: {
+    noLine: {
       type: Boolean,
       default: false
     },
@@ -44,13 +51,9 @@ const Sidebar = defineComponent({
       type: Boolean,
       default: false
     },
-    textWhite: {
+    shadow: {
       type: Boolean,
-      default: false
-    },
-    noShadow: {
-      type: Boolean,
-      default: false
+      default: true
     },
     relative: {
       type: Boolean,
@@ -63,27 +66,27 @@ const Sidebar = defineComponent({
     right: {
       type: Boolean,
       default: false
-    },
-    background: {
-      type: String,
-      default: 'background'
     }
   },
-  slots: ['default', 'header', 'footer', 'logo'],
-  emits: ['update:modelValue', 'update:open'],
+  slots: ['default', 'title', 'footer', 'logo'],
+  emits: ['update:modelValue', 'update:visible'],
   setup(props, { slots, emit, attrs }) {
     const { color } = useColor(toRef(props, 'color'))
+    const { color: bgColor } = useColor(toRef(props, 'background'))
+    const { color: activeColor } = useColor(toRef(props, 'activeColor'))
+
     const rootRef = ref<HTMLElement | null>(null)
     const staticWidth = 260
-    const reduceInternal = ref(false)
+    const innerCollapsed = ref(false)
 
     const clickCloseSidebar = (evt: MouseEvent) => {
       if (!(evt.target as HTMLElement).closest('.vs-sidebar-content')) {
-        emit('update:open', false)
+        emit('update:visible', false)
       }
     }
+
     watch(
-      () => props.open,
+      () => props.visible,
       (val: boolean) => {
         if (val) {
           setTimeout(() => {
@@ -94,25 +97,13 @@ const Sidebar = defineComponent({
         }
       }
     )
-    const sideBarClass = computed(() => [
-      'vs-sidebar-content',
-      { reduce: reduceInternal.value },
-      { open: props.open },
-      { noLineActive: props.noLineActive },
-      { square: props.square },
-      { noShadow: props.noShadow },
-      { textWhite: props.textWhite },
-      { relative: props.relative },
-      { absolute: props.absolute },
-      { right: props.right }
-    ])
 
     /**
-     *  Control whether the menu is expanded according to ref(reduceInternal)
+     *  Control whether the menu is expanded according to ref(innerCollapsed)
      */
-    const handleReduce = () => {
+    const handleCollapsed = () => {
       if (rootRef.value) {
-        if (reduceInternal.value) {
+        if (innerCollapsed.value) {
           rootRef.value.style.width = '50px'
         } else {
           rootRef.value.style.width = `${staticWidth}px`
@@ -121,68 +112,67 @@ const Sidebar = defineComponent({
     }
 
     watch(
-      () => props.reduce,
+      () => props.collapsed,
       () => {
-        reduceInternal.value = props.reduce
-        handleReduce()
+        innerCollapsed.value = props.collapsed
+        handleCollapsed()
       }
     )
 
-    const active = toRef(props, 'modelValue')
-    provide('activeValue', {
-      active,
+    provide<SidebarProvider>('sidebarProvider', {
+      active: toRef(props, 'modelValue'),
       updateActive: (id: string) => {
         emit('update:modelValue', id)
-      }
+      },
+      collapsed: innerCollapsed
     })
 
     const mouseEnterEvent = () => {
       if (props.hoverExpand) {
-        reduceInternal.value = false
-        handleReduce()
+        innerCollapsed.value = false
+        handleCollapsed()
       }
     }
     const mouseLeaveEvent = () => {
       if (props.hoverExpand) {
-        reduceInternal.value = true
-        handleReduce()
+        innerCollapsed.value = true
+        handleCollapsed()
       }
     }
+
     onMounted(() => {
-      if (typeof props.reduce === 'boolean') {
-        reduceInternal.value = props.reduce
-      }
+      innerCollapsed.value = props.collapsed
       if (props.hoverExpand) {
-        reduceInternal.value = true
+        innerCollapsed.value = true
       }
-      handleReduce()
-
-      if (props.background !== 'background') {
-        setColor(
-          'background',
-          props.background,
-          rootRef.value as HTMLElement,
-          true
-        )
-      }
-
-      if (props.textWhite) {
-        setColor('text', '#fff', rootRef.value as HTMLElement, true)
-      }
+      handleCollapsed()
     })
+
     return () => (
       <div
         ref={rootRef}
-        class={sideBarClass.value}
-        style={{ '--vs-color': color.value }}
+        class={[
+          'vs-sidebar-content',
+          { collapsed: innerCollapsed.value },
+          { visible: props.visible },
+          { noLine: props.noLine },
+          { square: props.square },
+          { shadow: props.shadow },
+          { relative: props.relative },
+          { absolute: props.absolute },
+          { right: props.right }
+        ]}
+        style={{
+          '--vs-color': color.value,
+          '--vs-background': bgColor.value,
+          '--vs-active-color': activeColor.value
+        }}
         onMouseenter={mouseEnterEvent}
         onMouseleave={mouseLeaveEvent}
         {...attrs}
       >
         {slots.logo && <div class="vs-sidebar__logo">{slots.logo?.()}</div>}
-        {slots.header && (
-          <div class="vs-sidebar__header">{slots.header?.()}</div>
-        )}
+        {slots.title && <div class="vs-sidebar__title">{slots.title?.()}</div>}
         {<div class="vs-sidebar">{slots.default?.()}</div>}
         {slots.footer && (
           <div class="vs-sidebar__footer">{slots.footer?.()}</div>

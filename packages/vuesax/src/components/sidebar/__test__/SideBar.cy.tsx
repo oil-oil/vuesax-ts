@@ -19,7 +19,6 @@ describe('SideBar', () => {
       <VsSidebar
         modelValue="Home"
         absolute
-        open
         v-slots={{
           logo: () => (
             <svg
@@ -51,7 +50,7 @@ describe('SideBar', () => {
           </VsSidebarItem>
         ))}
         <VsSidebarGroup
-          open
+          collapsed
           v-slots={{
             header: () => (
               <VsSidebarItem
@@ -82,7 +81,6 @@ describe('SideBar', () => {
         modelValue="Home"
         onUpdate:modelValue={onClick}
         absolute
-        open
         v-slots={{
           logo: () => (
             <svg
@@ -114,7 +112,6 @@ describe('SideBar', () => {
           </VsSidebarItem>
         ))}
         <VsSidebarGroup
-          open
           v-slots={{
             header: () => (
               <VsSidebarItem
@@ -150,7 +147,6 @@ describe('SideBar', () => {
       <VsSidebar
         modelValue="Home"
         absolute
-        open
         v-slots={{
           logo: () => (
             <svg
@@ -202,7 +198,7 @@ describe('SideBar', () => {
       </VsSidebar>
     )
     cy.get('.vs-sidebar__group__content').should('not.exist')
-    cy.get('.vs-sidebar__group').click().should('have.class', 'open')
+    cy.get('.vs-sidebar__group').click().should('have.class', 'visible')
     cy.get('.vs-sidebar__group__content').should('be.visible')
   })
 })
