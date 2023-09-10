@@ -6,7 +6,7 @@ const sideBarArr = [
   { text: 'Donate', icon: () => <i class="bx bxs-donate-heart"></i> }
 ]
 const sideBarGroupArr = {
-  header: { text: 'Social media', icon: () => <i class="bx bx-group"></i> },
+  title: { text: 'Social media', icon: () => <i class="bx bx-group"></i> },
   content: [
     { text: 'Instagram', icon: () => <i class="bx bxl-instagram"></i> },
     { text: 'Twitter', icon: () => <i class="bx bxl-twitter"></i> },
@@ -52,12 +52,12 @@ describe('SideBar', () => {
         <VsSidebarGroup
           collapsed
           v-slots={{
-            header: () => (
+            title: () => (
               <VsSidebarItem
                 arrow
-                v-slots={{ icon: sideBarGroupArr.header.icon }}
+                v-slots={{ icon: sideBarGroupArr.title.icon }}
               >
-                {sideBarGroupArr.header.text}
+                {sideBarGroupArr.title.text}
               </VsSidebarItem>
             )
           }}
@@ -113,12 +113,12 @@ describe('SideBar', () => {
         ))}
         <VsSidebarGroup
           v-slots={{
-            header: () => (
+            title: () => (
               <VsSidebarItem
                 arrow
-                v-slots={{ icon: sideBarGroupArr.header.icon }}
+                v-slots={{ icon: sideBarGroupArr.title.icon }}
               >
-                {sideBarGroupArr.header.text}
+                {sideBarGroupArr.title.text}
               </VsSidebarItem>
             )
           }}
@@ -179,12 +179,12 @@ describe('SideBar', () => {
         ))}
         <VsSidebarGroup
           v-slots={{
-            header: () => (
+            title: () => (
               <VsSidebarItem
                 arrow
-                v-slots={{ icon: sideBarGroupArr.header.icon }}
+                v-slots={{ icon: sideBarGroupArr.title.icon }}
               >
-                {sideBarGroupArr.header.text}
+                {sideBarGroupArr.title.text}
               </VsSidebarItem>
             )
           }}
@@ -197,8 +197,8 @@ describe('SideBar', () => {
         </VsSidebarGroup>
       </VsSidebar>
     )
-    cy.get('.vs-sidebar__group__content').should('not.exist')
-    cy.get('.vs-sidebar__group').click().should('have.class', 'visible')
     cy.get('.vs-sidebar__group__content').should('be.visible')
+    cy.get('.vs-sidebar__group__title').click()
+    cy.get('.vs-sidebar__group__content').should('not.exist')
   })
 })
