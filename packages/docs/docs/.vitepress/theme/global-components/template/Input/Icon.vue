@@ -25,10 +25,3 @@ import { VsInput } from 'vuesax-ts'
 const name = ref()
 const password = ref()
 </script>
-
-<style scoped>
-.center {
-  width: 100%;
-  justify-content: space-evenly;
-}
-</style>

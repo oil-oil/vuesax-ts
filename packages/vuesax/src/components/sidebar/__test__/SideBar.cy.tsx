@@ -6,7 +6,7 @@ const sideBarArr = [
   { text: 'Donate', icon: () => <i class="bx bxs-donate-heart"></i> }
 ]
 const sideBarGroupArr = {
-  header: { text: 'Social media', icon: () => <i class="bx bx-group"></i> },
+  title: { text: 'Social media', icon: () => <i class="bx bx-group"></i> },
   content: [
     { text: 'Instagram', icon: () => <i class="bx bxl-instagram"></i> },
     { text: 'Twitter', icon: () => <i class="bx bxl-twitter"></i> },
@@ -19,7 +19,6 @@ describe('SideBar', () => {
       <VsSidebar
         modelValue="Home"
         absolute
-        open
         v-slots={{
           logo: () => (
             <svg
@@ -51,14 +50,14 @@ describe('SideBar', () => {
           </VsSidebarItem>
         ))}
         <VsSidebarGroup
-          open
+          collapsed
           v-slots={{
-            header: () => (
+            title: () => (
               <VsSidebarItem
                 arrow
-                v-slots={{ icon: sideBarGroupArr.header.icon }}
+                v-slots={{ icon: sideBarGroupArr.title.icon }}
               >
-                {sideBarGroupArr.header.text}
+                {sideBarGroupArr.title.text}
               </VsSidebarItem>
             )
           }}
@@ -82,7 +81,6 @@ describe('SideBar', () => {
         modelValue="Home"
         onUpdate:modelValue={onClick}
         absolute
-        open
         v-slots={{
           logo: () => (
             <svg
@@ -114,14 +112,13 @@ describe('SideBar', () => {
           </VsSidebarItem>
         ))}
         <VsSidebarGroup
-          open
           v-slots={{
-            header: () => (
+            title: () => (
               <VsSidebarItem
                 arrow
-                v-slots={{ icon: sideBarGroupArr.header.icon }}
+                v-slots={{ icon: sideBarGroupArr.title.icon }}
               >
-                {sideBarGroupArr.header.text}
+                {sideBarGroupArr.title.text}
               </VsSidebarItem>
             )
           }}
@@ -150,7 +147,6 @@ describe('SideBar', () => {
       <VsSidebar
         modelValue="Home"
         absolute
-        open
         v-slots={{
           logo: () => (
             <svg
@@ -183,12 +179,12 @@ describe('SideBar', () => {
         ))}
         <VsSidebarGroup
           v-slots={{
-            header: () => (
+            title: () => (
               <VsSidebarItem
                 arrow
-                v-slots={{ icon: sideBarGroupArr.header.icon }}
+                v-slots={{ icon: sideBarGroupArr.title.icon }}
               >
-                {sideBarGroupArr.header.text}
+                {sideBarGroupArr.title.text}
               </VsSidebarItem>
             )
           }}
@@ -201,8 +197,8 @@ describe('SideBar', () => {
         </VsSidebarGroup>
       </VsSidebar>
     )
-    cy.get('.vs-sidebar__group__content').should('not.exist')
-    cy.get('.vs-sidebar__group').click().should('have.class', 'open')
     cy.get('.vs-sidebar__group__content').should('be.visible')
+    cy.get('.vs-sidebar__group__title').click()
+    cy.get('.vs-sidebar__group__content').should('not.exist')
   })
 })

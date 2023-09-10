@@ -14,7 +14,7 @@ props :
       description: 修改导航栏激活项时字体的颜色
       default: primary
       usageUrl: navbar#color
-    - name: backgroud
+    - name: background
       type: String
       values: Vuesax Colors | RGB | HEX
       description: 修改导航栏背景的颜色.
@@ -92,7 +92,7 @@ slots :
       type: slot
       description: 在导航右侧添加一个元素
       usageUrl: navbar#default
-    - name: NavbarGroup:title
+    - name: NavbarGroup#title
       type: slot
       description: 在导航栏中的分组标题元素
       usageUrl: navbar#group
@@ -112,7 +112,7 @@ slots :
 
 ## Color
 
-你可以使用 `color` 修改导航栏的字体颜色，使用 `activeColor` 修改导航栏激活项的颜色，使用 `backgroud` 修改导航栏的背景颜色
+你可以使用 `color` 修改导航栏的字体颜色，使用 `activeColor` 修改导航栏激活项的颜色，使用 `background` 修改导航栏的背景颜色
 
 </card>
 
@@ -152,7 +152,7 @@ slots :
 
 ## No Line
 
-消除导航栏的激活效果横线
+你可以使用 `Noline` 属性移除导航栏的激活效果横线
 
 </card>
 

@@ -13,7 +13,7 @@
         <VsButton style="margin-left: 8px">Get Started</VsButton>
       </template>
     </VsNavbar>
-    <div >
+    <div>
       <div class="child">child 1</div>
       <div class="child">child 2</div>
       <div class="child">child 3</div>

@@ -25,7 +25,7 @@ const Navbar = defineComponent({
       type: String as PropType<Color>,
       default: 'text'
     },
-    backgroud: {
+    background: {
       type: String as PropType<Color>,
       default: 'white'
     },
@@ -64,7 +64,7 @@ const Navbar = defineComponent({
   slots: ['default', 'left', 'right'],
   setup(props, { slots, emit }) {
     const { color } = useColor(toRef(props, 'color'))
-    const { color: bgColor } = useColor(toRef(props, 'backgroud'))
+    const { color: bgColor } = useColor(toRef(props, 'background'))
     const { color: activeColor } = useColor(toRef(props, 'activeColor'))
 
     const lineLeft = ref(0)
@@ -161,7 +161,7 @@ const Navbar = defineComponent({
         ]}
         style={{
           '--vs-color': color.value,
-          '--vs-backgroud': bgColor.value,
+          '--vs-background': bgColor.value,
           '--vs-active-color': activeColor.value
         }}
         ref={elRef}

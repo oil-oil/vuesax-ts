@@ -12,7 +12,7 @@ type Position =
   | 'top-right'
   | 'top-center'
 
-type NotificationHookProps = Omit<NotificationProps, 'isVisible'> & {
+type NotificationHookProps = Omit<NotificationProps, 'visible'> & {
   position?: Position
   icon?: VNode
   content?: VNode
@@ -107,7 +107,7 @@ const useNotification = () => {
       key,
       <Notification
         {...props}
-        isVisible
+        visible
         onClickClose={() => {
           close(key, props.position || 'bottom-right')
         }}

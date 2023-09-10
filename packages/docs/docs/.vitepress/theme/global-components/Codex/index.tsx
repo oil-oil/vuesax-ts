@@ -221,8 +221,9 @@ const Codex = defineComponent({
             <div ref={codexRef} class="con-code">
               <div ref={ulRef} class="ul-codes">
                 <VsNavbar
-                  color="#363449"
-                  textWhite
+                  activeColor="white"
+                  color="white"
+                  background="#363449"
                   square
                   v-model={navbarData.current}
                 >

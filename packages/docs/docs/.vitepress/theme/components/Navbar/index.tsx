@@ -15,7 +15,6 @@ const Navbar = defineComponent({
     }>()
     const router = useRouter()
     const route = useRoute()
-    console.log('route: ', route.path);
 
     const pushTo = (link: string, evt: MouseEvent) => {
       router.go(link)
@@ -27,8 +26,8 @@ const Navbar = defineComponent({
       <VsNavbar
         modelValue={route.path}
         class="top-navbar"
-        color={isDark.value ? "white" :undefined}
-        backgroud={isDark.value ? 'dark' : undefined}
+        color={isDark.value ? 'white' : 'text'}
+        background={isDark.value ? 'dark' : 'white'}
         fixed
         square
         v-slots={{

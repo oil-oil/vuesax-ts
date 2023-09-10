@@ -25,8 +25,8 @@ describe('Loading', () => {
     })
   })
 
-  it('test loading isVisible', () => {
-    cy.mount(<VsLoading isVisible={false} />)
+  it('test loading visible', () => {
+    cy.mount(<VsLoading visible={false} />)
     cy.get('.vs-loading--default').should('not.exist')
   })
 

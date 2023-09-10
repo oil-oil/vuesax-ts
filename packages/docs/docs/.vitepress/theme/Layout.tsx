@@ -16,9 +16,7 @@ const Layout = defineComponent({
     const { page, frontmatter } = useData()
     const { open, close } = useLoading({ type: 'points' })
     const isSidebarOpen = ref(true)
-    const toggleSidebar = () => {
-      isSidebarOpen.value = !isSidebarOpen.value
-    }
+
     open()
     onMounted(() => {
       getHighlighter({
@@ -35,7 +33,6 @@ const Layout = defineComponent({
       })
     })
 
-    provide('sidebarController', { isSidebarOpen, toggleSidebar })
     provide('highlighter', highlighter)
 
     return () => (

@@ -11,20 +11,20 @@ import {
 import Loading, { LoadingProps } from './Loading'
 import { VuesaxOptions, vuesaxOptionsKey } from '@/utils/defineVuesaxOptions'
 
-export type LoadingHookProps = Omit<LoadingProps, 'isVisible'>
+export type LoadingHookProps = Omit<LoadingProps, 'visible'>
 
 const useLoading = (props?: LoadingHookProps) => {
   const vuesaxOptions = inject<VuesaxOptions | null>(vuesaxOptionsKey, null)
   let LoadingDom: HTMLDivElement
-  const isVisible = ref(false)
+  const visible = ref(false)
 
   const app = computed(() =>
     createApp({
       render: () =>
         h(Loading, {
           ...props,
-          isVisible: isVisible.value,
-          isFixed: true
+          visible: visible.value,
+          fixed: true
         })
     }).provide(vuesaxOptionsKey, vuesaxOptions)
   )
@@ -52,14 +52,14 @@ const useLoading = (props?: LoadingHookProps) => {
   })
 
   const open = () => {
-    isVisible.value = true
+    visible.value = true
   }
 
   const close = () => {
-    isVisible.value = false
+    visible.value = false
   }
 
-  return { open, close, isLoading: isVisible }
+  return { open, close, isLoading: visible }
 }
 
 export default useLoading

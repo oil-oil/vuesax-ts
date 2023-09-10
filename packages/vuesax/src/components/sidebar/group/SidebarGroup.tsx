@@ -1,6 +1,5 @@
 import {
   defineComponent,
-  nextTick,
   ref,
   watch,
   onMounted,
@@ -13,39 +12,42 @@ import { CompWithAttr } from '@/types/utils'
 const SidebarGroup = defineComponent({
   name: 'SideBarGroup',
   props: {
-    open: {
-      type: Boolean
+    collapsed: {
+      type: Boolean,
+      default: false
     }
   },
-  slots: ['default', 'header', 'content'],
+  slots: ['default', 'title'],
   setup(props, { slots }) {
-    const openState = ref(false)
+    const innerCollapsed = ref(false)
     const content = ref<HTMLElement>()
     const rootRef = ref<HTMLElement>()
+
+    const handleCollapsed = () => {
+      if (content.value) {
+        const { scrollHeight } = content.value
+        if (props.collapsed) {
+          content.value.style.height = `0px`
+        } else {
+          content.value.style.height = `${scrollHeight - 1}px`
+        }
+      }
+    }
+
     watch(
-      () => props.open,
-      (val: boolean) => {
-        openState.value = !!val
+      () => props.collapsed,
+      () => {
+        innerCollapsed.value = props.collapsed
+        handleCollapsed()
       }
     )
-    watch(
-      () => openState,
-      () => {
-        nextTick(() => {
-          if (content.value) {
-            const { scrollHeight } = content.value
-            if (props.open) {
-              openState.value = props.open
-              content.value.style.height = `${scrollHeight - 1}px`
-            } else {
-              openState.value = props.open
-              content.value.style.height = `0px`
-            }
-          }
-        })
-      },
-      { immediate: true }
-    )
+
+    onMounted(() => {
+      if (rootRef.value?.querySelector('.active')) {
+        innerCollapsed.value = false
+      }
+      handleCollapsed()
+    })
 
     const onBeforeEnter = (Element: Element) => {
       const el = Element as HTMLElement
@@ -63,31 +65,25 @@ const SidebarGroup = defineComponent({
       el.style.height = '0px'
     }
 
-    onMounted(() => {
-      if (rootRef.value?.querySelector('.active') || props.open) {
-        openState.value = true
-      }
-    })
-
     return () => (
       <div
-        class={['vs-sidebar__group', { open: openState.value }]}
+        class={['vs-sidebar__group', { collapsed: innerCollapsed.value }]}
         ref={rootRef}
       >
         <div
-          class="vs-sidebar__group__header"
+          class="vs-sidebar__group__title"
           onClick={() => {
-            openState.value = !openState.value
+            innerCollapsed.value = !innerCollapsed.value
           }}
         >
-          {slots.header?.()}
+          {slots.title?.()}
         </div>
         <Transition
           onBeforeEnter={onBeforeEnter}
           onEnter={onEnter}
           onLeave={onLeave}
         >
-          {openState.value && (
+          {!innerCollapsed.value && (
             <div class="vs-sidebar__group__content" ref={content}>
               {slots.default?.()}
             </div>

@@ -3,10 +3,10 @@
 .vs-sidebar__group {
   padding: 0px;
   width: 100%;
-  // min-width: 260px;
+  min-width: 260px;
   position: relative;
 
-  &.open {
+  &:not(.collapsed) {
     .vs-sidebar__group__content {
       &:after {
         transform: translate(0);
@@ -14,7 +14,7 @@
       }
     }
 
-    >.vs-sidebar__group__header {
+    >.vs-sidebar__group__title {
       .vs-sidebar__item {
         opacity: 1;
       }
@@ -25,18 +25,10 @@
     }
   }
 
-  &__header {
+  &__title {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    .vs-sidebar__item {
-      padding-left: 16px !important;
-
-      &:after {
-        left: -6px;
-      }
-    }
   }
 
   &__content {
@@ -63,4 +55,5 @@
       background: -color('background');
     }
   }
+
 }

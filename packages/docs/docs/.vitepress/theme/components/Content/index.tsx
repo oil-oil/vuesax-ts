@@ -1,5 +1,5 @@
 import { useData } from 'vitepress'
-import { defineComponent, inject, Ref } from 'vue'
+import { defineComponent } from 'vue'
 
 import DocsPage from './DocPage/DocsPage.tsx'
 import Home from './Home/Home.tsx'
@@ -10,9 +10,6 @@ const index = defineComponent({
   name: 'HomeIndex',
   setup() {
     const { page, frontmatter } = useData()
-    const sidebarController = inject<{ isSidebarOpen: Ref<boolean> }>(
-      'sidebarController'
-    )
     const Content = () => {
       if (page.value.isNotFound) {
         return <NotFound class="not-found" />
@@ -29,8 +26,7 @@ const index = defineComponent({
           {
             'is-docs':
               !(frontmatter.value.layout === 'home') && !page.value.isNotFound
-          },
-          { edge: !sidebarController?.isSidebarOpen.value }
+          }
         ]}
         id="VSContent"
       >
