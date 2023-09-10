@@ -6,12 +6,10 @@
 
   // component vars
   --vs-button-padding: 10px 15px;
-  --vs-button-margin: 5px;
   --vs-button-border-radius: 12px;
   --vs-button-text-color: #fff;
 
   border: 0px;
-  margin: -var(button-margin);
   transition: all 0.25s ease;
   position: relative;
   user-select: none;
@@ -29,11 +27,13 @@
       color: -color("text") !important;
     }
   }
+
   &--fff {
     &:focus {
       color: rgba(30, 30, 30, 1) !important;
     }
   }
+
   &__content {
     padding: -var(button-padding);
     width: 100%;
@@ -41,67 +41,80 @@
     align-items: center;
     justify-content: center;
   }
+
   &--active-disabled {
     pointer-events: none;
     opacity: 0.6;
   }
+
   &:disabled {
     pointer-events: none;
     opacity: 0.35;
   }
+
   &.vs-button--animate:not(.vs-button--animate-inactive) {
     .vs-button__content {
       i {
         font-size: 1.15rem;
       }
     }
+
     &:hover {
       .vs-button__content {
         transform: translate(-100%);
       }
+
       .vs-button__animate {
         transform: translate(0%);
       }
     }
+
     &.vs-button--animate-vertical {
       &:hover {
         .vs-button__content {
           transform: translate(0, -100%) !important;
           opacity: 0;
         }
+
         .vs-button__animate {
           transform: translate(0%) !important;
         }
       }
     }
+
     &.vs-button--animate-scale {
       &:hover {
         .vs-button__content {
           transform: scale(1.4) !important;
           opacity: 0;
         }
+
         .vs-button__animate {
           opacity: 1;
           transform: scale(1);
         }
       }
     }
+
     &.vs-button--animate-rotate {
       &:hover {
         .vs-button__content {
           transform: rotate(180deg) !important;
           opacity: 0;
         }
+
         .vs-button__animate {
           opacity: 1;
           transform: rotate(0);
         }
       }
     }
+
     .vs-button__content {
       transition: transform 0.25s ease;
     }
   }
+
   &__animate {
     position: absolute;
     width: 100%;
@@ -114,22 +127,27 @@
     transition: transform 0.25s ease;
     transform: translate(100%);
     pointer-events: none;
+
     &--vertical {
       transform: translate(0, 100%);
     }
+
     &--scale {
       transform: scale(0.5);
       opacity: 0;
     }
+
     &--rotate {
       transform: rotate(-180deg);
       opacity: 0;
     }
   }
+
   &--block {
     width: 100%;
     display: block;
   }
+
   &--upload {
     &:after {
       content: "";
@@ -144,10 +162,12 @@
       box-sizing: border-box;
     }
   }
+
   &--loading {
     pointer-events: none;
     user-select: none;
   }
+
   .vs-button__loading {
     width: 100%;
     height: 100%;
@@ -159,6 +179,7 @@
     justify-content: center;
     background: -color("color", 0.8);
     border-radius: inherit;
+
     &:after {
       content: "";
       width: 17px;
@@ -172,6 +193,7 @@
       animation: btnload 0.6s linear infinite;
       box-sizing: border-box;
     }
+
     &:before {
       position: absolute;
       content: "";
@@ -185,77 +207,98 @@
       animation: btnload 0.6s ease infinite;
       box-sizing: border-box;
     }
+
     // SIZE -----
   }
+
   // SIZE - CLOSE -----
   &--icon {
     display: flex;
     align-items: center;
     justify-content: center;
-      .vs-button__content {
-        padding: 10px;
-      }
+
+    .vs-button__content {
+      padding: 10px;
+    }
   }
-  
+
   &--size-xl {
     font-size: 1.2rem;
     border-radius: 20px;
+
     .vs-button__content {
       padding: 20px 25px;
     }
+
     +.vs-button--icon {
       font-size: 1.4rem;
+
       .vs-button__content {
         padding: 20px;
       }
     }
   }
+
   &--size-lg {
     font-size: 1rem;
     border-radius: 15px;
+
     .vs-button__content {
       padding: 15px 20px;
     }
+
     +.vs-button--icon {
       font-size: 1.2rem;
+
       .vs-button__content {
         padding: 15px;
       }
     }
   }
+
   &--size-md {
     font-size: 0.8rem;
     border-radius: -var(button-border-radius);
+
     +.vs-button--icon {
       font-size: 1rem;
+
       .vs-button__content {
         padding: 10px;
       }
     }
   }
+
   &--size-sm {
     font-size: 0.75rem;
     border-radius: 9px;
+
     .vs-button__content {
       padding: 5px 10px;
     }
   }
+
   &--size-xs {
     font-size: 0.6rem;
     border-radius: 7px;
+
     .vs-button__content {
       padding: 3px 8px;
     }
+
     +.vs-button--icon {
       font-size: 0.8rem;
+
       .vs-button__content {
         padding: 3px;
       }
     }
   }
+
   &--circle {
     border-radius: 25px;
   }
+
   &--square {
     border-radius: 0px;
   }
@@ -266,24 +309,30 @@
 .vs-button--default {
   background: -color(color, 1);
   color: #fff;
+
   &.vs-button--active {
     box-shadow: 0px 10px 20px -10px -color(color, 1);
     transform: translate(0, -3px);
   }
+
   &:hover {
     box-shadow: 0px 10px 20px -10px -color(color, 1);
     transform: translate(0, -1.5px);
   }
 }
+
 .vs-button--flat {
   background: -color(color, 0.15);
   color: -color(color, 1);
+
   &.vs-button--dark {
     color: -color(text, 1);
   }
+
   &:hover {
     background: -color(color, 0.25);
   }
+
   &:focus {
     color: #fff;
     background: -color(color, 1);
@@ -291,6 +340,7 @@
       all 0.25s ease,
       background 0.25s ease 0.25s;
   }
+
   &.vs-button--active {
     background: -color(color, 1);
     color: #fff;
@@ -302,22 +352,27 @@
   color: #fff;
   box-shadow: 0px 8px 20px -6px -color(color, 1);
   transform: translate(0, -3px);
+
   &:hover {
     box-shadow: 0px 8px 20px -6px -color(color, 1);
     transform: translate(0, -6px);
   }
+
   &:focus {
     transform: translate(0, 0px);
     box-shadow: 0px 0px 0px 0px -color(color, 1);
   }
+
   &.vs-button--active {
     transform: translate(0, 0px);
     box-shadow: 0px 0px 0px 0px -color(color, 1);
   }
 }
+
 .vs-button--border {
   background: -color(color, 0);
   color: -color(color, 1);
+
   &:before {
     content: "";
     border: 2px solid -color(color, 1);
@@ -332,15 +387,18 @@
     transition: all 0.25s ease;
     box-sizing: border-box;
   }
+
   &:hover {
     &:before {
       border: 2px solid -color(color, 0.5);
     }
   }
+
   &:focus {
     color: #fff;
     background: -color(color, 1);
   }
+
   &.vs-button--active {
     background: -color(color, 1);
     color: #fff;
@@ -351,10 +409,12 @@
   background: -color("color");
   color: #fff;
   overflow: hidden;
+
   &.vs-button--primary,
   &.vs-button--success &::before {
     filter: hue-rotate(40deg);
   }
+
   &::before {
     content: "";
     background: linear-gradient(30deg, -color("color", 0) 33%, -color("color") 100%);
@@ -374,6 +434,7 @@
   &:hover {
     transform: translate(0, -3px);
     box-shadow: 0px 10px 20px -10px -color("color", 0.7);
+
     &::before {
       opacity: 0;
     }
@@ -390,14 +451,17 @@
   color: #fff;
   overflow: hidden;
   transform: translate(0) scale(1, 1);
+
   .vs-button__content {
     transition: all 0.25s ease;
   }
+
   &.vs-button--icon {
     &.vs-button--active {
       height: auto;
     }
   }
+
   &::before {
     content: "";
     position: absolute;
@@ -413,20 +477,26 @@
     border-bottom: 3px solid -color("color");
     box-sizing: border-box;
   }
+
   &:active {
     transform: translate(0, 1px);
+
     .vs-button__content {
       padding-bottom: 6px;
     }
+
     &::before {
       border-bottom: 0px solid -color("color");
     }
   }
+
   &.vs-button--active {
     transform: translate(0, 1px);
+
     .vs-button__content {
       padding-bottom: 6px;
     }
+
     &::before {
       border-bottom: 0px solid -color("color");
     }
@@ -437,6 +507,7 @@
   background: transparent;
   color: -color("color");
   overflow: hidden;
+
   &::before {
     content: "";
     background: -color("color", 0.1);
@@ -454,17 +525,20 @@
     opacity: 0;
     box-sizing: border-box;
   }
+
   &:active:not(.vs-button--active) {
     &::before {
       transform: scale(0.9) !important;
     }
   }
+
   &:hover {
     &::before {
       opacity: 1;
       transform: scale(1);
     }
   }
+
   &.vs-button--active {
     &::before {
       background: -color("color", 0.2);
@@ -479,14 +553,17 @@
   color: -color("text");
   overflow: hidden;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, -var(shadow-opacity));
+
   &:active:not(.vs-button--active) {
     transform: translate(0, -1px);
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, -var(shadow-opacity)) !important;
   }
+
   &:hover {
     transform: translate(0, -3px);
     box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, -var(shadow-opacity));
   }
+
   &.vs-button--active {
     transform: translate(0, -3px);
     box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, -var(shadow-opacity));
@@ -497,6 +574,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -506,6 +584,7 @@
   0% {
     transform: translate(0, 110%);
   }
+
   100% {
     transform: translate(0, -110%);
   }

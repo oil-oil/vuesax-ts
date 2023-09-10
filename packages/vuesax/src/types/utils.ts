@@ -4,6 +4,8 @@ import colors from '@/styles/colors'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
+export type Position = 'top' | 'right' | 'left' | 'bottom'
+
 export type RGB = `rgb(${number}, ${number}, ${number})`
 export type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`
 export type HEX = `#${string}`

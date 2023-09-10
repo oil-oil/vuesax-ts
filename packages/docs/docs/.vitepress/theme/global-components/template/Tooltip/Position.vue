@@ -1,18 +1,18 @@
 <template>
   <div class="center">
-    <VsToolTip left>
+    <VsToolTip position="left" >
       <VsButton>Left</VsButton>
       <template #tooltip> This is a beautiful button </template>
     </VsToolTip>
-    <VsToolTip top>
+    <VsToolTip position="top">
       <VsButton>Top</VsButton>
       <template #tooltip> This is a beautiful button </template>
     </VsToolTip>
-    <VsToolTip bottom>
+    <VsToolTip position="bottom">
       <VsButton>Bottom</VsButton>
       <template #tooltip> This is a beautiful button </template>
     </VsToolTip>
-    <VsToolTip right>
+    <VsToolTip position="right">
       <VsButton>Right</VsButton>
       <template #tooltip> This is a beautiful button </template>
     </VsToolTip>

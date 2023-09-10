@@ -37,10 +37,6 @@
   }
 }
 
-.vs-tooltip-content {
-  width: max-content;
-}
-
 .vs-tooltip {
   --vs-color: var(--vs-text);
   background: -color("color");
@@ -54,6 +50,8 @@
   max-width: 350px;
   min-width: 30px;
   min-height: 30px;
+  display: flex;
+  align-items: center;
 
   &.loading {
     color: -color("background", 0.2);

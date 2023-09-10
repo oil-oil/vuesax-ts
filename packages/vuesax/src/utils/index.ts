@@ -1,5 +1,5 @@
 import colors from '@/styles/colors'
-import { InnerColor } from '@/types/utils'
+import { InnerColor, Position } from '@/types/utils'
 
 /* eslint-disable no-param-reassign */
 const isColor = (color: string) => Object.keys(colors).includes(color)
@@ -133,7 +133,7 @@ const setCords = (element: HTMLElement, parent: HTMLElement) => {
 const setCordsPosition = (
   element: HTMLElement,
   parent: HTMLElement,
-  position: string
+  position: Position
 ) => {
   const cords = parent.getBoundingClientRect()
   const { x } = cords
