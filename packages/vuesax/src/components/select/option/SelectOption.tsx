@@ -10,11 +10,11 @@ import {
   watch
 } from 'vue'
 
+import './style.scss'
 import VsCheckbox from '../../checkbox/base/Checkbox'
 import { SelectProvider, Option } from '../types'
 import { CompWithAttr } from '@/types/utils'
-
-import './style.scss'
+import { isNil } from '@/utils/shared'
 
 const SelectOption = defineComponent({
   name: 'VsSelectOption',
@@ -48,8 +48,9 @@ const SelectOption = defineComponent({
 
     const isHover = computed(
       () =>
-        provider?.uids?.value.findIndex((item) => item === uniqueId) ===
-        provider?.hoverOption?.value
+        provider?.childOptions?.value.findIndex(
+          (item) => item.uid === uniqueId
+        ) === provider?.hoverOption?.value
     )
 
     watch(
@@ -64,6 +65,15 @@ const SelectOption = defineComponent({
         } else {
           hiddenOption.value = false
         }
+        const index = provider?.childOptions?.value.findIndex(
+          (item) => item.uid === uniqueId
+        )
+        if (!isNil(index) && index !== -1) {
+          provider!.childOptions.value[index!] = {
+            ...provider!.childOptions.value[index!],
+            hiddenOption: hiddenOption.value
+          }
+        }
       }
     )
 
@@ -74,10 +84,9 @@ const SelectOption = defineComponent({
         disabled: props.disabled,
         hiddenOption: hiddenOption.value,
         hiddenOptionGroup: false,
-        el: optionRef.value as HTMLElement
+        el: optionRef.value as HTMLElement,
+        uid: uniqueId
       })
-
-      provider?.uids?.value.push(uniqueId)
 
       activeOption.value = isActive.value
     })
