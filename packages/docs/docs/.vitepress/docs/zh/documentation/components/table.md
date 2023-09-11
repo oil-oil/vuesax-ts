@@ -152,7 +152,7 @@ slots :
 
 ## Search and sort
 
-您可以使用 `#header` 插槽和 `sort` 属性来实现表格搜索和表格排序。
+你可以使用 `#header` 插槽和 `sort` 属性来实现表格搜索和表格排序。
 
 </card>
 

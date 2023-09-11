@@ -240,7 +240,7 @@ You can create an animation to the component by adding the ``#"animate" `and the
 
 ## Social
 
-在项目中使用社交工具的颜色非常常见，无论是登录按钮还是分享按钮，因此 Vuesax 可让您轻松搜索每种颜色，只需输入名称即可改变组件的整体风格。
+在项目中使用社交工具的颜色非常常见，无论是登录按钮还是分享按钮，因此 Vuesax 可让你轻松搜索每种颜色，只需输入名称即可改变组件的整体风格。
 
 支持的颜色: (`facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `snapchat`, `whatsapp`, `tumblr`, `reddit`, `spotify`, `amazon`, `medium`, `vimeo`, `skype`, `dribbble`, `slack`, `yahoo`, `twitch`, `discord`, `telegram`, `google-plus`, `messenger`)
 

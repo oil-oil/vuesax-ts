@@ -92,7 +92,7 @@ props :
 
 ## Background
 
-您可以使用属性 `background` 更改加载背景颜色
+你可以使用属性 `background` 更改加载背景颜色
 
 </card>
 
@@ -108,7 +108,7 @@ props :
 
 ## Percent
 
-您可以使用 `percent` 属性添加百分比字符串，如果需要更改该值，请使用加载实例中的 `changePercent` 函数。
+你可以使用 `percent` 属性添加百分比字符串，如果需要更改该值，请使用加载实例中的 `changePercent` 函数。
 
 </card>
 

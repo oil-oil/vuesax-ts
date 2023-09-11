@@ -123,7 +123,7 @@ Allowed values ​​are:
 
 ## Sticky
 
-您可以使用 `sticky` 属性为粘贴组件的最近角添加样式，该属性是一个 `boolean` po，其值只能是 `true` 。
+你可以使用 `sticky` 属性为粘贴组件的最近角添加样式，该属性是一个 `boolean` po，其值只能是 `true` 。
 
 </card>
 
