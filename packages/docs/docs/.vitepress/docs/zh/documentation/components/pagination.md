@@ -174,7 +174,7 @@ Change the style of the entire component by removing the margin between the butt
 
 ## Slot
 
-你可能需要自定义分页，为此您可以使用箭头之间的默认插槽，并替换页面上的项目
+你可能需要自定义分页，为此你可以使用箭头之间的默认插槽，并替换页面上的项目
 
 </card>
 
