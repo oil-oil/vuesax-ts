@@ -5,6 +5,7 @@ import { Color } from '@/types/utils'
 export type SelectValue = string[] | string | number | number[]
 
 export type Option = {
+  uid: string
   label?: string
   value?: string | number
   disabled: boolean
@@ -17,6 +18,7 @@ export type SelectProvider = {
   value: Ref<SelectValue | undefined>
   textFilter: Ref<string>
   multiple: Ref<boolean>
+  
   onClickOption: ({
     value,
     label
@@ -24,7 +26,6 @@ export type SelectProvider = {
     value?: Option['value']
     label?: string
   }) => void
-  uids: Ref<string[]>
   hoverOption: Ref<number>
   childOptions: Ref<Option[]>
   isTargetSelect: Ref<boolean>

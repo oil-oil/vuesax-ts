@@ -1,6 +1,6 @@
 <template>
   <div class="center">
-    <VsSelect v-model="value" placeholder="Select">
+    <VsSelect v-model="value" placeholder="Select" disabled>
       <VsOption label="Vuesax" value="1"></VsOption>
       <VsOption label="Vue" value="2"></VsOption>
       <VsOption label="Javascript" value="3"></VsOption>

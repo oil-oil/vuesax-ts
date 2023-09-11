@@ -53,13 +53,13 @@ props :
     - name: border
       type: Boolean
       values: true | false
-      description: Change the type of input (html values).
+      description: Change input to bottom border style
       default: "false"
       usageUrl: input#border
     - name: shadow
       type: Boolean
       values: true | false
-      description: Change the style of the input.
+      description: Add a shadow to the input.
       default: "false"
       usageUrl: input#shadow
     - name: iconAfter
@@ -78,7 +78,7 @@ slots :
     - name: icon
       type: slot
       values:
-      description: Add an icon to the alert.
+      description: Add an icon to the input.
       default: 
       usageUrl: input#icon
     - name: message

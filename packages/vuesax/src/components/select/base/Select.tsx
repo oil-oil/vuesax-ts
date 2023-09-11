@@ -90,7 +90,6 @@ const Select = defineComponent({
     const placeholderRef = ref<HTMLElement>()
     const contentRef = ref<HTMLElement>()
 
-    const uids: SelectProvider['uids'] = ref([])
     const selectedLabel = ref<Pick<Option, 'label' | 'value'>[] | string>()
     const isOptionsShow = ref(false)
     const isFilterActive = ref(false)
@@ -332,8 +331,8 @@ const Select = defineComponent({
     const isNoData = computed(
       () =>
         childOptions.value.filter(
-          (option) => !option.hiddenOptionGroup || !option.hiddenOption
-        ).length === 0
+          (option) => option.hiddenOptionGroup || option.hiddenOption
+        ).length === childOptions.value.length
     )
 
     const handleResize = () => {
@@ -426,7 +425,6 @@ const Select = defineComponent({
       textFilter,
       multiple: toRef(props, 'multiple'),
       onClickOption,
-      uids,
       hoverOption,
       childOptions,
       isTargetSelect,

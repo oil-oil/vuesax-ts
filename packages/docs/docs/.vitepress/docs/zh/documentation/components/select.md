@@ -1,3 +1,81 @@
+---
+prev: Switch
+next: Avatar
+props : 
+    - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: 更改选择器的颜色
+      default: primary
+      usageUrl: select#color
+    - name: disabled
+      type: Boolean
+      values: true | false
+      description: 确定选择器是否处于禁用状态
+      default: "false"
+    - name: loading
+      type: Boolean
+      values: true | false
+      description: 确定选择器是否展示加载动画并已禁用
+      default: "false"
+      usageUrl: select#loading
+    - name: modelValue
+      type: String
+      values: String
+      description: 确定选择器的值
+      usageUrl: select#default
+    - name: placeholder
+      type: String
+      values: String
+      description: 在选择器中添加占位符。
+      usageUrl: select#label
+    - name: label	
+      type: String
+      values: String
+      description: 在选择器中添加标签。
+      usageUrl: select#label
+    - name: label-placeholder	
+      type: String
+      values: String
+      description: 添加一个占位符，当处于聚焦状态或有数值时，占位符就会变成一个标签
+      usageUrl: select#label
+    - name: filter
+      type: Boolean
+      values: true | false
+      description: 添加过滤选择器选项的功能
+      default: "false"
+      usageUrl: select#filter
+    - name: multiple
+      type: Boolean
+      values: true | false
+      description: 增加从选择器中选择多个选项的功能
+      default: "false"
+      usageUrl: select#multiple
+    - name: status
+      type: String
+      values: Vuesax Colors
+      description: 将选择器的状态更改为所提供的颜色
+      usageUrl: select#status
+    - name: block
+      type: Boolean
+      values: true | false
+      description: 更改按钮的宽度，以填充父元素
+      default: "false"
+slots : 
+    - name: message-{color}
+      type: slot
+      values:
+      description: 在选择下器方添加一条提示信息
+      default: 
+      usageUrl: select#message
+    - name: noData
+      type: slot
+      values:
+      description: 自定义过滤后无数据时显示的元素
+      default: 
+      usageUrl: select#filter
+---
+
 # Select 选择器
 
 <card>

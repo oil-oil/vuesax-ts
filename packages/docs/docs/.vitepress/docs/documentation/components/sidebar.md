@@ -161,7 +161,7 @@ You can define if the sidebar is visible or hidden with the `visible` property, 
 
 ## Position Right
 
-Change the position of the sidebar to the right and its animation with the `right` property
+You can use the `right` property to change the sidebar to a right-handed layout
 
 </card>
 
