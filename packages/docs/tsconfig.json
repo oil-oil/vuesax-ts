@@ -5,6 +5,7 @@
     "baseUrl": "./docs/.vitepress",
   },
   "include": [
+    "devCommand.js",
     "docs/.vitepress/**/*.ts",
     "docs/.vitepress/**/*.d.ts",
     "docs/.vitepress/**/*.tsx",
