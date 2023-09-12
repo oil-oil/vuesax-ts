@@ -22,6 +22,7 @@
       }
     ],
     "vue/no-v-model-argument": "off",
-    "no-console": "error"
+    "no-console": "error",
+    "@typescript-eslint/no-var-requires": "off"
   }
 }
