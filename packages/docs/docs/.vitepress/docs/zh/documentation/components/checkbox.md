@@ -1,3 +1,64 @@
+---
+prev: Input
+next: Switch
+props : 
+    - name: color
+      type: String
+      values: Vuesax Colors | RGB | HEX
+      description: 更改复选框及其部分子组件的颜色
+      default: primary
+      usageUrl: checkbox#color
+    - name: v-model
+      type: Boolean
+      values: true | false
+      description: 确定复选框的值
+      default: "false"
+      usageUrl: checkbox#default
+    - name: loading
+      type: Boolean
+      values: true | false
+      description: 添加加载动画并禁用输入
+      default: "false"
+      usageUrl: checkbox#loading
+    - name: lineThrough
+      type: Boolean
+      values: true | false
+      description: 选中时，在标签中添加横线
+      default: "false"
+      usageUrl: checkbox#line-through
+    - name: indeterminate
+      type: Boolean
+      values: true | false
+      description: 选中时，在标签中央添加一行
+      default: "false"
+      usageUrl: checkbox#indeterminate
+    - name: labelBefore
+      type: Boolean
+      values: true | false
+      description: 将默认复选框图标改为表示未确定数据的线条
+      default: "false"
+      usageUrl: checkbox#label
+    - name: checked
+      type: Boolean
+      values: true | false
+      description: 确定组件是否处于初始校验状态（这会将 v-model 中计算的属性更改为 true）
+      default: "false"
+      usageUrl: checkbox#boolean-value
+slots : 
+    - name: icon
+      type: slot
+      values:
+      description: 更改组件图标
+      default: 
+      usageUrl: checkbox#icon
+    - name: default
+      type: slot
+      values:
+      description: 为组件添加标签
+      default: 
+      usageUrl: checkbox#default
+---
+
 # Checkbox 复选框
 
 <card>
@@ -18,7 +79,7 @@
 
 <card subtitle="BooleanValue">
 
-## 布尔值
+## Boolean Value
 
 默认情况下，该组件与一个布尔值一起使用，当被勾选时返回`true`，当未被勾选时返回`false`。
 
