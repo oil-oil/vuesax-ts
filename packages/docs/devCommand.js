@@ -8,7 +8,7 @@ function runCommand() {
       'start turbo run build --filter=vuesax-ts -- --watch && start vitepress dev docs --port 3000'
   } else {
     command =
-      'turborun build --filter=vuesax-ts -- --watch & vitepress dev docs --port 3000'
+      'turbo run build --filter=vuesax-ts -- --watch & vitepress dev docs --port 3000'
   }
 
   execSync(command, { stdio: 'inherit' })
