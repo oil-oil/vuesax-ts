@@ -81,7 +81,7 @@ Change the color of the component with the `color` property, the allowed values 
 
 ## Boolean Value
 
-By default the component is used with a boolean value that when being checked returns `true` and when not being checked returns `false`
+By default the checkbox is used with a boolean value that when being checked returns `true` and when not being checked returns `false`
 
 </card>
 
@@ -89,7 +89,7 @@ By default the component is used with a boolean value that when being checked re
 
 ## Icon
 
-Change the icon inside the checkbox component with the `slot="icon"`
+Change the icon inside the checkbox with the `slot="icon"`
 
 <utils-icon />
 
@@ -107,7 +107,7 @@ Add a label to the checkbox with the default slot of the component
 
 ## Loading
 
-Add a loading status to the component with the property `loading`
+Add a loading status to the checkbox with the property `loading`
 
 </card>
 

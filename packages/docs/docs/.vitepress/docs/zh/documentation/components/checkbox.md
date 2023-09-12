@@ -113,7 +113,7 @@ slots :
 
 <card subtitle="LineThrough">
 
-## LineThrough
+## Line Through
 
 使用 `line-through` 属性，在选中复选框时，标签中间添加一行线
 
