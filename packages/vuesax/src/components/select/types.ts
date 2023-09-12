@@ -18,7 +18,7 @@ export type SelectProvider = {
   value: Ref<SelectValue | undefined>
   textFilter: Ref<string>
   multiple: Ref<boolean>
-  
+
   onClickOption: ({
     value,
     label

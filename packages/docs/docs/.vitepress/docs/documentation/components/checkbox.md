@@ -5,13 +5,13 @@ props :
     - name: color
       type: String
       values: Vuesax Colors | RGB | HEX
-      description: Change the color of the component and some of its sub components.
+      description: Change the color of the checkbox and some of its sub components.
       default: primary
       usageUrl: checkbox#color
     - name: v-model
       type: Boolean
       values: true | false
-      description: determine the value of the checkbox and data anchor.
+      description: Determine the value of the checkbox.
       default: "false"
       usageUrl: checkbox#default
     - name: loading
@@ -25,11 +25,11 @@ props :
       values: true | false
       description: Add a line in the center of the label when checked.
       default: "false"
-      usageUrl: checkbox#linethrough
+      usageUrl: checkbox#line-through
     - name: indeterminate
       type: Boolean
       values: true | false
-      description: Add a line in the center of the label when checked.
+      description: Change the default checkbox icon to a line that represents undetermined data.
       default: "false"
       usageUrl: checkbox#indeterminate
     - name: labelBefore
@@ -41,20 +41,20 @@ props :
     - name: checked
       type: Boolean
       values: true | false
-      description: Determine if the component is initially in check (this changes the property computed in v-model to true).
+      description: Determine if the checkbox is initially in check (this changes the property computed in v-model to true).
       default: "false"
       usageUrl: checkbox#boolean-value
 slots : 
     - name: icon
       type: slot
       values:
-      description: Change the component icon.
+      description: Change the checkbox icon.
       default: 
       usageUrl: checkbox#icon
     - name: default
       type: slot
       values:
-      description: Add a label to the component.
+      description: Add a label to the checkbox.
       default: 
       usageUrl: checkbox#default
 ---
@@ -81,7 +81,7 @@ Change the color of the component with the `color` property, the allowed values 
 
 ## Boolean Value
 
-By default the component is used with a boolean value that when being checked returns `true` and when not being checked returns `false`
+By default the checkbox is used with a boolean value that when being checked returns `true` and when not being checked returns `false`
 
 </card>
 
@@ -89,7 +89,7 @@ By default the component is used with a boolean value that when being checked re
 
 ## Icon
 
-Change the icon inside the checkbox component with the `slot="icon"`
+Change the icon inside the checkbox with the `slot="icon"`
 
 <utils-icon />
 
@@ -107,13 +107,13 @@ Add a label to the checkbox with the default slot of the component
 
 ## Loading
 
-Add a loading status to the component with the property `loading`
+Add a loading status to the checkbox with the property `loading`
 
 </card>
 
 <card subtitle="LineThrough">
 
-## LineThrough
+## Line Through
 
 Add a line in the middle of the label when the checkbox is checked with the property `line-through`
 
