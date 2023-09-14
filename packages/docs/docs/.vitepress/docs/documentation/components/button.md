@@ -8,7 +8,7 @@ props :
       description: Change the color of the button and some of its sub components.
       default: primary
       usageUrl: button#color
-    - name: style button
+    - name: style
       type: Prop
       values: flat | border | gradient | transparent | dashed | shadow | relief | floating
       description: Change the style of the button and its status.

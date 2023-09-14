@@ -50,9 +50,11 @@ const RightSidebar = defineComponent({
       elements.value = Array.from(document.getElementsByTagName('h2'))
       window.addEventListener('scroll', scrollEvent)
     })
+
     onUnmounted(() => {
       window.removeEventListener('scroll', scrollEvent)
     })
+
     return () => (
       <div class={['right-sidebar']}>
         {elements.value.map((item, index) => (

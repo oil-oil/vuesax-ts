@@ -2,6 +2,7 @@ import { Highlighter, getHighlighter } from 'shiki'
 import { useData } from 'vitepress'
 import { defineComponent, ref, provide, onMounted } from 'vue'
 import { useLoading } from 'vuesax-ts'
+import './style.scss'
 
 import Config from './components/Config'
 import VSContent from './components/Content'

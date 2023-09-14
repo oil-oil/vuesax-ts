@@ -1,15 +1,5 @@
 $color_1: var(--vs-theme-color);
 
-h1 {
-	font-weight: normal;
-	color: $color_1;
-}
-
-a {
-	text-decoration: underline;
-	color: $color_1;
-}
-
 .page {
 	width: 100%;
 	position: relative;
@@ -61,7 +51,6 @@ a {
 			border-radius: 17px;
 			margin: 0 10px 0 0;
 
-
 			.bx {
 				font-size: 1.5rem;
 			}
@@ -79,7 +68,6 @@ a {
 				font-size: 1.3rem;
 			}
 		}
-
 	}
 }
 
@@ -107,7 +95,6 @@ a {
 	}
 }
 
-
 @media (max-width: 1400px) {
 	.features-part {
 		transform: scale(0.8);
@@ -123,7 +110,6 @@ a {
 			display: none;
 		}
 
-
 		.features-part {
 			transform: scale(0.7);
 			right: auto;
@@ -132,13 +118,11 @@ a {
 	}
 }
 
-
 @media (max-width: 760px) {
 	.page {
 		.title-part {
 			display: none;
 		}
-
 
 		.features-part {
 			transform: scale(0.7);
@@ -146,7 +130,6 @@ a {
 		}
 	}
 }
-
 
 @media (max-width: 470px) {
 	.page {

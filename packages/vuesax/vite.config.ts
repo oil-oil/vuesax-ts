@@ -15,21 +15,15 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: "vuesax-ts",
-      fileName: "index"
+      name: 'vuesax-ts',
+      fileName: 'index'
     },
     rollupOptions: {
       external: ['vue'],
       input: {
-        index: 'src/index.ts',
+        index: 'src/index.ts'
       }
     }
   },
-  plugins: [
-    vue(),
-    vueJsx(),
-    dts(
-      { outputDir: 'dist' }
-    )
-  ]
+  plugins: [vue(), vueJsx(), dts({ outputDir: 'dist' })]
 })
