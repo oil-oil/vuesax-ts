@@ -6,7 +6,6 @@ import 'boxicons/css/boxicons.min.css'
 
 import Card from './global-components/Card'
 import Layout from './Layout.tsx'
-import './style.scss'
 
 const theme: Theme = {
   Layout,

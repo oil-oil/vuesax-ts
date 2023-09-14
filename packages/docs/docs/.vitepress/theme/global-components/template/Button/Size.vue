@@ -1,19 +1,19 @@
 <template>
   <div class="center">
     <VsButton size="xl" :active="active === 0" @click="active = 0">
-      XLarge
+      XL size
     </VsButton>
     <VsButton size="lg" :active="active === 1" @click="active = 1">
-      Large
+      LG size
     </VsButton>
     <VsButton size="md" :active="active === 2" @click="active = 2">
-      Default
+      MD size
     </VsButton>
     <VsButton size="sm" :active="active === 3" @click="active = 3">
-      Small
+      SM size
     </VsButton>
     <VsButton size="xs" :active="active === 4" @click="active = 4">
-      Mini
+      XS size
     </VsButton>
   </div>
 </template>

@@ -1,9 +1,14 @@
 <template>
   <div class="center">
-    <VsButton href="http://vuesax.com/" color="success" flat>
+    <VsButton href="https://github.com/oil-oil/vuesax-ts" color="success" flat>
       Href - Replace Url
     </VsButton>
-    <VsButton href="http://vuesax.com/" blank color="danger" flat>
+    <VsButton
+      href="https://github.com/oil-oil/vuesax-ts"
+      blank
+      color="danger"
+      flat
+    >
       Href - Open External (blank)
     </VsButton>
   </div>

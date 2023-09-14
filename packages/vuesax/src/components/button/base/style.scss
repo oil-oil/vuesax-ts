@@ -5,8 +5,6 @@
   --vs-color-darken: var(--vs-primary);
 
   // component vars
-  --vs-button-padding: 10px 15px;
-  --vs-button-border-radius: 12px;
   --vs-button-text-color: #fff;
 
   border: 0px;
@@ -216,35 +214,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    .vs-button__content {
-      padding: 10px;
-    }
   }
 
   &--size-xl {
     font-size: 1.2rem;
-    border-radius: 20px;
-
+    border-radius: 18px;
     .vs-button__content {
-      padding: 20px 25px;
+      padding: 15px 20px;
     }
   }
 
   &--size-xl.vs-button--icon {
     font-size: 1.4rem;
-
     .vs-button__content {
-      padding: 20px;
+      padding: 17.5px;
     }
   }
 
   &--size-lg {
     font-size: 1rem;
-    border-radius: 15px;
+    border-radius: 16px;
 
     .vs-button__content {
-      padding: 15px 20px;
+      padding: 12.5px 17.5px;
     }
   }
 
@@ -252,13 +244,16 @@
     font-size: 1.2rem;
 
     .vs-button__content {
-      padding: 15px;
+      padding: 12.5px;
     }
   }
 
   &--size-md {
     font-size: 0.8rem;
-    border-radius: -var(button-border-radius);
+    border-radius: 12px;
+    .vs-button__content {
+      padding: 10px 15px;
+    }
   }
 
   &--size-md.vs-button--icon {
@@ -270,37 +265,36 @@
   }
 
   &--size-sm {
-    font-size: 0.75rem;
-    border-radius: 9px;
+    font-size: 0.6rem;
+    border-radius: 10px;
 
+    .vs-button__content {
+      padding: 7.5px 12.5px;
+    }
+  }
+
+  &--size-sm.vs-button--icon {
+    font-size: 0.8rem;
+
+    .vs-button__content {
+      padding: 7.5px;
+    }
+  }
+
+  &--size-xs {
+    font-size: 0.4rem;
+    border-radius: 8px;
 
     .vs-button__content {
       padding: 5px 10px;
     }
   }
 
-  &--size-sm.vs-button--icon {
-    font-size: 0.75rem;
+  &--size-xs.vs-button--icon {
+    font-size: 0.6rem;
 
     .vs-button__content {
       padding: 5px;
-    }
-  }
-
-  &--size-xs {
-    font-size: 0.6rem;
-    border-radius: 7px;
-
-    .vs-button__content {
-      padding: 3px 8px;
-    }
-  }
-
-  &--size-xs.vs-button--icon {
-    font-size: 0.8rem;
-
-    .vs-button__content {
-      padding: 3px;
     }
   }
 

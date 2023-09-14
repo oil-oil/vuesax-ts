@@ -2,8 +2,8 @@ import { useData } from 'vitepress'
 import { defineComponent } from 'vue'
 import { VsTable, VsTh, VsTr, VsTd } from 'vuesax-ts'
 
-const DocsApi = defineComponent({
-  name: 'DocsApi',
+const DocsAPI = defineComponent({
+  name: 'DocsAPI',
   setup() {
     const { frontmatter } = useData()
     return () => (
@@ -49,7 +49,11 @@ const DocsApi = defineComponent({
                             <VsTh>
                               {line.usageUrl && (
                                 <a href={line.usageUrl}>
-                                  Usage<i class="bx bx-code-block"></i>
+                                  Usage
+                                  <i
+                                    style="margin-left: 4px"
+                                    class="bx bx-code-block"
+                                  />
                                 </a>
                               )}
                             </VsTh>
@@ -106,13 +110,17 @@ const DocsApi = defineComponent({
                             <VsTd>
                               {line.usageUrl && (
                                 <a href={line.usageUrl}>
-                                  Usage<i class="bx bx-code-block"></i>
+                                  Usage
+                                  <i
+                                    style="margin-left: 4px"
+                                    class="bx bx-code-block"
+                                  />
                                 </a>
                               )}
                             </VsTd>
                             <VsTd>
                               <a
-                                href={`https://github.com/lusaxweb/vuesax/issues/new?title=[Alert]%20prop%20(${line.name})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
+                                href={`https://github.com/oil-oil/vuesax-ts/issues/new?title=[Alert]%20prop%20(${line.name})%20-%20Your%20Bug%20Name&body=**Steps%20to%20Reproduce**%0A1.%20Do%20something%0A2.%20Do%20something%20else.%0A3.%20Do%20one%20last%20thing.%0A%0A**Expected**%0AThe%20icon%20should%20do%20this%0A%0A**Result**%0AThe%20icon%20does%20not%20do%20this%0A%0A**Testcase**%0A(fork%20this%20to%20get%20started)%0Ahttp://jsfiddle.net/example-bug/1/`}
                               >
                                 <i class="bx bx-bug"></i>
                               </a>
@@ -131,4 +139,4 @@ const DocsApi = defineComponent({
   }
 })
 
-export default DocsApi
+export default DocsAPI
