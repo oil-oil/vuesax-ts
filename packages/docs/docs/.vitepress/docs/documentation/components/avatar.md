@@ -89,15 +89,11 @@ props :
 slots : 
     - name: badge
       type: slot
-      values:
       description: Add to the badge everything that is inside the slot, commonly used for numbers and an icon.
-      default: 
       usageUrl: avatar#badge
     - name: icons
       type: slot
-      values:
       description: Add a space to put icons next to the avatar.
-      default: 
       usageUrl: avatar#badge
 ---
 

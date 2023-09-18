@@ -24,20 +24,17 @@ props :
       type: String
       values: String
       description: Determine the value of the radio input.
-      default: 
       usageUrl: radio#default
 slots : 
     - name: default
       type: slot
       values:
       description: Add a label to the radio.
-      default: 
       usageUrl: radio#default
     - name: icon
       type: slot
       values:
       description: Add an icon inside the radio.
-      default: 
       usageUrl: radio#default
 ---
 

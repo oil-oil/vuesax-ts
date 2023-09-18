@@ -54,37 +54,31 @@ slots :
       type: slot
       values:
       description: 将一个元素放置在表格顶部，例如输入搜索
-      default: 
       usageUrl: table#search-and-sort
     - name: thead
       type: slot
       values:
       description: 代表表格中的 thead 元素，这里放置 VsTh 组件
-      default: 
       usageUrl: table#default
     - name: tbody
       type: slot
       values:
       description: 代表表格中的 tbody 元素，这里放置 VsTr 组件。
-      default: 
       usageUrl: table#default
     - name: header
       type: slot
       values:
       description: 将一个元素放置在表格底部，例如分页功能
-      default: 
       usageUrl: table#pagination
     - name: notFount
       type: slot
       values:
       description: 更改在表格中没有项目时显示内容。
-      default: 
       usageUrl: table#search-and-sort
     - name: VsTr:#expand
       type: slot
       values:
       description: 当 VsTr 展开时代表其内部的插槽
-      default: 
       usageUrl: table#expand-data
 ---
 

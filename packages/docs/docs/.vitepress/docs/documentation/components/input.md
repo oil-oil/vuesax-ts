@@ -6,19 +6,16 @@ props :
       type: String
       values: String
       description: Add a placeholder to the input.
-      default: 
       usageUrl: input#label-placeholder
     - name: label
       type: String
       values: string
       description: Add a label above the input.
-      default: 
       usageUrl: input#label
     - name: labelPlaceholder
       type: String
       values: string
       description: Add a placeholder converts to focus on a label.
-      default: 
       usageUrl: input#label-placeholder
     - name: color
       type: String
@@ -30,7 +27,6 @@ props :
       type: String
       values: VuesaxColors | RGB | HEX
       description: Change the background color of the input by changing its status.
-      default: 
       usageUrl: input#status
     - name: progress
       type: Number
@@ -79,13 +75,11 @@ slots :
       type: slot
       values:
       description: Add an icon to the input.
-      default: 
       usageUrl: input#icon
     - name: message
       type: slot
       values:
       description: Add an informative text below the input.
-      default: 
       usageUrl: input#message
 ---
 

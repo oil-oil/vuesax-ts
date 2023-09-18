@@ -18,19 +18,16 @@ props :
       type: String
       values: String
       description: Add a text below the loading animation.
-      default: 
       usageUrl: loading#text
     - name: percent
       type: String
       values: (0% - 100%)
       description: Add a percentage text inside the loading.
-      default: 
       usageUrl: loading#percent
     - name: progress
       type: Number
       values: (0 - 100)
       description: Add a progress bar to the loading and the progress would be the value.
-      default: 
       usageUrl: loading#percent
     - name: opacity
       type: String

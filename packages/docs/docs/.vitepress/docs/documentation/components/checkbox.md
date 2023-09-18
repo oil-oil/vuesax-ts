@@ -47,15 +47,11 @@ props :
 slots : 
     - name: icon
       type: slot
-      values:
       description: Change the checkbox icon.
-      default: 
       usageUrl: checkbox#icon
     - name: default
       type: slot
-      values:
       description: Add a label to the checkbox.
-      default: 
       usageUrl: checkbox#default
 ---
 

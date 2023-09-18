@@ -6,7 +6,6 @@ props :
       type: String
       values: string
       description: Add a title to the notification.
-      default: 
       usageUrl: notification#default
     - name: text
       type: String
@@ -24,13 +23,11 @@ props :
       type: String
       values: VuesaxColors | RGB | HEX
       description: Add a background color to the notification.
-      default: 
       usageUrl: notification#color
     - name: border
       type: String
       values: VuesaxColors | RGB | HEX
       description: Add a color border to the notification.
-      default: 
       usageUrl: notification#border
     - name: duration
       type: Number
@@ -90,13 +87,11 @@ props :
       type: VNode
       values: VNode
       description: Add an icon at the notification beginning
-      default: 
       usageUrl: notification#icons
     - name: content
       type: VNode
       values: VNode
       description: Change the content of the notification to the one provided as a value
-      default: 
       usageUrl: notification#example
 ---
 

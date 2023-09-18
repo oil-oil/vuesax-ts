@@ -79,13 +79,11 @@ slots :
       type: slot
       values:
       description: 添加文字提示的触发元素。
-      default: 
       usageUrl: tooltip#default
     - name: tooltip
       type: slot
       values:
       description: It is the content that will go inside the tooltip.
-      default: 
       usageUrl: tooltip#default
 ---
 

@@ -79,13 +79,11 @@ slots :
       type: slot
       values:
       description: Add the trigger element of the tooltip.
-      default: 
       usageUrl: tooltip#default
     - name: tooltip
       type: slot
       values:
       description: It is the content that will go inside the tooltip.
-      default: 
       usageUrl: tooltip#default
 ---
 

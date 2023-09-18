@@ -49,13 +49,11 @@ slots :
       type: slot
       values:
       description: 更改组件图标
-      default: 
       usageUrl: checkbox#icon
     - name: default
       type: slot
       values:
       description: 为组件添加标签
-      default: 
       usageUrl: checkbox#default
 ---
 
