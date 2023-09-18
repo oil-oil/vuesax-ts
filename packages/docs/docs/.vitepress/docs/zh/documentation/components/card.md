@@ -26,7 +26,7 @@ slots :
       usageUrl: card#default
     - name: img
       type: slot
-      description:根据卡片类型，在指定的区域中添加图片
+      description: 根据卡片类型，在指定的区域中添加图片
       usageUrl: card#default
 ---
 
