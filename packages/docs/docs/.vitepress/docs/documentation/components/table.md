@@ -54,37 +54,31 @@ slots :
       type: slot
       values:
       description: Space to put an element at the top of the table such as the input search.
-      default: 
       usageUrl: table#search-and-sort
     - name: thead
       type: slot
       values:
       description: Space representing thead element of the table where the `VsTh` components will be placed.
-      default: 
       usageUrl: table#default
     - name: tbody
       type: slot
       values:
       description: Represents the tbody element in the table and here we will put the `VsTr` components.
-      default: 
       usageUrl: table#default
     - name: header
       type: slot
       values:
       description: Space to put an element at the bottom of the table such as the pagination.
-      default: 
       usageUrl: table#pagination
     - name: notFount
       type: slot
       values:
       description: Change the item to display when there are no items in the table.
-      default: 
       usageUrl: table#search-and-sort
     - name: VsTr:#expand
       type: slot
       values:
       description: Represents the interior of the VsTr when it is expanded.
-      default: 
       usageUrl: table#expand-data
 ---
 

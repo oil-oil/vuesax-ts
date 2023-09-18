@@ -49,25 +49,21 @@ slots :
       type: slot
       values:
       description: 为警告添加图标
-      default: 
       usageUrl: alert#icon
     - name: title
       type: slot
       values:
       description: 为警告添加标题
-      default: 
       usageUrl: alert#title
     - name: page-{n}
       type: slot
       values: (page-1 - page-{n})
       description: 将页面添加到警告中，例如第一页为（slot='page-1'）
-      default: 
       usageUrl: alert#title
     - name: footer
       type: slot
       values:
       description: 为警告添加页脚
-      default: 
       usageUrl: alert#footer
 ---
 

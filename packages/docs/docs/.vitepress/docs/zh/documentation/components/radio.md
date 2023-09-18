@@ -24,20 +24,17 @@ props :
       type: String
       values: String
       description: 确定单选框的值。
-      default: 
       usageUrl: radio#default
 slots : 
     - name: default
       type: slot
       values:
       description: 为单选框添加标签
-      default: 
       usageUrl: radio#default
     - name: icon
       type: slot
       values:
       description: 为单选框中添加一个图标。
-      default: 
       usageUrl: radio#default
 ---
 

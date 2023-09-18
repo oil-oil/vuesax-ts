@@ -77,9 +77,7 @@ props :
 slots : 
     - name: animate
       type: slot
-      values:
       description: Slot for adding elements that will be displayed in the animation.
-      default: 
       usageUrl: button#animate
 ---
 

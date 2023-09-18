@@ -18,19 +18,16 @@ props :
       type: String
       values: String
       description: 在加载动画下方添加文本。
-      default: 
       usageUrl: loading#text
     - name: percent
       type: String
       values: (0% - 100%)
       description: 在加载中添加百分比文本。
-      default: 
       usageUrl: loading#percent
     - name: progress
       type: Number
       values: (0 - 100)
       description: 添加一个进度条，progress 就是当前的进度值。
-      default: 
       usageUrl: loading#percent
     - name: opacity
       type: String

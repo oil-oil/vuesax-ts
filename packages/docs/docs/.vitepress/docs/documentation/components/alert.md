@@ -49,25 +49,20 @@ slots :
       type: slot
       values:
       description: Add an icon to the alert.
-      default: 
       usageUrl: alert#icon
     - name: title
       type: slot
       values:
       description: Add a title to the alert.
-      default: 
       usageUrl: alert#title
     - name: page-{n}
       type: slot
       values: (page-1 - page-{n})
       description: Add the pages to the alert if it is page one would be (slot='page-1').
-      default: 
       usageUrl: alert#title
     - name: footer
       type: slot
-      values:
       description: Add a footer to the alert.
-      default: 
       usageUrl: alert#footer
 ---
 

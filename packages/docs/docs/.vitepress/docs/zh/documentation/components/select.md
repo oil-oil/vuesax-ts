@@ -66,13 +66,11 @@ slots :
       type: slot
       values:
       description: 在选择下器方添加一条提示信息
-      default: 
       usageUrl: select#message
     - name: noData
       type: slot
       values:
       description: 自定义过滤后无数据时显示的元素
-      default: 
       usageUrl: select#filter
 ---
 

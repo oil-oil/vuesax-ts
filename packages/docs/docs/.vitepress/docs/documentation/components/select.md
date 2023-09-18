@@ -72,13 +72,11 @@ slots :
       type: slot
       values:
       description: Add a message below the select.
-      default: 
       usageUrl: select#message
     - name: noData
       type: slot
       values:
       description: Customize the element that is displayed when there is no data after filtering.
-      default: 
       usageUrl: select#filter
 ---
 

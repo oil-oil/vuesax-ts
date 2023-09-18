@@ -79,7 +79,6 @@ slots :
       type: slot
       values:
       description: 用于添加将在动画中显示的元素的插槽
-      default: 
       usageUrl: button#animate
 ---
 

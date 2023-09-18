@@ -6,19 +6,16 @@ props :
       type: String
       values: String
       description: 在输入框中添加占位内容
-      default: 
       usageUrl: input#label-placeholder
     - name: label
       type: String
       values: string
       description: 在输入框上方添加标签
-      default: 
       usageUrl: input#label
     - name: labelPlaceholder
       type: String
       values: string
       description: 添加占位内容，聚焦时变为标签。
-      default: 
       usageUrl: input#label-placeholder
     - name: color
       type: String
@@ -30,7 +27,6 @@ props :
       type: String
       values: VuesaxColors | RGB | HEX
       description: 通过更改状态来更改输入框的背景颜色
-      default: 
       usageUrl: input#status
     - name: progress
       type: Number
@@ -79,13 +75,11 @@ slots :
       type: slot
       values:
       description: 为输入框添加图标
-      default: 
       usageUrl: input#icon
     - name: message
       type: slot
       values:
       description: 在输入内容下方添加说明性文字
-      default: 
       usageUrl: input#message
 ---
 
