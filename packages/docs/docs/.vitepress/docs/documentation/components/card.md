@@ -4,7 +4,7 @@ props :
     - name: type
       type: String
       values: 1,2,3,4,5
-      description: Change the color of the checkbox and some of its sub components.
+      description: Change the style of the letter and the position of the internals.
       default: 1
       usageUrl: card#Type2
 slots : 
@@ -36,7 +36,7 @@ slots :
 
 ## Default
 
-Add a card with the vs-card component for the structure of this component we have several slots:
+Add a card with the `VsCard` component for the structure of this component we have several slots:
 
 - title
 - text
@@ -50,7 +50,7 @@ Add a card with the vs-card component for the structure of this component we hav
 
 ## Type 2
 
-Completely change the style of the letter with the property type and the value `2`
+The `type` property is `2` corresponding to the card style:
 
 </card>
 
@@ -58,7 +58,8 @@ Completely change the style of the letter with the property type and the value `
 
 ## Type 3
 
-Completely change the style of the letter with the property type and the value `3`
+The `type` property is `3` corresponding to the card style:
+
 
 </card>
 
@@ -66,7 +67,8 @@ Completely change the style of the letter with the property type and the value `
 
 ## Type 4
 
-Completely change the style of the letter with the property type and the value `4`
+The `type` property is `4` corresponding to the card style:
+
 
 </card>
 
@@ -74,7 +76,8 @@ Completely change the style of the letter with the property type and the value `
 
 ## Type 5
 
-Completely change the style of the letter with the property type and the value `5`
+The `type` property is `5` corresponding to the card style:
+
 
 </card>
 

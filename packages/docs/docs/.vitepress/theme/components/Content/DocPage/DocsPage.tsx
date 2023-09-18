@@ -161,27 +161,18 @@ const DocsPage = defineComponent({
         </div>
         <footer class="page-footer">
           <div class="next-control">
-            <a href={`${frontmatter.value.prev}`} class="prev">
-              <i class="bx bx-chevron-left"></i>
-              {frontmatter.value.prev}
-            </a>
-            <a href={`${frontmatter.value.next}`} class="next">
-              {frontmatter.value.next}
-              <i class="bx bx-chevron-right"></i>
-            </a>
-          </div>
-          <div class="subscribe">
-            <h4 class="title">
-              <b style={{ color: 'rgb(var(--vs-primary))' }}>Subscribe</b> to
-              our Weekly Newsletter
-            </h4>
-            <VsInput
-              class="vs-input"
-              status={isDark.value ? 'dark' : 'primary'}
-              type="email"
-              labelPlaceholder="Email"
-            ></VsInput>
-            <VsButton class="vs-button">Subscribe!!</VsButton>
+            {frontmatter.value.prev && (
+              <a href={`${frontmatter.value.prev}`} class="prev">
+                <i class="bx bx-chevron-left" />
+                {frontmatter.value.prev}
+              </a>
+            )}
+            {frontmatter.value.next && (
+              <a href={`${frontmatter.value.next}`} class="next">
+                {frontmatter.value.next}
+                <i class="bx bx-chevron-right" />
+              </a>
+            )}
           </div>
         </footer>
         <div
