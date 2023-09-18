@@ -1,6 +1,5 @@
 import { Content, useData } from 'vitepress'
 import { defineComponent, ref, onUnmounted } from 'vue'
-import { VsButton, VsInput } from 'vuesax-ts'
 
 import RightSidebar from '../../Sidebar/RightSidebar'
 
@@ -9,7 +8,7 @@ import './style.scss'
 const DocsPage = defineComponent({
   name: 'DocsPage',
   setup() {
-    const { page, isDark, frontmatter } = useData()
+    const { page, frontmatter } = useData()
     const pageHeaderContentTitleRef = ref()
     const pageHeaderTrigger = ref(false)
     const pageHeaderDelta = ref()
