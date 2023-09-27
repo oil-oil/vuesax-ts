@@ -1,7 +1,10 @@
 export default [
   {
     text: 'Guide',
-    items: [{ text: 'Introduction', link: '/documentation/guide/introduction' }]
+    items: [
+      { text: 'Introduction', link: '/documentation/guide/introduction' },
+      { text: 'Quick Start', link: '/documentation/guide/quick-start' }
+    ]
   },
   {
     text: 'Theme',

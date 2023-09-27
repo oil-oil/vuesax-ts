@@ -2,13 +2,13 @@ export default [
   {
     text: '指南',
     items: [
-      { text: '简介', link: '/zh/guide/introduction' },
-      { text: '快速上手', link: '/zh/guide/quick-start' }
+      { text: '简介', link: '/zh/documentation/guide/introduction' },
+      { text: '快速上手', link: '/zh/documentation/guide/quick-start' }
     ]
   },
   {
     text: '主题',
-    items: [{ text: '颜色', link: '/zh/theme/colors' }]
+    items: [{ text: '颜色', link: '/zh/documentation/theme/colors' }]
   },
   {
     text: '组件',

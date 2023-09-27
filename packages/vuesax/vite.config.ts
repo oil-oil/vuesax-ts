@@ -25,5 +25,5 @@ export default defineConfig({
       }
     }
   },
-  plugins: [vue(), vueJsx(), dts({ outputDir: 'dist' })]
+  plugins: [vue(), vueJsx(), dts({ outputDir: 'dist', copyDtsFiles: true })]
 })
