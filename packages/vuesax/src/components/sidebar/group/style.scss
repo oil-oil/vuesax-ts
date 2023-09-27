@@ -1,4 +1,4 @@
-@import '@/styles/mixins';
+@import "@/styles/mixins";
 
 .vs-sidebar__group {
   padding: 0px;
@@ -14,7 +14,7 @@
       }
     }
 
-    >.vs-sidebar__group__title {
+    > .vs-sidebar__group__title {
       .vs-sidebar__item {
         opacity: 1;
       }
@@ -33,27 +33,26 @@
 
   &__content {
     overflow: hidden;
-    transition: all .25s ease;
+    transition: all 0.25s ease;
     position: relative;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0px;
       top: 0px;
-      background: -color('color', .3);
+      background: -color("color", 0.2);
       width: 4px;
       height: 100%;
       opacity: 0;
-      transition: all .25s ease;
+      transition: all 0.25s ease;
       transform: translate(-100%);
       border-radius: 0px 10px 10px 0px;
       z-index: 60;
     }
 
     .vs-sidebar__item {
-      background: -color('background');
+      background: -color("background");
     }
   }
-
 }
